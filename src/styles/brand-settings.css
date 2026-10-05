@@ -1,0 +1,45 @@
+:root {
+  /* NI Square Packaging palette */
+  --brand-espresso: #23170D;
+  --brand-burgundy: #5A090B;
+  --brand-olive-taupe: #715F47;
+  --brand-warm-taupe: #9C9280;
+  --brand-stone: #CFC9BE;
+  --brand-ivory: #F7F5F1;
+
+  /* Shared storefront roles */
+  --store-background: var(--brand-ivory);
+  --store-surface: #FFFFFF;
+  --store-ink: var(--brand-espresso);
+  --store-ink-rgb: 35 23 13;
+  --store-header: var(--brand-espresso);
+  --store-footer: var(--brand-espresso);
+  --store-muted: var(--brand-olive-taupe);
+  --store-sale: var(--brand-burgundy);
+  --store-accent: var(--brand-burgundy);
+
+  --heading-font-family: "Cormorant Garamond", Georgia, serif;
+  --heading-font-style: normal;
+  --heading-font-weight: 400;
+  --heading-letter-spacing: .05em;
+  --heading-text-transform: uppercase;
+  --text-font-family: "Instrument Sans", Arial, sans-serif;
+  --text-font-style: normal;
+  --text-font-weight: 400;
+  --text-letter-spacing: 0;
+  --button-letter-spacing: .18em;
+  --button-border-radius: 0;
+
+  --background: 247 245 241 / 1;
+  --page-background: 247 245 241;
+  --text-color: 35 23 13;
+  --border-color: 113 95 71;
+  --on-sale-text: 90 9 11;
+  --star-rating: 113 95 71;
+  --button-background: 90 9 11;
+  --button-outline-color: 90 9 11;
+  --button-text-color: 247 245 241;
+  --circle-button-background: 207 201 190;
+  --circle-button-text-color: 35 23 13;
+  --shadow-sm: 0 2px 8px rgb(35 23 13 / .08);
+}

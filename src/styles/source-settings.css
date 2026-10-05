@@ -1,0 +1,254 @@
+﻿/* Typography (heading) */
+  
+
+/* Typography (body) */
+  @font-face {
+  font-family: "Instrument Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+  src: url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_n4.db86542ae5e1596dbdb28c279ae6c2086c4c5bfa.woff2") format("woff2"),
+       url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_n4.510f1b081e58d08c30978f465518799851ef6d8b.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-weight: 400;
+  font-style: italic;
+  font-display: fallback;
+  src: url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_i4.028d3c3cd8d085648c808ceb20cd2fd1eb3560e5.woff2") format("woff2"),
+       url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_i4.7e90d82df8dee29a99237cd19cc529d2206706a2.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+  src: url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_n7.e4ad9032e203f9a0977786c356573ced65a7419a.woff2") format("woff2"),
+       url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_n7.b9e40f166fb7639074ba34738101a9d2990bb41a.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-weight: 700;
+  font-style: italic;
+  font-display: fallback;
+  src: url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_i7.d6063bb5d8f9cbf96eace9e8801697c54f363c6a.woff2") format("woff2"),
+       url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_i7.ce33afe63f8198a3ac4261b826b560103542cd36.woff") format("woff");
+}
+
+:root {
+    /* Container */
+    --container-max-width: 100%;
+    --container-xxs-max-width: 27.5rem; /* 440px */
+    --container-xs-max-width: 42.5rem; /* 680px */
+    --container-sm-max-width: 61.25rem; /* 980px */
+    --container-md-max-width: 71.875rem; /* 1150px */
+    --container-lg-max-width: 78.75rem; /* 1260px */
+    --container-xl-max-width: 85rem; /* 1360px */
+    --container-gutter: 1.25rem;
+
+    --section-vertical-spacing: 2.5rem;
+    --section-vertical-spacing-tight:2.5rem;
+
+    --section-stack-gap:2.25rem;
+    --section-stack-gap-tight:2.25rem;
+
+    /* Form settings */
+    --form-gap: 1.25rem; /* Gap between fieldset and submit button */
+    --fieldset-gap: 1rem; /* Gap between each form input within a fieldset */
+    --form-control-gap: 0.625rem; /* Gap between input and label (ignored for floating label) */
+    --checkbox-control-gap: 0.75rem; /* Horizontal gap between checkbox and its associated label */
+    --input-padding-block: 0.65rem; /* Vertical padding for input, textarea and native select */
+    --input-padding-inline: 0.8rem; /* Horizontal padding for input, textarea and native select */
+    --checkbox-size: 0.875rem; /* Size (width and height) for checkbox */
+
+    /* Other sizes */
+    --sticky-area-height: calc(var(--announcement-bar-is-sticky, 0) * var(--announcement-bar-height, 0px) + var(--header-is-sticky, 0) * var(--header-is-visible, 1) * var(--header-height, 0px));
+
+    /* RTL support */
+    --transform-logical-flip: 1;
+    --transform-origin-start: left;
+    --transform-origin-end: right;
+
+    /**
+     * ---------------------------------------------------------------------
+     * TYPOGRAPHY
+     * ---------------------------------------------------------------------
+     */
+
+    /* Font properties */
+    --heading-font-family: Garamond, Baskerville, Caslon, serif;
+    --heading-font-weight: 400;
+    --heading-font-style: normal;
+    --heading-text-transform: uppercase;
+    --heading-letter-spacing: 0.05em;
+    --text-font-family: "Instrument Sans", sans-serif;
+    --text-font-weight: 400;
+    --text-font-style: normal;
+    --text-letter-spacing: 0.0em;
+    --button-font: var(--text-font-style) var(--text-font-weight) var(--text-sm) / 1.65 var(--text-font-family);
+    --button-text-transform: uppercase;
+    --button-letter-spacing: 0.18em;
+
+    /* Font sizes */--text-heading-size-factor: 1.1;
+    --text-h1: max(0.6875rem, clamp(1.375rem, 1.146341463414634rem + 0.975609756097561vw, 2rem) * var(--text-heading-size-factor));
+    --text-h2: max(0.6875rem, clamp(1.25rem, 1.0670731707317074rem + 0.7804878048780488vw, 1.75rem) * var(--text-heading-size-factor));
+    --text-h3: max(0.6875rem, clamp(1.125rem, 1.0335365853658536rem + 0.3902439024390244vw, 1.375rem) * var(--text-heading-size-factor));
+    --text-h4: max(0.6875rem, clamp(1rem, 0.9542682926829268rem + 0.1951219512195122vw, 1.125rem) * var(--text-heading-size-factor));
+    --text-h5: calc(0.875rem * var(--text-heading-size-factor));
+    --text-h6: calc(0.75rem * var(--text-heading-size-factor));
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.8125rem;
+    --text-base: 0.875rem;
+    --text-lg: 1.0rem;
+    --text-xl: 1.125rem;
+
+    /* Rounded variables (used for border radius) */
+    --rounded-full: 9999px;
+    --button-border-radius: 0.0rem;
+    --input-border-radius: 0.0rem;
+
+    /* Box shadow */
+    --shadow-sm: 0 2px 8px rgb(0 0 0 / 0.05);
+    --shadow: 0 5px 15px rgb(0 0 0 / 0.05);
+    --shadow-md: 0 5px 30px rgb(0 0 0 / 0.05);
+    --shadow-block: px px px rgb(var(--text-primary) / 0.0);
+
+    /**
+     * ---------------------------------------------------------------------
+     * OTHER
+     * ---------------------------------------------------------------------
+     */
+
+    --checkmark-svg-url: url(//www.studio13.co.in/cdn/shop/t/28/assets/checkmark.svg?v=77552481021870063511741594705);
+    --cursor-zoom-in-svg-url: url(//www.studio13.co.in/cdn/shop/t/28/assets/cursor-zoom-in.svg?v=112480252220988712521767691415);
+  }
+
+  [dir="rtl"]:root {
+    /* RTL support */
+    --transform-logical-flip: -1;
+    --transform-origin-start: right;
+    --transform-origin-end: left;
+  }
+
+  @media screen and (min-width: 700px) {
+    :root {
+      /* Typography (font size) */
+      --text-xs: 0.75rem;
+      --text-sm: 0.8125rem;
+      --text-base: 0.875rem;
+      --text-lg: 1.0rem;
+      --text-xl: 1.25rem;
+
+      /* Spacing settings */
+      --container-gutter: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    :root {
+      /* Spacing settings */
+      --container-gutter: 3rem;
+
+      --section-vertical-spacing: 4rem;
+      --section-vertical-spacing-tight: 4rem;
+
+      --section-stack-gap:3rem;
+      --section-stack-gap-tight:3rem;
+    }
+  }:root {/* Overlay used for modal */
+    --page-overlay: 0 0 0 / 0.4;
+
+    /* We use the first scheme background as default */
+    --page-background: ;
+
+    /* Product colors */
+    --on-sale-text: 227 44 43;
+    --on-sale-badge-background: 227 44 43;
+    --on-sale-badge-text: 255 255 255;
+    --sold-out-badge-background: 239 239 239;
+    --sold-out-badge-text: 0 0 0 / 0.65;
+    --custom-badge-background: 28 28 28;
+    --custom-badge-text: 255 255 255;
+    --star-color: 28 28 28;
+
+    /* Status colors */
+    --success-background: 212 227 203;
+    --success-text: 48 122 7;
+    --warning-background: 253 241 224;
+    --warning-text: 237 138 0;
+    --error-background: 243 204 204;
+    --error-text: 203 43 43;
+  }.color-scheme--scheme-1 {
+      /* Color settings */--accent: 28 28 28;
+      --text-color: 28 28 28;
+      --background: 239 239 239 / 1.0;
+      --background-without-opacity: 239 239 239;
+      --background-gradient: ;--border-color: 207 207 207;/* Button colors */
+      --button-background: 28 28 28;
+      --button-text-color: 255 255 255;
+
+      /* Circled buttons */
+      --circle-button-background: 255 255 255;
+      --circle-button-text-color: 28 28 28;
+    }.shopify-section:has(.section-spacing.color-scheme--bg-609ecfcfee2f667ac6c12366fc6ece56) + .shopify-section:has(.section-spacing.color-scheme--bg-609ecfcfee2f667ac6c12366fc6ece56:not(.bordered-section)) .section-spacing {
+      padding-block-start: 0;
+    }.color-scheme--scheme-2 {
+      /* Color settings */--accent: 28 28 28;
+      --text-color: 28 28 28;
+      --background: 255 255 255 / 1.0;
+      --background-without-opacity: 255 255 255;
+      --background-gradient: ;--border-color: 221 221 221;/* Button colors */
+      --button-background: 28 28 28;
+      --button-text-color: 255 255 255;
+
+      /* Circled buttons */
+      --circle-button-background: 255 255 255;
+      --circle-button-text-color: 28 28 28;
+    }.shopify-section:has(.section-spacing.color-scheme--bg-54922f2e920ba8346f6dc0fba343d673) + .shopify-section:has(.section-spacing.color-scheme--bg-54922f2e920ba8346f6dc0fba343d673:not(.bordered-section)) .section-spacing {
+      padding-block-start: 0;
+    }.color-scheme--scheme-3 {
+      /* Color settings */--accent: 255 255 255;
+      --text-color: 255 255 255;
+      --background: 28 28 28 / 1.0;
+      --background-without-opacity: 28 28 28;
+      --background-gradient: ;--border-color: 62 62 62;/* Button colors */
+      --button-background: 255 255 255;
+      --button-text-color: 28 28 28;
+
+      /* Circled buttons */
+      --circle-button-background: 255 255 255;
+      --circle-button-text-color: 28 28 28;
+    }.shopify-section:has(.section-spacing.color-scheme--bg-c1f8cb21047e4797e94d0969dc5d1e44) + .shopify-section:has(.section-spacing.color-scheme--bg-c1f8cb21047e4797e94d0969dc5d1e44:not(.bordered-section)) .section-spacing {
+      padding-block-start: 0;
+    }.color-scheme--scheme-4 {
+      /* Color settings */--accent: 255 255 255;
+      --text-color: 255 255 255;
+      --background: 0 0 0 / 0.0;
+      --background-without-opacity: 0 0 0;
+      --background-gradient: ;--border-color: 255 255 255;/* Button colors */
+      --button-background: 255 255 255;
+      --button-text-color: 28 28 28;
+
+      /* Circled buttons */
+      --circle-button-background: 255 255 255;
+      --circle-button-text-color: 28 28 28;
+    }.shopify-section:has(.section-spacing.color-scheme--bg-3671eee015764974ee0aef1536023e0f) + .shopify-section:has(.section-spacing.color-scheme--bg-3671eee015764974ee0aef1536023e0f:not(.bordered-section)) .section-spacing {
+      padding-block-start: 0;
+    }.color-scheme--dialog {
+      /* Color settings */--accent: 28 28 28;
+      --text-color: 28 28 28;
+      --background: 255 255 255 / 1.0;
+      --background-without-opacity: 255 255 255;
+      --background-gradient: ;--border-color: 221 221 221;/* Button colors */
+      --button-background: 28 28 28;
+      --button-text-color: 255 255 255;
+
+      /* Circled buttons */
+      --circle-button-background: 255 255 255;
+      --circle-button-text-color: 28 28 28;
+    }
+

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="5" fill="#1c1c1c"/>
+  <path d="M8 8h32v2H8zM8 38h32v2H8z" fill="#CFC9BE"/>
+  <text x="24" y="30" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="1">NI</text>
+</svg>
