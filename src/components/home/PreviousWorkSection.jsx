@@ -8,6 +8,8 @@ const previousWorkImages = [
   'https://static.zegsuapps.com/user-data/instagenie/c376b865953a4356dedc8c8e8627eed87b667dd1.webp',
 ];
 
+const instagramProfile = 'https://www.instagram.com/nisquarepackaging/';
+
 export default function PreviousWorkSection() {
   const galleryRef = useRef(null);
 
@@ -26,11 +28,20 @@ export default function PreviousWorkSection() {
     <section className="previous-work-section" aria-labelledby="previous-work-heading">
       <div className="previous-work-heading">
         <div className="previous-work-copy">
-          <p className="previous-work-eyebrow">Selected work</p>
-          <h2 id="previous-work-heading">Gifts made for your moments</h2>
+          <p className="previous-work-eyebrow">From our studio to your feed</p>
+          <h2 id="previous-work-heading">Seen on Instagram Reels</h2>
           <p className="previous-work-description">
-            A look at the thoughtful hampers, packaging, and celebration gifts we create by hand.
+            A closer look at the hampers, thoughtful details, and celebrations we bring together by hand.
           </p>
+          <a className="previous-work-instagram" href={instagramProfile} target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle className="instagram-icon-dot" cx="17.7" cy="6.6" r=".9" />
+            </svg>
+            <span>Follow @nisquarepackaging</span>
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
         <div className="previous-work-controls" aria-label="Previous work gallery controls">
           <button type="button" onClick={() => scrollGallery(-1)} aria-label="Show previous projects">
@@ -50,13 +61,29 @@ export default function PreviousWorkSection() {
         tabIndex={0}
       >
         {previousWorkImages.map((image, index) => (
-          <figure className="previous-work-card" key={image}>
+          <a
+            className="previous-work-card"
+            key={image}
+            href={instagramProfile}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={'View NI Square Packaging work on Instagram, preview ' + (index + 1)}
+          >
             <img
               src={image}
-              alt={'NI Square Packaging project ' + (index + 1)}
+              alt={'NI Square Packaging handcrafted gifting project ' + (index + 1)}
               loading="lazy"
             />
-          </figure>
+            <span className="previous-work-reel-badge">Instagram</span>
+            <span className="previous-work-reel-instagram" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle className="instagram-icon-dot" cx="17.7" cy="6.6" r=".9" />
+              </svg>
+            </span>
+            <span className="previous-work-reel-caption">Watch on Instagram</span>
+          </a>
         ))}
       </div>
       <div className="previous-work-footer">

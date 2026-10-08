@@ -1,22 +1,22 @@
 :root {
   /* NI Square Packaging palette */
-  --brand-espresso: #23170D;
-  --brand-burgundy: #5A090B;
-  --brand-olive-taupe: #715F47;
-  --brand-warm-taupe: #9C9280;
-  --brand-stone: #CFC9BE;
-  --brand-ivory: #F7F5F1;
+  --brand-plum: #60364F;
+  --brand-terracotta: #C8785E;
+  --brand-sage: #899882;
+  --brand-blush: #E9D5CE;
+  --brand-cream: #FAF7F1;
+  --brand-charcoal: #38343A;
 
   /* Shared storefront roles */
-  --store-background: var(--brand-ivory);
+  --store-background: var(--brand-cream);
   --store-surface: #FFFFFF;
-  --store-ink: var(--brand-espresso);
-  --store-ink-rgb: 35 23 13;
-  --store-header: var(--brand-espresso);
-  --store-footer: var(--brand-espresso);
-  --store-muted: var(--brand-olive-taupe);
-  --store-sale: var(--brand-burgundy);
-  --store-accent: var(--brand-burgundy);
+  --store-ink: var(--brand-charcoal);
+  --store-ink-rgb: 56 52 58;
+  --store-header: var(--brand-plum);
+  --store-footer: var(--brand-plum);
+  --store-muted: var(--brand-sage);
+  --store-sale: var(--brand-terracotta);
+  --store-accent: var(--brand-terracotta);
 
   --heading-font-family: "Cormorant Garamond", Georgia, serif;
   --heading-font-style: normal;
@@ -30,16 +30,16 @@
   --button-letter-spacing: .18em;
   --button-border-radius: 0;
 
-  --background: 247 245 241 / 1;
-  --page-background: 247 245 241;
-  --text-color: 35 23 13;
-  --border-color: 113 95 71;
-  --on-sale-text: 90 9 11;
-  --star-rating: 113 95 71;
-  --button-background: 90 9 11;
-  --button-outline-color: 90 9 11;
-  --button-text-color: 247 245 241;
-  --circle-button-background: 207 201 190;
-  --circle-button-text-color: 35 23 13;
-  --shadow-sm: 0 2px 8px rgb(35 23 13 / .08);
+  --background: 250 247 241 / 1;
+  --page-background: 250 247 241;
+  --text-color: 56 52 58;
+  --border-color: 137 152 130;
+  --on-sale-text: 200 120 94;
+  --star-rating: 200 120 94;
+  --button-background: 96 54 79;
+  --button-outline-color: 96 54 79;
+  --button-text-color: 250 247 241;
+  --circle-button-background: 233 213 206;
+  --circle-button-text-color: 56 52 58;
+  --shadow-sm: 0 2px 8px rgb(56 52 58 / .08);
 }
