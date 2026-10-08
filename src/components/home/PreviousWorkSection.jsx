@@ -1,11 +1,41 @@
 import React, { useRef } from 'react';
 
-const previousWorkImages = [
-  'https://static.zegsuapps.com/user-data/instagenie/7f1a4f21fc34ca992141368cb2f053934200919f.webp',
-  'https://static.zegsuapps.com/user-data/instagenie/23f624623b7facd862ce500baef737676ef24235.webp',
-  'https://static.zegsuapps.com/user-data/instagenie/3efe41f1d63dbb4645ec5381ee5bd5da0ceb8acf.webp',
-  'https://static.zegsuapps.com/user-data/instagenie/b0b23238d54b8a0255b5c790083c0714264428d9.webp',
-  'https://static.zegsuapps.com/user-data/instagenie/c376b865953a4356dedc8c8e8627eed87b667dd1.webp',
+const previousWorkReels = [
+  {
+    id: 'DTfb2PBkj8-',
+    url: 'https://www.instagram.com/reel/DTfb2PBkj8-/',
+    image: '/assets/instagram-reels/DTfb2PBkj8-.jpg',
+    video: null,
+    label: 'Meet the founders',
+  },
+  {
+    id: 'DRM51Y8En-f',
+    url: 'https://www.instagram.com/reel/DRM51Y8En-f/',
+    image: '/assets/instagram-reels/DRM51Y8En-f.jpg',
+    video: null,
+    label: 'Wedding return gifts',
+  },
+  {
+    id: 'DQcPTtYgvTY',
+    url: 'https://www.instagram.com/reel/DQcPTtYgvTY/',
+    image: '/assets/instagram-reels/DQcPTtYgvTY.jpg',
+    video: null,
+    label: 'Invitations made personal',
+  },
+  {
+    id: 'DQB1R3MEvle',
+    url: 'https://www.instagram.com/reel/DQB1R3MEvle/',
+    image: '/assets/instagram-reels/DQB1R3MEvle.jpg',
+    video: null,
+    label: 'Diwali gifting',
+  },
+  {
+    id: 'DP3OMVrEhOA',
+    url: 'https://www.instagram.com/reel/DP3OMVrEhOA/',
+    image: '/assets/instagram-reels/DP3OMVrEhOA.jpg',
+    video: null,
+    label: 'Gifts made with care',
+  },
 ];
 
 const instagramProfile = 'https://www.instagram.com/nisquarepackaging/';
@@ -28,8 +58,15 @@ export default function PreviousWorkSection() {
     <section className="previous-work-section" aria-labelledby="previous-work-heading">
       <div className="previous-work-heading">
         <div className="previous-work-copy">
-          <p className="previous-work-eyebrow">From our studio to your feed</p>
-          <h2 id="previous-work-heading">Seen on Instagram Reels</h2>
+          <p className="previous-work-eyebrow">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle className="instagram-icon-dot" cx="17.7" cy="6.6" r=".9" />
+            </svg>
+            Seen on Instagram Reels
+          </p>
+          <h2 id="previous-work-heading">As Seen on Reels</h2>
           <p className="previous-work-description">
             A closer look at the hampers, thoughtful details, and celebrations we bring together by hand.
           </p>
@@ -60,21 +97,30 @@ export default function PreviousWorkSection() {
         aria-label="Previous gifting and packaging projects"
         tabIndex={0}
       >
-        {previousWorkImages.map((image, index) => (
+        {previousWorkReels.map((reel) => (
           <a
             className="previous-work-card"
-            key={image}
-            href={instagramProfile}
+            key={reel.id}
+            href={reel.url}
             target="_blank"
             rel="noreferrer"
-            aria-label={'View NI Square Packaging work on Instagram, preview ' + (index + 1)}
+            aria-label={'Watch ' + reel.label + ' on Instagram'}
           >
-            <img
-              src={image}
-              alt={'NI Square Packaging handcrafted gifting project ' + (index + 1)}
-              loading="lazy"
-            />
-            <span className="previous-work-reel-badge">Instagram</span>
+            {reel.video ? (
+              <video
+                className="previous-work-media"
+                src={reel.video}
+                poster={reel.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+              />
+            ) : (
+              <img className="previous-work-media" src={reel.image} alt={reel.label + ' Reel cover'} loading="lazy" />
+            )}
             <span className="previous-work-reel-instagram" aria-hidden="true">
               <svg viewBox="0 0 24 24">
                 <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
@@ -82,7 +128,10 @@ export default function PreviousWorkSection() {
                 <circle className="instagram-icon-dot" cx="17.7" cy="6.6" r=".9" />
               </svg>
             </span>
-            <span className="previous-work-reel-caption">Watch on Instagram</span>
+            <span className="previous-work-reel-caption">
+              <span className="previous-work-reel-title">{reel.label}</span>
+              <span className="previous-work-reel-cta">Watch reel</span>
+            </span>
           </a>
         ))}
       </div>

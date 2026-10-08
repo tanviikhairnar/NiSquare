@@ -1,17 +1,25 @@
 :root {
   /* NI Square Packaging palette */
-  --brand-plum: #60364F;
-  --brand-terracotta: #C8785E;
-  --brand-sage: #899882;
-  --brand-blush: #E9D5CE;
-  --brand-cream: #FAF7F1;
-  --brand-charcoal: #38343A;
+  --brand-wine: #4A1723;
+  --brand-burgundy: #762F3C;
+  --brand-dusty-rose: #B87982;
+  --brand-soft-pink: #E5C9CC;
+  --brand-nude: #D8B9AE;
+  --brand-gold: #B9955B;
+  --brand-plum: var(--brand-wine);
+  --brand-plum-mid: var(--brand-burgundy);
+  --brand-mauve: var(--brand-dusty-rose);
+  --brand-terracotta: var(--brand-gold);
+  --brand-sage: var(--brand-mauve);
+  --brand-blush: var(--brand-soft-pink);
+  --brand-cream: #F6EEE5;
+  --brand-charcoal: var(--brand-wine);
 
   /* Shared storefront roles */
   --store-background: var(--brand-cream);
-  --store-surface: #FFFFFF;
+  --store-surface: #FFFBF7;
   --store-ink: var(--brand-charcoal);
-  --store-ink-rgb: 56 52 58;
+  --store-ink-rgb: 74 23 35;
   --store-header: var(--brand-plum);
   --store-footer: var(--brand-plum);
   --store-muted: var(--brand-sage);
@@ -30,16 +38,16 @@
   --button-letter-spacing: .18em;
   --button-border-radius: 0;
 
-  --background: 250 247 241 / 1;
-  --page-background: 250 247 241;
-  --text-color: 56 52 58;
-  --border-color: 137 152 130;
-  --on-sale-text: 200 120 94;
-  --star-rating: 200 120 94;
-  --button-background: 96 54 79;
-  --button-outline-color: 96 54 79;
-  --button-text-color: 250 247 241;
-  --circle-button-background: 233 213 206;
-  --circle-button-text-color: 56 52 58;
-  --shadow-sm: 0 2px 8px rgb(56 52 58 / .08);
+  --background: 246 238 229 / 1;
+  --page-background: 246 238 229;
+  --text-color: 74 23 35;
+  --border-color: 184 121 130;
+  --on-sale-text: 118 47 60;
+  --star-rating: 185 149 91;
+  --button-background: 74 23 35;
+  --button-outline-color: 74 23 35;
+  --button-text-color: 246 238 229;
+  --circle-button-background: 229 201 204;
+  --circle-button-text-color: 74 23 35;
+  --shadow-sm: 0 2px 10px rgb(74 23 35 / .1);
 }

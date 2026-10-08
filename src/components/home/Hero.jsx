@@ -106,7 +106,7 @@ export default function Hero({ data = heroContent }) {
           <div className="hero-prose">
             {subtitle && <p className="hero-subtitle">{subtitle}</p>}
             {title && <h1 className="hero-title">{title}</h1>}
-            <a href={ctaLink} className="button hero-button" style={{ '--button-background': '96 54 79', '--button-outline-color': '96 54 79', '--button-text-color': '250 247 241' }}>{ctaText}</a>
+            <a href={ctaLink} className="button hero-button" style={{ '--button-background': '74 23 35', '--button-outline-color': '74 23 35', '--button-text-color': '246 238 229' }}>{ctaText}</a>
           </div>
         </div>
         <button type="button" className="hero-scroll-down circle-button circle-button--lg" aria-label="Scroll to collections" onClick={() => document.querySelector('.home-categories')?.scrollIntoView({ behavior: 'smooth' })}>
