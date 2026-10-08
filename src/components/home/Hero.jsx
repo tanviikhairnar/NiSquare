@@ -105,7 +105,16 @@ export default function Hero({ data = heroContent }) {
         <div className="hero-content" key={'content-' + activeSlide} aria-live="polite">
           <div className="hero-prose">
             {subtitle && <p className="hero-subtitle">{subtitle}</p>}
-            {title && <h1 className="hero-title">{title}</h1>}
+            {title && (
+              <h1 className="hero-title" aria-label={title}>
+                {title.trim().split(/\s+/).map((word, index, words) => (
+                  <React.Fragment key={index}>
+                    <span className="hero-title-word" aria-hidden="true" style={{ '--word-delay': `${0.22 + index * 0.055}s` }}>{word}</span>
+                    {index < words.length - 1 ? ' ' : null}
+                  </React.Fragment>
+                ))}
+              </h1>
+            )}
             <a href={ctaLink} className="button hero-button" style={{ '--button-background': '74 23 35', '--button-outline-color': '74 23 35', '--button-text-color': '246 238 229' }}>{ctaText}</a>
           </div>
         </div>
