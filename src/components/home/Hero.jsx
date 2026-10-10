@@ -115,7 +115,7 @@ export default function Hero({ data = heroContent }) {
                 ))}
               </h1>
             )}
-            <a href={ctaLink} className="button hero-button" style={{ '--button-background': '74 23 35', '--button-outline-color': '74 23 35', '--button-text-color': '246 238 229' }}>{ctaText}</a>
+            <a href={ctaLink} className="button hero-button" style={{ '--button-background': '101 18 22', '--button-outline-color': '101 18 22', '--button-text-color': '245 240 233' }}>{ctaText}</a>
           </div>
         </div>
         <button type="button" className="hero-scroll-down circle-button circle-button--lg" aria-label="Scroll to collections" onClick={() => document.querySelector('.home-categories')?.scrollIntoView({ behavior: 'smooth' })}>

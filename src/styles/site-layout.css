@@ -12,9 +12,6 @@ html, body, #root, .app-root {
 
 body { margin: 0; padding: 0; font: var(--text-font-style) var(--text-font-weight) var(--text-base) / 1.65 var(--text-font-family); letter-spacing: var(--text-letter-spacing); background: var(--store-background); color: var(--store-ink); min-height: 100vh; }
 
-/* ==========================================================================
-   HEADER & NAVIGATION
-   ========================================================================== */
 
 .header-wrapper {
   position: absolute;
@@ -751,7 +748,7 @@ h2.catalog-heading {
 .newsletter-form button { padding-inline: 1rem 0; border: 0; background: transparent; color: inherit; font: var(--button-font); letter-spacing: var(--button-letter-spacing); text-transform: uppercase; cursor: pointer; }
 .newsletter-success { color: #3e6546; }
 
-.site-footer { padding: 3.5rem var(--container-gutter) 1.25rem; background: var(--store-ink); color: #fff; }
+.site-footer { padding: 3.5rem var(--container-gutter) 1.25rem; background: var(--store-footer); color: #fff; }
 .footer-main { display: grid; max-width: var(--container-xl-max-width); grid-template-columns: minmax(15rem, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 3rem; margin-inline: auto; }
 .footer-brand { display: inline-block; margin-block-end: 1.5rem; color: inherit; font: 300 2rem / 1 var(--heading-font-family); letter-spacing: -.04em; }
 .footer-about h2, .footer-links h2 { margin: 0 0 1rem; color: inherit; font: var(--heading-font-style) var(--heading-font-weight) var(--text-sm) / 1.5 var(--heading-font-family); letter-spacing: var(--heading-letter-spacing); text-transform: uppercase; }
@@ -1408,8 +1405,8 @@ html { scroll-padding-top: var(--header-height); }
 /* Spread the NI Square palette through the homepage while keeping the photography in focus. */
 .home-categories { background: var(--brand-blush); }
 .home-category-media {
-  --content-over-media-overlay: 74 23 35 / .28;
-  --content-over-media-gradient-overlay: linear-gradient(180deg, rgb(74 23 35 / .06) 18%, rgb(74 23 35 / .68) 100%);
+  --content-over-media-overlay: 57 1 6 / .28;
+  --content-over-media-gradient-overlay: linear-gradient(180deg, rgb(57 1 6 / .06) 18%, rgb(57 1 6 / .68) 100%);
 }
 .home-category-media::before { transition: opacity .35s ease; opacity: .86; }
 .home-category-card:hover .home-category-media::before,
@@ -1473,7 +1470,7 @@ html { scroll-padding-top: var(--header-height); }
   background: var(--brand-blush);
   color: var(--brand-plum);
 }
-.ni-occasion-list li:hover { transform: translateY(-2px); box-shadow: 0 .3rem .8rem rgb(74 23 35 / .14); }
+.ni-occasion-list li:hover { transform: translateY(-2px); box-shadow: 0 .3rem .8rem rgb(57 1 6 / .14); }
 .previous-work-link:hover { color: var(--brand-sage); }
 @media (prefers-reduced-motion: reduce) {
   .home-category-media::before,
@@ -1540,11 +1537,11 @@ html { scroll-padding-top: var(--header-height); }
   --texture-paper-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .04 .04 .04 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' fill='%23FFFFFF'/%3E%3C/svg%3E");
       --texture-botanical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 360'%3E%3Cg fill='none' stroke='%2360364F' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.3'%3E%3Cpath d='M177 350C163 297 188 266 174 225C163 191 178 150 171 111C167 82 175 53 189 20'/%3E%3Cpath d='M178 284C139 288 113 269 97 238C132 238 160 252 178 284Z'/%3E%3Cpath d='M177 260C211 256 234 237 242 207C211 214 190 233 177 260Z'/%3E%3Cpath d='M174 217C140 219 119 199 107 170C139 175 161 190 174 217Z'/%3E%3Cpath d='M174 201C202 188 219 164 216 135C191 151 177 174 174 201Z'/%3E%3Cpath d='M172 158C148 151 135 131 136 105C156 115 170 133 172 158Z'/%3E%3Cpath d='M173 142C196 126 205 104 198 79C180 95 172 117 173 142Z'/%3E%3Cpath d='M174 96C154 87 148 70 153 51C168 62 175 77 174 96Z'/%3E%3Cpath d='M177 77C194 65 199 49 193 32C181 44 176 59 177 77Z'/%3E%3C/g%3E%3Cg fill='none' stroke='%23899882' stroke-width='.95' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.56'%3E%3Cpath d='M174 148C151 143 139 126 136 105M173 133C191 120 198 101 198 79M177 259C154 253 135 244 117 231M179 252C203 244 222 229 236 210'/%3E%3Cpath d='M173 124C160 118 154 106 154 94M176 113C186 105 189 94 188 83M158 247C146 242 138 234 133 223M196 244C207 236 213 226 216 217'/%3E%3C/g%3E%3Cg fill='none' stroke='%23C8785E' stroke-width='1.45' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.58'%3E%3Cpath d='M218 94C209 84 209 76 216 71C223 74 226 81 222 91C231 82 239 82 243 89C240 97 233 99 224 96C232 105 230 113 223 116C216 112 214 105 219 97C210 103 202 101 200 94C204 87 211 87 218 94Z'/%3E%3Cpath d='M218 94C216 87 220 82 225 84C231 87 229 93 223 96M212 92C216 93 219 97 218 101M217 88C218 84 221 81 225 80'/%3E%3Cpath d='M125 79C118 71 119 64 125 60C131 63 133 69 130 77C137 71 144 72 147 78C144 85 138 86 132 83C137 90 135 96 129 98C123 95 121 90 124 84C117 88 111 86 110 80C113 75 119 75 125 79Z'/%3E%3Cpath d='M125 79C124 74 127 70 131 72C135 74 134 79 130 82M120 78C124 79 126 82 125 86'/%3E%3C/g%3E%3Cg fill='%23C8785E' fill-opacity='.66'%3E%3Ccircle cx='220' cy='94' r='2'/%3E%3Ccircle cx='127' cy='80' r='1.7'/%3E%3C/g%3E%3C/svg%3E");
   --texture-paper-wash:
-    radial-gradient(ellipse at 12% 8%, rgb(229 201 204 / .38), transparent 42%),
+    radial-gradient(ellipse at 12% 8%, rgb(216 196 168 / .38), transparent 42%),
     radial-gradient(ellipse at 92% 88%, rgb(216 185 174 / .18), transparent 38%);
   --texture-plum-wash:
-    radial-gradient(ellipse at 12% 12%, rgb(185 149 91 / .14), transparent 48%),
-    radial-gradient(ellipse at 92% 90%, rgb(74 23 35 / .22), transparent 48%);
+    radial-gradient(ellipse at 12% 12%, rgb(216 196 168 / .14), transparent 48%),
+    radial-gradient(ellipse at 92% 90%, rgb(57 1 6 / .22), transparent 48%);
 }
 body {
   background-color: var(--brand-cream);
@@ -1586,7 +1583,7 @@ body {
 .previous-work-section {
   background-color: var(--brand-cream);
   background-image:
-    radial-gradient(ellipse at 82% 5%, rgb(229 201 204 / .55), transparent 42%),
+    radial-gradient(ellipse at 82% 5%, rgb(216 196 168 / .55), transparent 42%),
     var(--texture-paper-noise);
   background-repeat: no-repeat, repeat;
   background-position: center, 0 0;
@@ -1715,12 +1712,12 @@ body {
 /* Luxe plum palette with fine gold botanical engraving and softly tinted paper. */
 :root {
   --texture-paper-noise: none;
-  --texture-botanical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 360'%3E%3Cg fill='none' stroke='%23633A78' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.34'%3E%3Cpath d='M176 353C161 300 187 268 173 226C161 190 179 151 171 111C167 81 175 53 190 18'/%3E%3Cpath d='M177 286C137 287 111 266 96 235C132 237 160 253 177 286Z'/%3E%3Cpath d='M176 261C212 256 237 235 246 204C212 213 191 232 176 261Z'/%3E%3Cpath d='M173 218C140 220 117 199 105 169C139 175 160 191 173 218Z'/%3E%3Cpath d='M173 200C204 187 221 162 218 132C192 149 176 173 173 200Z'/%3E%3Cpath d='M171 158C145 150 132 129 134 102C157 114 170 132 171 158Z'/%3E%3Cpath d='M173 140C197 125 207 101 199 76C181 94 172 116 173 140Z'/%3E%3C/g%3E%3Cg fill='none' stroke='%239B709F' stroke-width='.85' stroke-linecap='round' stroke-opacity='.53'%3E%3Cpath d='M173 133C191 120 198 101 199 76M177 260C151 252 130 240 112 225M178 253C207 242 228 224 240 207'/%3E%3Cpath d='M152 244C144 237 138 230 133 220M199 242C211 233 218 223 222 213M157 143C148 134 143 122 141 111'/%3E%3C/g%3E%3Cg fill='none' stroke='%23B9955B' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.72'%3E%3Cpath d='M220 98C211 88 210 79 217 73C224 76 227 84 223 94C233 84 241 84 245 91C242 99 234 101 225 98C233 107 231 115 224 118C217 114 215 107 220 99C211 105 203 103 201 96C205 89 212 89 220 98Z'/%3E%3Cpath d='M220 98C218 90 222 85 227 87C232 89 231 95 225 98M214 95C218 97 220 101 219 105M219 91C220 86 223 83 227 82'/%3E%3Cpath d='M124 80C117 72 118 65 124 61C130 64 132 70 129 78C137 72 144 73 147 79C144 86 138 87 132 84C137 91 135 97 129 99C123 96 121 91 124 85C117 89 111 87 110 81C113 76 118 76 124 80Z'/%3E%3C/g%3E%3Cg fill='%23B9955B' fill-opacity='.8'%3E%3Ccircle cx='221' cy='97' r='1.8'/%3E%3Ccircle cx='126' cy='81' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  --texture-botanical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 360'%3E%3Cg fill='none' stroke='%23633A78' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.34'%3E%3Cpath d='M176 353C161 300 187 268 173 226C161 190 179 151 171 111C167 81 175 53 190 18'/%3E%3Cpath d='M177 286C137 287 111 266 96 235C132 237 160 253 177 286Z'/%3E%3Cpath d='M176 261C212 256 237 235 246 204C212 213 191 232 176 261Z'/%3E%3Cpath d='M173 218C140 220 117 199 105 169C139 175 160 191 173 218Z'/%3E%3Cpath d='M173 200C204 187 221 162 218 132C192 149 176 173 173 200Z'/%3E%3Cpath d='M171 158C145 150 132 129 134 102C157 114 170 132 171 158Z'/%3E%3Cpath d='M173 140C197 125 207 101 199 76C181 94 172 116 173 140Z'/%3E%3C/g%3E%3Cg fill='none' stroke='%239B709F' stroke-width='.85' stroke-linecap='round' stroke-opacity='.53'%3E%3Cpath d='M173 133C191 120 198 101 199 76M177 260C151 252 130 240 112 225M178 253C207 242 228 224 240 207'/%3E%3Cpath d='M152 244C144 237 138 230 133 220M199 242C211 233 218 223 222 213M157 143C148 134 143 122 141 111'/%3E%3C/g%3E%3Cg fill='none' stroke='%23D8C4A8' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.72'%3E%3Cpath d='M220 98C211 88 210 79 217 73C224 76 227 84 223 94C233 84 241 84 245 91C242 99 234 101 225 98C233 107 231 115 224 118C217 114 215 107 220 99C211 105 203 103 201 96C205 89 212 89 220 98Z'/%3E%3Cpath d='M220 98C218 90 222 85 227 87C232 89 231 95 225 98M214 95C218 97 220 101 219 105M219 91C220 86 223 83 227 82'/%3E%3Cpath d='M124 80C117 72 118 65 124 61C130 64 132 70 129 78C137 72 144 73 147 79C144 86 138 87 132 84C137 91 135 97 129 99C123 96 121 91 124 85C117 89 111 87 110 81C113 76 118 76 124 80Z'/%3E%3C/g%3E%3Cg fill='%23D8C4A8' fill-opacity='.8'%3E%3Ccircle cx='221' cy='97' r='1.8'/%3E%3Ccircle cx='126' cy='81' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
   --texture-paper-wash:
     radial-gradient(ellipse at 12% 8%, rgb(244 234 242 / .72), transparent 42%),
-    radial-gradient(ellipse at 92% 88%, rgb(185 149 91 / .12), transparent 38%);
+    radial-gradient(ellipse at 92% 88%, rgb(216 196 168 / .12), transparent 38%);
   --texture-plum-wash:
-    radial-gradient(ellipse at 12% 12%, rgb(185 149 91 / .12), transparent 48%),
+    radial-gradient(ellipse at 12% 12%, rgb(216 196 168 / .12), transparent 48%),
     radial-gradient(ellipse at 92% 90%, rgb(59 23 77 / .24), transparent 48%);
 }
 .previous-work-eyebrow::after {
@@ -1751,7 +1748,7 @@ body {
 }
 .features--button-transition .hero-button:not([disabled]):hover { color: var(--brand-plum) !important; }
 .ni-company-banner .ni-section-eyebrow { color: var(--brand-gold); }
-.ni-founder-card { border: 1px solid rgb(185 149 91 / .48); }
+.ni-founder-card { border: 1px solid rgb(216 196 168 / .48); }
 .previous-work-instagram { border-color: var(--brand-gold); }
 
 /* Let the packaging palette and botanical engraving read clearly on the homepage. */
@@ -1779,7 +1776,7 @@ body {
 
 /* Botanical engraving tuned to the warm ivory, rose, burgundy, and gold palette. */
 :root {
-  --texture-botanical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 360'%3E%3Cg fill='none' stroke='%23762F3C' stroke-width='1.15' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.4'%3E%3Cpath d='M176 353C161 300 187 268 173 226C161 190 179 151 171 111C167 81 175 53 190 18'/%3E%3Cpath d='M177 286C137 287 111 266 96 235C132 237 160 253 177 286Z'/%3E%3Cpath d='M176 261C212 256 237 235 246 204C212 213 191 232 176 261Z'/%3E%3Cpath d='M173 218C140 220 117 199 105 169C139 175 160 191 173 218Z'/%3E%3Cpath d='M173 200C204 187 221 162 218 132C192 149 176 173 173 200Z'/%3E%3Cpath d='M171 158C145 150 132 129 134 102C157 114 170 132 171 158Z'/%3E%3Cpath d='M173 140C197 125 207 101 199 76C181 94 172 116 173 140Z'/%3E%3C/g%3E%3Cg fill='none' stroke='%23B87982' stroke-width='.9' stroke-linecap='round' stroke-opacity='.7'%3E%3Cpath d='M173 133C191 120 198 101 199 76M177 260C151 252 130 240 112 225M178 253C207 242 228 224 240 207'/%3E%3Cpath d='M152 244C144 237 138 230 133 220M199 242C211 233 218 223 222 213M157 143C148 134 143 122 141 111'/%3E%3C/g%3E%3Cg fill='none' stroke='%23B9955B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.86'%3E%3Cpath d='M220 98C211 88 210 79 217 73C224 76 227 84 223 94C233 84 241 84 245 91C242 99 234 101 225 98C233 107 231 115 224 118C217 114 215 107 220 99C211 105 203 103 201 96C205 89 212 89 220 98Z'/%3E%3Cpath d='M220 98C218 90 222 85 227 87C232 89 231 95 225 98M214 95C218 97 220 101 219 105M219 91C220 86 223 83 227 82'/%3E%3Cpath d='M124 80C117 72 118 65 124 61C130 64 132 70 129 78C137 72 144 73 147 79C144 86 138 87 132 84C137 91 135 97 129 99C123 96 121 91 124 85C117 89 111 87 110 81C113 76 118 76 124 80Z'/%3E%3C/g%3E%3Cg fill='%23B9955B' fill-opacity='.92'%3E%3Ccircle cx='221' cy='97' r='1.8'/%3E%3Ccircle cx='126' cy='81' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  --texture-botanical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 360'%3E%3Cg fill='none' stroke='%23651216' stroke-width='1.15' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.4'%3E%3Cpath d='M176 353C161 300 187 268 173 226C161 190 179 151 171 111C167 81 175 53 190 18'/%3E%3Cpath d='M177 286C137 287 111 266 96 235C132 237 160 253 177 286Z'/%3E%3Cpath d='M176 261C212 256 237 235 246 204C212 213 191 232 176 261Z'/%3E%3Cpath d='M173 218C140 220 117 199 105 169C139 175 160 191 173 218Z'/%3E%3Cpath d='M173 200C204 187 221 162 218 132C192 149 176 173 173 200Z'/%3E%3Cpath d='M171 158C145 150 132 129 134 102C157 114 170 132 171 158Z'/%3E%3Cpath d='M173 140C197 125 207 101 199 76C181 94 172 116 173 140Z'/%3E%3C/g%3E%3Cg fill='none' stroke='%23D8C4A8' stroke-width='.9' stroke-linecap='round' stroke-opacity='.7'%3E%3Cpath d='M173 133C191 120 198 101 199 76M177 260C151 252 130 240 112 225M178 253C207 242 228 224 240 207'/%3E%3Cpath d='M152 244C144 237 138 230 133 220M199 242C211 233 218 223 222 213M157 143C148 134 143 122 141 111'/%3E%3C/g%3E%3Cg fill='none' stroke='%23D8C4A8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' stroke-opacity='.86'%3E%3Cpath d='M220 98C211 88 210 79 217 73C224 76 227 84 223 94C233 84 241 84 245 91C242 99 234 101 225 98C233 107 231 115 224 118C217 114 215 107 220 99C211 105 203 103 201 96C205 89 212 89 220 98Z'/%3E%3Cpath d='M220 98C218 90 222 85 227 87C232 89 231 95 225 98M214 95C218 97 220 101 219 105M219 91C220 86 223 83 227 82'/%3E%3Cpath d='M124 80C117 72 118 65 124 61C130 64 132 70 129 78C137 72 144 73 147 79C144 86 138 87 132 84C137 91 135 97 129 99C123 96 121 91 124 85C117 89 111 87 110 81C113 76 118 76 124 80Z'/%3E%3C/g%3E%3Cg fill='%23D8C4A8' fill-opacity='.92'%3E%3Ccircle cx='221' cy='97' r='1.8'/%3E%3Ccircle cx='126' cy='81' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
 }
 .ni-company-banner-link {
   position: relative;
@@ -1865,9 +1862,9 @@ body {
 .previous-work-controls button {
   width: 2.7rem;
   height: 2.7rem;
-  border-color: rgb(185 149 91 / .55);
+  border-color: rgb(216 196 168 / .55);
   background: var(--brand-cream);
-  box-shadow: 0 .25rem .8rem rgb(74 23 35 / .08);
+  box-shadow: 0 .25rem .8rem rgb(57 1 6 / .08);
 }
 .previous-work-controls button:hover {
   border-color: var(--brand-gold);
@@ -2068,7 +2065,7 @@ body {
   .home-category-card:hover,
   .home-category-card:focus-visible {
     translate: 0 -5px;
-    box-shadow: 0 1.1rem 2.5rem rgb(74 23 35 / .16);
+    box-shadow: 0 1.1rem 2.5rem rgb(57 1 6 / .16);
   }
   .home-category-card:hover .home-category-media > img,
   .home-category-card:focus-visible .home-category-media > img {
@@ -2108,7 +2105,7 @@ body {
   }
   .previous-work-card:hover {
     translate: 0 -6px;
-    box-shadow: 0 1.2rem 2.8rem rgb(74 23 35 / .2);
+    box-shadow: 0 1.2rem 2.8rem rgb(57 1 6 / .2);
   }
 
   /* Native scroll timelines add gentle depth while each image passes by. */
@@ -2189,7 +2186,7 @@ body {
 .previous-work-card:hover,
 .previous-work-card:focus-visible {
   translate: 0 -2px;
-  box-shadow: 0 .65rem 1.5rem rgb(74 23 35 / .12);
+  box-shadow: 0 .65rem 1.5rem rgb(57 1 6 / .12);
 }
 .previous-work-media { transition: transform .75s cubic-bezier(.2, .7, .2, 1); }
 .previous-work-card:hover .previous-work-media,
@@ -2247,7 +2244,7 @@ body {
   overflow: clip;
   padding: clamp(4.5rem, 8vw, 8rem) var(--container-gutter);
   background:
-    radial-gradient(ellipse at 8% 42%, rgb(229 201 204 / .3), transparent 34%),
+    radial-gradient(ellipse at 8% 42%, rgb(216 196 168 / .3), transparent 34%),
     linear-gradient(125deg, #fbf7f1 0%, var(--brand-cream) 58%, #f4e9df 100%);
   color: var(--brand-wine);
 }
@@ -2302,9 +2299,9 @@ body {
   aspect-ratio: 1.08 / 1;
   margin-block: 1.7rem 1rem;
   overflow: hidden;
-  border: 1px solid rgb(185 149 91 / .7);
+  border: 1px solid rgb(216 196 168 / .7);
   background: var(--brand-nude);
-  box-shadow: 0 1rem 2.5rem rgb(74 23 35 / .1);
+  box-shadow: 0 1rem 2.5rem rgb(57 1 6 / .1);
 }
 .ni-gift-journey-stage::before {
   position: absolute;
@@ -2344,7 +2341,7 @@ body {
   place-content: center;
   border: 1px solid var(--brand-gold);
   border-radius: 50%;
-  background: rgb(246 238 229 / .94);
+  background: rgb(245 240 233 / .94);
   color: var(--brand-wine);
   font: 500 .63rem / 1.1 var(--text-font-family);
   letter-spacing: .12em;
@@ -2380,7 +2377,7 @@ body {
   font: 500 .66rem / 1 var(--text-font-family);
   letter-spacing: .1em;
 }
-.ni-gift-journey-progress-track { height: 1px; background: rgb(118 47 60 / .22); }
+.ni-gift-journey-progress-track { height: 1px; background: rgb(101 18 22 / .22); }
 .ni-gift-journey-progress-track i {
   display: block;
   height: 100%;
@@ -2393,7 +2390,7 @@ body {
   gap: .7rem;
   margin-block-start: 1.2rem;
   padding-block-end: .3rem;
-  border-block-end: 1px solid rgb(185 149 91 / .75);
+  border-block-end: 1px solid rgb(216 196 168 / .75);
   color: var(--brand-wine);
   font: 500 .78rem / 1.5 var(--text-font-family);
   letter-spacing: .09em;
@@ -2412,13 +2409,13 @@ body {
   grid-template-columns: 3.2rem minmax(0, 1fr) 1.5rem;
   align-items: center;
   gap: clamp(.8rem, 2vw, 1.8rem);
-  border-block-start: 1px solid rgb(185 149 91 / .42);
+  border-block-start: 1px solid rgb(216 196 168 / .42);
   color: var(--brand-wine);
   opacity: .48;
   translate: 0 5px;
   transition: opacity .65s ease, translate .65s cubic-bezier(.2, .7, .2, 1);
 }
-.ni-gift-journey-step:last-child { border-block-end: 1px solid rgb(185 149 91 / .42); }
+.ni-gift-journey-step:last-child { border-block-end: 1px solid rgb(216 196 168 / .42); }
 .ni-gift-journey-step.is-active { opacity: 1; translate: 0 0; }
 .ni-gift-journey-step-number {
   align-self: start;
@@ -2508,7 +2505,7 @@ body {
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 50% 115%, rgb(185 149 91 / .18), transparent 48%),
+    radial-gradient(ellipse at 50% 115%, rgb(216 196 168 / .18), transparent 48%),
     linear-gradient(125deg, #42141e 0%, var(--brand-wine) 48%, #571e2a 100%);
 }
 .ni-company-banner::before,
@@ -2522,7 +2519,7 @@ body {
   inset-block: -45%;
   inset-inline-start: -42%;
   width: 42%;
-  background: linear-gradient(100deg, transparent, rgb(255 251 247 / .035) 42%, rgb(185 149 91 / .12) 50%, rgb(255 251 247 / .035) 58%, transparent);
+  background: linear-gradient(100deg, transparent, rgb(255 251 247 / .035) 42%, rgb(216 196 168 / .12) 50%, rgb(255 251 247 / .035) 58%, transparent);
   transform: skewX(-18deg);
   animation: ni-banner-light-drift 18s cubic-bezier(.45, 0, .55, 1) infinite alternate;
 }
@@ -2531,9 +2528,9 @@ body {
   left: 50%;
   width: min(76vw, 58rem);
   aspect-ratio: 1;
-  border: 1px solid rgb(185 149 91 / .13);
+  border: 1px solid rgb(216 196 168 / .13);
   border-radius: 50%;
-  box-shadow: 0 0 0 2rem rgb(185 149 91 / .025), 0 0 0 4rem rgb(185 149 91 / .02), 0 0 0 6rem rgb(185 149 91 / .015);
+  box-shadow: 0 0 0 2rem rgb(216 196 168 / .025), 0 0 0 4rem rgb(216 196 168 / .02), 0 0 0 6rem rgb(216 196 168 / .015);
   transform: translate(-50%, -50%);
 }
 .ni-company-banner-inner { position: relative; z-index: 1; }
