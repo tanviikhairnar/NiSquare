@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { whatsappLink, WHATSAPP_FOUNDERS } from '../lib/whatsapp';
 
 export default function WhatsAppContactLink({ message, className = '', children, style }) {
@@ -32,10 +33,12 @@ export default function WhatsAppContactLink({ message, className = '', children,
       >
         {children}
       </button>
-      {isOpen && (
+      {isOpen && createPortal(
         <div className="whatsapp-choice-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setIsOpen(false); }}>
           <section className="whatsapp-choice-dialog" role="dialog" aria-modal="true" aria-labelledby="whatsapp-choice-title">
-            <button ref={closeButtonRef} type="button" className="whatsapp-choice-close" onClick={() => setIsOpen(false)} aria-label="Close founder selection">X</button>
+            <button ref={closeButtonRef} type="button" className="whatsapp-choice-close" onClick={() => setIsOpen(false)} aria-label="Close founder selection">
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="m4 4 12 12M16 4 4 16" stroke="currentColor" strokeWidth="1.5" /></svg>
+            </button>
             <p className="eyebrow">WhatsApp enquiry</p>
             <h2 id="whatsapp-choice-title">Who would you like to message?</h2>
             <p>Your message will be ready to send in WhatsApp.</p>
@@ -43,12 +46,12 @@ export default function WhatsAppContactLink({ message, className = '', children,
               {WHATSAPP_FOUNDERS.map((founder) => (
                 <a key={founder.phone} href={whatsappLink(message, founder.phone)} target="_blank" rel="noreferrer" onClick={() => setIsOpen(false)}>
                   <span>{founder.name}</span>
-                  <small>{founder.role}</small>
                 </a>
               ))}
             </div>
           </section>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );

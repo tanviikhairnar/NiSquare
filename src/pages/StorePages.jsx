@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import CollectionBrowser from './CollectionBrowser';
 import ProductDetailsPage from './ProductDetailsPage';
 import ProductGrid from '../components/store/ProductGrid';
+import WhatsAppContactLink from '../components/WhatsAppContactLink';
 import { CompanyIntroduction, CompanyStory, FoundersSection, ServicesSection, OccasionsSection } from '../components/home/NIStorySections';
 import { searchProducts, storeCollections } from '../data/storeCatalog';
 import { whatsappLink, WHATSAPP_NUMBERS } from '../lib/whatsapp';
@@ -19,23 +20,49 @@ export function CollectionsPage() {
   return (
     <section className="store-page">
       <div className="store-page-inner">
-        <Breadcrumbs current="Shop" />
-        <PageTitle eyebrow="Find your favourites" title="Shop all collections" description="Browse the collections and discover a piece for every occasion." />
+        <Breadcrumbs current="Gifting categories" />
+        <PageTitle eyebrow="Made for your moments" title="Explore our gifting categories" description="Choose a category to see its subcategories and gifting ideas." />
         <div className="store-collection-grid">
           {storeCollections.map((collection) => (
             <Link className="store-collection-card" to={`/collections/${collection.slug}`} key={collection.slug}>
               <span className="store-collection-image"><img src={collection.image} alt="" loading="lazy" /></span>
-              <span className="store-collection-card-copy"><strong>{collection.title}</strong><span>{collection.description}</span><span className="text-link">Explore collection</span></span>
+              <span className="store-collection-card-copy"><strong>{collection.title}</strong><span>{collection.description}</span><span className="text-link">Explore category</span></span>
             </Link>
           ))}
         </div>
-        <div className="store-page-cta"><Link className="button" to="/collections/tableware">Shop tableware</Link></div>
+        <div className="store-page-cta"><WhatsAppContactLink className="button" message="Hi, I’d like to explore your gifting categories and plan a hamper.">Chat with our founders</WhatsAppContactLink></div>
       </div>
     </section>
   );
 }
 
-export function CollectionPage() { return <CollectionBrowser />; }
+export function CollectionPage() {
+  const { handle = '' } = useParams();
+  const collection = storeCollections.find((item) => item.slug === handle);
+  if (!collection) return <CollectionBrowser />;
+
+  return (
+    <section className="store-page">
+      <div className="store-page-inner store-page-inner--wide">
+        <nav className="store-breadcrumbs" aria-label="Breadcrumb"><Link to="/">Home</Link><span aria-hidden="true">/</span><Link to="/collections">Gifting categories</Link><span aria-hidden="true">/</span><span>{collection.title}</span></nav>
+        <PageTitle eyebrow="Explore by occasion" title={collection.title} description={collection.description} />
+        <div className="category-detail-grid">
+          {collection.subcategories.map((subcategory) => (
+            <article className="category-detail-card" key={subcategory.title}>
+              <div className="category-detail-image"><img src={subcategory.image} alt={subcategory.title} loading="lazy" /></div>
+              <div className="category-detail-copy">
+                <h2>{subcategory.title}</h2>
+                <WhatsAppContactLink className="category-whatsapp-link" message={`Hi, I’d like to ask about ${subcategory.title} in ${collection.title}.`}>Enquire on WhatsApp</WhatsAppContactLink>
+              </div>
+            </article>
+          ))}
+        </div>
+        {collection.note && <p className="gifting-category-note category-detail-note">{collection.note}</p>}
+        <div className="store-page-cta"><WhatsAppContactLink className="button" message={`Hi, I’d like to plan something from your ${collection.title} category.`}>Plan this gift on WhatsApp</WhatsAppContactLink></div>
+      </div>
+    </section>
+  );
+}
 
 export function ProductPage() { return <ProductDetailsPage />; }
 

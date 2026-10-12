@@ -1,5 +1,6 @@
 import React from 'react';
 import WhatsAppContactLink from '../WhatsAppContactLink';
+import { whatsappLink, WHATSAPP_NUMBERS } from '../../lib/whatsapp';
 
 const founders = [
   {
@@ -96,7 +97,7 @@ export function FoundersSection({ showBiographies = true }) {
           {showBiographies && <p>Two best friends bringing their different design backgrounds and shared love of gifting to every hamper.</p>}
         </header>
         <div className="ni-founder-grid">
-          {founders.map((founder) => (
+          {founders.map((founder, index) => (
             <article className="ni-founder-card" key={founder.name}>
               <div className="ni-founder-portrait">
                 <img src={founder.image} alt={founder.name} loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
@@ -105,7 +106,7 @@ export function FoundersSection({ showBiographies = true }) {
                 <p className="ni-section-eyebrow">{founder.profession}</p>
                 <h3>{founder.name}</h3>
                 {showBiographies && founder.biography.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                <WhatsAppContactLink className="ni-founder-phone" message="Hi, I would like to plan a hamper.">Chat on WhatsApp</WhatsAppContactLink>
+                <a className="ni-founder-phone" href={whatsappLink("Hi, I would like to plan a hamper.", WHATSAPP_NUMBERS[index])} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
               </div>
             </article>
           ))}

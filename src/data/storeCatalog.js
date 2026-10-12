@@ -8,10 +8,52 @@ const uniqueByHref = new Map();
 export const catalogProducts = [...uniqueByHref.values()];
 
 export const storeCollections = [
-  { title: 'Tableware', slug: 'tableware', image: 'https://www.studio13.co.in/cdn/shop/files/tableware.jpg?v=1683441484&width=1200', description: 'Pieces for gathering, serving, and everyday rituals.' },
-  { title: 'Collections', slug: 'collections', image: 'https://www.studio13.co.in/cdn/shop/files/full-collection_927b913c-43f3-4103-90a0-fc8ed4a30727.jpg?v=1717495993&width=1200', description: 'Explore products across our collections.' },
-  { title: 'Stationery', slug: 'all-stationery', image: 'https://www.studio13.co.in/cdn/shop/files/stationerynavy2.jpg?v=1695884131&width=1200', description: 'Thoughtful paper goods and keepsakes.' },
-  { title: 'Gifting', slug: 'gifting', image: 'https://www.studio13.co.in/cdn/shop/files/box1_96a6c2d3-7c09-4621-9f7c-e9d7053954d9.jpg?v=1763449735&width=1200', description: 'Personal gifts and ready-to-give sets.' },
+  {
+    title: 'Trousseau & Wedding Hampers', slug: 'trousseau-wedding-hampers', image: '/assets/images/image1.jpeg',
+    description: 'Personal celebrations and wedding gifting.',
+    subcategories: [
+      { title: 'Trousseau', image: '/assets/images/image1.jpeg' },
+      { title: 'Wedding Hampers', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.02.jpeg' },
+      { title: 'Baby Hampers', image: '/assets/images/WhatsApp Image 2026-10-11 at 16.05.17.jpeg' },
+      { title: 'Room Hampers', image: '/assets/images/WhatsApp Image 2026-10-11 at 16.05.18 (1).jpeg' },
+      { title: 'Bridesmaid Gifts', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.04 (1).jpeg' },
+    ],
+  },
+  {
+    title: 'Return Favours', slug: 'return-favours', image: '/assets/images/WhatsApp Image 2026-10-11 at 16.05.18.jpeg',
+    description: 'Gifts for guests and special occasions.',
+    subcategories: [
+      { title: 'Wedding Return Favours', image: '/assets/images/WhatsApp Image 2026-10-11 at 16.05.18.jpeg' },
+      { title: 'Birthday Return Favours', image: '/assets/images/WhatsApp Image 2026-10-11 at 16.05.19.jpeg' },
+      { title: 'Housewarming Favours', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.00.jpeg' },
+    ],
+  },
+  {
+    title: 'Seasonal & Occasion Gifting', slug: 'seasonal-occasion-gifting', image: '/assets/images/WhatsApp Image 2026-10-11 at 16.05.19.jpeg',
+    description: 'Thoughtful gifts for seasonal moments and personal milestones.',
+    subcategories: [
+      { title: 'Mother’s Day', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.11.jpeg' },
+      { title: 'Father’s Day', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.04.jpeg' },
+      { title: 'Valentine’s Day', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.51.57.jpeg' },
+      { title: 'Mom-to-be', image: '/assets/images/WhatsApp Image 2026-10-11 at 16.05.18 (2).jpeg' },
+    ],
+    note: 'More occasions can be added later.',
+  },
+  {
+    title: 'Ring Platters', slug: 'ring-platters', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.04.jpeg',
+    description: 'A special presentation for the ring ceremony.',
+    subcategories: [{ title: 'Ring Platters', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.02.jpeg' }],
+  },
+  {
+    title: 'Festive Hampers', slug: 'festive-hampers', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.11.jpeg',
+    description: 'Festival gifting hampers, thoughtfully put together.',
+    subcategories: [{ title: 'Festival Gifting Hampers', image: '/assets/images/WhatsApp Image 2026-10-11 at 16.05.19.jpeg' }],
+  },
+{
+    title: 'Corporate Hampers', slug: 'corporate-hampers', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.17.jpeg',
+    description: 'Corporate gifting hampers.',
+    subcategories: [{ title: 'Corporate Gifting Hampers', image: '/assets/images/WhatsApp Image 2026-10-11 at 21.52.17.jpeg' }],
+  },
 ];
 
 const matches = (product, expression) => expression.test(product.name);

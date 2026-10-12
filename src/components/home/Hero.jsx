@@ -102,7 +102,7 @@ export default function Hero({ data = heroContent }) {
         {previousSlide !== null && <HeroPicture slide={slides[previousSlide]} index={previousSlide} className="hero-picture--outgoing" key={'outgoing-' + previousSlide} />}
         <HeroPicture slide={slide} index={activeSlide} className={previousSlide === null ? 'hero-picture--current' : 'hero-picture--incoming'} key={'incoming-' + activeSlide} />
         <div className="hero-overlay" aria-hidden="true" />
-        <div className="hero-content" key={'content-' + activeSlide} aria-live="polite">
+        <div className="hero-content" aria-live="polite">
           <div className="hero-prose">
             {subtitle && <p className="hero-subtitle">{subtitle}</p>}
             {title && (
@@ -115,7 +115,7 @@ export default function Hero({ data = heroContent }) {
                 ))}
               </h1>
             )}
-            <WhatsAppContactLink message="Hi, I would like to plan a hamper." className="button hero-button" style={{ '--button-background': '101 18 22', '--button-outline-color': '101 18 22', '--button-text-color': '245 240 233' }}>{ctaText}</WhatsAppContactLink>
+            <WhatsAppContactLink message="Hi, I would like to plan a hamper." className="button hero-button" style={{ '--button-background': '139 27 43', '--button-outline-color': '139 27 43', '--button-text-color': '251 248 242' }}>{ctaText}</WhatsAppContactLink>
           </div>
         </div>
         <button type="button" className="hero-scroll-down circle-button circle-button--lg" aria-label="Scroll to collections" onClick={() => document.querySelector('.home-categories')?.scrollIntoView({ behavior: 'smooth' })}>

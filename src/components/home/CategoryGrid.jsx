@@ -1,47 +1,95 @@
-﻿import React from 'react';
-
-const featuredCollections = [
-  {
-    title: 'Tableware',
-    href: '/collections/tableware',
-    image: 'https://www.studio13.co.in/cdn/shop/files/tableware.jpg?v=1683441484&width=1800',
-  },
-  {
-    title: 'Collections',
-    href: '/collections',
-    image: 'https://www.studio13.co.in/cdn/shop/files/full-collection_927b913c-43f3-4103-90a0-fc8ed4a30727.jpg?v=1717495993&width=1200',
-  },
-  {
-    title: 'Stationery',
-    href: '/collections/all-stationery',
-    image: 'https://www.studio13.co.in/cdn/shop/files/stationerynavy2.jpg?v=1695884131&width=1500',
-  },
-  {
-    title: 'Gifting',
-    href: '/collections/gifting',
-    image: 'https://www.studio13.co.in/cdn/shop/files/box1_96a6c2d3-7c09-4621-9f7c-e9d7053954d9.jpg?v=1763449735&width=1500',
-  },
-];
+﻿import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { storeCollections } from '../../data/storeCatalog';
 
 export default function CategoryGrid() {
+  const track = useRef(null);
+  const animationFrame = useRef(null);
+  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(false);
+
+  const pauseRotation = (element = track.current) => {
+    setPaused(true);
+    if (animationFrame.current !== null) window.cancelAnimationFrame(animationFrame.current);
+    animationFrame.current = null;
+    if (element) element.style.scrollBehavior = 'auto';
+  };
+  const resumeRotation = (element = track.current) => {
+    setPaused(false);
+    element?.style.removeProperty('scroll-behavior');
+  };
+
+  useEffect(() => {
+    const element = track.current;
+    if (!element || !inView || paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
+    let previousTime = 0;
+    const move = (time) => {
+      if (previousTime) {
+        const firstCard = element.firstElementChild;
+        const gap = Number.parseFloat(window.getComputedStyle(element).columnGap) || 0;
+        const loopDistance = (firstCard.getBoundingClientRect().width + gap) * storeCollections.length;
+        element.scrollLeft += (time - previousTime) * 0.036;
+        if (loopDistance > 0 && element.scrollLeft >= loopDistance) element.scrollLeft -= loopDistance;
+      }
+      previousTime = time;
+      animationFrame.current = window.requestAnimationFrame(move);
+    };
+
+    animationFrame.current = window.requestAnimationFrame(move);
+    return () => {
+      if (animationFrame.current !== null) window.cancelAnimationFrame(animationFrame.current);
+      animationFrame.current = null;
+    };
+  }, [inView, paused]);
+
+  useEffect(() => {
+    const element = track.current;
+    if (!element || !('IntersectionObserver' in window)) {
+      setInView(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.2 });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  const cards = [...storeCollections, ...storeCollections];
+
   return (
-    <section className="home-categories" aria-label="Shop by collection">
-      <div className="home-category-grid">
-        {featuredCollections.map((collection) => (
-          <a className="home-category-card collection-card group" href={collection.href} key={collection.title}>
-            <div className="home-category-media content-over-media content-over-media--auto">
-              <img className="zoom-image group-hover:zoom" src={collection.image} alt={collection.title} loading="lazy" />
-              <div className="home-category-content collection-card__content prose prose--tight place-self-center text-center">
-                <span className="home-category-title">{collection.title}</span>
-                <span className="home-category-cta">View products</span>
+    <section className="home-categories" aria-label="Gifting categories" aria-roledescription="carousel">
+      <div
+        className="home-category-grid"
+        ref={track}
+        onMouseEnter={(event) => pauseRotation(event.currentTarget)}
+        onMouseLeave={(event) => resumeRotation(event.currentTarget)}
+        onFocusCapture={(event) => pauseRotation(event.currentTarget)}
+        onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) resumeRotation(event.currentTarget); }}
+        onTouchStart={(event) => pauseRotation(event.currentTarget)}
+        onTouchEnd={(event) => resumeRotation(event.currentTarget)}
+      >
+        {cards.map((collection, index) => {
+          const duplicate = index >= storeCollections.length;
+          return (
+            <Link
+              className="home-category-card collection-card group"
+              to={`/collections/${collection.slug}`}
+              key={`${collection.slug}-${index}`}
+              aria-hidden={duplicate || undefined}
+              tabIndex={duplicate ? -1 : undefined}
+            >
+              <div className="home-category-media content-over-media content-over-media--auto">
+                <img className="zoom-image group-hover:zoom" src={collection.image} alt={duplicate ? '' : collection.title} loading="lazy" />
+                <div className="home-category-content collection-card__content prose prose--tight place-self-center text-center">
+                  <span className="home-category-title">{collection.title}</span>
+                  <span className="home-category-cta">Explore category</span>
+                </div>
               </div>
-            </div>
-          </a>
-        ))}
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
 }
-
-
-

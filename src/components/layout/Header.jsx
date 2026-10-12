@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import { siteHeader } from '../../data/siteContent';
@@ -9,8 +9,13 @@ export default function Header({ config = siteHeader }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { pathname } = useLocation();
+  const [isMegaMenuDismissed, setIsMegaMenuDismissed] = useState(() => Boolean(window.location.hash));
+  const { pathname, hash } = useLocation();
   const isHome = pathname === '/';
+
+  useEffect(() => {
+    if (hash) setIsMegaMenuDismissed(true);
+  }, [pathname, hash]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +29,7 @@ export default function Header({ config = siteHeader }) {
   const { brandName = 'NI Square Packaging', logoImage = '', logoAlt = 'NI Square Packaging', navLinks = [] } = config;
 
   return (
-    <div className={`header-wrapper ${isSticky ? 'is-sticky' : ''} ${isHome ? '' : 'is-solid'}`}>
+    <div className={`header-wrapper ${isSticky ? 'is-sticky' : ''} ${isHome ? '' : 'is-solid'} ${isMegaMenuDismissed ? 'mega-menu-dismissed' : ''}`}>
       <header className="site-header">
         {/* Mobile Hamburger Button */}
         <button
@@ -56,13 +61,13 @@ export default function Header({ config = siteHeader }) {
         </div>
 
         {/* Primary Navigation (Center) */}
-        <nav className="header-primary-nav" aria-label="Main navigation">
+        <nav className="header-primary-nav" aria-label="Main navigation" onMouseLeave={() => setIsMegaMenuDismissed(false)}>
           <ul className="desktop-nav-list">
             {navLinks.map((item) => {
               if (item.hasMegaMenu) {
                 return (
                   <li key={item.label} className="nav-item">
-                    <a href={item.path} className="nav-link">
+                    <a href={item.path} className="nav-link" onClick={() => setIsMegaMenuDismissed(true)}>
                       {item.label}
                     </a>
                     {/* Mega Menu Dropdown */}
@@ -74,7 +79,7 @@ export default function Header({ config = siteHeader }) {
                             <ul className="mega-sublist">
                               {col.items?.map((sub) => (
                                 <li key={sub.label}>
-                                  <a href={sub.path} className="mega-sublink">
+                                  <a href={sub.path} className="mega-sublink" onClick={() => setIsMegaMenuDismissed(true)}>
                                     {sub.label}
                                   </a>
                                 </li>
@@ -91,7 +96,7 @@ export default function Header({ config = siteHeader }) {
               if (item.hasDropdown) {
                 return (
                   <li key={item.label} className="nav-item">
-                    <a href={item.path} className="nav-link">
+                    <a href={item.path} className="nav-link" onClick={() => setIsMegaMenuDismissed(true)}>
                       {item.label}
                     </a>
                     {/* Standard Dropdown */}
@@ -99,7 +104,7 @@ export default function Header({ config = siteHeader }) {
                       <ul className="dropdown-list">
                         {item.dropdownItems?.map((sub) => (
                           <li key={sub.label}>
-                            <a href={sub.path} className="dropdown-item-link">
+                            <a href={sub.path} className="dropdown-item-link" onClick={() => setIsMegaMenuDismissed(true)}>
                               {sub.label}
                             </a>
                           </li>
@@ -112,7 +117,7 @@ export default function Header({ config = siteHeader }) {
 
               return (
                 <li key={item.label} className="nav-item">
-                  <a href={item.path} className="nav-link">
+                  <a href={item.path} className="nav-link" onClick={() => setIsMegaMenuDismissed(true)}>
                     {item.label}
                   </a>
                 </li>

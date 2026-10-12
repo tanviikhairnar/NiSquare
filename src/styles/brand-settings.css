@@ -1,28 +1,28 @@
 :root {
   /* NI Square storefront palette */
-  --brand-wine: #651216;
-  --brand-burgundy: #390106;
-  --brand-dusty-rose: #D8C4A8;
-  --brand-soft-pink: #D8C4A8;
-  --brand-nude: #D8C4A8;
-  --brand-gold: #D8C4A8;
-  --brand-plum: var(--brand-burgundy);
-  --brand-plum-mid: var(--brand-wine);
-  --brand-mauve: var(--brand-wine);
+  --brand-wine: #8B1B2B;
+  --brand-burgundy: #5C111C;
+  --brand-dusty-rose: #B98589;
+  --brand-soft-pink: #F1E8E4;
+  --brand-nude: #E8D9D1;
+  --brand-gold: #B89A63;
+  --brand-plum: var(--brand-wine);
+  --brand-plum-mid: var(--brand-burgundy);
+  --brand-mauve: var(--brand-dusty-rose);
   --brand-terracotta: var(--brand-wine);
-  --brand-sage: var(--brand-wine);
-  --brand-blush: var(--brand-cream);
-  --brand-cream: #F5F0E9;
-  --brand-charcoal: #282020;
+  --brand-sage: var(--brand-soft-pink);
+  --brand-blush: var(--brand-soft-pink);
+  --brand-cream: #FBF8F2;
+  --brand-charcoal: #31272A;
 
   /* Shared storefront roles */
   --store-background: var(--brand-cream);
-  --store-surface: var(--brand-cream);
+  --store-surface: #FFFFFF;
   --store-ink: var(--brand-charcoal);
-  --store-ink-rgb: 40 32 32;
-  --store-header: var(--brand-burgundy);
+  --store-ink-rgb: 49 39 42;
+  --store-header: var(--brand-wine);
   --store-footer: var(--brand-burgundy);
-  --store-muted: var(--brand-wine);
+  --store-muted: #6D5558;
   --store-sale: var(--brand-wine);
   --store-accent: var(--brand-gold);
 
@@ -38,16 +38,16 @@
   --button-letter-spacing: .18em;
   --button-border-radius: 0;
 
-  --background: 245 240 233 / 1;
-  --page-background: 245 240 233;
-  --text-color: 40 32 32;
-  --border-color: 216 196 168;
-  --on-sale-text: 101 18 22;
-  --star-rating: 216 196 168;
-  --button-background: 101 18 22;
-  --button-outline-color: 101 18 22;
-  --button-text-color: 245 240 233;
-  --circle-button-background: 216 196 168;
-  --circle-button-text-color: 40 32 32;
-  --shadow-sm: 0 2px 10px rgb(40 32 32 / .1);
+  --background: 251 248 242 / 1;
+  --page-background: 251 248 242;
+  --text-color: 49 39 42;
+  --border-color: 228 216 207;
+  --on-sale-text: 139 27 43;
+  --star-rating: 184 154 99;
+  --button-background: 139 27 43;
+  --button-outline-color: 139 27 43;
+  --button-text-color: 255 255 255;
+  --circle-button-background: 241 232 228;
+  --circle-button-text-color: 92 17 28;
+  --shadow-sm: 0 2px 12px rgb(49 39 42 / .11);
 }
