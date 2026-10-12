@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import WhatsAppContactLink from '../WhatsAppContactLink';
 
 export default function MobileMenu({ isOpen, onClose, navLinks = [], brandName = 'NI SQUARE PACKAGING' }) {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -8,8 +11,17 @@ export default function MobileMenu({ isOpen, onClose, navLinks = [], brandName =
     setExpandedSection((prev) => (prev === label ? null : label));
   };
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
+
   return (
-    <>
+    createPortal(<>
       {/* Backdrop */}
       <div
         className={`drawer-backdrop ${isOpen ? 'open' : ''}`}
@@ -71,7 +83,7 @@ export default function MobileMenu({ isOpen, onClose, navLinks = [], brandName =
                       <div className="drawer-sublinks">
                         {item.megaMenu?.map((col) => (
                           <div key={col.heading} className="drawer-subgroup">
-                            <div className="drawer-subgroup-title">{col.heading}</div>
+                            <Link className="drawer-subgroup-title" to={col.headingPath} onClick={onClose}>{col.heading}</Link>
                             <div className="drawer-subgroup-items">
                               {col.items?.map((sub) => (
                                 <Link
@@ -115,16 +127,9 @@ export default function MobileMenu({ isOpen, onClose, navLinks = [], brandName =
         </ul>
 
         {/* Footer */}
-        <div className="drawer-footer">
-          <Link to="/account" className="drawer-footer-link" onClick={onClose}>
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-            <span>Account</span>
-          </Link>
-        </div>
+        <div className="drawer-footer"><WhatsAppContactLink className="drawer-footer-link" message="Hi, I would like to plan a hamper.">Plan a hamper on WhatsApp</WhatsAppContactLink></div>
       </aside>
-    </>
+    </>, document.body)
   );
 }
+

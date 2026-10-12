@@ -81,7 +81,7 @@ export default function CategoryGrid() {
             >
               <div className="home-category-media content-over-media content-over-media--auto">
                 <img className="zoom-image group-hover:zoom" src={collection.image} alt={duplicate ? '' : collection.title} loading="lazy" />
-                <div className="home-category-content collection-card__content prose prose--tight place-self-center text-center">
+                <div className="home-category-content collection-card__content prose prose--tight">
                   <span className="home-category-title">{collection.title}</span>
                   <span className="home-category-cta">Explore category</span>
                 </div>

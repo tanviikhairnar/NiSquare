@@ -1,7 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import Hero from '../components/home/Hero';
 import CategoryGrid from '../components/home/CategoryGrid';
-import NewArrivals from '../components/home/NewArrivals';
 import { FoundersSection } from '../components/home/NIStorySections';
 import CompanyBanner from '../components/home/CompanyBanner';
 import PreviousWorkSection from '../components/home/PreviousWorkSection';
@@ -11,7 +10,7 @@ export default function Home() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
 
     const sections = document.querySelectorAll(
-      '.home-categories, .catalog-section, .ni-founders, .ni-company-banner, .previous-work-section',
+      '.home-categories, .ni-founders, .ni-company-banner, .previous-work-section',
     );
 
     if (!('IntersectionObserver' in window)) {
@@ -39,7 +38,6 @@ export default function Home() {
     <>
       <Hero />
       <CategoryGrid />
-      <NewArrivals />
       <FoundersSection showBiographies={false} />
       <CompanyBanner />
       <PreviousWorkSection />

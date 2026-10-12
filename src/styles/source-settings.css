@@ -1,42 +1,7 @@
 ﻿/* Typography (heading) */
   
 
-/* Typography (body) */
-  @font-face {
-  font-family: "Instrument Sans";
-  font-weight: 400;
-  font-style: normal;
-  font-display: fallback;
-  src: url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_n4.db86542ae5e1596dbdb28c279ae6c2086c4c5bfa.woff2") format("woff2"),
-       url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_n4.510f1b081e58d08c30978f465518799851ef6d8b.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Instrument Sans";
-  font-weight: 400;
-  font-style: italic;
-  font-display: fallback;
-  src: url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_i4.028d3c3cd8d085648c808ceb20cd2fd1eb3560e5.woff2") format("woff2"),
-       url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_i4.7e90d82df8dee29a99237cd19cc529d2206706a2.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Instrument Sans";
-  font-weight: 700;
-  font-style: normal;
-  font-display: fallback;
-  src: url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_n7.e4ad9032e203f9a0977786c356573ced65a7419a.woff2") format("woff2"),
-       url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_n7.b9e40f166fb7639074ba34738101a9d2990bb41a.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Instrument Sans";
-  font-weight: 700;
-  font-style: italic;
-  font-display: fallback;
-  src: url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_i7.d6063bb5d8f9cbf96eace9e8801697c54f363c6a.woff2") format("woff2"),
-       url("https://www.studio13.co.in/cdn/fonts/instrument_sans/instrumentsans_i7.ce33afe63f8198a3ac4261b826b560103542cd36.woff") format("woff");
-}
+/* Typography is loaded by the NI Square site. */
 
 :root {
     /* Container */
@@ -123,8 +88,8 @@
      * ---------------------------------------------------------------------
      */
 
-    --checkmark-svg-url: url(//www.studio13.co.in/cdn/shop/t/28/assets/checkmark.svg?v=77552481021870063511741594705);
-    --cursor-zoom-in-svg-url: url(//www.studio13.co.in/cdn/shop/t/28/assets/cursor-zoom-in.svg?v=112480252220988712521767691415);
+    --checkmark-svg-url: none;
+    --cursor-zoom-in-svg-url: auto;
   }
 
   [dir="rtl"]:root {
@@ -251,4 +216,5 @@
       --circle-button-background: 255 255 255;
       --circle-button-text-color: 28 28 28;
     }
+
 

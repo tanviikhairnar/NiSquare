@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import { siteHeader } from '../../data/siteContent';
@@ -9,13 +9,9 @@ export default function Header({ config = siteHeader }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isMegaMenuDismissed, setIsMegaMenuDismissed] = useState(() => Boolean(window.location.hash));
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
   const isHome = pathname === '/';
 
-  useEffect(() => {
-    if (hash) setIsMegaMenuDismissed(true);
-  }, [pathname, hash]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +25,7 @@ export default function Header({ config = siteHeader }) {
   const { brandName = 'NI Square Packaging', logoImage = '', logoAlt = 'NI Square Packaging', navLinks = [] } = config;
 
   return (
-    <div className={`header-wrapper ${isSticky ? 'is-sticky' : ''} ${isHome ? '' : 'is-solid'} ${isMegaMenuDismissed ? 'mega-menu-dismissed' : ''}`}>
+    <div className={`header-wrapper ${isSticky ? 'is-sticky' : ''} ${isHome ? '' : 'is-solid'}`}>
       <header className="site-header">
         {/* Mobile Hamburger Button */}
         <button
@@ -61,13 +57,13 @@ export default function Header({ config = siteHeader }) {
         </div>
 
         {/* Primary Navigation (Center) */}
-        <nav className="header-primary-nav" aria-label="Main navigation" onMouseLeave={() => setIsMegaMenuDismissed(false)}>
+        <nav className="header-primary-nav" aria-label="Main navigation">
           <ul className="desktop-nav-list">
             {navLinks.map((item) => {
               if (item.hasMegaMenu) {
                 return (
                   <li key={item.label} className="nav-item">
-                    <a href={item.path} className="nav-link" onClick={() => setIsMegaMenuDismissed(true)}>
+                    <a href={item.path} className="nav-link">
                       {item.label}
                     </a>
                     {/* Mega Menu Dropdown */}
@@ -75,11 +71,11 @@ export default function Header({ config = siteHeader }) {
                       <div className="mega-menu-inner">
                         {item.megaMenu?.map((col) => (
                           <div key={col.heading} className="mega-column">
-                            <h4 className="mega-column-title">{col.heading}</h4>
+                            <h4 className="mega-column-title"><a href={col.headingPath}>{col.heading}</a></h4>
                             <ul className="mega-sublist">
                               {col.items?.map((sub) => (
                                 <li key={sub.label}>
-                                  <a href={sub.path} className="mega-sublink" onClick={() => setIsMegaMenuDismissed(true)}>
+                                  <a href={sub.path} className="mega-sublink">
                                     {sub.label}
                                   </a>
                                 </li>
@@ -96,7 +92,7 @@ export default function Header({ config = siteHeader }) {
               if (item.hasDropdown) {
                 return (
                   <li key={item.label} className="nav-item">
-                    <a href={item.path} className="nav-link" onClick={() => setIsMegaMenuDismissed(true)}>
+                    <a href={item.path} className="nav-link">
                       {item.label}
                     </a>
                     {/* Standard Dropdown */}
@@ -104,7 +100,7 @@ export default function Header({ config = siteHeader }) {
                       <ul className="dropdown-list">
                         {item.dropdownItems?.map((sub) => (
                           <li key={sub.label}>
-                            <a href={sub.path} className="dropdown-item-link" onClick={() => setIsMegaMenuDismissed(true)}>
+                            <a href={sub.path} className="dropdown-item-link">
                               {sub.label}
                             </a>
                           </li>
@@ -117,7 +113,7 @@ export default function Header({ config = siteHeader }) {
 
               return (
                 <li key={item.label} className="nav-item">
-                  <a href={item.path} className="nav-link" onClick={() => setIsMegaMenuDismissed(true)}>
+                  <a href={item.path} className="nav-link">
                     {item.label}
                   </a>
                 </li>
@@ -128,14 +124,6 @@ export default function Header({ config = siteHeader }) {
 
         {/* Secondary Navigation Icons (Right) */}
         <div className="header-secondary-nav" aria-label="User navigation">
-          {/* Account Icon */}
-          <Link to="/account" className="header-icon-btn account-btn" aria-label="Account">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-          </Link>
-
           {/* Search Icon */}
           <button type="button" className="header-icon-btn" aria-label="Search" onClick={() => setIsSearchOpen(true)}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg></button>
 

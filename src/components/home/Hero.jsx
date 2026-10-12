@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+﻿import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { heroContent } from '../../data/siteContent';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 
 const slides = [
-  { image: 'https://www.studio13.co.in/cdn/shop/files/home-page-banner-01.jpg?v=1725276693&width=3200', mobileImage: 'https://www.studio13.co.in/cdn/shop/files/banner_4_mob.jpg?v=1741689853&width=1200', subtitle: 'NI Square Packaging', title: 'From our hands to your loved ones, with love.', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
-  { image: 'https://www.studio13.co.in/cdn/shop/files/home-page-banner-02.jpg?v=1725277403&width=3200', mobileImage: 'https://www.studio13.co.in/cdn/shop/files/banner_3_mob.jpg?v=1741689853&width=1200', subtitle: 'Thoughtful hampers for every kind of occasion', title: 'Make every gift feel personal', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
-  { image: 'https://www.studio13.co.in/cdn/shop/files/home-page-banner-03.jpg?v=1725276037&width=3200', mobileImage: 'https://www.studio13.co.in/cdn/shop/files/banner_2_mob.jpg?v=1741689852&width=1200', subtitle: 'Weddings, birthdays, baby celebrations, and more', title: 'Hampers for life’s occasions', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
-  { image: 'https://www.studio13.co.in/cdn/shop/files/home-page-banner-04.jpg?v=1725278735&width=3200', mobileImage: 'https://www.studio13.co.in/cdn/shop/files/banner_1.1_mob.jpg?v=1741689853&width=1200', subtitle: 'A thoughtful way to thank the people you love', title: 'Return favours guests will remember', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
-  { image: 'https://www.studio13.co.in/cdn/shop/files/home-page-banner-05.jpg?v=1725278950&width=3200', mobileImage: 'https://www.studio13.co.in/cdn/shop/files/banner_5_mob.jpg?v=1741689853&width=1200', subtitle: 'Personalised around your theme, taste, and budget', title: 'A gift made around your idea', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
+  { image: '/assets/images/hero/pexels-what-a-story-2163718798-39141386.jpg', mobileImage: '/assets/images/hero/pexels-what-a-story-2163718798-39141386.jpg', subtitle: 'NI Square Packaging', title: 'From our hands to your loved ones, with love.', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
+  { image: '/assets/images/hero/pexels-rdne-7686377.jpg', mobileImage: '/assets/images/hero/pexels-rdne-7686377.jpg', subtitle: 'Thoughtful hampers for every kind of occasion', title: 'Make every gift feel personal', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
+  { image: '/assets/images/hero/pexels-asya-vlasova-228168-6079747.jpg', mobileImage: '/assets/images/hero/pexels-asya-vlasova-228168-6079747.jpg', subtitle: 'Weddings, birthdays, baby celebrations, and more', title: 'Hampers for life’s occasions', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
+  { image: '/assets/images/hero/pexels-tamanna-rumee-52377920-7986146.jpg', mobileImage: '/assets/images/hero/pexels-tamanna-rumee-52377920-7986146.jpg', subtitle: 'A thoughtful way to thank the people you love', title: 'Return favours guests will remember', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
+  { image: '/assets/images/hero/pexels-magda-ehlers-pexels-3873490.jpg', mobileImage: '/assets/images/hero/pexels-magda-ehlers-pexels-3873490.jpg', subtitle: 'Personalised around your theme, taste, and budget', title: 'A gift made around your idea', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
 ];
 
 function HeroPicture({ slide, index, className }) {
@@ -136,3 +136,4 @@ export default function Hero({ data = heroContent }) {
     </section>
   );
 }
+
