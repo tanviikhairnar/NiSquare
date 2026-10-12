@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { heroContent } from '../../data/siteContent';
+import WhatsAppContactLink from '../WhatsAppContactLink';
 
 const slides = [
   { image: 'https://www.studio13.co.in/cdn/shop/files/home-page-banner-01.jpg?v=1725276693&width=3200', mobileImage: 'https://www.studio13.co.in/cdn/shop/files/banner_4_mob.jpg?v=1741689853&width=1200', subtitle: 'NI Square Packaging', title: 'From our hands to your loved ones, with love.', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
@@ -84,7 +85,6 @@ export default function Hero({ data = heroContent }) {
   const subtitle = firstSlide ? (data.subtitle || slide.subtitle) : slide.subtitle;
   const title = firstSlide ? (data.title || slide.title) : slide.title;
   const ctaText = firstSlide ? (data.ctaText || slide.ctaText) : slide.ctaText;
-  const ctaLink = firstSlide ? (data.ctaLink || slide.ctaLink) : slide.ctaLink;
 
   return (
     <section className="hero-section" aria-label="NI Square Packaging gifting">
@@ -115,7 +115,7 @@ export default function Hero({ data = heroContent }) {
                 ))}
               </h1>
             )}
-            <a href={ctaLink} className="button hero-button" style={{ '--button-background': '101 18 22', '--button-outline-color': '101 18 22', '--button-text-color': '245 240 233' }}>{ctaText}</a>
+            <WhatsAppContactLink message="Hi, I would like to plan a hamper." className="button hero-button" style={{ '--button-background': '101 18 22', '--button-outline-color': '101 18 22', '--button-text-color': '245 240 233' }}>{ctaText}</WhatsAppContactLink>
           </div>
         </div>
         <button type="button" className="hero-scroll-down circle-button circle-button--lg" aria-label="Scroll to collections" onClick={() => document.querySelector('.home-categories')?.scrollIntoView({ behavior: 'smooth' })}>

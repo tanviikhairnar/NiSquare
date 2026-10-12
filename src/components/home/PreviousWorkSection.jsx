@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
+import WhatsAppContactLink from '../WhatsAppContactLink';
 
 const previousWorkReels = [
   {
@@ -41,19 +42,6 @@ const previousWorkReels = [
 const instagramProfile = 'https://www.instagram.com/nisquarepackaging/';
 
 export default function PreviousWorkSection() {
-  const galleryRef = useRef(null);
-
-  const scrollGallery = (direction) => {
-    const gallery = galleryRef.current;
-    if (!gallery) return;
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    gallery.scrollBy({
-      left: direction * Math.max(gallery.clientWidth * 0.72, 240),
-      behavior: reduceMotion ? 'auto' : 'smooth',
-    });
-  };
-
   return (
     <section className="previous-work-section" aria-labelledby="previous-work-heading">
       <div className="previous-work-heading">
@@ -80,19 +68,10 @@ export default function PreviousWorkSection() {
             <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <div className="previous-work-controls" aria-label="Previous work gallery controls">
-          <button type="button" onClick={() => scrollGallery(-1)} aria-label="Show previous projects">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
-          </button>
-          <button type="button" onClick={() => scrollGallery(1)} aria-label="Show next projects">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
-          </button>
-        </div>
       </div>
 
       <div
         className="previous-work-track"
-        ref={galleryRef}
         role="region"
         aria-label="Previous gifting and packaging projects"
         tabIndex={0}
@@ -136,7 +115,7 @@ export default function PreviousWorkSection() {
         ))}
       </div>
       <div className="previous-work-footer">
-        <a className="previous-work-link" href="/pages/contact">Plan a custom project</a>
+        <WhatsAppContactLink className="previous-work-link" message="Hi, I would like to plan a custom gifting project.">Plan a custom project</WhatsAppContactLink>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
-import { useWishlist } from '../../context/WishlistContext';
+import WhatsAppContactLink from '../WhatsAppContactLink';
 import { siteHeader } from '../../data/siteContent';
 import MobileMenu from './MobileMenu';
 import SearchDialog from './SearchDialog';
@@ -10,8 +9,6 @@ export default function Header({ config = siteHeader }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { quantity, openCart } = useCart();
-  const { count: wishlistCount } = useWishlist();
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
@@ -137,23 +134,8 @@ export default function Header({ config = siteHeader }) {
           {/* Search Icon */}
           <button type="button" className="header-icon-btn" aria-label="Search" onClick={() => setIsSearchOpen(true)}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg></button>
 
-          {/* Cart Icon */}
-          <button type="button" className="header-icon-btn cart-btn" aria-label="Cart" onClick={openCart}>
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <path d="M16 10a4 4 0 0 1-8 0" />
-            </svg>
-            {quantity > 0 && <span className="cart-count">{quantity}</span>}
-          </button>
+          <WhatsAppContactLink className="header-icon-btn header-whatsapp-link" message="Hi, I would like to plan a hamper.">WhatsApp</WhatsAppContactLink>
 
-          {/* Wishlist / Heart Icon */}
-          <Link to="/wishlist" className="header-icon-btn wishlist-btn" aria-label={'Wishlist' + (wishlistCount ? ', ' + wishlistCount + ' saved' : '')}>
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-            </svg>
-            <span className="wishlist-count">{wishlistCount}</span>
-          </Link>
         </div>
       </header>
 
@@ -168,3 +150,4 @@ export default function Header({ config = siteHeader }) {
     </div>
   );
 }
+

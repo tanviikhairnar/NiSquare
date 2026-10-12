@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import WhatsAppContactLink from '../WhatsAppContactLink';
 
 export default function CompanyBanner() {
   return (
@@ -8,7 +8,7 @@ export default function CompanyBanner() {
         <p className="ni-section-eyebrow">Made for every occasion</p>
         <h2>1,000+ hampers, made personal</h2>
         <p>From the first idea to the finishing touches, we’ll help bring your gift together.</p>
-        <Link className="ni-company-banner-link" to="/pages/contact">Plan a hamper</Link>
+        <WhatsAppContactLink className="ni-company-banner-link" message="Hi, I would like to plan a hamper.">Plan a hamper</WhatsAppContactLink>
       </div>
     </section>
   );

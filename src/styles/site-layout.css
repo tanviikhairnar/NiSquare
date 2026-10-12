@@ -673,25 +673,6 @@ h2.catalog-heading {
   font: var(--text-xs) / 1.4 var(--text-font-family);
   text-transform: uppercase;
 }
-.wishlist-heart {
-  position: absolute;
-  inset-block-start: .5rem;
-  inset-inline-end: .5rem;
-  z-index: 3;
-  display: grid;
-  width: 1.75rem;
-  height: 1.75rem;
-  place-items: center;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: rgb(var(--on-sale-text, 227 44 43));
-  cursor: pointer;
-  transition: color .2s ease-in-out;
-}
-.wishlist-heart svg { display: block; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.8; }
-.wishlist-heart:hover, .wishlist-heart:focus-visible { color: rgb(var(--on-sale-text, 227 44 43)); }
-.wishlist-heart.is-wishlisted svg { fill: currentColor; }
 .product-card__quick-add-button { background: #fff; color: var(--store-ink); }
 .product-card__quick-add-button:hover { background: var(--store-ink); color: #fff; }
 
@@ -808,7 +789,7 @@ h2.catalog-heading {
   .header-logo { position: absolute; inset-inline-start: 50%; transform: translateX(-50%); z-index: 1; }
   .header-primary-nav { display: none; }
   .header-secondary-nav { z-index: 2; }
-  .header-secondary-nav .account-btn, .header-secondary-nav .wishlist-btn { display: none; }
+  .header-secondary-nav .account-btn { display: none; }
   .drawer-backdrop { display: block; position: fixed; inset: 0; z-index: 998; background: rgb(0 0 0 / .4); opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; }
   .drawer-backdrop.open { opacity: 1; visibility: visible; }
   .drawer-panel { display: flex; }
@@ -1158,21 +1139,6 @@ html { scroll-padding-top: var(--header-height); }
 .hero-scroll-down:hover { transform: translateX(-50%) translateY(-2px); box-shadow: 0 .4rem 1rem rgb(0 0 0 / .2); }
 .hero-scroll-down:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
-.wishlist-btn { overflow: visible; }
-.wishlist-count {
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline-end: 0;
-  display: grid;
-  min-width: 1rem;
-  height: 1rem;
-  padding-inline: .2rem;
-  place-items: center;
-  border-radius: 999px;
-  background: var(--brand-blush);
-  color: var(--store-ink);
-  font: 600 .625rem / 1 var(--text-font-family);
-}
 @media (max-width: 999px) {
   .header-secondary-nav .account-btn { display: none; }
   .header-secondary-nav { gap: .5rem; }
@@ -1225,6 +1191,7 @@ html { scroll-padding-top: var(--header-height); }
 .ni-founder-card { min-width: 0; overflow: hidden; background: var(--store-surface); transition: transform .28s ease, box-shadow .28s ease; }
 .ni-founder-card:hover { transform: translateY(-4px); box-shadow: 0 1rem 2.5rem rgb(0 0 0 / .09); }
 .ni-founder-portrait { display: grid; position: relative; min-height: 15rem; aspect-ratio: 1.75; place-items: center; overflow: hidden; background: linear-gradient(135deg, var(--brand-blush), var(--brand-cream) 58%, var(--brand-blush)); color: var(--store-ink); }
+.ni-founder-portrait img { display: block; width: 100%; height: 100%; min-height: inherit; aspect-ratio: inherit; object-fit: cover; object-position: center 38%; }
 .ni-founder-portrait::before, .ni-founder-portrait::after { position: absolute; width: 17rem; height: 17rem; border: 1px solid var(--brand-terracotta); opacity: .24; border-radius: 50%; content: ''; }
 .ni-founder-portrait::before { transform: translate(-45%, 35%); }
 .ni-founder-portrait::after { transform: translate(45%, -35%); }
@@ -1235,6 +1202,21 @@ html { scroll-padding-top: var(--header-height); }
 .ni-founder-copy h3 { margin: 0 0 1rem; font: var(--heading-font-style) 500 clamp(1.4rem, 2.2vw, 1.9rem) / 1.2 var(--heading-font-family); text-transform: uppercase; }
 .ni-founder-copy > p:not(.ni-section-eyebrow) { color: var(--store-muted); line-height: 1.75; }
 .ni-founder-phone { display: inline-block; margin-block-start: .5rem; color: inherit; text-underline-offset: .25em; }
+.ni-founders--compact .ni-section-heading { margin-block-end: clamp(2rem, 4vw, 3.25rem); }
+.ni-founders--compact .ni-founder-grid { max-width: 62rem; margin-inline: auto; }
+.ni-founders--compact .ni-founder-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, .85fr); align-items: stretch; }
+.ni-founders--compact .ni-founder-portrait { min-height: 22rem; aspect-ratio: auto; }
+.ni-founders--compact .ni-founder-portrait::before,
+.ni-founders--compact .ni-founder-portrait::after { display: none; }
+.ni-founders--compact .ni-founder-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(1.5rem, 3vw, 2.5rem); }
+.ni-founders--compact .ni-founder-copy h3 { margin-bottom: 1.5rem; }
+.ni-founders--compact .ni-founder-phone { display: inline-flex; margin-block-start: 0; padding: .8rem 1.15rem; border: 1px solid currentColor; text-decoration: none; }
+.ni-founders--compact .ni-founder-card:nth-child(2) .ni-founder-portrait { order: 2; }
+@media (max-width: 700px) {
+  .ni-founders--compact .ni-founder-card { grid-template-columns: 1fr; }
+  .ni-founders--compact .ni-founder-card:nth-child(2) .ni-founder-portrait { order: 0; }
+  .ni-founders--compact .ni-founder-portrait { min-height: 20rem; aspect-ratio: 1.15; }
+}
 .ni-services { background: var(--brand-blush); }
 .ni-service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; padding: 1px; background: rgb(var(--border-color, 204 204 204)); }
 .ni-service-card { min-height: 13rem; padding: clamp(1.25rem, 2.5vw, 2rem); background: var(--brand-cream); transition: background-color .25s ease, transform .25s ease; }
@@ -2541,3 +2523,33 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .ni-company-banner::before { animation: none; }
 }
+
+/* Center the Reels showcase while keeping touch scrolling natural. */
+.previous-work-heading { display: block; text-align: center; }
+.previous-work-copy { max-width: 52rem; margin-inline: auto; }
+.previous-work-copy h2,
+.previous-work-description { margin-inline: auto; }
+.previous-work-instagram { margin-inline: auto; }
+.previous-work-track { justify-content: flex-start; margin-inline: auto; }
+@media (min-width: 1360px) {
+  .previous-work-track { justify-content: center; }
+}
+.header-whatsapp-link { width: auto; padding-inline: .8rem; font-size: .67rem; text-decoration: none; }
+.store-contact-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .75rem; }
+.product-card__quick-add-button { width: auto; height: auto; min-height: 2.4rem; padding: .55rem .8rem; border: 0; border-radius: 999px; font-size: .68rem; font-weight: 600; letter-spacing: .04em; text-decoration: none; white-space: nowrap; }
+.whatsapp-contact-trigger { appearance: none; border: 0; cursor: pointer; font: inherit; }
+.store-contact-actions .button { border-color: var(--brand-wine); background: var(--brand-wine); color: #fff; }
+.store-contact-actions .button:hover,
+.store-contact-actions .button:focus-visible { border-color: #3b0a11; background: #3b0a11; color: #fff; }
+.whatsapp-choice-backdrop { position: fixed; inset: 0; z-index: 1400; display: grid; place-items: center; padding: 1rem; background: rgb(28 9 12 / .64); }
+.whatsapp-choice-dialog { position: relative; width: min(100%, 34rem); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--brand-gold); background: var(--brand-cream); color: var(--brand-wine); box-shadow: 0 1.5rem 4rem rgb(0 0 0 / .25); }
+.whatsapp-choice-dialog > .eyebrow { margin: 0 0 .65rem; color: var(--brand-burgundy); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
+.whatsapp-choice-dialog h2 { max-width: 15ch; margin: 0; font: 400 clamp(1.8rem, 5vw, 2.7rem) / 1.05 var(--heading-font-family); }
+.whatsapp-choice-dialog > p:not(.eyebrow) { margin: .75rem 0 1.4rem; color: var(--brand-plum-mid); }
+.whatsapp-choice-close { position: absolute; top: .6rem; right: .6rem; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid rgb(101 18 22 / .2); background: transparent; color: inherit; font-size: 1.5rem; cursor: pointer; }
+.whatsapp-choice-options { display: grid; gap: .65rem; }
+.whatsapp-choice-options a { display: grid; gap: .2rem; padding: 1rem 1.1rem; border: 1px solid rgb(101 18 22 / .22); background: #fffaf4; color: var(--brand-wine); text-decoration: none; }
+.whatsapp-choice-options a:hover,
+.whatsapp-choice-options a:focus-visible { border-color: var(--brand-wine); background: var(--brand-wine); color: #fff; }
+.whatsapp-choice-options small { opacity: .78; font-size: .75rem; }
+@media (max-width: 600px) { .store-contact-layout { grid-template-columns: 1fr; } }

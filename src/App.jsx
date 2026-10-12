@@ -2,14 +2,11 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import CartDrawer from './components/layout/CartDrawer';
 import Home from './pages/Home';
 import {
-  AccountPage, CartPage, CheckoutPage, CollectionPage, CollectionsPage, ContactPage,
-  NotFoundPage, PolicyPage, ProductPage, SearchPage, ServicesPage, StoryPage, WishlistPage,
+  CollectionPage, CollectionsPage, ContactPage,
+  NotFoundPage, PolicyPage, ProductPage, SearchPage, ServicesPage, StoryPage,
 } from './pages/StorePages';
-import { CartProvider } from './context/CartContext';
-import { WishlistProvider } from './context/WishlistContext';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,17 +36,15 @@ function Storefront() {
           <Route path="/pages/contact" element={<ContactPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/account/login" element={<AccountPage />} />
-          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/cart" element={<ContactPage />} />
+          <Route path="/checkout" element={<ContactPage />} />
+          <Route path="/account" element={<ContactPage />} />
+          <Route path="/account/login" element={<ContactPage />} />
           <Route path="/policies/:policy" element={<PolicyPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />
-      <CartDrawer />
     </div>
   );
 }
@@ -57,9 +52,7 @@ function Storefront() {
 export default function App() {
   return (
     <BrowserRouter>
-      <CartProvider>
-        <WishlistProvider><Storefront /></WishlistProvider>
-      </CartProvider>
+      <Storefront />
     </BrowserRouter>
   );
 }

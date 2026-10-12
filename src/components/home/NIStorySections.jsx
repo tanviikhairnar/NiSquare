@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import WhatsAppContactLink from '../WhatsAppContactLink';
 
 const founders = [
   {
-    initials: 'NK',
     name: 'Nikita Kochar Ostwal',
-    profession: 'Interior designer · Maker at heart',
-    phone: '9673283594',
+    profession: 'Interior designer',
+    image: '/assets/founders/nikita-kochar-ostwal.jpg',
     biography: [
       'I’m Nikita Kochar Ostwal, an interior designer by profession and a maker at heart. I’ve always loved creating things, trying new ideas, and turning simple ones into something beautiful.',
       'Seeing something I made bring a smile to someone’s face showed me how much I love this work. I believe the details make all the difference, and I enjoy being involved in every part of the process.',
@@ -14,10 +13,9 @@ const founders = [
     ],
   },
   {
-    initials: 'NC',
     name: 'Nikita Anil Chordiya',
     profession: 'Textile designer',
-    phone: '7083348221',
+    image: '/assets/founders/nikita-anil-chordiya.jpg',
     biography: [
       'I’m Nikita Anil Chordiya, a textile designer, and design has always felt personal to me. Since childhood I’ve loved painting and making things, noticing colours, textures, patterns, and the little details others might miss.',
       'That habit of noticing is part of my work today. Whether I’m designing, putting a hamper together, choosing textures, or refining the small details, I bring the same eye to everything I do.',
@@ -88,27 +86,26 @@ export function CompanyStory() {
   );
 }
 
-export function FoundersSection() {
+export function FoundersSection({ showBiographies = true }) {
   return (
-    <section className="ni-home-section ni-founders" id="founders">
+    <section className={`ni-home-section ni-founders${showBiographies ? '' : ' ni-founders--compact'}`} id="founders">
       <div className="ni-section-inner">
         <header className="ni-section-heading">
           <p className="ni-section-eyebrow">The people behind every detail</p>
           <h2 className="ni-section-title">Meet the founders</h2>
-          <p>Two best friends bringing their different design backgrounds and shared love of gifting to every hamper.</p>
+          {showBiographies && <p>Two best friends bringing their different design backgrounds and shared love of gifting to every hamper.</p>}
         </header>
         <div className="ni-founder-grid">
           {founders.map((founder) => (
             <article className="ni-founder-card" key={founder.name}>
-              <div className="ni-founder-portrait" role="img" aria-label={'Photo placeholder for ' + founder.name}>
-                <span className="ni-founder-initials" aria-hidden="true">{founder.initials}</span>
-                <span className="ni-founder-photo-note">Founder portrait</span>
+              <div className="ni-founder-portrait">
+                <img src={founder.image} alt={founder.name} loading="lazy" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
               </div>
               <div className="ni-founder-copy">
                 <p className="ni-section-eyebrow">{founder.profession}</p>
                 <h3>{founder.name}</h3>
-                {founder.biography.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                <a className="ni-founder-phone" href={'tel:' + founder.phone}>Call {founder.phone}</a>
+                {showBiographies && founder.biography.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                <WhatsAppContactLink className="ni-founder-phone" message="Hi, I would like to plan a hamper.">Chat on WhatsApp</WhatsAppContactLink>
               </div>
             </article>
           ))}
@@ -156,7 +153,7 @@ export function OccasionsSection() {
           <ul className="ni-occasion-list">
             {occasions.map((occasion) => <li key={occasion}>{occasion}</li>)}
           </ul>
-          <Link className="button" to="/pages/contact">Tell us what you have in mind</Link>
+          <WhatsAppContactLink className="button" message="Hi, I would like to plan a hamper.">Tell us what you have in mind</WhatsAppContactLink>
         </div>
       </div>
     </section>
