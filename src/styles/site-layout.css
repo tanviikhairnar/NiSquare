@@ -954,7 +954,7 @@ h2.catalog-heading {
 .header-wrapper.is-solid.is-sticky { position: sticky; top: 0; }
 .header-wrapper.is-home.is-sticky { position: fixed; top: 0; }
 .header-wrapper.is-sticky { animation: store-header-enter .24s ease both; }
-.header-wrapper:not(.is-solid):not(.is-sticky) { background-color: rgb(92 17 28 / .28); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.header-wrapper.is-sticky:not(.is-solid) { background-color: rgb(92 17 28 / .9); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 @keyframes store-header-enter { from { transform: translateY(-10px); } to { transform: translateY(0); } }
 
 .hero-picture { animation: store-hero-image-enter .7s cubic-bezier(.2,.7,.2,1) both; }
