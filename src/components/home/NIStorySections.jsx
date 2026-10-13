@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import WhatsAppContactLink from '../WhatsAppContactLink';
+import { WHATSAPP_FOUNDERS } from '../../lib/whatsapp';
 
 const founders = [
   {
@@ -7,9 +8,11 @@ const founders = [
     profession: 'Interior designer',
     image: '/assets/founders/nikita-kochar-ostwal.jpg',
     biography: [
-      'Iâ€™m Nikita Kochar Ostwal, an interior designer by profession and a maker at heart. Iâ€™ve always loved creating things, trying new ideas, and turning simple ones into something beautiful.',
-      'Seeing something I made bring a smile to someoneâ€™s face showed me how much I love this work. I believe the details make all the difference, and I enjoy being involved in every part of the process.',
-      'The part I enjoy most is taking someoneâ€™s ideas and bringing them to life through design. What began as a love of making things has grown into creating personalised gifts people treasure.',
+      'I’m Nikita Kochar Ostwal, an interior designer by profession and a maker at heart. I’ve always loved creating things, trying out new ideas and turning simple ones into something beautiful.',
+      'What got me hooked was seeing how something I made could bring a smile to someone’s face and make their day a little more special. That’s when I realised I was actually good at this, and that I loved doing it.',
+      'I’ve always believed that details make all the difference. From choosing the right elements to adding the final touches, I like being involved in every part of the process.',
+      'The part I enjoy most is taking someone’s ideas and vision and bringing them to life through design.',
+      'What began as a love of making things has grown into creating personalised gifts that people treasure.',
     ],
   },
   {
@@ -17,9 +20,11 @@ const founders = [
     profession: 'Textile designer',
     image: '/assets/founders/nikita-anil-chordiya.jpg',
     biography: [
-      'Iâ€™m Nikita Anil Chordiya, a textile designer, and design has always felt personal to me. Since childhood Iâ€™ve loved painting and making things, noticing colours, textures, patterns, and the little details others might miss.',
-      'That habit of noticing is part of my work today. Whether Iâ€™m designing, putting a hamper together, choosing textures, or refining the small details, I bring the same eye to everything I do.',
-      'For me, design is about taking something simple and making it feel special. I love turning everyday ideas into something people notice and enjoy.',
+      'I’m Nikita Anil Chordiya, a textile designer by profession, and design has always felt personal to me.',
+      'Ever since I was a child, I’ve loved painting and making things. I notice things: colours, textures, patterns and all the small details most people miss. I used to put what I saw into paintings and sketches in my diary.',
+      'Over the years, that habit of noticing has made its way into my work. Whether I’m designing, putting a hamper together, choosing textures, or working on the small details, I bring the same eye to everything I do.',
+      'For me, design is about taking something simple and making it feel a little more special.',
+      'That’s what I love most: turning everyday ideas into something people notice and enjoy.',
     ],
   },
 ];
@@ -105,7 +110,17 @@ export function FoundersSection({ showBiographies = true }) {
                 <p className="ni-section-eyebrow">{founder.profession}</p>
                 <h3>{founder.name}</h3>
                 {showBiographies && founder.biography.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                <WhatsAppContactLink className="ni-founder-phone" message="Hi, I would like to plan a hamper.">Chat on WhatsApp</WhatsAppContactLink>
+                <WhatsAppContactLink
+                  className="ni-founder-phone"
+                  message="Hi, I would like to plan a hamper."
+                  founderPhone={WHATSAPP_FOUNDERS.find((contact) => contact.name === founder.name)?.phone}
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20.4 11.7a8.2 8.2 0 0 1-12.1 7.2L4 20l1.1-4.1a8.2 8.2 0 1 1 15.3-4.2Z" />
+                    <path d="M9 8.6c.2-.4.4-.4.7-.4h.5c.2 0 .3.1.4.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.2.3.4 0 .3-.2 1-.6 1.3-.4.4-1 .6-1.6.6-.5 0-1.2-.2-2-.5-1.5-.6-2.8-1.8-3.6-3-.6-.9-1-1.8-1-2.5 0-.6.2-1.1.5-1.4Z" />
+                  </svg>
+                  <span>Contact</span>
+                </WhatsAppContactLink>
               </div>
             </article>
           ))}
@@ -145,7 +160,7 @@ export function OccasionsSection() {
       <div className="ni-section-inner ni-occasions-layout">
         <div>
           <p className="ni-section-eyebrow">January to December</p>
-          <h2 className="ni-section-title">Weâ€™ve got your gifting covered</h2>
+          <h2 className="ni-section-title">We’ve got your gifting covered</h2>
         </div>
         <div className="ni-occasions-copy">
           <p>From New Year to Christmas and every celebration in between, NI Square Packaging takes the stress out of gifting.</p>

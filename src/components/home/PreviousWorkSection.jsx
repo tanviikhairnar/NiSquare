@@ -109,7 +109,12 @@ export default function PreviousWorkSection() {
             </span>
             <span className="previous-work-reel-caption">
               <span className="previous-work-reel-title">{reel.label}</span>
-              <span className="previous-work-reel-cta">Watch reel</span>
+              <span className="previous-work-reel-cta" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6Z" />
+                  <circle cx="12" cy="12" r="2.7" />
+                </svg>
+              </span>
             </span>
           </a>
         ))}

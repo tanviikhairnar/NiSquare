@@ -11,7 +11,7 @@ const emptyForm = {
   requirements: '',
 };
 
-export default function WhatsAppContactLink({ message, className = '', children, style }) {
+export default function WhatsAppContactLink({ message, className = '', children, style, founderPhone }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isChoosingFounder, setIsChoosingFounder] = useState(false);
   const [formData, setFormData] = useState(emptyForm);
@@ -71,10 +71,17 @@ export default function WhatsAppContactLink({ message, className = '', children,
             </button>
             {!isChoosingFounder ? (
               <>
-                <p className="eyebrow">WhatsApp enquiry</p>
                 <h2 id="whatsapp-choice-title">Tell us what you have in mind</h2>
                 <p>Share a few details so we can help plan your hamper.</p>
-                <form className="whatsapp-enquiry-form" onSubmit={(event) => { event.preventDefault(); setIsChoosingFounder(true); }}>
+                <form className="whatsapp-enquiry-form" onSubmit={(event) => {
+                  event.preventDefault();
+                  if (founderPhone) {
+                    window.open(whatsappLink(whatsappMessage, founderPhone), '_blank', 'noopener,noreferrer');
+                    closeDialog();
+                    return;
+                  }
+                  setIsChoosingFounder(true);
+                }}>
                   <label>
                     <span>Full Name</span>
                     <input name="fullName" type="text" autoComplete="name" value={formData.fullName} onChange={updateField} required />

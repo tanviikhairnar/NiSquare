@@ -44,11 +44,11 @@
      */
 
     /* Font properties */
-    --heading-font-family: Garamond, Baskerville, Caslon, serif;
+    --heading-font-family: "Jost", "Instrument Sans", Arial, sans-serif;
     --heading-font-weight: 400;
     --heading-font-style: normal;
-    --heading-text-transform: uppercase;
-    --heading-letter-spacing: 0.05em;
+    --heading-text-transform: none;
+    --heading-letter-spacing: 0;
     --text-font-family: "Instrument Sans", sans-serif;
     --text-font-weight: 400;
     --text-font-style: normal;

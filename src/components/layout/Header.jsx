@@ -127,7 +127,13 @@ export default function Header({ config = siteHeader }) {
           {/* Search Icon */}
           <button type="button" className="header-icon-btn" aria-label="Search" onClick={() => setIsSearchOpen(true)}><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg></button>
 
-          <WhatsAppContactLink className="header-icon-btn header-whatsapp-link" message="Hi, I would like to plan a hamper.">WhatsApp</WhatsAppContactLink>
+          <WhatsAppContactLink className="header-icon-btn header-whatsapp-link" message="Hi, I would like to plan a hamper.">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20.4 11.7a8.2 8.2 0 0 1-12.1 7.2L4 20l1.1-4.1a8.2 8.2 0 1 1 15.3-4.2Z" />
+              <path d="M9 8.6c.2-.4.4-.4.7-.4h.5c.2 0 .3.1.4.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.2.3.4 0 .3-.2 1-.6 1.3-.4.4-1 .6-1.6.6-.5 0-1.2-.2-2-.5-1.5-.6-2.8-1.8-3.6-3-.6-.9-1-1.8-1-2.5 0-.6.2-1.1.5-1.4Z" />
+            </svg>
+            <span className="sr-only">WhatsApp</span>
+          </WhatsAppContactLink>
 
         </div>
       </header>

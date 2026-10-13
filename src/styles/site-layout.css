@@ -1207,7 +1207,8 @@ html { scroll-padding-top: var(--header-height); }
 .ni-founder-copy .ni-section-eyebrow { margin-bottom: .45rem; }
 .ni-founder-copy h3 { margin: 0 0 1rem; font: var(--heading-font-style) 500 clamp(1.4rem, 2.2vw, 1.9rem) / 1.2 var(--heading-font-family); text-transform: uppercase; }
 .ni-founder-copy > p:not(.ni-section-eyebrow) { color: var(--store-muted); line-height: 1.75; }
-.ni-founder-phone { display: inline-block; margin-block-start: .5rem; color: inherit; text-underline-offset: .25em; }
+.ni-founder-phone { display: inline-flex; align-items: center; gap: .55rem; width: fit-content; margin-block-start: .5rem; color: inherit; text-underline-offset: .25em; }
+.ni-founder-phone svg { width: 1.15rem; height: 1.15rem; }
 .ni-founders--compact .ni-section-heading { margin-block-end: clamp(2rem, 4vw, 3.25rem); }
 .ni-founders--compact .ni-founder-grid { max-width: 62rem; margin-inline: auto; }
 .ni-founders--compact .ni-founder-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, .85fr); align-items: stretch; }
@@ -2190,11 +2191,14 @@ body {
 .previous-work-reel-title { max-width: 72%; font-size: .84rem; }
 .previous-work-reel-cta {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
   min-height: 0;
-  padding: 0 0 .18rem;
+  padding: 0;
   border: 0;
-  border-bottom: 1px solid rgb(255 255 255 / .72);
   border-radius: 0;
   background: transparent;
   color: rgb(255 255 255 / .9);
@@ -2205,6 +2209,7 @@ body {
   white-space: nowrap;
   transition: color .28s ease, border-color .28s ease;
 }
+.previous-work-reel-cta svg { display: block; width: 1.3rem; height: 1.3rem; }
 .previous-work-card:hover .previous-work-reel-cta,
 .previous-work-card:focus-visible .previous-work-reel-cta {
   transform: none;
@@ -2540,7 +2545,8 @@ body {
 @media (min-width: 1360px) {
   .previous-work-track { justify-content: center; }
 }
-.header-whatsapp-link { width: auto; padding-inline: .8rem; font-size: .67rem; text-decoration: none; }
+.header-whatsapp-link { width: 2.5rem; height: 2.5rem; padding: .35rem; text-decoration: none; }
+.header-whatsapp-link svg { width: 1.7rem; height: 1.7rem; }
 .store-contact-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .75rem; }
 .product-card__quick-add-button { width: auto; height: auto; min-height: 2.4rem; padding: .55rem .8rem; border: 0; border-radius: 999px; font-size: .68rem; font-weight: 600; letter-spacing: .04em; text-decoration: none; white-space: nowrap; }
 .whatsapp-contact-trigger { appearance: none; border: 0; cursor: pointer; font: inherit; }
@@ -2552,8 +2558,9 @@ body {
 .whatsapp-choice-dialog > .eyebrow { margin: 0 0 .65rem; color: var(--brand-burgundy); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
 .whatsapp-choice-dialog h2 { max-width: 15ch; margin: 0; font: 400 clamp(1.8rem, 5vw, 2.7rem) / 1.05 var(--heading-font-family); }
 .whatsapp-choice-dialog > p:not(.eyebrow) { margin: .75rem 0 1.4rem; color: var(--brand-plum-mid); }
-.whatsapp-choice-close { position: absolute; top: 1rem; right: 1rem; z-index: 1; display: grid; width: 2.75rem; height: 2.75rem; place-items: center; padding: 0; border: 1px solid rgb(92 24 38 / .2); background: var(--brand-soft-pink); color: inherit; cursor: pointer; }
-.whatsapp-choice-close svg { display: block; width: 1rem; height: 1rem; }
+.whatsapp-choice-close { position: absolute; top: 1.25rem; right: 1.25rem; z-index: 1; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.whatsapp-choice-close svg { display: block; width: 1.25rem; height: 1.25rem; }
+.whatsapp-choice-close:hover { color: var(--brand-burgundy); }
 .whatsapp-choice-close:focus-visible { outline: 2px solid var(--brand-wine); outline-offset: 3px; }
 .whatsapp-choice-options { display: grid; gap: .65rem; }
 .whatsapp-choice-options a { display: grid; gap: .2rem; padding: 1rem 1.1rem; border: 1px solid rgb(92 24 38 / .22); background: #fff; color: var(--brand-wine); text-decoration: none; }
@@ -2601,14 +2608,22 @@ body {
 .ni-founders--compact .ni-section-heading { grid-column: 1; grid-row: 1; margin: 0; text-align: left; }
 .ni-founders--compact .ni-section-heading .ni-section-title { max-width: none; font-size: clamp(2.1rem, 3vw, 3rem); }
 .ni-founders--compact .ni-founder-grid { grid-column: 2; grid-row: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.75rem); max-width: none; margin: 0; }
-.ni-founders--compact .ni-founder-card { display: flex; flex-direction: column; align-items: stretch; gap: 0; overflow: hidden; border: 1px solid rgb(92 24 38 / .16); background: var(--store-surface); box-shadow: none; }
-.ni-founders--compact .ni-founder-card:hover { transform: translateY(-3px); box-shadow: 0 .75rem 2rem rgb(48 40 42 / .1); }
+.ni-founders--compact .ni-founder-card { display: flex; flex-direction: column; align-items: stretch; gap: 0; overflow: hidden; border: 1px solid rgb(92 24 38 / .16); background: var(--store-surface); box-shadow: 0 0 0 rgb(48 40 42 / 0); transition: transform .4s cubic-bezier(.2, .7, .2, 1), box-shadow .4s ease; }
+.ni-founders--compact .ni-founder-card:hover { transform: translateY(-4px); box-shadow: 0 .85rem 1.8rem rgb(48 40 42 / .12); }
 .ni-founders--compact .ni-founder-portrait,
 .ni-founders--compact .ni-founder-card:nth-child(2) .ni-founder-portrait { order: 0; min-height: 0; aspect-ratio: 1.08; }
 .ni-founders--compact .ni-founder-copy,
 .ni-founders--compact .ni-founder-card:nth-child(2) .ni-founder-copy { order: 0; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: clamp(.9rem, 1.5vw, 1.4rem); }
 .ni-founders--compact .ni-founder-copy h3 { margin: 0 0 1rem; font-size: clamp(1.05rem, 1.3vw, 1.4rem); }
-.ni-founders--compact .ni-founder-phone { margin-block-start: auto; padding-block-start: .5rem; }
+.ni-founders--compact .ni-founder-phone { position: relative; gap: .55rem; margin-block-start: auto; padding: 0 0 .4rem; border: 0; border-bottom: 1px solid rgb(92 24 38 / .35); text-decoration: none; }
+.ni-founders--compact .ni-founder-phone::after { position: absolute; inset-inline: 0; inset-block-end: -1px; height: 1px; background: currentColor; content: ""; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+.ni-founders--compact .ni-founder-phone:hover::after,
+.ni-founders--compact .ni-founder-phone:focus-visible::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) {
+  .ni-founders--compact .ni-founder-card,
+  .ni-founders--compact .ni-founder-phone::after { transition: none; }
+  .ni-founders--compact .ni-founder-card:hover { transform: none; }
+}
 @media (max-width: 1000px) {
   .ni-founders--compact .ni-section-inner { grid-template-columns: 1fr; gap: 2rem; }
   .ni-founders--compact .ni-section-heading { grid-column: 1; grid-row: 1; text-align: center; }

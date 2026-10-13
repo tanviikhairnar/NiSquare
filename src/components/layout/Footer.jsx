@@ -42,7 +42,7 @@ export default function Footer() {
             className="footer-whatsapp-link"
             message="Hi, I’d like to explore your gifting categories and plan a hamper."
           >
-            Plan a hamper on WhatsApp
+            Plan a hamper
           </WhatsAppContactLink>
         </div>
         {groups.map((group) => (
