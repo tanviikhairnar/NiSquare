@@ -26,11 +26,11 @@
   --store-sale: var(--brand-wine);
   --store-accent: var(--brand-gold);
 
-  --heading-font-family: "Jost", "Instrument Sans", Arial, sans-serif;
+  --heading-font-family: "Cormorant Garamond", Georgia, serif;
   --heading-font-style: normal;
   --heading-font-weight: 400;
-  --heading-letter-spacing: 0;
-  --heading-text-transform: none;
+  --heading-letter-spacing: .05em;
+  --heading-text-transform: uppercase;
   --text-font-family: "Instrument Sans", Arial, sans-serif;
   --text-font-style: normal;
   --text-font-weight: 400;
