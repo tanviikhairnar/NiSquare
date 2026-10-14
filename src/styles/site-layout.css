@@ -2556,7 +2556,8 @@ body {
 .whatsapp-choice-backdrop { position: fixed; inset: 0; z-index: 20000; display: grid; place-items: center; overflow-y: auto; padding: 1rem; background: rgb(28 9 12 / .64); }
 .whatsapp-choice-dialog { position: relative; box-sizing: border-box; width: min(100%, 38rem); max-height: calc(100dvh - 2rem); overflow-y: auto; padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--brand-gold); background: var(--brand-cream); color: var(--brand-wine); box-shadow: 0 1.5rem 4rem rgb(0 0 0 / .25); }
 .whatsapp-choice-dialog > .eyebrow { margin: 0 0 .65rem; color: var(--brand-burgundy); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; }
-.whatsapp-choice-dialog h2 { max-width: 15ch; margin: 0; font: 400 clamp(1.8rem, 5vw, 2.7rem) / 1.05 var(--heading-font-family); }
+.whatsapp-choice-dialog h2 { max-width: none; margin: 0; font: 400 clamp(1.8rem, 5vw, 2.7rem) / 1.05 var(--heading-font-family); }
+@media (min-width: 700px) { .whatsapp-choice-dialog h2 { white-space: nowrap; font-size: clamp(1.7rem, 4vw, 2.5rem); } }
 .whatsapp-choice-dialog > p:not(.eyebrow) { margin: .75rem 0 1.4rem; color: var(--brand-plum-mid); }
 .whatsapp-choice-close { position: absolute; top: 1.25rem; right: 1.25rem; z-index: 1; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
 .whatsapp-choice-close svg { display: block; width: 1.25rem; height: 1.25rem; }
@@ -2638,7 +2639,11 @@ body {
 
 /* Category navigation: stable hover area and clear, compact category groups. */
 .mega-menu { z-index: 60; padding-block: 1.5rem; border-top: 1px solid rgb(184 154 99 / .45); background: var(--store-surface); box-shadow: 0 1.25rem 2.5rem rgb(42 25 26 / .14); }
-.mega-menu::before { content: ""; position: absolute; inset-inline: 0; bottom: 100%; height: .75rem; }
+.mega-menu::before { content: ""; position: absolute; z-index: 1; inset-inline: 0; bottom: 100%; height: 2rem; pointer-events: auto; }
+.header-wrapper:has(.nav-item:hover .mega-menu),
+.header-wrapper:has(.nav-item:focus-within .mega-menu) { background: var(--store-header); color: #fff; }
+.header-wrapper:has(.nav-item:hover .mega-menu) .site-header,
+.header-wrapper:has(.nav-item:focus-within .mega-menu) .site-header { color: #fff; }
 .mega-menu-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem 2.5rem; }
 .mega-column { min-width: 0; padding: .65rem 0 .65rem 1.1rem; border-inline-start: 1px solid rgb(184 154 99 / .28); }
 .mega-column-title { margin-block-end: .6rem; color: var(--brand-burgundy); font-size: .7rem; letter-spacing: .11em; }
