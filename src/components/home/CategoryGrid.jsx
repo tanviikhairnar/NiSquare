@@ -1,94 +1,37 @@
-﻿import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { collectionPath, storeCollections } from '../../data/storeCatalog';
 
 export default function CategoryGrid() {
-  const track = useRef(null);
-  const animationFrame = useRef(null);
-  const [paused, setPaused] = useState(false);
-  const [inView, setInView] = useState(false);
-
-  const pauseRotation = (element = track.current) => {
-    setPaused(true);
-    if (animationFrame.current !== null) window.cancelAnimationFrame(animationFrame.current);
-    animationFrame.current = null;
-    if (element) element.style.scrollBehavior = 'auto';
-  };
-  const resumeRotation = (element = track.current) => {
-    setPaused(false);
-    element?.style.removeProperty('scroll-behavior');
-  };
-
-  useEffect(() => {
-    const element = track.current;
-    if (!element || !inView || paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-
-    let previousTime = 0;
-    const move = (time) => {
-      if (previousTime) {
-        const firstCard = element.firstElementChild;
-        const gap = Number.parseFloat(window.getComputedStyle(element).columnGap) || 0;
-        const loopDistance = (firstCard.getBoundingClientRect().width + gap) * storeCollections.length;
-        element.scrollLeft += (time - previousTime) * 0.036;
-        if (loopDistance > 0 && element.scrollLeft >= loopDistance) element.scrollLeft -= loopDistance;
-      }
-      previousTime = time;
-      animationFrame.current = window.requestAnimationFrame(move);
-    };
-
-    animationFrame.current = window.requestAnimationFrame(move);
-    return () => {
-      if (animationFrame.current !== null) window.cancelAnimationFrame(animationFrame.current);
-      animationFrame.current = null;
-    };
-  }, [inView, paused]);
-
-  useEffect(() => {
-    const element = track.current;
-    if (!element || !('IntersectionObserver' in window)) {
-      setInView(true);
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.2 });
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
-  const cards = [...storeCollections, ...storeCollections];
-
   return (
-    <section className="home-categories" aria-label="Gifting categories" aria-roledescription="carousel">
-      <div
-        className="home-category-grid"
-        ref={track}
-        onMouseEnter={(event) => pauseRotation(event.currentTarget)}
-        onMouseLeave={(event) => resumeRotation(event.currentTarget)}
-        onFocusCapture={(event) => pauseRotation(event.currentTarget)}
-        onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) resumeRotation(event.currentTarget); }}
-        onTouchStart={(event) => pauseRotation(event.currentTarget)}
-        onTouchEnd={(event) => resumeRotation(event.currentTarget)}
-      >
-        {cards.map((collection, index) => {
-          const duplicate = index >= storeCollections.length;
-          return (
-            <Link
-              className="home-category-card collection-card group"
-              to={collectionPath(collection.slug)}
-              key={`${collection.slug}-${index}`}
-              aria-hidden={duplicate || undefined}
-              tabIndex={duplicate ? -1 : undefined}
-            >
-              <div className="home-category-media content-over-media content-over-media--auto">
-                <img className="zoom-image group-hover:zoom" src={collection.image} alt={duplicate ? '' : collection.title} loading="lazy" decoding="async" />
-                <div className="home-category-content collection-card__content prose prose--tight">
-                  <span className="home-category-title">{collection.title}</span>
-                  <span className="home-category-cta">Explore category</span>
-                </div>
-              </div>
-            </Link>
-          );
-        })}
+    <section className="home-categories" aria-labelledby="home-categories-title">
+      <div className="home-categories-inner">
+        <div className="home-categories-intro">
+          <span className="home-categories-pill">Curated Collections</span>
+          <h2 id="home-categories-title">Explore by Gifting Category</h2>
+          <p>Bespoke hampers, thoughtful packaging, and handcrafted details for every moment.</p>
+        </div>
+        <div className="home-category-stage">
+          <div className="home-category-grid" role="list" aria-label="Gifting categories">
+            {storeCollections.map((collection, index) => {
+              const count = collection.subcategories?.length || 0;
+              return (
+                <article className="home-category-card" key={collection.slug} role="listitem">
+                  <Link className="home-category-image" to={collectionPath(collection.slug)} aria-label={'Explore ' + collection.title}>
+                    <img src={collection.image} alt="" loading={index < 3 ? 'eager' : 'lazy'} fetchPriority={index < 3 ? 'high' : 'auto'} decoding="async" />
+                    <span className="home-category-shade" aria-hidden="true" />
+                    <span className="home-category-tag">{count} {count === 1 ? 'style' : 'styles'}</span>
+                    <span className="home-category-content">
+                      <span className="home-category-title">{collection.title}</span>
+                      <span className="home-category-desc">{collection.description}</span>
+                      <span className="home-category-link">Explore category<span className="home-category-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span></span>
+                    </span>
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );

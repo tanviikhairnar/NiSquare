@@ -1,22 +1,61 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 
 export default function MobileMenu({ isOpen, onClose, navLinks = [], brandName = 'NI SQUARE PACKAGING' }) {
   const [expandedSection, setExpandedSection] = useState(null);
+  const panelRef = useRef(null);
+  const closeRef = useRef(onClose);
 
   const toggleSection = (label) => {
     setExpandedSection((prev) => (prev === label ? null : label));
   };
 
   useEffect(() => {
+    closeRef.current = onClose;
+  }, [onClose]);
+
+  useEffect(() => {
     if (!isOpen) return undefined;
     const previousOverflow = document.body.style.overflow;
+    const previousFocus = document.activeElement;
     document.body.style.overflow = 'hidden';
+
+    const focusFrame = window.requestAnimationFrame(() => {
+      panelRef.current?.querySelector('button:not([disabled]), a[href]')?.focus();
+    });
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeRef.current();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const panel = panelRef.current;
+      const focusable = Array.from(panel?.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])') ?? [])
+        .filter((element) => element.getClientRects().length > 0);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!first) {
+        event.preventDefault();
+        panel?.focus();
+      } else if (event.shiftKey && (document.activeElement === first || !panel?.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !panel?.contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
+      window.cancelAnimationFrame(focusFrame);
+      window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = previousOverflow;
+      previousFocus?.focus?.();
     };
   }, [isOpen]);
 
@@ -30,10 +69,10 @@ export default function MobileMenu({ isOpen, onClose, navLinks = [], brandName =
       />
 
       {/* Drawer Panel */}
-      <aside className={`drawer-panel ${isOpen ? 'open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!isOpen}>
+      <aside ref={panelRef} className={`drawer-panel ${isOpen ? 'open' : ''}`} role={isOpen ? 'dialog' : undefined} aria-modal={isOpen ? 'true' : undefined} aria-labelledby="mobile-menu-title" aria-hidden={!isOpen} tabIndex={-1}>
         {/* Header */}
         <div className="drawer-header">
-          <span className="drawer-title">{brandName}</span>
+          <span id="mobile-menu-title" className="drawer-title">{brandName}</span>
           <button
             type="button"
             className="drawer-close-btn"

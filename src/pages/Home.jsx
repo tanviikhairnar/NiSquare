@@ -1,16 +1,17 @@
-import React, { useLayoutEffect } from 'react';
+﻿import React, { useLayoutEffect } from 'react';
 import Hero from '../components/home/Hero';
 import CategoryGrid from '../components/home/CategoryGrid';
 import { FoundersSection } from '../components/home/NIStorySections';
 import CompanyBanner from '../components/home/CompanyBanner';
 import PreviousWorkSection from '../components/home/PreviousWorkSection';
+import TestimonialsSection from '../components/home/TestimonialsSection';
 
 export default function Home() {
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
 
     const sections = document.querySelectorAll(
-      '.home-categories, .ni-founders, .ni-company-banner, .previous-work-section',
+      '.home-categories, .ni-founders, .ni-company-banner, .previous-work-section, .ni-testimonials',
     );
 
     if (!('IntersectionObserver' in window)) {
@@ -41,6 +42,8 @@ export default function Home() {
       <FoundersSection showBiographies={false} />
       <CompanyBanner />
       <PreviousWorkSection />
+      <TestimonialsSection />
     </>
   );
 }
+

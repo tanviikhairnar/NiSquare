@@ -5,37 +5,37 @@ const previousWorkReels = [
   {
     id: 'C2phJ92pJEZ',
     url: 'https://www.instagram.com/reel/C2phJ92pJEZ/',
-    image: '/assets/instagram-reels/DTfb2PBkj8-.jpg',
+    image: '/assets/instagram-reels/C2phJ92pJEZ.jpg',
     video: null,
-    label: 'Meet the founders',
+    label: 'Wedding trousseau hampers',
   },
   {
     id: 'C34YbeoI0oq',
     url: 'https://www.instagram.com/reel/C34YbeoI0oq/',
-    image: '/assets/instagram-reels/DRM51Y8En-f.jpg',
+    image: '/assets/instagram-reels/C34YbeoI0oq.jpg',
     video: null,
-    label: 'Wedding return gifts',
+    label: 'Customised wedding invites',
   },
   {
     id: 'C43PVooJ0aM',
     url: 'https://www.instagram.com/reel/C43PVooJ0aM/',
-    image: '/assets/instagram-reels/DQcPTtYgvTY.jpg',
+    image: '/assets/instagram-reels/C43PVooJ0aM.jpg',
     video: null,
-    label: 'Invitations made personal',
+    label: 'Wedding invite hampers',
   },
   {
     id: 'DXwzDzWzUwD',
     url: 'https://www.instagram.com/reel/DXwzDzWzUwD/',
-    image: '/assets/instagram-reels/DQB1R3MEvle.jpg',
+    image: '/assets/instagram-reels/DXwzDzWzUwD.jpg',
     video: null,
-    label: 'Diwali gifting',
+    label: 'Personalised gifting',
   },
   {
     id: 'DQgmQuZkni8',
     url: 'https://www.instagram.com/reel/DQgmQuZkni8/',
-    image: '/assets/instagram-reels/DP3OMVrEhOA.jpg',
+    image: '/assets/instagram-reels/DQgmQuZkni8.jpg',
     video: null,
-    label: 'Gifts made with care',
+    label: 'Bridesmaid hampers',
   },
 ];
 
@@ -65,7 +65,7 @@ export default function PreviousWorkSection() {
               <circle className="instagram-icon-dot" cx="17.7" cy="6.6" r=".9" />
             </svg>
             <span>Follow @nisquarepackaging</span>
-            <span aria-hidden="true">â†—</span>
+            <span aria-hidden="true">&#8599;</span>
           </a>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function PreviousWorkSection() {
         aria-label="Previous gifting and packaging projects"
         tabIndex={0}
       >
-        {previousWorkReels.map((reel) => (
+        {previousWorkReels.map((reel, index) => (
           <a
             className="previous-work-card"
             key={reel.id}
@@ -98,7 +98,7 @@ export default function PreviousWorkSection() {
                 aria-hidden="true"
               />
             ) : (
-              <img className="previous-work-media" src={reel.image} alt={reel.label + ' Reel cover'} loading="lazy" decoding="async" />
+              <img className="previous-work-media" src={reel.image} alt={reel.label + ' Reel cover'} loading={index < 2 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : 'auto'} decoding="async" />
             )}
             <span className="previous-work-reel-instagram" aria-hidden="true">
               <svg viewBox="0 0 24 24">
@@ -120,7 +120,9 @@ export default function PreviousWorkSection() {
         ))}
       </div>
       <div className="previous-work-footer">
-        <WhatsAppContactLink className="previous-work-link" message="Hi, I would like to plan a custom gifting project.">Plan a custom project</WhatsAppContactLink>
+        <WhatsAppContactLink className="previous-work-link" message="Hi, I would like to plan a custom gifting project.">
+          Plan a custom project
+        </WhatsAppContactLink>
       </div>
     </section>
   );

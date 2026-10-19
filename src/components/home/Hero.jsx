@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { heroContent } from '../../data/siteContent';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 
@@ -136,4 +136,3 @@ export default function Hero({ data = heroContent }) {
     </section>
   );
 }
-

@@ -836,7 +836,7 @@ height-observer {
     display: grid
 }
 
-:where(.modal,.drawer,.popover,.header-search)::part(close-button)>svg {
+:where(.modal,.drawer,.popover,.header-search) [part~="close-button"] > svg {
     display: block
 }
 
@@ -1296,7 +1296,7 @@ height-observer {
     box-shadow: 0 1px 3px rgb(var(--text-color) / .08);
     padding-inline-end:calc(var(--input-padding-inline) * 2 + 10px)}
 
-.select: required:invalid {
+.select:required:invalid {
     color:rgb(var(--input-text-color, var(--text-color)) / .6)
 }
 
@@ -1641,7 +1641,7 @@ video-media,model-media {
 }
 
 @container media (width >= 32rem) {
-    :is(video-media,model-media): :part(play-button) {
+    :is(video-media,model-media)::part(play-button) {
         width:4rem;
         height: 4rem
     }
@@ -4552,7 +4552,7 @@ product-rerender {
 :has(.shopify-section:first-child [allow-transparent-header]):not(:has(.shopify-section--header+.shopify-section-group-header-group)) .header {
     margin-block-end:calc(-1 * var(--header-height, 0px))}
 
-: has(.shopify-section:first-child [allow-transparent-header]):not(:has(.shopify-section--header+.shopify-section-group-header-group)) .header:not(:hover,.is-solid,:has([open])) {
+:has(.shopify-section:first-child [allow-transparent-header]):not(:has(.shopify-section--header+.shopify-section-group-header-group)) .header:not(:hover,.is-solid,:has([open])) {
     --header-show-transparent-logo: 1;
     --header-separation-border-color: 0 0 0 / 0;
     --background: 0 0 0 / 0;
@@ -5205,7 +5205,7 @@ product-rerender {
     .image-with-text>.prose {
         padding-inline-start:var(--image-with-text-gap)}
 
-    .image-with-text: not(.image-with-text--reverse) picture {
+    .image-with-text:not(.image-with-text--reverse) picture {
         margin-inline-start:auto
     }
 
@@ -5746,7 +5746,7 @@ product-rerender {
 .product-info__block-list>:not(:nth-child(1 of:not(:empty))) {
     margin-block-start:var(--product-info-gap)}
 
-.product-info__block-list>: not(:last-child) {
+.product-info__block-list>:not(:last-child) {
     margin-block-end:var(--product-info-gap)
 }
 
@@ -5815,7 +5815,7 @@ product-rerender {
 .product-content-below-gallery product-recommendations:not(:first-child) {
     margin-block-start:max(48px,var(--product-gap, 0px))}
 
-.product-content-below-gallery product-recommendations: not(:last-child) {
+.product-content-below-gallery product-recommendations:not(:last-child) {
     margin-block-end:max(48px,var(--product-gap, 0px))
 }
 
@@ -8406,7 +8406,7 @@ height-observer {
   display: grid;
 }
 
-:where(.modal, .drawer, .popover, .header-search)::part(close-button) > svg {
+:where(.modal, .drawer, .popover, .header-search) [part~="close-button"] > svg {
   display: block;
 }
 

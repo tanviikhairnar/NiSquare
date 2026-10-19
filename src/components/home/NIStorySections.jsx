@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import { WHATSAPP_FOUNDERS } from '../../lib/whatsapp';
 
@@ -6,6 +6,7 @@ const founders = [
   {
     name: 'Nikita Kochar Ostwal',
     profession: 'Interior designer',
+    image: null,
     biography: [
       'I’m Nikita Kochar Ostwal, an interior designer by profession and a maker at heart. I’ve always loved creating things, trying out new ideas and turning simple ones into something beautiful.',
       'What got me hooked was seeing how something I made could bring a smile to someone’s face and make their day a little more special. That’s when I realised I was actually good at this, and that I loved doing it.',
@@ -17,6 +18,7 @@ const founders = [
   {
     name: 'Nikita Anil Chordiya',
     profession: 'Textile designer',
+    image: null,
     biography: [
       'I’m Nikita Anil Chordiya, a textile designer by profession, and design has always felt personal to me.',
       'Ever since I was a child, I’ve loved painting and making things. I notice things: colours, textures, patterns and all the small details most people miss. I used to put what I saw into paintings and sketches in my diary.',
@@ -172,9 +174,3 @@ export function OccasionsSection() {
     </section>
   );
 }
-
-
-
-
-
-

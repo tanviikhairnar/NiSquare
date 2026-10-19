@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" class="merge-curve">
+  <rect width="1440" height="80" fill="#FBF8F2" />
+  <path d="M0,0 L0,48 C340,78 620,28 920,63 C1200,90 1340,42 1440,54 L1440,0 Z" fill="#F1E8E4" />
+  <path d="M0,48 C340,78 620,28 920,63 C1200,90 1340,42 1440,54" fill="none" stroke="#E2D0C8" stroke-width="1.5" stroke-opacity="0.8" />
+</svg>

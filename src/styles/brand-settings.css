@@ -1,53 +1,64 @@
 :root {
-  /* NI Square storefront palette */
-  --brand-wine: #8B1B2B;
-  --brand-burgundy: #5C111C;
-  --brand-dusty-rose: #B98589;
-  --brand-soft-pink: #F1E8E4;
-  --brand-nude: #E8D9D1;
-  --brand-gold: #B89A63;
-  --brand-plum: var(--brand-wine);
+  /* Modern Indian Luxury Core Palette */
+  --brand-oxblood: #4A101B;
+  --brand-burgundy: #681827;
+  --brand-wine: #861F32;
+  --brand-ivory: #F7F2EB;
+  --brand-porcelain: #EDE5DC;
+  --brand-champagne: #B99A66;
+  --brand-charcoal: #242020;
+  --brand-muted-rose: #D5B8B5;
+
+  /* Aliases and semantic roles */
+  --brand-gold: var(--brand-champagne);
+  --brand-dusty-rose: var(--brand-muted-rose);
+  --brand-soft-pink: var(--brand-porcelain);
+  --brand-nude: var(--brand-porcelain);
+  --brand-plum: var(--brand-oxblood);
   --brand-plum-mid: var(--brand-burgundy);
-  --brand-mauve: var(--brand-dusty-rose);
+  --brand-mauve: var(--brand-muted-rose);
   --brand-terracotta: var(--brand-wine);
-  --brand-sage: var(--brand-soft-pink);
-  --brand-blush: var(--brand-soft-pink);
-  --brand-cream: #FBF8F2;
-  --brand-charcoal: #31272A;
+  --brand-sage: var(--brand-porcelain);
+  --brand-blush: var(--brand-porcelain);
+  --brand-cream: var(--brand-ivory);
+  --brand-white: #FFFFFF;
 
   /* Shared storefront roles */
-  --store-background: var(--brand-cream);
+  --store-background: var(--brand-ivory);
   --store-surface: #FFFFFF;
   --store-ink: var(--brand-charcoal);
-  --store-ink-rgb: 49 39 42;
-  --store-header: var(--brand-wine);
-  --store-footer: var(--brand-burgundy);
-  --store-muted: #6D5558;
+  --store-ink-rgb: 36 32 32;
+  --store-header: var(--brand-oxblood);
+  --store-footer: var(--brand-oxblood);
+  --store-muted: #6B6264;
   --store-sale: var(--brand-wine);
-  --store-accent: var(--brand-gold);
+  --store-accent: var(--brand-champagne);
 
+  /* Editorial Typography System */
   --heading-font-family: "Cormorant Garamond", Georgia, serif;
   --heading-font-style: normal;
-  --heading-font-weight: 400;
-  --heading-letter-spacing: .05em;
-  --heading-text-transform: uppercase;
+  --heading-font-weight: 500;
+  --heading-letter-spacing: .02em;
+  --heading-text-transform: none;
   --text-font-family: "Instrument Sans", Arial, sans-serif;
   --text-font-style: normal;
   --text-font-weight: 400;
   --text-letter-spacing: 0;
-  --button-letter-spacing: .18em;
-  --button-border-radius: 0;
+  --button-letter-spacing: .12em;
+  --button-border-radius: 999px;
 
-  --background: 251 248 242 / 1;
-  --page-background: 251 248 242;
-  --text-color: 49 39 42;
-  --border-color: 228 216 207;
-  --on-sale-text: 139 27 43;
-  --star-rating: 184 154 99;
-  --button-background: 139 27 43;
-  --button-outline-color: 139 27 43;
+  --background: 247 242 235 / 1;
+  --page-background: 247 242 235;
+  --text-color: 36 32 32;
+  --border-color: 237 229 220;
+  --on-sale-text: 134 31 50;
+  --star-rating: 185 154 102;
+  --button-background: 74 16 27;
+  --button-outline-color: 74 16 27;
   --button-text-color: 255 255 255;
-  --circle-button-background: 241 232 228;
-  --circle-button-text-color: 92 17 28;
-  --shadow-sm: 0 2px 12px rgb(49 39 42 / .11);
+  --circle-button-background: 237 229 220;
+  --circle-button-text-color: 74 16 27;
+  --shadow-sm: 0 4px 16px rgb(36 32 32 / .06);
+  --shadow-md: 0 12px 32px rgb(36 32 32 / .08);
+  --shadow-lg: 0 24px 48px rgb(36 32 32 / .12);
 }

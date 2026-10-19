@@ -1,7 +1,8 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import SEOHead from './components/layout/SEOHead';
 import Home from './pages/Home';
 import { CollectionPage, CollectionsPage, ContactPage, NotFoundPage, PolicyPage, SearchPage, ServicesPage, StoryPage } from './pages/StorePages';
 function ScrollToTop() {
@@ -14,7 +15,7 @@ function ScrollToTop() {
  return null;
 }
 function Storefront() {
- return <div className="app-root features--button-transition features--zoom-image"><ScrollToTop /><Header /><main id="main"><Routes>
+ return <div className="app-root features--button-transition features--zoom-image"><ScrollToTop /><SEOHead /><Header /><main id="main"><Routes>
   <Route path="/" element={<Home />} /><Route path="/collections" element={<CollectionsPage />} /><Route path="/collections/:handle" element={<CollectionPage />} />
   <Route path="/products/:handle" element={<Navigate to="/collections" replace />} />
   <Route path="/pages/our-story" element={<StoryPage />} /><Route path="/about" element={<StoryPage />} />

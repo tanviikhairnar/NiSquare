@@ -3,9 +3,15 @@ import { createPortal } from 'react-dom';
 import { buildWhatsAppEnquiryMessage, whatsappLink, WHATSAPP_FOUNDERS } from '../lib/whatsapp';
 import { storeCollections } from '../data/storeCatalog';
 
+function getLocalDateValue(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return year + '-' + month + '-' + day;
+}
+
 const emptyForm = {
   fullName: '',
-  email: '',
   category: '',
   eventDate: '',
   requirements: '',
@@ -80,10 +86,6 @@ export default function WhatsAppContactLink({ message, className = '', children,
                     <input name="fullName" type="text" autoComplete="name" value={formData.fullName} onChange={updateField} required />
                   </label>
                   <label>
-                    <span>Email Address <small>(optional)</small></span>
-                    <input name="email" type="email" autoComplete="email" value={formData.email} onChange={updateField} />
-                  </label>
-                  <label>
                     <span>Select a Category <small>(optional)</small></span>
                     <select name="category" value={formData.category} onChange={updateField}>
                       <option value="">Choose a category</option>
@@ -95,7 +97,7 @@ export default function WhatsAppContactLink({ message, className = '', children,
                   </label>
                   <label>
                     <span>Occasion / Event Date <small>(optional)</small></span>
-                    <input name="eventDate" type="date" value={formData.eventDate} onChange={updateField} />
+                    <input name="eventDate" type="date" min={getLocalDateValue()} value={formData.eventDate} onChange={updateField} />
                   </label>
                   <label className="whatsapp-enquiry-message">
                     <span>Message or Custom Requirements <small>(optional)</small></span>

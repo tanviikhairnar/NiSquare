@@ -18,7 +18,7 @@ const giftingMenu = storeCollections.map((collection) => ({
 
 export const siteHeader = {
   brandName: 'NI Square Packaging',
-  logoImage: '/assets/logo/NI_Square_Maroon__1_-removebg-preview.png',
+  logoImage: '/assets/logo/ni-square-logo-cream.png',
   logoAlt: 'NI Square Packaging',
   navLinks: [
     { label: 'Home', path: '/' },
