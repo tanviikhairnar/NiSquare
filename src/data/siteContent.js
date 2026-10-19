@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Centralized Site Content & Configuration for NI Square Packaging
  * 
  * Replace or customize copy and images here without modifying component markup.
@@ -18,7 +18,7 @@ const giftingMenu = storeCollections.map((collection) => ({
 
 export const siteHeader = {
   brandName: 'NI Square Packaging',
-  logoImage: '',
+  logoImage: '/assets/logo/NI_Square_Maroon__1_-removebg-preview.png',
   logoAlt: 'NI Square Packaging',
   navLinks: [
     { label: 'Home', path: '/' },

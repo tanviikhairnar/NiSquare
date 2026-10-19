@@ -3,36 +3,36 @@ import WhatsAppContactLink from '../WhatsAppContactLink';
 
 const previousWorkReels = [
   {
-    id: 'DTfb2PBkj8-',
-    url: 'https://www.instagram.com/reel/DTfb2PBkj8-/',
+    id: 'C2phJ92pJEZ',
+    url: 'https://www.instagram.com/reel/C2phJ92pJEZ/',
     image: '/assets/instagram-reels/DTfb2PBkj8-.jpg',
     video: null,
     label: 'Meet the founders',
   },
   {
-    id: 'DRM51Y8En-f',
-    url: 'https://www.instagram.com/reel/DRM51Y8En-f/',
+    id: 'C34YbeoI0oq',
+    url: 'https://www.instagram.com/reel/C34YbeoI0oq/',
     image: '/assets/instagram-reels/DRM51Y8En-f.jpg',
     video: null,
     label: 'Wedding return gifts',
   },
   {
-    id: 'DQcPTtYgvTY',
-    url: 'https://www.instagram.com/reel/DQcPTtYgvTY/',
+    id: 'C43PVooJ0aM',
+    url: 'https://www.instagram.com/reel/C43PVooJ0aM/',
     image: '/assets/instagram-reels/DQcPTtYgvTY.jpg',
     video: null,
     label: 'Invitations made personal',
   },
   {
-    id: 'DQB1R3MEvle',
-    url: 'https://www.instagram.com/reel/DQB1R3MEvle/',
+    id: 'DXwzDzWzUwD',
+    url: 'https://www.instagram.com/reel/DXwzDzWzUwD/',
     image: '/assets/instagram-reels/DQB1R3MEvle.jpg',
     video: null,
     label: 'Diwali gifting',
   },
   {
-    id: 'DP3OMVrEhOA',
-    url: 'https://www.instagram.com/reel/DP3OMVrEhOA/',
+    id: 'DQgmQuZkni8',
+    url: 'https://www.instagram.com/reel/DQgmQuZkni8/',
     image: '/assets/instagram-reels/DP3OMVrEhOA.jpg',
     video: null,
     label: 'Gifts made with care',
@@ -65,7 +65,7 @@ export default function PreviousWorkSection() {
               <circle className="instagram-icon-dot" cx="17.7" cy="6.6" r=".9" />
             </svg>
             <span>Follow @nisquarepackaging</span>
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true">â†—</span>
           </a>
         </div>
       </div>
