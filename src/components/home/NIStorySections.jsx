@@ -6,7 +6,6 @@ const founders = [
   {
     name: 'Nikita Kochar Ostwal',
     profession: 'Interior designer',
-    image: '/assets/founders/nikita-kochar-ostwal.jpg',
     biography: [
       'I’m Nikita Kochar Ostwal, an interior designer by profession and a maker at heart. I’ve always loved creating things, trying out new ideas and turning simple ones into something beautiful.',
       'What got me hooked was seeing how something I made could bring a smile to someone’s face and make their day a little more special. That’s when I realised I was actually good at this, and that I loved doing it.',
@@ -18,7 +17,6 @@ const founders = [
   {
     name: 'Nikita Anil Chordiya',
     profession: 'Textile designer',
-    image: '/assets/founders/nikita-anil-chordiya.jpg',
     biography: [
       'I’m Nikita Anil Chordiya, a textile designer by profession, and design has always felt personal to me.',
       'Ever since I was a child, I’ve loved painting and making things. I notice things: colours, textures, patterns and all the small details most people miss. I used to put what I saw into paintings and sketches in my diary.',
@@ -104,7 +102,7 @@ export function FoundersSection({ showBiographies = true }) {
           {founders.map((founder) => (
             <article className="ni-founder-card" key={founder.name}>
               <div className="ni-founder-portrait">
-                <img src={founder.image} alt={founder.name} loading="lazy" draggable="false" onContextMenu={(event) => event.preventDefault()} onError={(event) => { event.currentTarget.style.display = 'none'; }} />
+                {founder.image && <img src={founder.image} alt={founder.name} loading="lazy" decoding="async" draggable="false" onContextMenu={(event) => event.preventDefault()} onError={(event) => { event.currentTarget.style.display = 'none'; }} />}
               </div>
               <div className="ni-founder-copy">
                 <p className="ni-section-eyebrow">{founder.profession}</p>

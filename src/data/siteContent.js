@@ -48,14 +48,6 @@ export const heroContent = {
   subtitle: 'NI Square Packaging',
   title: 'From our hands to your loved ones, with love.',
   ctaText: 'Plan a hamper',
-  ctaLink: '/pages/contact',
-
-  // High-Resolution Media
-  // Leave empty ("") to render the neutral dimensions placeholder,
-  // or set your custom banner path.
-  desktopImage: '/assets/images/pexels-cottonbro-6832992.jpg',
-  mobileImage: '/assets/images/pexels-cottonbro-6832992.jpg',
-  imageAlt: 'Thoughtful hampers and personalised gifts',
 };
 
 

@@ -21,7 +21,7 @@ export default function SearchDialog({ isOpen, onClose }) {
     <button type="submit" aria-label="Submit search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7.5" /><path d="m17 17 5 5" /></svg></button>
    </form><button type="button" className="store-search-close" onClick={onClose} aria-label="Close search">×</button></div>
    {query.trim() && <div className="store-search-suggestions" aria-live="polite"><p>{matches.length ? 'Categories & occasions' : 'No matching categories'}</p>
-    {matches.map((item) => <Link to={item.href} key={item.href} onClick={onClose}><img src={item.image} alt="" /><span>{item.title}</span><span>{item.description}</span></Link>)}
+    {matches.map((item) => <Link to={item.href} key={item.href} onClick={onClose}><img src={item.image} alt="" loading="lazy" decoding="async" /><span>{item.title}</span><span>{item.description}</span></Link>)}
     {matches.length > 0 && <button type="button" className="text-link" onClick={submit}>View all results</button>}</div>}
   </section>
  </div>;

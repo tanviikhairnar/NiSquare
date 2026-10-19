@@ -9,3 +9,14 @@ export const WHATSAPP_FOUNDERS = [
   { name: 'Nikita Anil Chordiya', role: 'Textile designer', phone: WHATSAPP_NUMBERS[1] },
 ];
 
+
+export function buildWhatsAppEnquiryMessage(message, formData) {
+  return [
+    message,
+    'Full Name: ' + (formData.fullName || '').trim(),
+    formData.email?.trim() ? 'Email Address: ' + formData.email.trim() : '',
+    formData.category ? 'Category: ' + formData.category : '',
+    formData.eventDate ? 'Occasion / Event Date: ' + formData.eventDate : '',
+    formData.requirements?.trim() ? 'Message or Custom Requirements: ' + formData.requirements.trim() : '',
+  ].filter(Boolean).join('\n');
+}

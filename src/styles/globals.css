@@ -3,6 +3,8 @@
 @import './theme.css';
 @import './brand-settings.css';
 @import './site-layout.css';
+@import './store-pages.css';
+@import './home-sections.css';
 
 *, *::before, *::after { box-sizing: border-box; }
 body { min-width: 320px; }

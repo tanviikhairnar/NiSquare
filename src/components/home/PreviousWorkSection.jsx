@@ -98,7 +98,7 @@ export default function PreviousWorkSection() {
                 aria-hidden="true"
               />
             ) : (
-              <img className="previous-work-media" src={reel.image} alt={reel.label + ' Reel cover'} loading="lazy" />
+              <img className="previous-work-media" src={reel.image} alt={reel.label + ' Reel cover'} loading="lazy" decoding="async" />
             )}
             <span className="previous-work-reel-instagram" aria-hidden="true">
               <svg viewBox="0 0 24 24">

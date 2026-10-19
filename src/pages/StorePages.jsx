@@ -16,7 +16,7 @@ export function CollectionsPage() {
     <Breadcrumbs current="Gifting categories" />
     <PageTitle eyebrow="Made for your moments" title="Explore our gifting categories" description="Choose a category to see its subcategories and gifting ideas." />
     <div className="store-collection-grid">{storeCollections.map((category) => <Link className="store-collection-card" to={'/collections/' + category.slug} key={category.slug}>
-      <span className="store-collection-image"><img src={category.image} alt="" loading="lazy" /></span>
+      <span className="store-collection-image"><img src={category.image} alt="" loading="lazy" decoding="async" /></span>
       <span className="store-collection-card-copy"><strong>{category.title}</strong><span>{category.description}</span><span className="text-link">Explore category</span></span>
     </Link>)}</div>
     <div className="store-page-cta"><WhatsAppContactLink className="button" message="Hi, I’d like to explore your gifting categories and plan a hamper.">Chat with our founders</WhatsAppContactLink></div>
@@ -30,7 +30,7 @@ export function CollectionPage() {
     <nav className="store-breadcrumbs" aria-label="Breadcrumb"><Link to="/">Home</Link><span>/</span><Link to="/collections">Gifting categories</Link><span>/</span><span>{category.title}</span></nav>
     <PageTitle eyebrow="Explore by occasion" title={category.title} description={category.description} />
     <div className="category-detail-grid">{category.subcategories.map((item) => <article className="category-detail-card" id={'subcategory-' + anchor(item.title)} key={item.title}>
-      <div className="category-detail-image"><img src={item.image} alt={item.title} loading="lazy" /></div>
+      <div className="category-detail-image"><img src={item.image} alt={item.title} loading="lazy" decoding="async" /></div>
       <div className="category-detail-copy"><h2>{item.title}</h2><WhatsAppContactLink className="category-whatsapp-link" message={'Hi, I’d like to ask about ' + item.title + ' in ' + category.title + '.'}>Enquire on WhatsApp</WhatsAppContactLink></div>
     </article>)}</div>
     {category.note && <p className="gifting-category-note category-detail-note">{category.note}</p>}
@@ -49,7 +49,7 @@ function SearchResults({ initialQuery, onQueryChange }) {
     </form>
     {initialQuery && <><p className="store-results-count">{results.length} results for “{initialQuery}”</p>
       {results.length ? <div className="store-collection-grid">{results.map((item) => <Link className="store-collection-card" to={item.href} key={item.href}>
-        <span className="store-collection-image"><img src={item.image} alt="" loading="lazy" /></span><span className="store-collection-card-copy"><strong>{item.title}</strong><span>{item.description}</span><span className="text-link">Explore category</span></span>
+        <span className="store-collection-image"><img src={item.image} alt="" loading="lazy" decoding="async" /></span><span className="store-collection-card-copy"><strong>{item.title}</strong><span>{item.description}</span><span className="text-link">Explore category</span></span>
       </Link>)}</div> : <p>No categories matched. Try another occasion.</p>}
     </>}
   </div></section>;

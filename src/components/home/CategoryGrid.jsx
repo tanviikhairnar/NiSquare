@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { storeCollections } from '../../data/storeCatalog';
+import { collectionPath, storeCollections } from '../../data/storeCatalog';
 
 export default function CategoryGrid() {
   const track = useRef(null);
@@ -74,13 +74,13 @@ export default function CategoryGrid() {
           return (
             <Link
               className="home-category-card collection-card group"
-              to={`/collections/${collection.slug}`}
+              to={collectionPath(collection.slug)}
               key={`${collection.slug}-${index}`}
               aria-hidden={duplicate || undefined}
               tabIndex={duplicate ? -1 : undefined}
             >
               <div className="home-category-media content-over-media content-over-media--auto">
-                <img className="zoom-image group-hover:zoom" src={collection.image} alt={duplicate ? '' : collection.title} loading="lazy" />
+                <img className="zoom-image group-hover:zoom" src={collection.image} alt={duplicate ? '' : collection.title} loading="lazy" decoding="async" />
                 <div className="home-category-content collection-card__content prose prose--tight">
                   <span className="home-category-title">{collection.title}</span>
                   <span className="home-category-cta">Explore category</span>

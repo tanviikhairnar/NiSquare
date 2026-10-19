@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { whatsappLink, WHATSAPP_FOUNDERS } from '../lib/whatsapp';
+import { buildWhatsAppEnquiryMessage, whatsappLink, WHATSAPP_FOUNDERS } from '../lib/whatsapp';
 import { storeCollections } from '../data/storeCatalog';
 
 const emptyForm = {
@@ -32,14 +32,7 @@ export default function WhatsAppContactLink({ message, className = '', children,
     };
   }, [isOpen]);
 
-  const whatsappMessage = [
-    message,
-    'Full Name: ' + formData.fullName.trim(),
-    formData.email.trim() ? 'Email Address: ' + formData.email.trim() : '',
-    formData.category ? 'Category: ' + formData.category : '',
-    formData.eventDate ? 'Occasion / Event Date: ' + formData.eventDate : '',
-    formData.requirements.trim() ? 'Message or Custom Requirements: ' + formData.requirements.trim() : '',
-  ].filter(Boolean).join('\n');
+  const whatsappMessage = buildWhatsAppEnquiryMessage(message, formData);
 
   const updateField = (event) => {
     setFormData((current) => ({ ...current, [event.target.name]: event.target.value }));

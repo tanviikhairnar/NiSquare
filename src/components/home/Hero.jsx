@@ -3,11 +3,11 @@ import { heroContent } from '../../data/siteContent';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 
 const slides = [
-  { image: '/assets/images/optimized/hero-what-a-story-desktop.jpg', mobileImage: '/assets/images/optimized/hero-what-a-story-mobile.jpg', subtitle: 'NI Square Packaging', title: 'From our hands to your loved ones, with love.', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
-  { image: '/assets/images/optimized/hero-rdne-desktop.jpg', mobileImage: '/assets/images/optimized/hero-rdne-mobile.jpg', subtitle: 'Thoughtful hampers for every kind of occasion', title: 'Make every gift feel personal', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
-  { image: '/assets/images/optimized/hero-asya-vlasova-desktop.jpg', mobileImage: '/assets/images/optimized/hero-asya-vlasova-mobile.jpg', subtitle: 'Weddings, birthdays, baby celebrations, and more', title: 'Hampers for life’s occasions', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
-  { image: '/assets/images/optimized/hero-tamanna-rumee-desktop.jpg', mobileImage: '/assets/images/optimized/hero-tamanna-rumee-mobile.jpg', subtitle: 'A thoughtful way to thank the people you love', title: 'Return favours guests will remember', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
-  { image: '/assets/images/optimized/hero-magda-ehlers-desktop.jpg', mobileImage: '/assets/images/optimized/hero-magda-ehlers-mobile.jpg', subtitle: 'Personalised around your theme, taste, and budget', title: 'A gift made around your idea', ctaText: 'Plan a hamper', ctaLink: '/pages/contact' },
+  { image: '/assets/images/optimized/hero-what-a-story-desktop.jpg', mobileImage: '/assets/images/optimized/hero-what-a-story-mobile.jpg', subtitle: 'NI Square Packaging', title: 'From our hands to your loved ones, with love.', ctaText: 'Plan a hamper' },
+  { image: '/assets/images/optimized/hero-rdne-desktop.jpg', mobileImage: '/assets/images/optimized/hero-rdne-mobile.jpg', subtitle: 'Thoughtful hampers for every kind of occasion', title: 'Make every gift feel personal', ctaText: 'Plan a hamper' },
+  { image: '/assets/images/optimized/hero-asya-vlasova-desktop.jpg', mobileImage: '/assets/images/optimized/hero-asya-vlasova-mobile.jpg', subtitle: 'Weddings, birthdays, baby celebrations, and more', title: 'Hampers for life’s occasions', ctaText: 'Plan a hamper' },
+  { image: '/assets/images/optimized/hero-tamanna-rumee-desktop.jpg', mobileImage: '/assets/images/optimized/hero-tamanna-rumee-mobile.jpg', subtitle: 'A thoughtful way to thank the people you love', title: 'Return favours guests will remember', ctaText: 'Plan a hamper' },
+  { image: '/assets/images/optimized/hero-magda-ehlers-desktop.jpg', mobileImage: '/assets/images/optimized/hero-magda-ehlers-mobile.jpg', subtitle: 'Personalised around your theme, taste, and budget', title: 'A gift made around your idea', ctaText: 'Plan a hamper' },
 ];
 
 function HeroPicture({ slide, index, className }) {
