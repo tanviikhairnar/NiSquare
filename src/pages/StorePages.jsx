@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import WhatsAppContactLink from '../components/WhatsAppContactLink';
 import { CompanyIntroduction, CompanyStory, FoundersSection, ServicesSection, OccasionsSection } from '../components/home/NIStorySections';
-import { searchCollections, storeCollections } from '../data/storeCatalog';
+import { collectionPath, searchCollections, storeCollections, subcategoryPath, subcategorySlug } from '../data/storeCatalog';
 
 const anchor = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 function PageTitle({ eyebrow, title, description }) {
@@ -16,7 +16,7 @@ export function CollectionsPage() {
     <Breadcrumbs current="Gifting categories" />
     <PageTitle eyebrow="Made for your moments" title="Explore our gifting categories" description="Choose a category to see its subcategories and gifting ideas." />
     <div className="store-collection-grid">{storeCollections.map((category) => <Link className="store-collection-card" to={'/collections/' + category.slug} key={category.slug}>
-      <span className="store-collection-image"><img src={category.image} alt="" loading="lazy" decoding="async" /></span>
+      <span className="store-collection-image"><img src={category.image} alt={category.title + " gifting work sample"} loading="lazy" decoding="async" /></span>
       <span className="store-collection-card-copy"><strong>{category.title}</strong><span>{category.description}</span><span className="text-link">Explore category</span></span>
     </Link>)}</div>
     <div className="store-page-cta"><WhatsAppContactLink className="button" message="Hi, I’d like to explore your gifting categories and plan a hamper.">Chat with our founders</WhatsAppContactLink></div>
@@ -29,15 +29,75 @@ export function CollectionPage() {
   return <section className="store-page"><div className="store-page-inner store-page-inner--wide">
     <nav className="store-breadcrumbs" aria-label="Breadcrumb"><Link to="/">Home</Link><span>/</span><Link to="/collections">Gifting categories</Link><span>/</span><span>{category.title}</span></nav>
     <PageTitle eyebrow="Explore by occasion" title={category.title} description={category.description} />
-    <div className="category-detail-grid">{category.subcategories.map((item) => <article className="category-detail-card" id={'subcategory-' + anchor(item.title)} key={item.title}>
-      <div className="category-detail-image"><img src={item.image} alt={item.title} loading="lazy" decoding="async" /></div>
-      <div className="category-detail-copy"><h2>{item.title}</h2><WhatsAppContactLink className="category-whatsapp-link" message={'Hi, I’d like to ask about ' + item.title + ' in ' + category.title + '.'}>Enquire on WhatsApp</WhatsAppContactLink></div>
-    </article>)}</div>
+    <div className="category-detail-grid">{category.subcategories.map((item, index) => {
+      const previewImages = item.galleryPreviewImages?.length ? item.galleryPreviewImages : [item.image];
+      const cardVideo = item.galleryVideos?.[0];
+      const cardImages = previewImages.slice(0, cardVideo ? 1 : 2);
+      return <article className="category-detail-card" key={item.title}>
+        <div className={'category-detail-image category-detail-image--' + (cardVideo ? 'video' : cardImages.length > 1 ? 'double' : 'single')}>
+          {cardImages.map((src, imageIndex) => <img key={src} src={src} alt={item.title + ' gifting detail ' + (imageIndex + 1)} loading="lazy" decoding="async" />)}
+          {cardVideo && <video controls playsInline preload="none" poster={cardVideo.poster} aria-label={'Play ' + item.title + ' video'}>
+            <source src={cardVideo.src} />
+          </video>}
+          <span className="category-detail-image-index">{String(index + 1).padStart(2, '0')} <span>/ {String(category.subcategories.length).padStart(2, '0')}</span></span>
+          {!cardVideo && <span className="category-detail-image-arrow" aria-hidden="true">&#8599;</span>}
+        </div>
+        <Link className="category-detail-card-link" to={subcategoryPath(category.slug, item.title)}>
+          <div className="category-detail-copy">
+            <p className="category-detail-eyebrow">Made for your moment</p>
+            <h2>{item.title}</h2>
+            <span className="category-detail-view-link">View our work <span aria-hidden="true">&#8594;</span></span>
+          </div>
+        </Link>
+        <div className="category-detail-card-footer">
+          <span>Thoughtfully finished by hand</span>
+          <WhatsAppContactLink className="category-whatsapp-link" message={'Hi, I would like to ask about ' + item.title + ' in ' + category.title + '.'}>Enquire <span aria-hidden="true">&#8599;</span></WhatsAppContactLink>
+        </div>
+      </article>;
+    })}</div>
     {category.note && <p className="gifting-category-note category-detail-note">{category.note}</p>}
-    <div className="store-page-cta"><WhatsAppContactLink className="button" message={'Hi, I’d like to plan something from your ' + category.title + ' category.'}>Plan this gift on WhatsApp</WhatsAppContactLink></div>
+    <div className="store-page-cta"><WhatsAppContactLink className="button" message={'Hi, I would like to plan something from your ' + category.title + ' category.'}>Plan this gift on WhatsApp</WhatsAppContactLink></div>
   </div></section>;
 }
-function SearchResults({ initialQuery, onQueryChange }) {
+
+export function SubcategoryPage() {
+  const { handle = '', subcategoryHandle = '' } = useParams();
+  const category = storeCollections.find((item) => item.slug === handle);
+  const subcategory = category?.subcategories.find((item) => subcategorySlug(item.title) === subcategoryHandle);
+  if (!category || !subcategory) return <NotFoundPage title="Gifting occasion not found" />;
+
+  const images = subcategory.galleryImages?.length ? subcategory.galleryImages : [subcategory.image];
+  const videos = subcategory.galleryVideos || [];
+  const galleryItems = [
+    ...images.map((src) => ({ type: 'image', src })),
+    ...videos.map((video) => ({ type: 'video', ...video })),
+  ];
+  const related = category.subcategories.filter((item) => item.title !== subcategory.title);
+  const galleryLayout = galleryItems.length === 1 ? 'single' : galleryItems.length === 2 ? 'two' : 'many';
+
+  return <section className="store-page subcategory-work-page"><div className="store-page-inner store-page-inner--wide">
+    <nav className="store-breadcrumbs" aria-label="Breadcrumb">
+      <Link to="/">Home</Link><span>/</span><Link to="/collections">Gifting categories</Link><span>/</span>
+      <Link to={collectionPath(category.slug)}>{category.title}</Link><span>/</span><span>{subcategory.title}</span>
+    </nav>
+    <PageTitle eyebrow={category.title} title={subcategory.title} description="A closer look at our work for this occasion." />
+    <div className={'subcategory-work-gallery subcategory-work-gallery--' + galleryLayout}>
+      {galleryItems.map((item, index) => <figure className={'subcategory-work-image' + (item.type === 'video' ? ' subcategory-work-image--video' : '')} key={item.src}>
+        {item.type === 'video' ? <video controls playsInline preload="none" poster={item.poster} aria-label={subcategory.title + ' work video'}>
+          <source src={item.src} />
+        </video> : <img src={item.src} alt={subcategory.title + ' gifting example ' + (index + 1)} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />}
+      </figure>)}
+    </div>
+    <div className="subcategory-work-actions">
+      <WhatsAppContactLink className="button" message={'Hi, I would like to plan a ' + subcategory.title + ' gift.'}>Plan this gift on WhatsApp</WhatsAppContactLink>
+      <Link className="subcategory-back-link" to={collectionPath(category.slug)}>Back to {category.title}</Link>
+    </div>
+    {related.length > 0 && <nav className="subcategory-related" aria-label="More occasions in this category">
+      <p>More in {category.title}</p>
+      <div>{related.map((item) => <Link key={item.title} to={subcategoryPath(category.slug, item.title)}>{item.title}<span aria-hidden="true">↗</span></Link>)}</div>
+    </nav>}
+  </div></section>;
+}function SearchResults({ initialQuery, onQueryChange }) {
   const [query, setQuery] = useState(initialQuery);
   const results = searchCollections(initialQuery);
   return <section className="store-page"><div className="store-page-inner store-page-inner--wide">

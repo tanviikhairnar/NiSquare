@@ -4,21 +4,20 @@
  * Replace or customize copy and images here without modifying component markup.
  */
 
-import { storeCollections } from './storeCatalog';
+import { storeCollections, subcategoryPath } from './storeCatalog';
 
-const subcategoryAnchor = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const giftingMenu = storeCollections.map((collection) => ({
   heading: collection.title,
   headingPath: '/collections/' + collection.slug,
   items: collection.subcategories.map((subcategory) => ({
     label: subcategory.title,
-    path: '/collections/' + collection.slug + '#subcategory-' + subcategoryAnchor(subcategory.title),
+    path: subcategoryPath(collection.slug, subcategory.title),
   })),
 }));
 
 export const siteHeader = {
   brandName: 'NI Square Packaging',
-  logoImage: '/assets/logo/ni-square-logo-cream.png',
+  logoImage: '/assets/logo/NI%20square%20cream%20revised%20(2).png',
   logoAlt: 'NI Square Packaging',
   navLinks: [
     { label: 'Home', path: '/' },

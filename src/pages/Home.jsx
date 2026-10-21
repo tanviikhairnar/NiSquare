@@ -1,17 +1,21 @@
 ﻿import React, { useLayoutEffect } from 'react';
 import Hero from '../components/home/Hero';
 import CategoryGrid from '../components/home/CategoryGrid';
-import { FoundersSection } from '../components/home/NIStorySections';
-import CompanyBanner from '../components/home/CompanyBanner';
+import { ServicesSection } from '../components/home/NIStorySections';
+import {
+  HomeAboutSection,
+  HomeTrustStrip,
+  HowWeWorkSection,
+  HomePortfolioSection,
+  WhyChooseUsSection,
+} from '../components/home/HomeEditorialSections';
 import PreviousWorkSection from '../components/home/PreviousWorkSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 
 export default function Home() {
   useLayoutEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-
     const sections = document.querySelectorAll(
-      '.home-categories, .ni-founders, .ni-company-banner, .previous-work-section, .ni-testimonials',
+      '.home-about, .ni-services, .home-process, .home-why-choose, .home-categories, .home-portfolio, .previous-work-section, .ni-testimonials',
     );
 
     if (!('IntersectionObserver' in window)) {
@@ -25,7 +29,7 @@ export default function Home() {
         entry.target.classList.add('home-motion-seen');
         observer.unobserve(entry.target);
       });
-    }, { threshold: 0.14, rootMargin: '0px 0px -5% 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px 12% 0px' });
 
     sections.forEach((section) => {
       section.classList.add('home-motion-ready');
@@ -39,8 +43,12 @@ export default function Home() {
     <>
       <Hero />
       <CategoryGrid />
-      <FoundersSection showBiographies={false} />
-      <CompanyBanner />
+      <HomeTrustStrip />
+      <HomeAboutSection />
+      <ServicesSection />
+      <HowWeWorkSection />
+      <WhyChooseUsSection />
+      <HomePortfolioSection />
       <PreviousWorkSection />
       <TestimonialsSection />
     </>

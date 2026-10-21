@@ -4,7 +4,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import SEOHead from './components/layout/SEOHead';
 import Home from './pages/Home';
-import { CollectionPage, CollectionsPage, ContactPage, NotFoundPage, PolicyPage, SearchPage, ServicesPage, StoryPage } from './pages/StorePages';
+import { CollectionPage, CollectionsPage, ContactPage, NotFoundPage, PolicyPage, SearchPage, ServicesPage, StoryPage, SubcategoryPage } from './pages/StorePages';
 function ScrollToTop() {
  const { pathname, hash } = useLocation();
  useEffect(() => {
@@ -16,7 +16,7 @@ function ScrollToTop() {
 }
 function Storefront() {
  return <div className="app-root features--button-transition features--zoom-image"><ScrollToTop /><SEOHead /><Header /><main id="main"><Routes>
-  <Route path="/" element={<Home />} /><Route path="/collections" element={<CollectionsPage />} /><Route path="/collections/:handle" element={<CollectionPage />} />
+  <Route path="/" element={<Home />} /><Route path="/collections" element={<CollectionsPage />} /><Route path="/collections/:handle" element={<CollectionPage />} /><Route path="/collections/:handle/:subcategoryHandle" element={<SubcategoryPage />} />
   <Route path="/products/:handle" element={<Navigate to="/collections" replace />} />
   <Route path="/pages/our-story" element={<StoryPage />} /><Route path="/about" element={<StoryPage />} />
   <Route path="/pages/services" element={<ServicesPage />} /><Route path="/services" element={<ServicesPage />} /><Route path="/pages/work" element={<ServicesPage />} /><Route path="/work" element={<CollectionsPage />} />

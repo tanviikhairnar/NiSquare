@@ -1,4 +1,4 @@
-import { storeCollections } from './storeCatalog.js';
+import { storeCollections, subcategorySlug } from './storeCatalog.js';
 
 const brand = 'NI Square Packaging';
 const home = {
@@ -103,6 +103,20 @@ export function getSeoMetadata(pathname) {
     return { ...pages[canonicalPath], canonicalPath, robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' };
   }
 
+  const subcategoryMatch = path.match(/^\/collections\/([^/]+)\/([^/]+)$/);
+  if (subcategoryMatch) {
+    const category = storeCollections.find((item) => item.slug === subcategoryMatch[1]);
+    const subcategory = category?.subcategories.find((item) => subcategorySlug(item.title) === subcategoryMatch[2]);
+    if (category && subcategory) {
+      return {
+        title: subcategory.title + ' | ' + category.title + ' | ' + brand,
+        description: 'Explore NI Square Packaging work for ' + subcategory.title + ' in Nashik, Pune and Mumbai.',
+        image: subcategory.galleryImages?.[0] || subcategory.image,
+        canonicalPath: path,
+        robots: 'index, follow, max-image-preview:large',
+      };
+    }
+  }
   const collectionMatch = path.match(/^\/collections\/([^/]+)$/);
   if (collectionMatch) {
     const category = storeCollections.find((item) => item.slug === collectionMatch[1]);
@@ -138,14 +152,14 @@ export function getSeoRoutes() {
     '/pages/contact',
     '/policies/privacy-policy',
     '/policies/terms-of-service',
-    ...storeCollections.map((category) => '/collections/' + category.slug),
+    ...storeCollections.flatMap((category) => ['/collections/' + category.slug, ...category.subcategories.map((subcategory) => '/collections/' + category.slug + '/' + subcategorySlug(subcategory.title))]),
   ];
   return paths.map((path) => ({ path, ...getSeoMetadata(path) }));
 }
 
 export function getOrganizationStructuredData(siteOrigin) {
   const siteUrl = new URL('/', siteOrigin).href;
-  const logoUrl = new URL('/assets/logo/ni-square-logo-cream.png', siteOrigin).href;
+  const logoUrl = new URL('/assets/logo/NI square cream revised (2).png', siteOrigin).href;
   const imageUrl = new URL(home.image, siteOrigin).href;
   const organizationId = siteUrl + '#organization';
 

@@ -37,7 +37,7 @@ export default function Footer() {
       <div className="footer-main">
         <div className="footer-about">
           <Link className="footer-brand" to="/">
-            <img src="/assets/logo/ni-square-logo-cream.png" alt="NI Square Packaging" />
+            <img src="/assets/logo/NI%20square%20cream%20revised%20(2).png" alt="NI Square Packaging" />
           </Link>
           <h2>About</h2>
           <p>Explore our gifting categories, then connect with our founders on WhatsApp to plan a hamper around your occasion and preferences.</p>
