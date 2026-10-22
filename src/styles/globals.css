@@ -1,4 +1,15 @@
-﻿@import './variables.css';
+@import "tailwindcss";
+
+@theme {
+  --color-brand-oxblood: #4A101B;
+  --color-brand-burgundy: #681827;
+  --color-brand-wine: #861F32;
+  --color-brand-light-gray: #F4F5F7;
+  --color-brand-champagne: #B99A66;
+  --color-brand-gold: #B99A66;
+  --color-brand-charcoal: #242020;
+}
+
 @import './source-settings.css';
 @import './theme.css';
 @import './brand-settings.css';

@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { getOrganizationStructuredData, getSeoMetadata, getSeoRoutes } from '../src/data/seo.js';
+import { getOrganizationStructuredData, getSeoMetadata, getSeoRoutes } from '../src/data/seo.ts';
 
 const distDirectory = path.resolve('dist');
 const template = await readFile(path.join(distDirectory, 'index.html'), 'utf8');

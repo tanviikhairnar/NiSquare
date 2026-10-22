@@ -9,6 +9,7 @@
     "build": "vite build",
     "postbuild": "node scripts/generate-seo-pages.mjs",
     "lint": "oxlint",
+    "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "optimize:images": "node scripts/optimize-store-images.mjs",
     "test": "node --test",
@@ -20,11 +21,14 @@
     "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
     "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
     "vite": "^8.3.0"
   }
 }

@@ -87,15 +87,18 @@ body { margin: 0; padding: 0; font: var(--text-font-style) var(--text-font-weigh
 
 .header-logo-image {
   display: block;
-  width: clamp(11.5rem, 13vw, 14rem);
-  height: clamp(3rem, 3.8vw, 3.75rem);
-  max-width: min(14rem, 30vw);
-  object-fit: cover;
-  object-position: center;
+  width: auto;
+  height: clamp(2.35rem, 3.2vw, 2.85rem);
+  max-height: 48px;
+  max-width: 200px;
+  object-fit: contain;
+  object-position: left center;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .header-wrapper.is-sticky .header-logo-image {
+  height: clamp(2.1rem, 2.7vw, 2.45rem);
+  max-height: 42px;
   filter: none;
 }
 
@@ -577,8 +580,8 @@ main { flex: 1; }
 .header-wrapper { transition: background-color .2s, color .2s, box-shadow .2s; }
 .site-header { height: var(--header-height); padding-inline: var(--container-gutter); }
 .header-wrapper.is-sticky .site-header { color: #fff; }
-.header-logo-image { width: clamp(11.5rem, 13vw, 14rem); height: clamp(3rem, 3.8vw, 3.75rem); max-width: min(14rem, 30vw); object-fit: cover; object-position: center; filter: none; }
-.header-wrapper.is-sticky .header-logo-image { filter: none; }
+.header-logo-image { width: auto; height: clamp(2.35rem, 3.2vw, 2.85rem); max-height: 48px; max-width: 200px; object-fit: contain; object-position: left center; filter: none; }
+.header-wrapper.is-sticky .header-logo-image { height: clamp(2.1rem, 2.7vw, 2.45rem); max-height: 42px; filter: none; }
 .header-logo-text, .header-wrapper.is-sticky .header-logo-text { color: #fff; }
 .header-primary-nav { justify-self: center; }
 .desktop-nav-list { gap: 1.5rem; }
@@ -823,14 +826,22 @@ h2.catalog-heading {
 }
 
 .footer-brand {
-  display: block;
-  width: min(100%, 12rem);
-  height: 3.8rem;
-  overflow: hidden;
-  margin-block-end: 1rem;
+  display: inline-block;
+  width: auto;
+  height: 2.6rem;
+  max-height: 42px;
+  margin-block-end: 1.25rem;
   text-decoration: none;
 }
-.footer-brand img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: translateX(-13.5%); }
+.footer-brand img {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-height: 42px;
+  object-fit: contain;
+  object-position: left center;
+  transform: none;
+}
 
 .footer-brand:hover {
   color: var(--brand-champagne);
@@ -1017,7 +1028,7 @@ h2.catalog-heading {
   .hamburger-btn { display: inline-flex; align-items: center; justify-content: center; z-index: 2; border: 1px solid rgba(184, 154, 99, 0.35); border-radius: 50%; width: 2.35rem; height: 2.35rem; padding: 0; color: #fff; }
   .hamburger-btn:hover { border-color: var(--brand-gold); color: var(--brand-gold); }
   .header-logo { position: absolute; inset-inline-start: 50%; transform: translateX(-50%); z-index: 1; }
-  .header-logo-image { width: clamp(8.25rem, 33vw, 10rem); height: 2.8rem; max-width: min(10rem, 35vw); }
+  .header-logo-image { width: auto; height: 2.25rem; max-height: 38px; max-width: 155px; object-fit: contain; }
   .header-primary-nav { display: none; }
   .header-secondary-nav { z-index: 2; }
   .header-secondary-nav .account-btn { display: none; }
@@ -1053,4 +1064,179 @@ h2.catalog-heading {
   .hero-subtitle { max-width: 32ch; margin-inline: auto; font-size: clamp(.68rem, 2.9vw, .8rem); line-height: 1.5; }
   .hero-title { max-width: 18ch; margin-inline: auto; font-size: clamp(1.5rem, 6.2vw, 2rem); line-height: 1.18; text-wrap: balance; }
 }
+
+/* ==========================================================================
+   Luxury Brand Loaders & Preloader (NI Square Packaging)
+   ========================================================================== */
+
+/* Top route transition progress bar */
+.route-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 3px;
+  z-index: 10000;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--brand-wine), var(--brand-champagne) 60%, #fff 100%);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.route-progress-bar.is-active {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Image container placeholder loaders */
+.store-collection-image,
+.home-editorial-photo,
+.home-portfolio-images,
+.previous-work-card {
+  background-image: url('/assets/logo/brand-loader.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 48px 48px;
+}
+
+/* Initial site opening preloader screen */
+.brand-preloader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #681827 0%, #4A101B 80%, #30080f 100%);
+  color: #FEFDF8;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s ease;
+  user-select: none;
+}
+
+.brand-preloader-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.brand-preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.brand-preloader-title {
+  margin-top: 1.5rem;
+  font-family: var(--heading-font-family);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #FEFDF8;
+  line-height: 1;
+}
+
+.brand-preloader-tagline {
+  margin-top: 0.5rem;
+  font-family: var(--text-font-family);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  color: var(--brand-champagne);
+  line-height: 1;
+}
+
+/* Reusable brand loader */
+.brand-loader-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.brand-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.brand-loader-overlay--dark {
+  background: rgba(74, 16, 27, 0.94);
+  color: #FEFDF8;
+}
+
+.brand-loader-overlay--light {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--store-ink);
+}
+
+.brand-loader-emblem-box {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.brand-loader-emblem-box--sm { width: 38px; height: 38px; }
+.brand-loader-emblem-box--md { width: 64px; height: 64px; }
+.brand-loader-emblem-box--lg { width: 96px; height: 96px; }
+
+.brand-loader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: var(--brand-champagne);
+  border-right-color: rgba(185, 154, 102, 0.35);
+  animation: brandLoaderSpin 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.brand-loader-emblem-box--lg .brand-loader-ring {
+  border-width: 2px;
+}
+
+.brand-loader-emblem {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  animation: brandLoaderPulse 2.4s ease-in-out infinite;
+}
+
+.brand-loader-message {
+  margin: 0;
+  font-family: var(--text-font-family);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+@keyframes brandLoaderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes brandLoaderPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.88;
+    filter: drop-shadow(0 0 4px rgba(185, 154, 102, 0.25));
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(185, 154, 102, 0.65));
+  }
+}
+
 

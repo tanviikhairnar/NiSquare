@@ -2,7 +2,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { existsSync } from 'node:fs';
 const files = ['index.html'];
-for (const file of await readdir('src', { recursive: true })) if (/\.(?:js|jsx|css)$/.test(file)) files.push(resolve('src', file));
+for (const file of await readdir('src', { recursive: true })) if (/\.(?:js|jsx|ts|tsx|css)$/.test(file)) files.push(resolve('src', file));
 const paths = new Set();
 const quotedPath = /[\x27\x22\x60](\/assets\/[^\x27\x22\x60]+)[\x27\x22\x60]/g;
 const cssPath = /url\(\s*[\x27\x22]?(\/assets\/[^)\x27\x22\s]+)[\x27\x22]?\s*\)/g;
