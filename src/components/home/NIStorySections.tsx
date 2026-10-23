@@ -1,5 +1,6 @@
 import React from 'react';
 import WhatsAppContactLink from '../WhatsAppContactLink';
+import { SolidWhatsAppIcon } from '../common/Icons';
 import { WHATSAPP_FOUNDERS } from '../../lib/whatsapp';
 
 interface FounderBio {
@@ -64,18 +65,32 @@ const occasions: string[] = [
 export function CompanyStory() {
   return (
     <section className="ni-home-section ni-story" id="our-story">
+      <div className="ni-decoration-layer" aria-hidden="true">
+        <img
+          src="/assets/decorations/botanical-bloom-upright.webp"
+          alt=""
+          className="ni-motif story-motif-bloom"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
       <div className="ni-section-inner">
-        <div className="ni-story-layout">
-          <div>
-            <p className="ni-section-eyebrow">Two friends, one love of gifting</p>
-            <h2 className="ni-section-title">The NI Square story</h2>
-          </div>
-          <div className="ni-story-copy">
-            <p>NI Square began with two best friends named Nikita and a shared love for thoughtful gifting and presentation.</p>
+        <div className="ni-section-heading ni-story-header">
+          <p className="ni-section-eyebrow">Two friends, one love of gifting</p>
+          <h2 className="ni-section-title">The NI Square story</h2>
+        </div>
+        <div className="ni-story-body">
+          <p className="ni-story-lead">
+            NI Square began with two best friends named Nikita and a shared love for thoughtful gifting and presentation.
+          </p>
+          <div className="ni-story-columns">
             <p>From personalized hampers to bespoke packaging, we make each gift feel personal and help you share love, appreciation, and celebration in a way that feels intentional.</p>
             <p>With 1,000+ hampers created for weddings, birthdays, baby celebrations, festivals, corporate milestones, and anniversaries, we handle every detail from curation to the final hand-finished touches.</p>
-            <blockquote>People remember how a gift made them feel, long after they’ve forgotten what was inside.</blockquote>
           </div>
+          <blockquote className="ni-story-quote">
+            <span className="ni-story-quote-mark" aria-hidden="true">“</span>
+            <p>People remember how a gift made them feel, long after they’ve forgotten what was inside.</p>
+          </blockquote>
         </div>
         <ul className="ni-highlights" aria-label="About NI Square Packaging">
           <li><strong>1,000+</strong><span>Hampers created</span></li>
@@ -91,6 +106,15 @@ export function CompanyStory() {
 export function FoundersSection({ showBiographies = true }: { showBiographies?: boolean }) {
   return (
     <section className={`ni-home-section ni-founders${showBiographies ? '' : ' ni-founders--compact'}`} id="founders">
+      <div className="ni-decoration-layer" aria-hidden="true">
+        <img
+          src="/assets/decorations/bird-perched.webp"
+          alt=""
+          className="ni-motif founders-motif-bird"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
       <div className="ni-section-inner">
         <header className="ni-section-heading">
           <p className="ni-section-eyebrow">The people behind every detail</p>
@@ -112,10 +136,7 @@ export function FoundersSection({ showBiographies = true }: { showBiographies?: 
                   message="Hi, I would like to plan a hamper."
                   founderPhone={WHATSAPP_FOUNDERS.find((contact) => contact.name === founder.name)?.phone}
                 >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20.4 11.7a8.2 8.2 0 0 1-12.1 7.2L4 20l1.1-4.1a8.2 8.2 0 1 1 15.3-4.2Z" />
-                    <path d="M9 8.6c.2-.4.4-.4.7-.4h.5c.2 0 .3.1.4.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.2.3.4 0 .3-.2 1-.6 1.3-.4.4-1 .6-1.6.6-.5 0-1.2-.2-2-.5-1.5-.6-2.8-1.8-3.6-3-.6-.9-1-1.8-1-2.5 0-.6.2-1.1.5-1.4Z" />
-                  </svg>
+                  <SolidWhatsAppIcon />
                   <span>Contact</span>
                 </WhatsAppContactLink>
               </div>
@@ -130,6 +151,15 @@ export function FoundersSection({ showBiographies = true }: { showBiographies?: 
 export function ServicesSection() {
   return (
     <section className="ni-home-section ni-services" id="services">
+      <div className="ni-decoration-layer" aria-hidden="true">
+        <img
+          src="/assets/decorations/botanical-bloom-hanging.webp"
+          alt=""
+          className="ni-motif services-motif-hanging-bloom"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
       <div className="ni-section-inner">
         <header className="ni-section-heading">
           <p className="ni-section-eyebrow">Thought through, made by hand</p>

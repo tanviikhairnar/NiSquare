@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Centered Editorial Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-plum: #4A101B;
+    --brand-champagne: #B99A66;
+    --brand-cream: #FAF7F2;
+    --heading-font-family: 'Playfair Display', Georgia, serif;
+    --text-font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #110306;
+    color: var(--brand-cream);
+    font-family: var(--text-font-family);
+  }
+  .ni-home-section {
+    padding: clamp(3rem, 5vw, 4.5rem) 2rem;
+  }
+  .ni-story {
+    background: var(--brand-plum);
+    position: relative;
+    overflow: hidden;
+  }
+  .ni-section-inner {
+    max-width: 75rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Centered Editorial Header */
+  .ni-story-header {
+    text-align: center;
+    max-width: 48rem;
+    margin: 0 auto clamp(2rem, 3.5vw, 2.75rem);
+  }
+  .ni-story-eyebrow {
+    margin: 0 0 0.75rem;
+    color: var(--brand-champagne);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .ni-story-title {
+    margin: 0;
+    font-family: var(--heading-font-family);
+    font-size: clamp(2.2rem, 4vw, 3.25rem);
+    line-height: 1.15;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+
+  /* Story Body */
+  .ni-story-body {
+    max-width: 58rem;
+    margin: 0 auto;
+  }
+  .ni-story-lead-para {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height: 1.8;
+    color: #FFFFFF;
+    text-align: center;
+    margin: 0 0 2rem;
+  }
+  .ni-story-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 2.25rem;
+  }
+  .ni-story-duo p {
+    margin: 0;
+    color: rgba(250, 247, 242, 0.88);
+    line-height: 1.85;
+    font-size: 0.95rem;
+  }
+  .ni-story-quote-center {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 46rem;
+    padding: 1.5rem 1.75rem;
+    border-top: 1px solid rgba(185, 154, 102, 0.3);
+    border-bottom: 1px solid rgba(185, 154, 102, 0.3);
+    position: relative;
+  }
+  .ni-story-quote-center blockquote {
+    margin: 0;
+    font-family: var(--heading-font-family);
+    font-style: italic;
+    font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+    line-height: 1.55;
+    color: #FFFFFF;
+  }
+
+  /* Highlights Bar */
+  .ni-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin: clamp(2.5rem, 5vw, 3.75rem) 0 0;
+    padding: 0;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(185, 154, 102, 0.35);
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .ni-highlights li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 7.75rem;
+    gap: 0.45rem;
+    padding: 1.5rem 1.5rem;
+    position: relative;
+  }
+  .ni-highlights li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(185, 154, 102, 0.45) 20%, rgba(185, 154, 102, 0.45) 80%, transparent);
+  }
+  .ni-highlights strong {
+    font-family: var(--heading-font-family);
+    font-size: 1.4rem;
+    color: var(--brand-champagne);
+    font-weight: 500;
+  }
+  .ni-highlights span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+</style>
+</head>
+<body>
+  <section class="ni-home-section ni-story">
+    <div class="ni-section-inner">
+      <header class="ni-story-header">
+        <p class="ni-story-eyebrow">Two friends, one love of gifting</p>
+        <h2 class="ni-story-title">The NI Square story</h2>
+      </header>
+
+      <div class="ni-story-body">
+        <p class="ni-story-lead-para">
+          NI Square began with two best friends named Nikita and a shared love for thoughtful gifting and presentation.
+        </p>
+
+        <div class="ni-story-duo">
+          <p>
+            From personalized hampers to bespoke packaging, we make each gift feel personal and help you share love, appreciation, and celebration in a way that feels intentional.
+          </p>
+          <p>
+            With 1,000+ hampers created for weddings, birthdays, baby celebrations, festivals, corporate milestones, and anniversaries, we handle every detail from curation to the final hand-finished touches.
+          </p>
+        </div>
+
+        <div class="ni-story-quote-center">
+          <blockquote>
+            “People remember how a gift made them feel, long after they’ve forgotten what was inside.”
+          </blockquote>
+        </div>
+      </div>
+
+      <ul class="ni-highlights">
+        <li><strong>1,000+</strong><span>Hampers created</span></li>
+        <li><strong>Every occasion</strong><span>Gifts made for your moment</span></li>
+        <li><strong>Personalised</strong><span>Made for your requirements</span></li>
+        <li><strong>Handcrafted</strong><span>Finished with care</span></li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

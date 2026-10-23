@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { buildWhatsAppEnquiryMessage, whatsappLink, WHATSAPP_FOUNDERS } from '../lib/whatsapp';
 import { storeCollections } from '../data/storeCatalog';
 import { WhatsAppModalContext } from './WhatsAppModalContext';
+import { SolidWhatsAppIcon } from '../components/common/Icons';
 import type { WhatsAppFormData, WhatsAppModalOptions } from '../types/index.ts';
 
 function getLocalDateValue(date = new Date()): string {
@@ -37,7 +38,12 @@ export default function WhatsAppModalProvider({ children }: WhatsAppModalProvide
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const lastActiveElementRef = useRef<HTMLElement | null>(null);
 
-  const openWhatsAppModal = ({ message = '', founderPhone = '', initialCategory = '', initialRequirements = '' }: WhatsAppModalOptions & { message?: string; founderPhone?: string } = {}) => {
+  const openWhatsAppModal = ({
+    message = '',
+    founderPhone = '',
+    initialCategory = '',
+    initialRequirements = '',
+  }: WhatsAppModalOptions & { message?: string; founderPhone?: string } = {}) => {
     lastActiveElementRef.current = document.activeElement as HTMLElement | null;
     setModalConfig({ message, founderPhone });
     setFormData({
@@ -88,10 +94,9 @@ export default function WhatsAppModalProvider({ children }: WhatsAppModalProvide
     setIsChoosingFounder(true);
   };
 
-  const handleFounderClick = (phone: string) => {
-    window.open(whatsappLink(whatsappMessage, phone), '_blank', 'noopener,noreferrer');
-    closeWhatsAppModal();
-  };
+  const preSelectedFounder = modalConfig.founderPhone
+    ? WHATSAPP_FOUNDERS.find((f) => f.phone === modalConfig.founderPhone)
+    : null;
 
   return (
     <WhatsAppModalContext.Provider value={{ openWhatsAppModal, closeWhatsAppModal, isOpen }}>
@@ -123,8 +128,15 @@ export default function WhatsAppModalProvider({ children }: WhatsAppModalProvide
 
             {!isChoosingFounder ? (
               <>
+                {preSelectedFounder ? (
+                  <p className="eyebrow">Message with {preSelectedFounder.name} ({preSelectedFounder.role})</p>
+                ) : (
+                  <p className="eyebrow">Plan a Hamper</p>
+                )}
+
                 <h2 id="whatsapp-choice-title">Tell us what you have in mind</h2>
-                <p>Share a few details so we can help plan your hamper.</p>
+                <p>Share a few details so we can help plan your hamper on WhatsApp.</p>
+
                 <form className="whatsapp-enquiry-form" onSubmit={handleSubmit}>
                   <label>
                     <span>Full Name</span>
@@ -132,11 +144,13 @@ export default function WhatsAppModalProvider({ children }: WhatsAppModalProvide
                       name="fullName"
                       type="text"
                       autoComplete="name"
+                      placeholder="Your full name"
                       value={formData.fullName}
                       onChange={updateField}
                       required
                     />
                   </label>
+
                   <label>
                     <span>Select a Category <small>(optional)</small></span>
                     <select name="category" value={formData.category} onChange={updateField}>
@@ -149,6 +163,7 @@ export default function WhatsAppModalProvider({ children }: WhatsAppModalProvide
                       <option value="Other">Other</option>
                     </select>
                   </label>
+
                   <label>
                     <span>Occasion / Event Date <small>(optional)</small></span>
                     <input
@@ -159,8 +174,9 @@ export default function WhatsAppModalProvider({ children }: WhatsAppModalProvide
                       onChange={updateField}
                     />
                   </label>
-                  <label className="whatsapp-enquiry-form-full">
-                    <span>Custom Requirements / Ideas <small>(optional)</small></span>
+
+                  <label className="whatsapp-enquiry-message">
+                    <span>Message or Custom Requirements <small>(optional)</small></span>
                     <textarea
                       name="requirements"
                       rows={3}
@@ -169,42 +185,44 @@ export default function WhatsAppModalProvider({ children }: WhatsAppModalProvide
                       placeholder="Theme, colors, special items to include, budget, quantity..."
                     />
                   </label>
-                  <div className="whatsapp-enquiry-form-actions">
-                    <button type="submit" className="button">
-                      {modalConfig.founderPhone ? 'Open WhatsApp' : 'Next: Choose a Founder →'}
-                    </button>
-                  </div>
+
+                  <button type="submit" className="button whatsapp-enquiry-submit">
+                    <SolidWhatsAppIcon style={{ width: '1.2rem', height: '1.2rem', flexShrink: 0 }} />
+                    <span>Send on WhatsApp</span>
+                  </button>
                 </form>
               </>
             ) : (
               <>
+                <p className="eyebrow">Almost there</p>
                 <h2 id="whatsapp-choice-title">Who would you like to speak with?</h2>
-                <p className="eyebrow">Select a founder</p>
                 <p>Choose either founder below to continue our conversation on WhatsApp.</p>
-                <div className="whatsapp-choice-list">
+
+                <div className="whatsapp-choice-options">
                   {WHATSAPP_FOUNDERS.map((founder) => (
-                    <button
+                    <a
                       key={founder.phone}
-                      type="button"
-                      className="whatsapp-choice-option"
-                      onClick={() => handleFounderClick(founder.phone)}
+                      href={whatsappLink(whatsappMessage, founder.phone)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="whatsapp-choice-card"
+                      onClick={closeWhatsAppModal}
                     >
-                      <span className="whatsapp-choice-avatar" aria-hidden="true">
-                        {founder.name.split(' ').map((part) => part[0]).slice(0, 2).join('')}
-                      </span>
-                      <span className="whatsapp-choice-meta">
+                      <div className="whatsapp-choice-card-info">
                         <strong>{founder.name}</strong>
                         <span>{founder.role}</span>
+                      </div>
+                      <span className="whatsapp-choice-card-cta">
+                        <SolidWhatsAppIcon style={{ width: '1.1rem', height: '1.1rem' }} />
+                        <span>Chat on WhatsApp &#8599;</span>
                       </span>
-                      <span className="whatsapp-choice-action">Chat on WhatsApp &#8599;</span>
-                    </button>
+                    </a>
                   ))}
                 </div>
-                <div className="whatsapp-choice-back">
-                  <button type="button" className="text-link" onClick={() => setIsChoosingFounder(false)}>
-                    &#8592; Back to details
-                  </button>
-                </div>
+
+                <button type="button" className="whatsapp-enquiry-back" onClick={() => setIsChoosingFounder(false)}>
+                  &#8592; Back to details
+                </button>
               </>
             )}
           </section>

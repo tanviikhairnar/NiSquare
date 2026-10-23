@@ -13,6 +13,7 @@
     "preview": "vite preview",
     "optimize:images": "node scripts/optimize-store-images.mjs",
     "test": "node --test",
+    "test:ui": "node scripts/ui-inspect.mjs",
     "check:assets": "node scripts/check-asset-references.mjs"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
+    "puppeteer-core": "^25.16.0",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",

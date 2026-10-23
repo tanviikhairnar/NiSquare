@@ -79,6 +79,15 @@ export function HomeTrustStrip() {
 export function HomeAboutSection() {
   return (
     <section className="ni-home-section home-about" id="about" aria-labelledby="home-about-title">
+      <div className="ni-decoration-layer" aria-hidden="true">
+        <img
+          src="/assets/decorations/bird-perched.webp"
+          alt=""
+          className="ni-motif about-motif-bird"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
       <div className="ni-section-inner home-about-layout">
         <figure className="home-editorial-photo home-about-photo">
           <img
@@ -104,6 +113,15 @@ export function HomeAboutSection() {
 export function HowWeWorkSection() {
   return (
     <section className="ni-home-section home-process" aria-labelledby="home-process-title">
+      <div className="ni-decoration-layer" aria-hidden="true">
+        <img
+          src="/assets/decorations/botanical-branch-horizontal.webp"
+          alt=""
+          className="ni-motif process-motif-branch"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
       <div className="ni-section-inner">
         <header className="ni-section-heading">
           <p className="ni-section-eyebrow">From first idea to finishing touch</p>
@@ -130,6 +148,15 @@ export function HowWeWorkSection() {
 export function WhyChooseUsSection() {
   return (
     <section className="ni-home-section home-why-choose" aria-labelledby="home-why-title">
+      <div className="ni-decoration-layer" aria-hidden="true">
+        <img
+          src="/assets/decorations/botanical-foliage-sprig.webp"
+          alt=""
+          className="ni-motif why-motif-sprig"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
       <div className="ni-section-inner home-why-layout">
         <div className="home-why-copy">
           <p className="ni-section-eyebrow">The care behind every hamper</p>

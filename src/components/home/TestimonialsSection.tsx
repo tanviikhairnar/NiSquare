@@ -84,6 +84,15 @@ export default function TestimonialsSection() {
 
   return (
     <section className="ni-testimonials" aria-labelledby="ni-testimonials-title">
+      <div className="ni-decoration-layer" aria-hidden="true">
+        <img
+          src="/assets/decorations/bird-flying.webp"
+          alt=""
+          className="ni-motif testimonials-motif-bird"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
       <div className="ni-testimonials-inner">
         <div className="ni-testimonials-hero">
           <PhotoCollage images={testimonialImages.slice(0, 5)} side="left" />

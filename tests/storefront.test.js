@@ -80,3 +80,34 @@ test('modularized pages and common components are structurally exported', async 
   assert.equal(typeof useWhatsAppModal, 'function');
 });
 
+test('SEO engine produces valid metadata and structured data across routes', async () => {
+  const { getPageStructuredData, getSeoMetadata, getSeoRoutes } = await import('../src/data/seo.ts');
+
+  // Verify route count and structure
+  const routes = getSeoRoutes();
+  assert.ok(routes.length >= 28, 'Should generate metadata for at least 28 routes');
+  assert.ok(getSeoMetadata('/').title.includes('NI Square Packaging'));
+  assert.equal(getSeoMetadata('/search').robots, 'noindex, follow');
+  for (const route of routes) {
+    assert.ok(typeof route.path === 'string' && route.path.startsWith('/'));
+    assert.ok(typeof route.title === 'string' && route.title.length > 10);
+    assert.ok(typeof route.description === 'string' && route.description.length > 20);
+    assert.ok(typeof route.image === 'string' && route.image.length > 0);
+    assert.ok(typeof route.priority === 'number' && route.priority > 0 && route.priority <= 1.0);
+    assert.ok(['weekly', 'monthly', 'yearly'].includes(route.changefreq));
+  }
+
+  // Verify rich Schema.org JSON-LD generation for key route types
+  const homeSchemas = getPageStructuredData('/');
+  assert.ok(homeSchemas.length >= 2, 'Home should provide Organization & FAQ schemas');
+  assert.equal(homeSchemas[0]['@context'], 'https://schema.org');
+
+  const subSchemas = getPageStructuredData('/collections/trousseau-wedding-hampers/trousseau');
+  assert.ok(subSchemas.some((s) => s['@type'] === 'BreadcrumbList'), 'Subcategory must have BreadcrumbList schema');
+  assert.ok(subSchemas.some((s) => s['@type'] === 'Product'), 'Subcategory must have Product schema');
+
+  const servicesSchemas = getPageStructuredData('/pages/services');
+  assert.ok(servicesSchemas.some((s) => s['@type'] === 'FAQPage'), 'Services should provide FAQPage schema');
+  assert.ok(servicesSchemas.some((s) => s['@type'] === 'Service'), 'Services should provide Service schema');
+});
+

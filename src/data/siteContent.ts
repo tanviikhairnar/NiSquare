@@ -23,16 +23,7 @@ export const siteHeader: SiteHeaderConfig = {
       megaMenu: giftingMenu,
     },
     { label: 'Our Story', path: '/pages/our-story' },
-    {
-      label: 'Services',
-      path: '/pages/services#services',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Custom-made gifting', path: '/pages/services#services' },
-        { label: 'Personalised packaging', path: '/pages/services#services' },
-        { label: 'Pre-booking information', path: '/pages/services#services' },
-      ],
-    },
+    { label: 'Services', path: '/pages/services' },
     { label: 'Contact', path: '/pages/contact' },
   ],
 };

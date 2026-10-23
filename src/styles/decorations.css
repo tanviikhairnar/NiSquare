@@ -1,0 +1,147 @@
+.ni-section-inner,
+.home-categories-inner,
+.home-about-layout,
+.ni-service-grid,
+.home-process-grid,
+.previous-work-heading,
+.previous-work-rail,
+.previous-work-footer,
+.ni-testimonials-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.ni-decoration-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.ni-motif {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+  object-fit: contain;
+  opacity: 0.88;
+  filter: drop-shadow(0 4px 14px rgba(74, 16, 27, 0.08));
+}
+
+.home-categories {
+  position: relative;
+  overflow: hidden;
+}
+
+.categories-motif-branch {
+  top: 1.5rem;
+  right: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(110px, 11vw, 155px);
+  height: auto;
+}
+
+.home-about {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-motif-bird {
+  top: 1rem;
+  right: clamp(1.5rem, 3.5vw, 4.5rem);
+  left: auto;
+  width: clamp(90px, 9vw, 125px);
+  height: auto;
+}
+
+.previous-work-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.previous-work-motif-foliage {
+  top: 1.5rem;
+  left: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(110px, 11vw, 150px);
+  height: auto;
+}
+
+.ni-services {
+  position: relative;
+  overflow: hidden;
+}
+
+.services-motif-hanging-bloom {
+  top: 1rem;
+  right: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(120px, 12vw, 165px);
+  height: auto;
+}
+
+.home-process {
+  position: relative;
+  overflow: hidden;
+}
+
+.process-motif-branch {
+  top: 1.5rem;
+  left: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(110px, 11vw, 155px);
+  height: auto;
+}
+
+.home-why-choose {
+  position: relative;
+  overflow: hidden;
+}
+
+.why-motif-sprig {
+  top: 0.5rem;
+  right: clamp(2rem, 4.5vw, 6rem);
+  width: clamp(90px, 9vw, 120px);
+  height: auto;
+}
+
+.ni-testimonials {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-motif-bird {
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(85px, 8vw, 115px);
+  height: auto;
+  opacity: 0.88;
+}
+
+.ni-story,
+.ni-founders {
+  position: relative;
+  overflow: hidden;
+}
+
+.story-motif-bloom {
+  top: 1rem;
+  right: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(125px, 12.5vw, 175px);
+  height: auto;
+  opacity: 0.88;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.28));
+}
+
+.founders-motif-bird {
+  top: 1.5rem;
+  right: clamp(1.5rem, 3.5vw, 4.5rem);
+  left: auto;
+  width: clamp(120px, 12vw, 165px);
+  height: auto;
+}
+
+@media (max-width: 1180px) {
+  .ni-decoration-layer {
+    display: none !important;
+  }
+}

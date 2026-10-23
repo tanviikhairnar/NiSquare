@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import WhatsAppContactLink from '../WhatsAppContactLink';
+import { SolidLocationPinIcon, SolidPhoneIcon } from '../common/Icons';
 import { storeCollections } from '../../data/storeCatalog';
 import { WHATSAPP_FOUNDERS } from '../../lib/whatsapp';
 
@@ -63,10 +64,7 @@ export default function Footer() {
         <div className="footer-contact">
           <h2>Contact</h2>
           <address className="footer-contact-address">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
-              <circle cx="12" cy="10" r="2.5" />
-            </svg>
+            <SolidLocationPinIcon />
             <span>Nashik District, Maharashtra, India</span>
           </address>
           <div className="footer-founder-contacts">
@@ -77,9 +75,7 @@ export default function Footer() {
                 aria-label={'Call ' + founder.name + ' at +91 ' + founder.phone}
                 key={founder.phone}
               >
-                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2c1.1.4 2.3.6 3.6.6a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A18 18 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.6 3.6a1 1 0 0 1-.2 1Z" />
-                </svg>
+                <SolidPhoneIcon />
                 <span>
                   <span>{founder.name}</span>
                   <strong>+91 {founder.phone.slice(0, 5)} {founder.phone.slice(5)}</strong>

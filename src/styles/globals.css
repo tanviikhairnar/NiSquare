@@ -16,6 +16,7 @@
 @import './site-layout.css';
 @import './store-pages.css';
 @import './home-sections.css';
+@import './decorations.css';
 
 *, *::before, *::after { box-sizing: border-box; }
 body { min-width: 320px; }
@@ -59,4 +60,85 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   letter-spacing: 0;
   text-transform: none;
+}
+
+/* ==========================================================================
+   NI Square Standard Button Styling & Universal Hover System
+   ========================================================================== */
+
+/* Universal Standard Primary Button */
+.button,
+a.button,
+button.button,
+.whatsapp-contact-trigger.button,
+.store-contact-actions .button,
+.features--button-transition .button,
+.features--button-transition a.button,
+.features--button-transition button.button,
+.hero-button,
+.features--button-transition .hero-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.65rem !important;
+  padding: 0.85rem 1.85rem !important;
+  min-height: 2.85rem !important;
+  font-family: var(--text-font-family, 'Instrument Sans', sans-serif) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  color: #FEFDF8 !important;
+  background: var(--brand-burgundy, #4A101B) !important;
+  background-image: none !important;
+  border: 1.5px solid rgba(185, 154, 102, 0.45) !important;
+  border-radius: 9999px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 14px rgba(74, 16, 27, 0.16) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+.button span,
+a.button span,
+button.button span,
+.whatsapp-contact-trigger.button span {
+  color: inherit !important;
+}
+
+/* Universal Button Hover Effect:
+   - Text ALWAYS stays crisp, bright white
+   - Background shifts to rich illuminated wine (#681827)
+   - Border highlights in radiant champagne gold (#C2A574)
+   - Subtle 2px lift with ambient shadow
+*/
+.button:not([disabled]):hover,
+a.button:not([disabled]):hover,
+button.button:not([disabled]):hover,
+.whatsapp-contact-trigger.button:not([disabled]):hover,
+.store-contact-actions .button:not([disabled]):hover,
+.features--button-transition .button:not([disabled]):hover,
+.features--button-transition a.button:not([disabled]):hover,
+.features--button-transition button.button:not([disabled]):hover,
+.features--button-transition :is(.button,.shopify-challenge__button,.shopify-payment-button__button--unbranded):not([disabled]):hover,
+.hero-button:not([disabled]):hover,
+.features--button-transition .hero-button:not([disabled]):hover {
+  color: #FFFFFF !important;
+  background: #681827 !important;
+  background-image: none !important;
+  border-color: var(--brand-gold, #C2A574) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(74, 16, 27, 0.28), 0 0 0 1px rgba(194, 165, 116, 0.35) !important;
+}
+
+.button:not([disabled]):active,
+a.button:not([disabled]):active,
+button.button:not([disabled]):active,
+.whatsapp-contact-trigger.button:not([disabled]):active,
+.features--button-transition .button:not([disabled]):active {
+  transform: translateY(0) !important;
+  box-shadow: 0 3px 10px rgba(74, 16, 27, 0.22) !important;
 }
