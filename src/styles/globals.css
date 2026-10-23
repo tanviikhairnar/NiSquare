@@ -62,11 +62,25 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: none;
 }
 
+/* On dark burgundy sections, the eyebrow pill glows in radiant champagne gold */
+.ni-story .ni-section-eyebrow,
+.ni-story-header .ni-section-eyebrow,
+.ni-story .ni-section-heading > .ni-section-eyebrow {
+  color: #F3E8D2 !important;
+  border: 1px solid rgba(226, 200, 152, 0.45) !important;
+  background: rgba(185, 154, 102, 0.16) !important;
+  letter-spacing: 0.12em !important;
+}
+
 /* ==========================================================================
    NI Square Standard Button Styling & Universal Hover System
    ========================================================================== */
 
-/* Universal Standard Primary Button */
+/* ==========================================================================
+   NI Square Standard Button Styling & Signature Sliding Transition
+   ========================================================================== */
+
+/* Universal Standard Primary Button (crisp rectangular with authentic sweeping transition) */
 .button,
 a.button,
 button.button,
@@ -76,7 +90,12 @@ button.button,
 .features--button-transition a.button,
 .features--button-transition button.button,
 .hero-button,
-.features--button-transition .hero-button {
+.features--button-transition .hero-button,
+.whatsapp-enquiry-submit,
+.footer-whatsapp-link,
+.drawer-footer-link {
+  -webkit-appearance: none !important;
+  appearance: none !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -86,34 +105,62 @@ button.button,
   font-family: var(--text-font-family, 'Instrument Sans', sans-serif) !important;
   font-size: 0.82rem !important;
   font-weight: 600 !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   text-decoration: none !important;
-  color: #FEFDF8 !important;
-  background: var(--brand-burgundy, #4A101B) !important;
-  background-image: none !important;
-  border: 1.5px solid rgba(185, 154, 102, 0.45) !important;
-  border-radius: 9999px !important;
+  text-align: center !important;
   cursor: pointer !important;
-  box-shadow: 0 4px 14px rgba(74, 16, 27, 0.16) !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  color: #FEFDF8 !important;
+  border: 1px solid var(--brand-champagne, #B99A66) !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  --initial-gradient: linear-gradient(var(--brand-burgundy, #681827), var(--brand-burgundy, #681827));
+  --hover-gradient: linear-gradient(var(--brand-champagne, #B99A66), var(--brand-champagne, #B99A66));
+  --initial-background-position: right;
+  --hover-background-position: left;
+  background-image: var(--initial-gradient), var(--hover-gradient) !important;
+  background-size: 100% 100%, 0 100% !important;
+  background-position: var(--initial-background-position) !important;
+  background-repeat: no-repeat !important;
+  transition: background-size 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+              background-position 0.45s step-end,
+              color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+              border-color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),
+              box-shadow 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
   line-height: 1.2 !important;
   white-space: nowrap !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  box-shadow: 0 4px 14px rgba(74, 16, 27, 0.16) !important;
 }
 
 .button span,
 a.button span,
 button.button span,
-.whatsapp-contact-trigger.button span {
+.whatsapp-contact-trigger.button span,
+.hero-button span,
+.whatsapp-enquiry-submit span,
+.footer-whatsapp-link span,
+.drawer-footer-link span {
   color: inherit !important;
+  transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
 }
 
-/* Universal Button Hover Effect:
-   - Text ALWAYS stays crisp, bright white
-   - Background shifts to rich illuminated wine (#681827)
-   - Border highlights in radiant champagne gold (#C2A574)
-   - Subtle 2px lift with ambient shadow
+.button svg,
+a.button svg,
+button.button svg,
+.whatsapp-contact-trigger.button svg,
+.hero-button svg,
+.whatsapp-enquiry-submit svg,
+.footer-whatsapp-link svg,
+.drawer-footer-link svg {
+  color: inherit !important;
+  transition: all 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
+}
+
+/* Signature Sliding Transition on Hover:
+   The golden gradient sweeps across the rectangular button (from 0 to 100% width),
+   while the burgundy gradient shrinks, and text smoothly transitions to deep plum.
 */
 .button:not([disabled]):hover,
 a.button:not([disabled]):hover,
@@ -125,20 +172,49 @@ button.button:not([disabled]):hover,
 .features--button-transition button.button:not([disabled]):hover,
 .features--button-transition :is(.button,.shopify-challenge__button,.shopify-payment-button__button--unbranded):not([disabled]):hover,
 .hero-button:not([disabled]):hover,
-.features--button-transition .hero-button:not([disabled]):hover {
-  color: #FFFFFF !important;
-  background: #681827 !important;
-  background-image: none !important;
-  border-color: var(--brand-gold, #C2A574) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(74, 16, 27, 0.28), 0 0 0 1px rgba(194, 165, 116, 0.35) !important;
+.features--button-transition .hero-button:not([disabled]):hover,
+.whatsapp-enquiry-submit:not([disabled]):hover,
+.footer-whatsapp-link:not([disabled]):hover,
+.drawer-footer-link:not([disabled]):hover {
+  color: var(--brand-plum, #4A101B) !important;
+  border-color: var(--brand-champagne, #B99A66) !important;
+  background-position: var(--hover-background-position, left) !important;
+  background-size: 0 100%, 100% 100% !important;
+  box-shadow: 0 6px 20px rgba(185, 154, 102, 0.3) !important;
+}
+
+.button:not([disabled]):hover span,
+a.button:not([disabled]):hover span,
+button.button:not([disabled]):hover span,
+.whatsapp-contact-trigger.button:not([disabled]):hover span,
+.hero-button:not([disabled]):hover span,
+.whatsapp-enquiry-submit:not([disabled]):hover span,
+.footer-whatsapp-link:not([disabled]):hover span,
+.drawer-footer-link:not([disabled]):hover span {
+  color: var(--brand-plum, #4A101B) !important;
+}
+
+.button:not([disabled]):hover svg,
+a.button:not([disabled]):hover svg,
+button.button:not([disabled]):hover svg,
+.whatsapp-contact-trigger.button:not([disabled]):hover svg,
+.hero-button:not([disabled]):hover svg,
+.whatsapp-enquiry-submit:not([disabled]):hover svg,
+.footer-whatsapp-link:not([disabled]):hover svg,
+.drawer-footer-link:not([disabled]):hover svg {
+  color: var(--brand-plum, #4A101B) !important;
+  stroke: var(--brand-plum, #4A101B) !important;
 }
 
 .button:not([disabled]):active,
 a.button:not([disabled]):active,
 button.button:not([disabled]):active,
 .whatsapp-contact-trigger.button:not([disabled]):active,
-.features--button-transition .button:not([disabled]):active {
+.features--button-transition .button:not([disabled]):active,
+.hero-button:not([disabled]):active,
+.whatsapp-enquiry-submit:not([disabled]):active,
+.footer-whatsapp-link:not([disabled]):active,
+.drawer-footer-link:not([disabled]):active {
   transform: translateY(0) !important;
   box-shadow: 0 3px 10px rgba(74, 16, 27, 0.22) !important;
 }

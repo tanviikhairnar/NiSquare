@@ -5,8 +5,8 @@ import WhatsAppContactLink from '../components/WhatsAppContactLink';
 import { SolidWhatsAppIcon, SolidInstagramIcon } from '../components/common/Icons';
 import { WHATSAPP_FOUNDERS } from '../lib/whatsapp';
 
-const INSTAGRAM_DM_URL =
-  'https://www.instagram.com/direct/t/17849218443058988/';
+const INSTAGRAM_URL =
+  'https://www.instagram.com/nisquarepackaging?utm_source=ig_web_button_share_sheet&srtk=ZDNlZDc0MzIxNw==';
 
 const contactButtonClass =
   'button w-full !justify-start !gap-3 !px-6 !py-3.5 !min-h-[3.1rem] !text-[0.82rem] !tracking-[0.08em] !font-semibold !rounded-full';
@@ -46,7 +46,7 @@ export default function ContactPage() {
             ))}
 
             <a
-              href={INSTAGRAM_DM_URL}
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={contactButtonClass}

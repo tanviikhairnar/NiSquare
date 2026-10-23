@@ -191,7 +191,7 @@ export default function MobileMenu({
 
           {/* Footer */}
           <div className="drawer-footer">
-            <WhatsAppContactLink className="drawer-footer-link" message="Hi, I would like to plan a hamper.">
+            <WhatsAppContactLink className="button drawer-footer-link w-full text-center" message="Hi, I would like to plan a hamper.">
               Plan a hamper on WhatsApp
             </WhatsAppContactLink>
           </div>

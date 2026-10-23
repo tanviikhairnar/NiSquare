@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AnimatedCounter from '../common/AnimatedCounter';
 
 interface TrustPoint {
   value: string;
@@ -67,7 +68,13 @@ export function HomeTrustStrip() {
       <div className="home-trust-strip-inner">
         {trustPoints.map((point) => (
           <div className="home-trust-item" key={point.value}>
-            <strong>{point.value}</strong>
+            <strong>
+              {point.value === '1,000+' || point.label === 'Hampers created' ? (
+                <AnimatedCounter end={1000} duration={2000} suffix="+" />
+              ) : (
+                point.value
+              )}
+            </strong>
             <span>{point.label}</span>
           </div>
         ))}

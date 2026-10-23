@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import WhatsAppContactLink from '../WhatsAppContactLink';
 import { SolidLocationPinIcon, SolidPhoneIcon } from '../common/Icons';
 import { storeCollections } from '../../data/storeCatalog';
 import { WHATSAPP_FOUNDERS } from '../../lib/whatsapp';
@@ -54,12 +53,6 @@ export default function Footer() {
           </Link>
           <h2>About</h2>
           <p>Explore our gifting categories, then connect with our founders on WhatsApp to plan a hamper around your occasion and preferences.</p>
-          <WhatsAppContactLink
-            className="footer-whatsapp-link"
-            message="Hi, I would like to explore your gifting categories and plan a hamper."
-          >
-            Plan a hamper
-          </WhatsAppContactLink>
         </div>
         <div className="footer-contact">
           <h2>Contact</h2>

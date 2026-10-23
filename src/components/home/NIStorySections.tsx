@@ -1,6 +1,7 @@
 import React from 'react';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import { SolidWhatsAppIcon } from '../common/Icons';
+import AnimatedCounter from '../common/AnimatedCounter';
 import { WHATSAPP_FOUNDERS } from '../../lib/whatsapp';
 
 interface FounderBio {
@@ -88,12 +89,20 @@ export function CompanyStory() {
             <p>With 1,000+ hampers created for weddings, birthdays, baby celebrations, festivals, corporate milestones, and anniversaries, we handle every detail from curation to the final hand-finished touches.</p>
           </div>
           <blockquote className="ni-story-quote">
-            <span className="ni-story-quote-mark" aria-hidden="true">“</span>
-            <p>People remember how a gift made them feel, long after they’ve forgotten what was inside.</p>
+            <p>
+              <span className="ni-quote-mark" aria-hidden="true">“</span>
+              People remember how a gift made them feel, long after they’ve forgotten what was inside.
+              <span className="ni-quote-mark" aria-hidden="true">”</span>
+            </p>
           </blockquote>
         </div>
         <ul className="ni-highlights" aria-label="About NI Square Packaging">
-          <li><strong>1,000+</strong><span>Hampers created</span></li>
+          <li>
+            <strong>
+              <AnimatedCounter end={1000} duration={2000} suffix="+" />
+            </strong>
+            <span>Hampers created</span>
+          </li>
           <li><strong>Every occasion</strong><span>Gifts made for your moment</span></li>
           <li><strong>Personalised</strong><span>Made for your requirements</span></li>
           <li><strong>Handcrafted</strong><span>Finished with care</span></li>
@@ -167,10 +176,19 @@ export function ServicesSection() {
           <p>Every hamper is put together by hand, with attention to detail and your occasion in mind.</p>
         </header>
         <div className="ni-service-grid">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <article className="ni-service-card" key={service.title}>
-              <span className="ni-service-number">{String(index + 1).padStart(2, '0')}</span>
-              <h3>{service.title}</h3>
+              <h3 className="ni-service-title">
+                <img
+                  src="/assets/logo/ni-square-emblem-gold.webp"
+                  alt=""
+                  className="ni-service-bullet"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span>{service.title}</span>
+              </h3>
               <p>{service.description}</p>
             </article>
           ))}

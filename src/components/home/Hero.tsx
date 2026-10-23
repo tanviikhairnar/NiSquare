@@ -131,7 +131,7 @@ export default function Hero({ data = heroContent }: HeroProps) {
                 ))}
               </h1>
             )}
-            <WhatsAppContactLink message="Hi, I would like to plan a hamper." className="button hero-button" style={{ '--button-background': '139 27 43', '--button-outline-color': '139 27 43', '--button-text-color': '251 248 242' } as CSSProperties}>{ctaText}</WhatsAppContactLink>
+            <WhatsAppContactLink message="Hi, I would like to plan a hamper." className="button hero-button">{ctaText}</WhatsAppContactLink>
           </div>
         </div>
         <button type="button" className="hero-scroll-down circle-button circle-button--lg" aria-label="Scroll to collections" onClick={() => document.querySelector('.home-categories')?.scrollIntoView({ behavior: 'smooth' })}>

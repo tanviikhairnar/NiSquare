@@ -46,7 +46,7 @@
   --text-font-weight: 400;
   --text-letter-spacing: 0;
   --button-letter-spacing: .12em;
-  --button-border-radius: 999px;
+  --button-border-radius: 0;
 
   --background: 255 255 255 / 1;
   --page-background: 255 255 255;

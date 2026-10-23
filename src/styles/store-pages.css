@@ -347,10 +347,6 @@ html { scroll-padding-top: var(--header-height); }
   .hero-content .hero-button { animation: none; opacity: 1; translate: none; filter: none; }
   .hero-scroll-down { transition: none; }
 }
-/* Invert the hero CTA on hover so its label keeps contrast. */
-.hero-button { --hover-gradient: linear-gradient(var(--brand-blush), var(--brand-blush)); }
-.hero-button { color: #fff !important; font-size: var(--text-sm); visibility: visible; opacity: 1; }
-.features--button-transition .hero-button:not([disabled]):hover { color: var(--brand-plum) !important; }
 
 /* Subcategory cards lead to individual, responsive work galleries. */
 .category-detail-card-link { display: block; color: inherit; text-decoration: none; }
