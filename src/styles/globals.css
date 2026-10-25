@@ -72,15 +72,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.12em !important;
 }
 
-/* ==========================================================================
-   NI Square Standard Button Styling & Universal Hover System
-   ========================================================================== */
-
-/* ==========================================================================
-   NI Square Standard Button Styling & Signature Sliding Transition
-   ========================================================================== */
-
-/* Universal Standard Primary Button (crisp rectangular with authentic sweeping transition) */
 .button,
 a.button,
 button.button,
@@ -113,20 +104,13 @@ button.button,
   color: #FEFDF8 !important;
   border: 1px solid var(--brand-champagne, #B99A66) !important;
   border-radius: 0 !important;
-  background-color: transparent !important;
-  --initial-gradient: linear-gradient(var(--brand-burgundy, #681827), var(--brand-burgundy, #681827));
-  --hover-gradient: linear-gradient(var(--brand-champagne, #B99A66), var(--brand-champagne, #B99A66));
-  --initial-background-position: right;
-  --hover-background-position: left;
-  background-image: var(--initial-gradient), var(--hover-gradient) !important;
-  background-size: 100% 100%, 0 100% !important;
-  background-position: var(--initial-background-position) !important;
-  background-repeat: no-repeat !important;
-  transition: background-size 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),
-              background-position 0.45s step-end,
-              color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),
-              border-color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),
-              box-shadow 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
+  background-color: var(--brand-burgundy, #681827) !important;
+  background-image: none !important;
+  transition: background-color 0.35s ease,
+              color 0.35s ease,
+              border-color 0.35s ease,
+              box-shadow 0.35s ease,
+              transform 0.25s ease !important;
   line-height: 1.2 !important;
   white-space: nowrap !important;
   box-sizing: border-box !important;
@@ -143,7 +127,7 @@ button.button span,
 .footer-whatsapp-link span,
 .drawer-footer-link span {
   color: inherit !important;
-  transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
+  transition: color 0.35s ease !important;
 }
 
 .button svg,
@@ -155,13 +139,10 @@ button.button svg,
 .footer-whatsapp-link svg,
 .drawer-footer-link svg {
   color: inherit !important;
-  transition: all 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86) !important;
+  transition: color 0.35s ease, stroke 0.35s ease, fill 0.35s ease !important;
 }
 
-/* Signature Sliding Transition on Hover:
-   The golden gradient sweeps across the rectangular button (from 0 to 100% width),
-   while the burgundy gradient shrinks, and text smoothly transitions to deep plum.
-*/
+/* On hover: rectangular button smoothly turns golden */
 .button:not([disabled]):hover,
 a.button:not([disabled]):hover,
 button.button:not([disabled]):hover,
@@ -177,10 +158,10 @@ button.button:not([disabled]):hover,
 .footer-whatsapp-link:not([disabled]):hover,
 .drawer-footer-link:not([disabled]):hover {
   color: var(--brand-plum, #4A101B) !important;
+  background-color: var(--brand-champagne, #B99A66) !important;
+  background-image: none !important;
   border-color: var(--brand-champagne, #B99A66) !important;
-  background-position: var(--hover-background-position, left) !important;
-  background-size: 0 100%, 100% 100% !important;
-  box-shadow: 0 6px 20px rgba(185, 154, 102, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(185, 154, 102, 0.38) !important;
 }
 
 .button:not([disabled]):hover span,

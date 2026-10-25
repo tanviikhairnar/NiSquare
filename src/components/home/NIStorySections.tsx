@@ -141,7 +141,7 @@ export function FoundersSection({ showBiographies = true }: { showBiographies?: 
                 <h3>{founder.name}</h3>
                 {showBiographies && founder.biography.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 <WhatsAppContactLink
-                  className="ni-founder-phone"
+                  className="button ni-founder-phone"
                   message="Hi, I would like to plan a hamper."
                   founderPhone={WHATSAPP_FOUNDERS.find((contact) => contact.name === founder.name)?.phone}
                 >

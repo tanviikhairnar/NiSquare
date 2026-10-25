@@ -140,8 +140,104 @@
   height: auto;
 }
 
-@media (max-width: 1180px) {
-  .ni-decoration-layer {
-    display: none !important;
+/* Responsive adjustments for tablets and medium screens (<= 1024px) */
+@media (max-width: 1024px) {
+  .ni-motif {
+    opacity: 0.82;
+  }
+  .categories-motif-branch {
+    top: 1rem;
+    right: 1.25rem;
+    width: clamp(85px, 11vw, 120px);
+  }
+  .about-motif-bird {
+    top: 0.75rem;
+    right: 1.25rem;
+    width: clamp(75px, 9vw, 100px);
+  }
+  .previous-work-motif-foliage {
+    top: 1rem;
+    left: 1.25rem;
+    width: clamp(85px, 10vw, 115px);
+  }
+  .services-motif-hanging-bloom {
+    top: 0.75rem;
+    right: 1.25rem;
+    width: clamp(90px, 11vw, 125px);
+  }
+  .process-motif-branch {
+    top: 1rem;
+    left: 1.25rem;
+    width: clamp(85px, 10vw, 115px);
+  }
+  .why-motif-sprig {
+    top: 0.5rem;
+    right: 1.5rem;
+    width: clamp(70px, 8vw, 95px);
+  }
+  .testimonials-motif-bird {
+    top: 0.6rem;
+    width: clamp(70px, 8vw, 95px);
+  }
+  .story-motif-bloom {
+    top: 0.75rem;
+    right: 1.25rem;
+    width: clamp(95px, 12vw, 135px);
+  }
+  .founders-motif-bird {
+    top: 1rem;
+    right: 1.25rem;
+    width: clamp(90px, 11vw, 125px);
+  }
+}
+
+/* Mobile responsive adjustments (<= 650px) */
+@media (max-width: 650px) {
+  .ni-motif {
+    opacity: 0.75;
+  }
+  .categories-motif-branch {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: clamp(65px, 18vw, 85px);
+  }
+  .about-motif-bird {
+    top: 0.4rem;
+    right: 0.5rem;
+    width: clamp(55px, 15vw, 75px);
+  }
+  .previous-work-motif-foliage {
+    top: 0.5rem;
+    left: 0.5rem;
+    width: clamp(65px, 16vw, 85px);
+  }
+  .services-motif-hanging-bloom {
+    top: 0.25rem;
+    right: 0.35rem;
+    width: clamp(70px, 18vw, 95px);
+  }
+  .process-motif-branch {
+    top: 0.5rem;
+    left: 0.5rem;
+    width: clamp(65px, 16vw, 85px);
+  }
+  .why-motif-sprig {
+    top: 0.35rem;
+    right: 0.5rem;
+    width: clamp(55px, 15vw, 75px);
+  }
+  .testimonials-motif-bird {
+    top: 0.4rem;
+    width: clamp(55px, 14vw, 70px);
+  }
+  .story-motif-bloom {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: clamp(70px, 20vw, 95px);
+  }
+  .founders-motif-bird {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: clamp(65px, 18vw, 85px);
   }
 }

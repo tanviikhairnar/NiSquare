@@ -160,33 +160,11 @@
 .ni-founder-copy h3 { margin: 0 0 1rem; font: var(--heading-font-style) 500 clamp(1.4rem, 2.2vw, 1.9rem) / 1.2 var(--heading-font-family); text-transform: uppercase; }
 .ni-founder-copy > p:not(.ni-section-eyebrow) { color: var(--store-muted); line-height: 1.75; }
 .ni-founder-phone {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  width: fit-content;
-  margin-block-start: .75rem;
-  color: var(--brand-wine, #861F32);
-  font-family: var(--text-font-family, 'Instrument Sans', sans-serif);
-  font-size: .86rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-underline-offset: .25em;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  transition: color .2s ease, opacity .2s ease;
-}
-.ni-founder-phone:hover {
-  color: var(--brand-oxblood, #4A101B);
-  opacity: .85;
+  margin-block-start: 1.15rem;
 }
 .ni-founder-phone svg {
   width: 1.15rem;
   height: 1.15rem;
-  fill: currentColor;
 }
 .ni-founders--compact .ni-section-heading { margin-block-end: clamp(2rem, 4vw, 3.25rem); }
 .ni-founders--compact .ni-founder-grid { max-width: 62rem; margin-inline: auto; }
@@ -2981,7 +2959,7 @@ main { min-width: 0; width: 100%; }
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1rem, 1.8vw, 1.55rem);
+  gap: clamp(1.25rem, 2.2vw, 2rem);
   list-style: none;
   padding: 0;
   margin: 0;
@@ -2994,7 +2972,7 @@ main { min-width: 0; width: 100%; }
   align-items: center;
   text-align: center;
   overflow: visible;
-  padding: 1.15rem 1.35rem 1.25rem;
+  padding: clamp(1.4rem, 2.2vw, 1.85rem) clamp(1.4rem, 2vw, 1.75rem);
   border: 1px solid rgb(104 24 39 / .1);
   border-radius: 1.15rem;
   background: #FFFFFF;
@@ -3014,13 +2992,13 @@ main { min-width: 0; width: 100%; }
     position: absolute;
     z-index: 2;
     inset-block-start: 2.25rem;
-    inset-inline-end: calc(clamp(1rem, 1.8vw, 1.55rem) * -0.5 - 5px);
+    inset-inline-end: calc(clamp(1.25rem, 2.2vw, 2rem) * -0.5);
     width: .55rem;
     height: .55rem;
     border-block-start: 2px solid var(--brand-champagne);
     border-inline-end: 2px solid var(--brand-champagne);
     content: "";
-    transform: rotate(45deg);
+    transform: translate(50%, -50%) rotate(45deg);
   }
 }
 .home-process-card:hover {
@@ -3295,7 +3273,7 @@ main { min-width: 0; width: 100%; }
     min-height: 0;
     align-items: center;
     text-align: center;
-    padding: 1.15rem 1.35rem 1.25rem;
+    padding: clamp(1.4rem, 2.2vw, 1.85rem) clamp(1.4rem, 2vw, 1.75rem);
     border-radius: 0 0 1rem 1rem;
     background: linear-gradient(145deg, #fff 0%, #FFFCF8 100%);
   }
