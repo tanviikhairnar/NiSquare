@@ -1,4 +1,3 @@
-import React from 'react';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import PageTitle from '../components/common/PageTitle';
 import WhatsAppContactLink from '../components/WhatsAppContactLink';

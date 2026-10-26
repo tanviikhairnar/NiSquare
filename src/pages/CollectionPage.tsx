@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import PageTitle from '../components/common/PageTitle';

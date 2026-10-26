@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useLocation } from 'react-router-dom';
 
 interface LogoCoords {
@@ -8,14 +8,33 @@ interface LogoCoords {
   height: number;
 }
 
+function getInitialLogoCoords(): LogoCoords | null {
+  if (typeof window === 'undefined') return null;
+  const winWidth = window.innerWidth;
+  const winHeight = window.innerHeight;
+  const initialWidth = Math.min(winWidth * 0.68, 290);
+  const initialHeight = initialWidth / (1691 / 556);
+  return {
+    x: (winWidth - initialWidth) / 2,
+    y: (winHeight - initialHeight) / 2,
+    width: initialWidth,
+    height: initialHeight,
+  };
+}
+
 /**
  * PagePreloader provides an opening brand moment:
  * The signature NI Square logo is introduced centrally, then gracefully glides and scales
  * directly into its exact position in the site header, taking its place before the page reveals.
  */
 export default function PagePreloader() {
-  const [stage, setStage] = useState<'initial' | 'flying' | 'done'>('initial');
-  const [initialCoords, setInitialCoords] = useState<LogoCoords | null>(null);
+  const [stage, setStage] = useState<'initial' | 'flying' | 'done'>(() => {
+    if (typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      return 'done';
+    }
+    return 'initial';
+  });
+  const [initialCoords] = useState<LogoCoords | null>(getInitialLogoCoords);
   const [transformStyle, setTransformStyle] = useState<string>('none');
   const [isNavigating, setIsNavigating] = useState<boolean>(false);
   const location = useLocation();
@@ -23,30 +42,12 @@ export default function PagePreloader() {
 
   // Initial site launch animation
   useEffect(() => {
-    // Respect user's motion preferences
-    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      setStage('done');
+    if (stage === 'done' || !initialCoords) {
       return undefined;
     }
 
     // Mark body as animating so the real static header logo is hidden until docked
     document.body.classList.add('is-intro-animating');
-
-    // Calculate initial centered position
-    const winWidth = window.innerWidth;
-    const winHeight = window.innerHeight;
-    const initialWidth = Math.min(winWidth * 0.68, 290);
-    const initialHeight = initialWidth / (1691 / 556);
-    const startX = (winWidth - initialWidth) / 2;
-    const startY = (winHeight - initialHeight) / 2;
-
-    setInitialCoords({
-      x: startX,
-      y: startY,
-      width: initialWidth,
-      height: initialHeight,
-    });
 
     // Hold centrally for a moment so the user sees the luxury brand logo
     const holdTimer = setTimeout(() => {
@@ -59,10 +60,10 @@ export default function PagePreloader() {
       }
 
       const destRect = headerLogo.getBoundingClientRect();
-      const deltaX = destRect.left - startX;
-      const deltaY = destRect.top - startY;
-      const scaleX = destRect.width / initialWidth;
-      const scaleY = destRect.height / initialHeight;
+      const deltaX = destRect.left - initialCoords.x;
+      const deltaY = destRect.top - initialCoords.y;
+      const scaleX = destRect.width / initialCoords.width;
+      const scaleY = destRect.height / initialCoords.height;
 
       setStage('flying');
       setTransformStyle(`translate3d(${deltaX}px, ${deltaY}px, 0) scale(${scaleX}, ${scaleY})`);
@@ -80,7 +81,7 @@ export default function PagePreloader() {
       clearTimeout(holdTimer);
       document.body.classList.remove('is-intro-animating');
     };
-  }, []);
+  }, [initialCoords, stage]);
 
   // Subtle route transition indicator on internal navigation
   useEffect(() => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { SolidLocationPinIcon, SolidPhoneIcon } from '../common/Icons';
 import { storeCollections } from '../../data/storeCatalog';

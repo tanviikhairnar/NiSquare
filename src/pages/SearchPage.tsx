@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import PageTitle from '../components/common/PageTitle';

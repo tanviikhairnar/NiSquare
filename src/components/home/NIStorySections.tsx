@@ -1,4 +1,3 @@
-import React from 'react';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import { SolidWhatsAppIcon } from '../common/Icons';
 import AnimatedCounter from '../common/AnimatedCounter';

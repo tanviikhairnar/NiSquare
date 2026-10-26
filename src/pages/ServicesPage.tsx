@@ -1,4 +1,3 @@
-import React from 'react';
 import { ServicesSection, OccasionsSection } from '../components/home/NIStorySections';
 
 export default function ServicesPage() {

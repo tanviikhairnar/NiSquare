@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export interface AnimatedCounterProps {
   end: number;
@@ -15,7 +15,12 @@ export default function AnimatedCounter({
   separator = true,
   className = '',
 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    if (typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      return end;
+    }
+    return 0;
+  });
   const elementRef = useRef<HTMLSpanElement>(null);
   const hasTriggeredRef = useRef(false);
 
@@ -23,9 +28,8 @@ export default function AnimatedCounter({
     const el = elementRef.current;
     if (!el) return;
 
-    // If user prefers reduced motion, show full target immediately
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setCount(end);
+    // If user prefers reduced motion, initial count is already set to target
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 

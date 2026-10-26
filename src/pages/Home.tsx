@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import Hero from '../components/home/Hero';
 import CategoryGrid from '../components/home/CategoryGrid';
 import { ServicesSection } from '../components/home/NIStorySections';

@@ -1,4 +1,4 @@
-import React, { type CSSProperties, type ReactNode } from 'react';
+import { type CSSProperties, type ReactNode } from 'react';
 import { useWhatsAppModal } from '../context/useWhatsAppModal';
 
 export interface WhatsAppContactLinkProps {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, type ReactNode, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type ReactNode, type ChangeEvent, type FormEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { buildWhatsAppEnquiryMessage, whatsappLink, WHATSAPP_FOUNDERS } from '../lib/whatsapp';
 import { storeCollections } from '../data/storeCatalog';

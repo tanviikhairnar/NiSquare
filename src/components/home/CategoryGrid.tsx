@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { collectionPath, storeCollections } from '../../data/storeCatalog';
 

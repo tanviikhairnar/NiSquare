@@ -26,3 +26,17 @@ dist-ssr
 # Local backend data
 server/data/*.sqlite
 server/data/*.sqlite-*
+
+# Local scratch and test artifacts
+scratch/
+test-results/
+coverage/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Hosting deployments
+.vercel
+.netlify

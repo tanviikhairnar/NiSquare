@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 export interface BreadcrumbPath {
@@ -17,10 +17,10 @@ export default function Breadcrumbs({ current, paths = [] }: BreadcrumbsProps) {
       <Link to="/">Home</Link>
       <span>/</span>
       {paths.map((p) => (
-        <React.Fragment key={p.href}>
+        <Fragment key={p.href}>
           <Link to={p.href}>{p.label}</Link>
           <span>/</span>
-        </React.Fragment>
+        </Fragment>
       ))}
       <span>{current}</span>
     </nav>

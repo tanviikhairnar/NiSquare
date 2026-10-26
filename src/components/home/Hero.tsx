@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { heroContent } from '../../data/siteContent';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 
@@ -124,10 +124,10 @@ export default function Hero({ data = heroContent }: HeroProps) {
             {title && (
               <h1 className="hero-title" aria-label={title}>
                 {title.trim().split(/\s+/).map((word, index, words) => (
-                  <React.Fragment key={index}>
+                  <Fragment key={index}>
                     <span className="hero-title-word" aria-hidden="true" style={{ '--word-delay': `${0.22 + index * 0.055}s` } as CSSProperties}>{word}</span>
                     {index < words.length - 1 ? ' ' : null}
-                  </React.Fragment>
+                  </Fragment>
                 ))}
               </h1>
             )}

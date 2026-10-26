@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import { SolidInstagramIcon } from '../common/Icons';
 

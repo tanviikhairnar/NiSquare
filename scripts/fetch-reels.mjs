@@ -77,7 +77,9 @@ async function main() {
               isVideo = true;
             }
           }
-        } catch(e) {}
+        } catch {
+          // ignore parsing errors for non-matching URLs
+        }
         videoUrls.push({ url, bitrate, isVideo });
       }
     };

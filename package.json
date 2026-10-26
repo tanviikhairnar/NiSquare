@@ -8,6 +8,7 @@
     "backend": "node server/index.js",
     "build": "vite build",
     "postbuild": "node scripts/generate-seo-pages.mjs",
+    "check": "npm run lint && npm run typecheck && npm test && npm run check:assets",
     "lint": "oxlint",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",

@@ -1,4 +1,3 @@
-import React from 'react';
 
 const testimonialImages: string[] = [
   '/assets/images/optimized/catalog/IMG_1167.webp',
