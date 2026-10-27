@@ -30,6 +30,6 @@ export const siteHeader: SiteHeaderConfig = {
 
 export const heroContent = {
   subtitle: 'NI Square Packaging',
-  title: 'From our hands to your loved ones, with love.',
+  title: 'Thoughtful gifting, made personal.',
   ctaText: 'Plan a hamper',
 };

@@ -15,7 +15,7 @@ export const storeCollections: Collection[] = [
     title: 'Trousseau & Wedding Hampers',
     slug: 'trousseau-wedding-hampers',
     image: '/assets/images/optimized/category-trousseau-card.webp',
-    description: 'Personal celebrations and wedding gifting.',
+    description: 'Personalised trousseau packing, wedding hampers, and gifts for your celebrations.',
     subcategories: [
       { title: 'Trousseau', image: '/assets/images/optimized/catalog/IMG_1167.webp', workImages: ['/assets/images/optimized/catalog/IMG_1169.webp'] },
       { title: 'Wedding Hampers', image: '/assets/images/optimized/category-trousseau-card.webp', workImages: ['/assets/images/optimized/catalog/IMG_2897-3.webp'] },
@@ -28,7 +28,7 @@ export const storeCollections: Collection[] = [
     title: 'Return Favours',
     slug: 'return-favours',
     image: '/assets/images/optimized/catalog/IMG_4846.webp',
-    description: 'Gifts for guests and special occasions.',
+    description: 'Thoughtful favours for wedding, birthday, and housewarming celebrations.',
     subcategories: [
       { title: 'Wedding Return Favours', image: '/assets/images/optimized/catalog/IMG_4846.webp' },
       { title: 'Birthday Return Favours', image: '/assets/images/optimized/catalog/IMG_1151.webp' },
@@ -39,7 +39,7 @@ export const storeCollections: Collection[] = [
     title: 'Seasonal & Occasion Gifting',
     slug: 'seasonal-occasion-gifting',
     image: '/assets/images/optimized/catalog/IMG_2149.webp',
-    description: 'Thoughtful gifts for seasonal moments and personal milestones.',
+    description: 'Personalised gifts for festivals, milestones, and the moments you want to celebrate.',
     subcategories: [
       { title: 'Mother\u2019s Day', image: '/assets/images/optimized/catalog/IMG_3596.webp' },
       { title: 'Father\u2019s Day', image: '/assets/images/optimized/catalog/IMG_4949.webp' },
@@ -52,7 +52,7 @@ export const storeCollections: Collection[] = [
     title: 'Ring Platters',
     slug: 'ring-platters',
     image: '/assets/images/optimized/category-ring-platter-card.webp',
-    description: 'A special presentation for the ring ceremony.',
+    description: 'A hand-finished platter to make your ring ceremony feel personal.',
     subcategories: [
       { title: 'Ring Platters', image: '/assets/images/optimized/category-ring-platter-card.webp', workImages: ['/assets/images/optimized/catalog/chocolate-khoncha-table.webp'] },
     ],
@@ -61,7 +61,7 @@ export const storeCollections: Collection[] = [
     title: 'Festive Hampers',
     slug: 'festive-hampers',
     image: '/assets/images/optimized/category-festive-card.webp',
-    description: 'Festival gifting hampers, thoughtfully put together.',
+    description: 'Festive hampers arranged with thoughtful gifts and personal finishing touches.',
     subcategories: [
       { title: 'Festival Gifting Hampers', image: '/assets/images/optimized/category-festive-card.webp', workImages: ['/assets/images/optimized/catalog/IMG_4949.webp'] },
     ],
@@ -70,7 +70,7 @@ export const storeCollections: Collection[] = [
     title: 'Corporate Hampers',
     slug: 'corporate-hampers',
     image: '/assets/images/optimized/catalog/IMG_4949.webp',
-    description: 'Corporate gifting hampers.',
+    description: 'Personalised hampers and gift packaging for teams, clients, and company occasions.',
     subcategories: [
       { title: 'Corporate Gifting Hampers', image: '/assets/images/optimized/catalog/IMG_4949.webp', workImages: ['/assets/images/optimized/catalog/IMG_4846.webp'] },
     ],
