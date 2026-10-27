@@ -4,6 +4,7 @@ import WhatsAppContactLink from '../WhatsAppContactLink';
 import { siteHeader } from '../../data/siteContent';
 import MobileMenu from './MobileMenu';
 import SearchDialog from './SearchDialog';
+import { SolidWhatsAppIcon } from '../common/Icons';
 import type { SiteHeaderConfig } from '../../types';
 
 export interface HeaderProps {
@@ -14,6 +15,7 @@ export default function Header({ config = siteHeader }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMegaMenuDismissed, setIsMegaMenuDismissed] = useState(false);
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
@@ -25,6 +27,14 @@ export default function Header({ config = siteHeader }: HeaderProps) {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMegaMenuDismissed(true);
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
 
   const { brandName = 'NI Square Packaging', logoImage = '', logoAlt = 'NI Square Packaging', navLinks = [] } = config;
 
@@ -66,12 +76,26 @@ export default function Header({ config = siteHeader }: HeaderProps) {
             {navLinks.map((item) => {
               if (item.hasMegaMenu) {
                 return (
-                  <li key={item.label} className="nav-item">
+                  <li
+                    key={item.label}
+                    className={`nav-item ${isMegaMenuDismissed ? 'mega-menu-dismissed' : ''}`}
+                    onMouseEnter={() => setIsMegaMenuDismissed(false)}
+                  >
                     <Link to={item.path} className="nav-link">
                       {item.label}
                     </Link>
                     {/* Mega Menu Dropdown */}
                     <div className="mega-menu">
+                      <button
+                        type="button"
+                        className="mega-menu-close"
+                        aria-label={`Close ${item.label} menu`}
+                        onClick={() => setIsMegaMenuDismissed(true)}
+                      >
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                          <path d="m6 6 12 12M18 6 6 18" />
+                        </svg>
+                      </button>
                       <div className="mega-menu-inner">
                         {item.megaMenu?.map((col) => (
                           <div key={col.heading} className="mega-column">
@@ -137,10 +161,7 @@ export default function Header({ config = siteHeader }: HeaderProps) {
           </button>
 
           <WhatsAppContactLink className="header-icon-btn header-whatsapp-link" message="Hi, I would like to plan a hamper.">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20.4 11.7a8.2 8.2 0 0 1-12.1 7.2L4 20l1.1-4.1a8.2 8.2 0 1 1 15.3-4.2Z" />
-              <path d="M9 8.6c.2-.4.4-.4.7-.4h.5c.2 0 .3.1.4.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.2.3.4 0 .3-.2 1-.6 1.3-.4.4-1 .6-1.6.6-.5 0-1.2-.2-2-.5-1.5-.6-2.8-1.8-3.6-3-.6-.9-1-1.8-1-2.5 0-.6.2-1.1.5-1.4Z" />
-            </svg>
+            <SolidWhatsAppIcon width="1.2em" height="1.2em" />
             <span className="sr-only">WhatsApp</span>
           </WhatsAppContactLink>
         </div>

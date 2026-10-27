@@ -1551,10 +1551,11 @@ main { min-width: 0; width: 100%; }
 .testimonial-gallery--left .testimonial-gallery-image:nth-child(4) { grid-column: 1; grid-row: 4 / span 2; }
 .testimonial-gallery--left .testimonial-gallery-image:nth-child(5) { grid-column: 2; grid-row: 3 / span 2; }
 .testimonial-gallery--right .testimonial-gallery-image:nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
-.testimonial-gallery--right .testimonial-gallery-image:nth-child(2) { grid-column: 2; grid-row: 2 / span 3; }
+.testimonial-gallery--right .testimonial-gallery-image:nth-child(2) { grid-column: 2; grid-row: 1 / span 3; }
 .testimonial-gallery--right .testimonial-gallery-image:nth-child(3) { grid-column: 3; grid-row: 1 / span 2; }
-.testimonial-gallery--right .testimonial-gallery-image:nth-child(4) { grid-column: 1; grid-row: 4 / span 2; }
-.testimonial-gallery--right .testimonial-gallery-image:nth-child(5) { grid-column: 3; grid-row: 3 / span 2; }
+.testimonial-gallery--right .testimonial-gallery-image:nth-child(4) { grid-column: 1; grid-row: 3 / span 3; }
+.testimonial-gallery--right .testimonial-gallery-image:nth-child(5) { grid-column: 3; grid-row: 3 / span 3; }
+.testimonial-gallery--right .testimonial-gallery-image:nth-child(6) { grid-column: 2; grid-row: 4 / span 2; }
 .ni-testimonials-intro { max-width: 36rem; margin-inline: auto; text-align: center; }
 .ni-testimonials-pill {
   display: inline-flex;
@@ -2935,7 +2936,7 @@ main { min-width: 0; width: 100%; }
   background: var(--brand-light-gray);
   color: var(--brand-charcoal);
 }
-.home-process .ni-section-inner { width: min(100% - 2rem, 74rem); }
+.home-process .ni-section-inner { width: min(100% - 2rem, 92rem); }
 .home-process .ni-section-heading {
   max-width: 44rem;
   margin: 0 auto clamp(1.85rem, 3.5vw, 2.75rem);
@@ -3270,7 +3271,11 @@ main { min-width: 0; width: 100%; }
 /* Keep process cards compact, landscape, and clear of the burgundy hover wash. */
 @media (min-width: 651px) {
   .home-process-card {
+    display: grid;
     min-height: 0;
+    grid-template-rows: 2.6rem 3.2rem minmax(0, 1fr);
+    row-gap: .3rem;
+    align-content: stretch;
     align-items: center;
     text-align: center;
     padding: clamp(1.4rem, 2.2vw, 1.85rem) clamp(1.4rem, 2vw, 1.75rem);
@@ -3281,10 +3286,10 @@ main { min-width: 0; width: 100%; }
   .home-process-card:hover {
     background: linear-gradient(145deg, #fff 0%, #FFFCF8 100%);
   }
-  .home-process-card-top { margin-block-end: .95rem; justify-content: center; }
+  .home-process-card-top { grid-row: 1; margin: 0; justify-content: center; }
   .home-process-step-label { display: none; }
-  .home-process-card h3 { margin-block-end: .45rem; line-height: 1.28; text-align: center; }
-  .home-process-card > p:last-child { font-size: .83rem; line-height: 1.5; text-align: center; }
+  .home-process-card h3 { grid-row: 2; align-self: start; margin: 0; line-height: 1.28; text-align: center; }
+  .home-process-card > p:last-child { grid-row: 3; align-self: start; font-size: .83rem; line-height: 1.5; text-align: center; }
 }
 @media (max-width: 650px) {
   .home-process-card {
@@ -3295,6 +3300,24 @@ main { min-width: 0; width: 100%; }
   .home-process-card:hover {
     background: linear-gradient(145deg, #fff 0%, #FFFCF8 100%);
   }
+}
+@media (min-width: 1000px) {
+  .home-process-card {
+    min-height: 16.25rem;
+    grid-template-rows: 3rem 4.4rem minmax(0, 1fr);
+    row-gap: 0;
+    padding-block: 2.25rem;
+  }
+  .home-process-number {
+    width: 3rem;
+    height: 3rem;
+  }
+  .home-process-card h3 {
+    margin-block-start: 2rem;
+    font-size: clamp(1.15rem, 1.35vw, 1.3rem);
+    line-height: 1.25;
+  }
+  .home-process-card > p:last-child { font-size: .9rem; line-height: 1.5; }
 }
 
 /* Our Story page: bring the opening content closer to the header and size each profile to its copy. */

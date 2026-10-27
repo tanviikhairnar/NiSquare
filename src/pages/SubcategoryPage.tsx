@@ -32,7 +32,7 @@ export default function SubcategoryPage() {
         <Breadcrumbs
           current={subcategory.title}
           paths={[
-            { label: 'Gifting categories', href: '/collections' },
+            { label: 'Gifting categories', href: '/#home-categories' },
             { label: category.title, href: collectionPath(category.slug) },
           ]}
         />
@@ -45,7 +45,7 @@ export default function SubcategoryPage() {
                   <source src={item.src} />
                 </video>
               ) : (
-                <img src={item.src} alt={subcategory.title + ' gifting example ' + (index + 1)} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+                <img src={item.src} alt={subcategory.title + ' gifting and packaging work by NI Square Packaging' + (images.length > 1 ? ', example ' + (index + 1) : '')} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
               )}
             </figure>
           ))}

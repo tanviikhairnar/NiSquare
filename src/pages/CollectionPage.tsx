@@ -13,7 +13,7 @@ export default function CollectionPage() {
   return (
     <section className="store-page">
       <div className="store-page-inner store-page-inner--wide">
-        <Breadcrumbs current={category.title} paths={[{ label: 'Gifting categories', href: '/collections' }]} />
+        <Breadcrumbs current={category.title} paths={[{ label: 'Gifting categories', href: '/#home-categories' }]} />
         <PageTitle eyebrow="Explore by occasion" title={category.title} description={category.description} />
         <div className="category-detail-grid">
           {category.subcategories.map((item, index) => {
@@ -24,7 +24,7 @@ export default function CollectionPage() {
               <article className="category-detail-card" key={item.title}>
                 <div className={'category-detail-image category-detail-image--' + (cardVideo ? 'video' : cardImages.length > 1 ? 'double' : 'single')}>
                   {cardImages.map((src, imageIndex) => (
-                    <img key={src} src={src} alt={item.title + ' gifting detail ' + (imageIndex + 1)} loading="lazy" decoding="async" />
+                    <img key={src} src={src} alt={item.title + ' gifting and packaging work by NI Square Packaging' + (cardImages.length > 1 ? ', example ' + (imageIndex + 1) : '')} loading="lazy" decoding="async" />
                   ))}
                   {cardVideo && (
                     <video controls playsInline preload="none" poster={cardVideo.poster} aria-label={'Play ' + item.title + ' video'}>

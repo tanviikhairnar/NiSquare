@@ -3,7 +3,7 @@ import { collectionPath, storeCollections } from '../../data/storeCatalog';
 
 export default function CategoryGrid() {
   return (
-    <section className="home-categories" aria-labelledby="home-categories-title">
+    <section id="home-categories" className="home-categories" aria-labelledby="home-categories-title">
       <div className="ni-decoration-layer" aria-hidden="true">
         <img
           src="/assets/decorations/botanical-branch-horizontal.webp"

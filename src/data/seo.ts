@@ -34,12 +34,6 @@ const home: SeoMetadata = {
 };
 
 const pages: Record<string, { title: string; description: string; image: string; keywords?: string[] }> = {
-  '/collections': {
-    title: 'Gifting Categories & Custom Hampers | NI Square Packaging',
-    description: 'Explore bespoke wedding hampers, trousseau packing, baby announcement hampers, festive gifts, and corporate hampers. Handcrafted in Nashik.',
-    image: '/assets/images/optimized/category-trousseau-card.webp',
-    keywords: ['custom gift hampers', 'wedding gift boxes', 'baby announcement hampers', 'bespoke gift packaging'],
-  },
   '/pages/our-story': {
     title: 'Our Story & Founders | Nikita & Nikita | NI Square Packaging',
     description: 'Meet founders Nikita Kochar Ostwal (Interior Designer) & Nikita Anil Chordiya (Textile Designer). Discover the artisanal story behind NI Square.',
@@ -112,8 +106,6 @@ const collectionSeo: Record<string, { title: string; description: string; image:
 const aliases: Record<string, string> = {
   '/about': '/pages/our-story',
   '/services': '/pages/services',
-  '/pages/work': '/pages/services',
-  '/work': '/collections',
   '/contact': '/pages/contact',
   '/pages/corporate-gifting': '/pages/services',
   '/pages/birth-announcement-gifts': '/pages/services',
@@ -136,6 +128,10 @@ export function getSeoMetadata(pathname: string): SeoMetadata {
       canonicalPath: '/search',
       robots: 'noindex, follow',
     };
+  }
+
+  if (path === '/collections' || path === '/work' || path === '/pages/work') {
+    return { ...home, canonicalPath: '/', robots: 'noindex, follow' };
   }
 
   const canonicalPath = aliases[path] || path;
@@ -201,7 +197,6 @@ export function getSeoMetadata(pathname: string): SeoMetadata {
 export function getSeoRoutes(): Array<{ path: string; priority: number; changefreq: string } & SeoMetadata> {
   const routes: Array<{ path: string; priority: number; changefreq: string } & SeoMetadata> = [
     { path: '/', priority: 1.0, changefreq: 'weekly', ...getSeoMetadata('/') },
-    { path: '/collections', priority: 0.9, changefreq: 'weekly', ...getSeoMetadata('/collections') },
     { path: '/pages/our-story', priority: 0.8, changefreq: 'monthly', ...getSeoMetadata('/pages/our-story') },
     { path: '/pages/services', priority: 0.9, changefreq: 'weekly', ...getSeoMetadata('/pages/services') },
     { path: '/pages/contact', priority: 0.85, changefreq: 'monthly', ...getSeoMetadata('/pages/contact') },
@@ -337,7 +332,7 @@ export function getBreadcrumbStructuredData(pathname: string, siteOrigin: string
         '@type': 'ListItem',
         position: 2,
         name: 'Gifting Collections',
-        item: `${siteUrl}/collections`,
+        item: `${siteUrl}/#home-categories`,
       });
       items.push({
         '@type': 'ListItem',
@@ -367,7 +362,7 @@ export function getBreadcrumbStructuredData(pathname: string, siteOrigin: string
         '@type': 'ListItem',
         position: 2,
         name: 'Gifting Collections',
-        item: `${siteUrl}/collections`,
+        item: `${siteUrl}/#home-categories`,
       });
       items.push({
         '@type': 'ListItem',
@@ -381,11 +376,6 @@ export function getBreadcrumbStructuredData(pathname: string, siteOrigin: string
         itemListElement: items,
       };
     }
-  }
-
-  if (path === '/collections') {
-    items.push({ '@type': 'ListItem', position: 2, name: 'Gifting Collections', item: `${siteUrl}/collections` });
-    return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items };
   }
 
   if (path === '/pages/our-story') {
@@ -404,47 +394,6 @@ export function getBreadcrumbStructuredData(pathname: string, siteOrigin: string
   }
 
   return null;
-}
-
-export function getFAQStructuredData(): object {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'How far in advance should I place an order for wedding hampers?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'We recommend placing wedding, trousseau, and bulk orders at least 1 to 2 weeks in advance. Because every hamper is hand-assembled and tailored to your specifications, advance notice allows us to procure bespoke materials, prepare personalized stationery, and ensure flawless craftsmanship.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Do you deliver custom hampers to Pune, Mumbai, and other cities?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes! We handcraft all hampers at our studio in Nashik and securely deliver orders across Nashik, Pune, Mumbai, Maharashtra, and pan-India with verified courier and logistics partners.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Can the contents, color palette, and packaging be fully customized?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Absolutely. We specialize in bespoke gifting. You can customize the box style, ribbons, personalized tags, gourmet treats, luxury dry fruits, souvenirs, and keepsake items around your wedding aesthetic or corporate branding.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How do I place an order or enquire about pricing?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'You can browse our collections on the website and click "Plan on WhatsApp" or "Contact Founders". You will be connected directly with founders Nikita Kochar Ostwal or Nikita Anil Chordiya to discuss themes, quantities, mockups, and pricing.',
-        },
-      },
-    ],
-  };
 }
 
 export function getCollectionStructuredData(slug: string, siteOrigin: string = DEFAULT_SITE_URL): object | null {
@@ -473,35 +422,31 @@ export function getCollectionStructuredData(slug: string, siteOrigin: string = D
   };
 }
 
-export function getProductStructuredData(categorySlug: string, subcategoryTitle: string, siteOrigin: string = DEFAULT_SITE_URL): object | null {
+export function getSubcategoryStructuredData(categorySlug: string, subcategoryTitle: string, siteOrigin: string = DEFAULT_SITE_URL): object | null {
   const category = storeCollections.find((item) => item.slug === categorySlug);
   const subcategory = category?.subcategories.find((item) => item.title.toLowerCase() === subcategoryTitle.toLowerCase());
   if (!category || !subcategory) return null;
 
   const siteUrl = new URL('/', siteOrigin).href.replace(/\/$/, '');
   const pageUrl = `${siteUrl}/collections/${category.slug}/${subcategorySlug(subcategory.title)}`;
-  const imageUrl = new URL(subcategory.galleryImages?.[0] || subcategory.image, siteOrigin).href;
+  const imageUrls = [...new Set([subcategory.image, ...(subcategory.galleryImages || [])])]
+    .map((image) => new URL(image, siteOrigin).href);
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: `${subcategory.title} Hamper`,
-    description: `Bespoke handcrafted ${subcategory.title} arrangement by NI Square Packaging. Custom design for wedding, celebration, and festive gifting in Nashik, Pune & Mumbai.`,
-    image: imageUrl,
-    category: category.title,
-    brand: {
-      '@type': 'Brand',
-      name: BRAND_NAME,
+    '@type': 'CollectionPage',
+    name: `${subcategory.title} | ${category.title}`,
+    description: `Examples of handcrafted ${subcategory.title.toLowerCase()} gifting and packaging by ${BRAND_NAME}.`,
+    url: pageUrl,
+    isPartOf: {
+      '@type': 'CollectionPage',
+      name: category.title,
+      url: `${siteUrl}/collections/${category.slug}`,
     },
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'INR',
-      availability: 'https://schema.org/InStock',
-      url: pageUrl,
-      seller: {
-        '@type': 'Organization',
-        name: BRAND_NAME,
-      },
+    mainEntity: {
+      '@type': 'ImageGallery',
+      name: `${subcategory.title} gifting and packaging work`,
+      image: imageUrls,
     },
   };
 }
@@ -517,28 +462,7 @@ export function getPageStructuredData(pathname: string, siteOrigin: string = DEF
   // 2. Route-specific rich schemas
   if (path === '/') {
     schemas.push(getOrganizationStructuredData(siteOrigin));
-    schemas.push(getFAQStructuredData());
-  } else if (path === '/collections') {
-    const siteUrl = new URL('/', siteOrigin).href.replace(/\/$/, '');
-    schemas.push({
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: 'Gifting Categories',
-      description: 'Explore all bespoke gifting collections by NI Square Packaging.',
-      url: `${siteUrl}/collections`,
-      mainEntity: {
-        '@type': 'ItemList',
-        itemListElement: storeCollections.map((col, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          url: `${siteUrl}/collections/${col.slug}`,
-          name: col.title,
-          image: new URL(col.image, siteOrigin).href,
-        })),
-      },
-    });
   } else if (path === '/pages/services') {
-    schemas.push(getFAQStructuredData());
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'Service',
@@ -559,8 +483,8 @@ export function getPageStructuredData(pathname: string, siteOrigin: string = DEF
       const category = storeCollections.find((item) => item.slug === subMatch[1]);
       const subcategory = category?.subcategories.find((item) => subcategorySlug(item.title) === subMatch[2]);
       if (category && subcategory) {
-        const prod = getProductStructuredData(category.slug, subcategory.title, siteOrigin);
-        if (prod) schemas.push(prod);
+        const subcategoryPage = getSubcategoryStructuredData(category.slug, subcategory.title, siteOrigin);
+        if (subcategoryPage) schemas.push(subcategoryPage);
       }
     } else {
       const colMatch = path.match(/^\/collections\/([^/]+)$/);

@@ -28,7 +28,7 @@ const groups: FooterGroup[] = [
     links: [
       { label: 'Our story', href: '/pages/our-story' },
       { label: 'Services', href: '/pages/services' },
-      { label: 'All gifting categories', href: '/collections' },
+      { label: 'All gifting categories', href: '/#home-categories' },
     ],
   },
   {

@@ -1,4 +1,3 @@
-export { default as CollectionsPage } from './CollectionsPage';
 export { default as CollectionPage } from './CollectionPage';
 export { default as SubcategoryPage } from './SubcategoryPage';
 export { default as SearchPage, SearchResults } from './SearchPage';

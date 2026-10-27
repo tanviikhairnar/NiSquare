@@ -156,9 +156,17 @@ export default function WhatsAppModalProvider({ children }: WhatsAppModalProvide
                     <select name="category" value={formData.category} onChange={updateField}>
                       <option value="">Choose a category</option>
                       {storeCollections.map((collection) => (
-                        <option key={collection.slug} value={collection.title}>
-                          {collection.title}
-                        </option>
+                        <optgroup key={collection.slug} label={collection.title}>
+                          <option value={collection.title}>All {collection.title}</option>
+                          {collection.subcategories.map((subcategory) => (
+                            <option
+                              key={subcategory.title}
+                              value={`${collection.title} — ${subcategory.title}`}
+                            >
+                              {subcategory.title}
+                            </option>
+                          ))}
+                        </optgroup>
                       ))}
                       <option value="Other">Other</option>
                     </select>

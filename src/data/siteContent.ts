@@ -18,7 +18,7 @@ export const siteHeader: SiteHeaderConfig = {
     { label: 'Home', path: '/' },
     {
       label: 'Gifting',
-      path: '/collections',
+      path: '/#home-categories',
       hasMegaMenu: true,
       megaMenu: giftingMenu,
     },

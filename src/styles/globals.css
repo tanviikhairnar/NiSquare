@@ -184,7 +184,6 @@ button.button:not([disabled]):hover svg,
 .footer-whatsapp-link:not([disabled]):hover svg,
 .drawer-footer-link:not([disabled]):hover svg {
   color: var(--brand-plum, #4A101B) !important;
-  stroke: var(--brand-plum, #4A101B) !important;
 }
 
 .button:not([disabled]):active,

@@ -6,7 +6,6 @@ import SEOHead from './components/layout/SEOHead';
 import PagePreloader from './components/common/PagePreloader';
 import { WhatsAppModalProvider } from './context/WhatsAppModalProvider';
 import Home from './pages/Home';
-import CollectionsPage from './pages/CollectionsPage';
 import CollectionPage from './pages/CollectionPage';
 import SubcategoryPage from './pages/SubcategoryPage';
 import SearchPage from './pages/SearchPage';
@@ -41,7 +40,7 @@ function Storefront() {
       <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/collections" element={<CollectionsPage />} />
+          <Route path="/collections" element={<Navigate to="/#home-categories" replace />} />
           <Route path="/collections/:handle" element={<CollectionPage />} />
           <Route path="/collections/:handle/:subcategoryHandle" element={<SubcategoryPage />} />
           <Route path="/products/:handle" element={<Navigate to="/collections" replace />} />
@@ -49,8 +48,8 @@ function Storefront() {
           <Route path="/about" element={<StoryPage />} />
           <Route path="/pages/services" element={<ServicesPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/pages/work" element={<CollectionsPage />} />
-          <Route path="/work" element={<CollectionsPage />} />
+          <Route path="/pages/work" element={<Navigate to="/#home-categories" replace />} />
+          <Route path="/work" element={<Navigate to="/#home-categories" replace />} />
           <Route path="/pages/corporate-gifting" element={<ServicesPage />} />
           <Route path="/pages/birth-announcement-gifts" element={<ServicesPage />} />
           <Route path="/pages/contact" element={<ContactPage />} />

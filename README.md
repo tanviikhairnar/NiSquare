@@ -15,16 +15,8 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
 
-## Local store backend
+## Enquiries and deployment
 
-This project includes a local Node API backed by SQLite. It serves the current product catalog and saves newsletter signups, contact messages, and pending orders. It binds to 127.0.0.1 and is intended for local development.
+The storefront is a static React application. Enquiries are prepared in the browser and sent directly to a selected founder through WhatsApp; the site does not store enquiry or customer data and does not provide checkout, accounts, or payment processing. No application database is required.
 
-Use Node.js 24.15 or newer. In one terminal, start the API:
-
-npm run backend
-
-In a second terminal, start the React storefront:
-
-npm run dev
-
-Vite forwards /api requests to the local API. The SQLite file is created at server/data/store.sqlite and is ignored by Git. Orders are saved with status pending_payment; no payment information is collected or payment gateway is connected. Contact messages are stored locally; email delivery and customer accounts are not configured.
+Run the storefront locally with `npm install` followed by `npm run dev`. `npm run backend` starts only a local health endpoint for development; it does not handle or store enquiries. The production host must serve the generated static files and support direct requests to nested routes. Set `VITE_SITE_URL` to the canonical production origin when building for a different domain.

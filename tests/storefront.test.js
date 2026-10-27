@@ -55,7 +55,6 @@ test('storeCatalog schema validation conforms to collection contracts', () => {
 test('modularized pages and common components are structurally exported', async () => {
   const { readFileSync } = await import('node:fs');
   const modularFiles = [
-    { path: 'src/pages/CollectionsPage.tsx', exportMatch: /export default function CollectionsPage/ },
     { path: 'src/pages/CollectionPage.tsx', exportMatch: /export default function CollectionPage/ },
     { path: 'src/pages/SubcategoryPage.tsx', exportMatch: /export default function SubcategoryPage/ },
     { path: 'src/pages/SearchPage.tsx', exportMatch: /export default function SearchPage/ },
@@ -85,7 +84,7 @@ test('SEO engine produces valid metadata and structured data across routes', asy
 
   // Verify route count and structure
   const routes = getSeoRoutes();
-  assert.ok(routes.length >= 28, 'Should generate metadata for at least 28 routes');
+  assert.ok(routes.length >= 27, 'Should generate metadata for at least 27 routes');
   assert.ok(getSeoMetadata('/').title.includes('NI Square Packaging'));
   assert.equal(getSeoMetadata('/search').robots, 'noindex, follow');
   for (const route of routes) {
@@ -99,15 +98,21 @@ test('SEO engine produces valid metadata and structured data across routes', asy
 
   // Verify rich Schema.org JSON-LD generation for key route types
   const homeSchemas = getPageStructuredData('/');
-  assert.ok(homeSchemas.length >= 2, 'Home should provide Organization & FAQ schemas');
+  const organizationSchema = homeSchemas.find((schema) => Array.isArray(schema['@graph']));
+  assert.ok(
+    organizationSchema && organizationSchema['@graph'].some((entity) => Array.isArray(entity['@type']) && entity['@type'].includes('LocalBusiness')),
+    'Home should provide local business schema',
+  );
+  assert.ok(!homeSchemas.some((s) => s['@type'] === 'FAQPage'), 'FAQ schema should only be used when its content is visible');
   assert.equal(homeSchemas[0]['@context'], 'https://schema.org');
 
   const subSchemas = getPageStructuredData('/collections/trousseau-wedding-hampers/trousseau');
   assert.ok(subSchemas.some((s) => s['@type'] === 'BreadcrumbList'), 'Subcategory must have BreadcrumbList schema');
-  assert.ok(subSchemas.some((s) => s['@type'] === 'Product'), 'Subcategory must have Product schema');
+  assert.ok(subSchemas.some((s) => s['@type'] === 'CollectionPage'), 'Subcategory should describe its work gallery as a collection page');
+  assert.ok(!subSchemas.some((s) => s['@type'] === 'Product'), 'Enquiry-only categories must not be marked up as purchasable products');
 
   const servicesSchemas = getPageStructuredData('/pages/services');
-  assert.ok(servicesSchemas.some((s) => s['@type'] === 'FAQPage'), 'Services should provide FAQPage schema');
+  assert.ok(!servicesSchemas.some((s) => s['@type'] === 'FAQPage'), 'FAQ schema should only be used when its content is visible');
   assert.ok(servicesSchemas.some((s) => s['@type'] === 'Service'), 'Services should provide Service schema');
 });
 
