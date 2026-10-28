@@ -87,9 +87,30 @@ export function HomeAboutSection() {
     <section className="ni-home-section home-about" id="about" aria-labelledby="home-about-title">
       <div className="ni-decoration-layer" aria-hidden="true">
         <img
-          src="/assets/decorations/bird-perched.webp"
+          src="/assets/decorations/bird-flying.webp"
           alt=""
-          className="ni-motif about-motif-bird"
+          className="ni-motif motif-tl-bird-flying"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/botanical-foliage-sprig.webp"
+          alt=""
+          className="ni-motif motif-tl-sprig"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/stardust-constellation-a.webp"
+          alt=""
+          className="ni-motif motif-br-stardust"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/botanical-bloom-upright.webp"
+          alt=""
+          className="ni-motif motif-br-bloom-upright"
           loading="lazy"
           decoding="async"
         />
@@ -121,9 +142,23 @@ export function HowWeWorkSection() {
     <section className="ni-home-section home-process" aria-labelledby="home-process-title">
       <div className="ni-decoration-layer" aria-hidden="true">
         <img
-          src="/assets/decorations/botanical-branch-horizontal.webp"
+          src="/assets/decorations/botanical-bloom-hanging.webp"
           alt=""
-          className="ni-motif process-motif-branch"
+          className="ni-motif motif-tl-bloom-hanging"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/stardust-constellation-b.webp"
+          alt=""
+          className="ni-motif motif-br-stardust-perched"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/bird-perched.webp"
+          alt=""
+          className="ni-motif motif-br-bird-perched"
           loading="lazy"
           decoding="async"
         />
@@ -156,9 +191,30 @@ export function WhyChooseUsSection() {
     <section className="ni-home-section home-why-choose" aria-labelledby="home-why-title">
       <div className="ni-decoration-layer" aria-hidden="true">
         <img
-          src="/assets/decorations/botanical-foliage-sprig.webp"
+          src="/assets/decorations/bird-flying.webp"
           alt=""
-          className="ni-motif why-motif-sprig"
+          className="ni-motif motif-tl-bird-flying"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/botanical-branch-curved.webp"
+          alt=""
+          className="ni-motif motif-tl-sprig"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/stardust-constellation-a.webp"
+          alt=""
+          className="ni-motif motif-br-stardust"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/botanical-bloom-upright.webp"
+          alt=""
+          className="ni-motif motif-br-bloom-upright"
           loading="lazy"
           decoding="async"
         />

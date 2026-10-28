@@ -16,7 +16,7 @@ export interface SeoMetadata {
 const home: SeoMetadata = {
   title: 'NI Square Packaging | Luxury Wedding & Corporate Hampers in Nashik, Pune & Mumbai',
   description: 'Handcrafted wedding hampers, trousseau packing, return favours, and bespoke corporate gifting in Nashik, Pune, Mumbai. Designed with love by two founders.',
-  image: '/assets/images/optimized/hero-what-a-story-desktop.webp',
+  image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
   canonicalPath: '/',
   keywords: [
     'wedding hampers Nashik',
@@ -55,12 +55,12 @@ const pages: Record<string, { title: string; description: string; image: string;
   '/policies/privacy-policy': {
     title: 'Privacy Policy | NI Square Packaging',
     description: 'Read how NI Square Packaging protects your personal data and handles information shared via website enquiries and WhatsApp.',
-    image: '/assets/images/optimized/hero-what-a-story-desktop.webp',
+    image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
   },
   '/policies/terms-of-service': {
     title: 'Terms & Conditions | Order & Delivery Policy | NI Square Packaging',
     description: 'Review our advance booking, payment terms, custom design approvals, transit guidelines, and cancellation policies.',
-    image: '/assets/images/optimized/hero-what-a-story-desktop.webp',
+    image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
   },
 };
 

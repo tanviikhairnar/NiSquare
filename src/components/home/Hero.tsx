@@ -2,23 +2,145 @@ import { Fragment, useCallback, useEffect, useRef, useState, type CSSProperties 
 import { heroContent } from '../../data/siteContent';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 
-interface Slide {
+export interface Slide {
   image: string;
   mobileImage: string;
+  video?: string;
+  videoStartTime?: number;
   subtitle: string;
   title: string;
   ctaText: string;
 }
 
 const slides: Slide[] = [
-  { image: '/assets/images/optimized/hero-what-a-story-desktop.webp', mobileImage: '/assets/images/optimized/hero-what-a-story-mobile.webp', subtitle: 'NI Square Packaging', title: 'From our hands to your loved ones, with love.', ctaText: 'Plan a hamper' },
-  { image: '/assets/images/optimized/hero-rdne-desktop.webp', mobileImage: '/assets/images/optimized/hero-rdne-mobile.webp', subtitle: 'Thoughtful hampers for every kind of occasion', title: 'Make every gift feel personal', ctaText: 'Plan a hamper' },
-  { image: '/assets/images/optimized/hero-asya-vlasova-desktop.webp', mobileImage: '/assets/images/optimized/hero-asya-vlasova-mobile.webp', subtitle: 'Weddings, birthdays, baby celebrations, and more', title: 'Hampers for life’s occasions', ctaText: 'Plan a hamper' },
-  { image: '/assets/images/optimized/hero-tamanna-rumee-desktop.webp', mobileImage: '/assets/images/optimized/hero-tamanna-rumee-mobile.webp', subtitle: 'A thoughtful way to thank the people you love', title: 'Return favours guests will remember', ctaText: 'Plan a hamper' },
-  { image: '/assets/images/optimized/hero-magda-ehlers-desktop.webp', mobileImage: '/assets/images/optimized/hero-magda-ehlers-mobile.webp', subtitle: 'Personalised around your theme, taste, and budget', title: 'A gift made around your idea', ctaText: 'Plan a hamper' },
+  {
+    video: '/assets/videos/hero/trousseau-curation.mp4',
+    image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
+    mobileImage: '/assets/images/optimized/hero-trousseau-curation-mobile.webp',
+    subtitle: 'NI Square Packaging',
+    title: 'From our hands to your loved ones, with love.',
+    ctaText: 'Plan a hamper',
+  },
+  {
+    video: '/assets/videos/hero/personalised-gifting.mp4',
+    image: '/assets/images/optimized/hero-festive-occasions-desktop.webp',
+    mobileImage: '/assets/images/optimized/hero-festive-occasions-mobile.webp',
+    subtitle: 'Thoughtful hampers for every kind of occasion',
+    title: 'Make every gift feel personal',
+    ctaText: 'Plan a hamper',
+  },
+  {
+    video: '/assets/videos/hero/baby-celebrations.mp4',
+    image: '/assets/images/optimized/hero-celebrations-baby-desktop.webp',
+    mobileImage: '/assets/images/optimized/hero-celebrations-baby-mobile.webp',
+    subtitle: 'Weddings, birthdays, baby celebrations, and more',
+    title: 'Hampers for life’s occasions',
+    ctaText: 'Plan a hamper',
+  },
+  {
+    video: '/assets/videos/hero/wedding-favours.mp4',
+    image: '/assets/images/optimized/hero-return-favours-desktop.webp',
+    mobileImage: '/assets/images/optimized/hero-return-favours-mobile.webp',
+    subtitle: 'A thoughtful way to thank the people you love',
+    title: 'Return favours guests will remember',
+    ctaText: 'Plan a hamper',
+  },
+  {
+    video: '/assets/videos/hero/bridesmaid-curation.mp4',
+    image: '/assets/images/optimized/hero-custom-curation-desktop.webp',
+    mobileImage: '/assets/images/optimized/hero-custom-curation-mobile.webp',
+    subtitle: 'Personalised around your theme, taste, and budget',
+    title: 'A gift made around your idea',
+    ctaText: 'Plan a hamper',
+  },
 ];
 
-function HeroPicture({ slide, index, className }: { slide: Slide; index: number; className: string }) {
+function HeroMedia({
+  slide,
+  index,
+  className,
+  isActive,
+  onVideoEnd,
+}: {
+  slide: Slide;
+  index: number;
+  className: string;
+  isActive: boolean;
+  onVideoEnd?: () => void;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(motionQuery.matches);
+    const motionListener = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    motionQuery.addEventListener('change', motionListener);
+
+    const mobileQuery = window.matchMedia('(max-width: 699px)');
+    setIsMobile(mobileQuery.matches);
+    const mobileListener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mobileQuery.addEventListener('change', mobileListener);
+
+    return () => {
+      motionQuery.removeEventListener('change', motionListener);
+      mobileQuery.removeEventListener('change', mobileListener);
+    };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !slide.video || prefersReducedMotion) return;
+
+    if (isActive) {
+      const startTime = slide.videoStartTime || 0;
+      if (startTime > 0 && (video.currentTime < startTime || video.ended)) {
+        video.currentTime = startTime;
+      }
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay handled by browser policy
+        });
+      }
+    } else {
+      video.pause();
+    }
+  }, [isActive, slide.video, slide.videoStartTime, prefersReducedMotion]);
+
+  const poster = isMobile ? slide.mobileImage : slide.image;
+
+  if (slide.video && !prefersReducedMotion) {
+    return (
+      <div className={'hero-picture ' + className}>
+        <video
+          ref={videoRef}
+          src={slide.video}
+          poster={poster}
+          className="hero-video"
+          muted
+          playsInline
+          autoPlay
+          loop
+          preload="metadata"
+          onLoadedMetadata={() => {
+            const video = videoRef.current;
+            if (video && slide.videoStartTime && video.currentTime < slide.videoStartTime) {
+              video.currentTime = slide.videoStartTime;
+            }
+          }}
+          onEnded={() => {
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+            onVideoEnd?.();
+          }}
+        />
+      </div>
+    );
+  }
+
   return (
     <picture className={'hero-picture ' + className}>
       <source media="(max-width: 699px)" srcSet={slide.mobileImage} />
@@ -92,7 +214,9 @@ export default function Hero({ data = heroContent }: HeroProps) {
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-    const timer = window.setTimeout(() => goToSlide(activeSlideRef.current + 1), 6000);
+    const currentSlide = slides[activeSlide];
+    const duration = currentSlide.video ? 8200 : 6000;
+    const timer = window.setTimeout(() => goToSlide(activeSlideRef.current + 1), duration);
     return () => window.clearTimeout(timer);
   }, [activeSlide, goToSlide]);
 
@@ -101,12 +225,13 @@ export default function Hero({ data = heroContent }: HeroProps) {
   const subtitle = firstSlide ? (data.subtitle || slide.subtitle) : slide.subtitle;
   const title = firstSlide ? (data.title || slide.title) : slide.title;
   const ctaText = firstSlide ? (data.ctaText || slide.ctaText) : slide.ctaText;
+  const slideDuration = slide.video ? '8.2s' : '6s';
 
   return (
     <section className="hero-section" aria-label="NI Square Packaging gifting">
       <div
         className="hero-media-wrapper slideshow"
-        style={{ '--slideshow-progress-duration': '6s', '--slideshow-progress-play-state': 'running' } as CSSProperties}
+        style={{ '--slideshow-progress-duration': slideDuration, '--slideshow-progress-play-state': 'running' } as CSSProperties}
         onTouchStart={(event) => { pointerStart.current = event.touches[0].clientX; }}
         onTouchEnd={(event) => {
           if (pointerStart.current === null) return;
@@ -115,8 +240,25 @@ export default function Hero({ data = heroContent }: HeroProps) {
           pointerStart.current = null;
         }}
       >
-        {previousSlide !== null && <HeroPicture slide={slides[previousSlide]} index={previousSlide} className="hero-picture--outgoing" key={'outgoing-' + previousSlide} />}
-        <HeroPicture slide={slide} index={activeSlide} className={previousSlide === null ? 'hero-picture--current' : 'hero-picture--incoming'} key={'incoming-' + activeSlide} />
+        {previousSlide !== null && (
+          <HeroMedia
+            slide={slides[previousSlide]}
+            index={previousSlide}
+            className="hero-picture--outgoing"
+            isActive={false}
+            key={'outgoing-' + previousSlide}
+          />
+        )}
+        <HeroMedia
+          slide={slide}
+          index={activeSlide}
+          className={previousSlide === null ? 'hero-picture--current' : 'hero-picture--incoming'}
+          isActive={true}
+          onVideoEnd={() => {
+            // Optional transition when video finishes
+          }}
+          key={'incoming-' + activeSlide}
+        />
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content" aria-live="polite">
           <div className="hero-prose">
@@ -152,4 +294,3 @@ export default function Hero({ data = heroContent }: HeroProps) {
     </section>
   );
 }
-

@@ -1,3 +1,12 @@
+/* ==========================================================================
+   NI SQUARE ARTISANAL MOTIFS & DECORATION SYSTEM
+   Arranged at the corners as graceful background elements.
+   Color palette (Matches NI Square Official Luxury Palette):
+     - Royal Burgundy & Deep Wine (Flower Petals, Bird Wings & Body)
+     - Radiant Champagne Gold (Botanical Leaves, Stems, Stardust & Head)
+     - Warm Ivory & Deep Oxblood (Linework, Stamens & Depth Accents)
+   ========================================================================== */
+
 .ni-section-inner,
 .home-categories-inner,
 .home-about-layout,
@@ -6,7 +15,11 @@
 .previous-work-heading,
 .previous-work-rail,
 .previous-work-footer,
-.ni-testimonials-inner {
+.ni-testimonials-inner,
+.home-why-layout,
+.ni-story-body,
+.ni-highlights,
+.ni-founder-grid {
   position: relative;
   z-index: 1;
 }
@@ -26,218 +39,226 @@
   user-select: none;
   display: block;
   object-fit: contain;
-  opacity: 0.88;
-  filter: drop-shadow(0 4px 14px rgba(74, 16, 27, 0.08));
+  opacity: 0.94;
+  filter: drop-shadow(0 4px 16px rgba(74, 16, 27, 0.06));
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 0;
 }
 
-.home-categories {
-  position: relative;
-  overflow: hidden;
-}
-
-.categories-motif-branch {
-  top: 1.5rem;
-  right: clamp(1.5rem, 3.5vw, 4.5rem);
-  width: clamp(110px, 11vw, 155px);
-  height: auto;
-}
-
-.home-about {
-  position: relative;
-  overflow: hidden;
-}
-
-.about-motif-bird {
-  top: 1rem;
-  right: clamp(1.5rem, 3.5vw, 4.5rem);
-  left: auto;
-  width: clamp(90px, 9vw, 125px);
-  height: auto;
-}
-
-.previous-work-section {
-  position: relative;
-  overflow: hidden;
-}
-
-.previous-work-motif-foliage {
-  top: 1.5rem;
-  left: clamp(1.5rem, 3.5vw, 4.5rem);
-  width: clamp(110px, 11vw, 150px);
-  height: auto;
-}
-
-.ni-services {
-  position: relative;
-  overflow: hidden;
-}
-
-.services-motif-hanging-bloom {
-  top: 1rem;
-  right: clamp(1.5rem, 3.5vw, 4.5rem);
-  width: clamp(120px, 12vw, 165px);
-  height: auto;
-}
-
-.home-process {
-  position: relative;
-  overflow: hidden;
-}
-
-.process-motif-branch {
-  top: 1.5rem;
-  left: clamp(1.5rem, 3.5vw, 4.5rem);
-  width: clamp(110px, 11vw, 155px);
-  height: auto;
-}
-
-.home-why-choose {
-  position: relative;
-  overflow: hidden;
-}
-
-.why-motif-sprig {
-  top: 0.5rem;
-  right: clamp(2rem, 4.5vw, 6rem);
-  width: clamp(90px, 9vw, 120px);
-  height: auto;
-}
-
-.ni-testimonials {
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonials-motif-bird {
-  top: 0.75rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(85px, 8vw, 115px);
-  height: auto;
-  opacity: 0.88;
-}
-
+/* Sections with background decorations */
+.home-categories,
+.home-about,
+.previous-work-section,
+.ni-services,
+.home-process,
+.home-why-choose,
+.ni-testimonials,
 .ni-story,
 .ni-founders {
   position: relative;
   overflow: hidden;
 }
 
+/* ==========================================================================
+   ARRANGEMENT 1 (Image 1):
+   - Top-Left: Flying Bird (angling towards center/flower) + Upper Sprig
+   - Bottom-Right: Upright Blooming Flower + Floating Golden Stardust
+   ========================================================================== */
+
+.motif-tl-bird-flying {
+  top: clamp(1rem, 2.8vw, 2.6rem);
+  left: clamp(1rem, 3.2vw, 3.6rem);
+  width: clamp(115px, 12vw, 165px);
+  height: auto;
+}
+
+.motif-tl-sprig {
+  top: 0.5rem;
+  left: clamp(4.5rem, 9.5vw, 9.5rem);
+  width: clamp(80px, 8.5vw, 120px);
+  height: auto;
+  opacity: 0.88;
+}
+
+.motif-br-bloom-upright {
+  bottom: 0;
+  right: clamp(0.5rem, 2.4vw, 2.8rem);
+  width: clamp(130px, 14vw, 190px);
+  height: auto;
+}
+
+.motif-br-stardust {
+  bottom: clamp(3.5rem, 7.5vw, 8rem);
+  right: clamp(5rem, 11vw, 12.5rem);
+  width: clamp(65px, 7.5vw, 100px);
+  height: auto;
+  opacity: 0.92;
+}
+
+/* ==========================================================================
+   ARRANGEMENT 2 (Image 2):
+   - Top-Left: Hanging Blooming Branch
+   - Bottom-Right: Perched Bird (gazing up at flower) + Floating Stardust
+   ========================================================================== */
+
+.motif-tl-bloom-hanging {
+  top: 0;
+  left: clamp(0.5rem, 2.5vw, 3rem);
+  width: clamp(125px, 13vw, 180px);
+  height: auto;
+}
+
+.motif-br-bird-perched {
+  bottom: clamp(0.8rem, 2.4vw, 2.4rem);
+  right: clamp(1.2rem, 3.2vw, 3.8rem);
+  width: clamp(110px, 11.5vw, 155px);
+  height: auto;
+}
+
+.motif-br-stardust-perched {
+  bottom: clamp(5.5rem, 10vw, 10.5rem);
+  right: clamp(2.5rem, 6.5vw, 7.5rem);
+  width: clamp(65px, 7.5vw, 95px);
+  height: auto;
+  opacity: 0.92;
+}
+
+/* Backwards-compatible legacy classes */
+.about-motif-bird {
+  top: 1rem;
+  right: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(90px, 9vw, 125px);
+  height: auto;
+}
+.categories-motif-branch {
+  top: 1.5rem;
+  right: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(110px, 11vw, 155px);
+  height: auto;
+}
+.previous-work-motif-foliage {
+  top: 1.5rem;
+  left: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(110px, 11vw, 150px);
+  height: auto;
+}
+.services-motif-hanging-bloom {
+  top: 1rem;
+  right: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(120px, 12vw, 165px);
+  height: auto;
+}
+.process-motif-branch {
+  top: 1.5rem;
+  left: clamp(1.5rem, 3.5vw, 4.5rem);
+  width: clamp(110px, 11vw, 155px);
+  height: auto;
+}
+.why-motif-sprig {
+  top: 0.5rem;
+  right: clamp(2rem, 4.5vw, 6rem);
+  width: clamp(90px, 9vw, 120px);
+  height: auto;
+}
+.testimonials-motif-bird {
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(85px, 8vw, 115px);
+  height: auto;
+}
 .story-motif-bloom {
   top: 1rem;
   right: clamp(1.5rem, 3.5vw, 4.5rem);
   width: clamp(125px, 12.5vw, 175px);
   height: auto;
-  opacity: 0.88;
-  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.28));
 }
-
 .founders-motif-bird {
   top: 1.5rem;
   right: clamp(1.5rem, 3.5vw, 4.5rem);
-  left: auto;
   width: clamp(120px, 12vw, 165px);
   height: auto;
 }
 
-/* Responsive adjustments for tablets and medium screens (<= 1024px) */
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets <= 1024px)
+   ========================================================================== */
 @media (max-width: 1024px) {
   .ni-motif {
-    opacity: 0.82;
+    opacity: 0.90;
   }
-  .categories-motif-branch {
-    top: 1rem;
-    right: 1.25rem;
-    width: clamp(85px, 11vw, 120px);
+  .motif-tl-bird-flying {
+    top: 0.8rem;
+    left: 1rem;
+    width: clamp(90px, 11.5vw, 130px);
   }
-  .about-motif-bird {
-    top: 0.75rem;
-    right: 1.25rem;
-    width: clamp(75px, 9vw, 100px);
+  .motif-tl-sprig {
+    top: 0.3rem;
+    left: clamp(3.5rem, 7vw, 6.5rem);
+    width: clamp(65px, 8vw, 95px);
   }
-  .previous-work-motif-foliage {
-    top: 1rem;
-    left: 1.25rem;
-    width: clamp(85px, 10vw, 115px);
+  .motif-br-bloom-upright {
+    bottom: 0;
+    right: 0.6rem;
+    width: clamp(100px, 13vw, 150px);
   }
-  .services-motif-hanging-bloom {
-    top: 0.75rem;
-    right: 1.25rem;
+  .motif-br-stardust {
+    bottom: 3.2rem;
+    right: 4.8rem;
+    width: clamp(52px, 6.5vw, 78px);
+  }
+  .motif-tl-bloom-hanging {
+    top: 0;
+    left: 0.8rem;
+    width: clamp(100px, 12.5vw, 145px);
+  }
+  .motif-br-bird-perched {
+    bottom: 0.8rem;
+    right: 1.2rem;
     width: clamp(90px, 11vw, 125px);
   }
-  .process-motif-branch {
-    top: 1rem;
-    left: 1.25rem;
-    width: clamp(85px, 10vw, 115px);
-  }
-  .why-motif-sprig {
-    top: 0.5rem;
-    right: 1.5rem;
-    width: clamp(70px, 8vw, 95px);
-  }
-  .testimonials-motif-bird {
-    top: 0.6rem;
-    width: clamp(70px, 8vw, 95px);
-  }
-  .story-motif-bloom {
-    top: 0.75rem;
-    right: 1.25rem;
-    width: clamp(95px, 12vw, 135px);
-  }
-  .founders-motif-bird {
-    top: 1rem;
-    right: 1.25rem;
-    width: clamp(90px, 11vw, 125px);
+  .motif-br-stardust-perched {
+    bottom: 4.8rem;
+    right: 2.8rem;
+    width: clamp(52px, 6.5vw, 78px);
   }
 }
 
-/* Mobile responsive adjustments (<= 650px) */
+/* ==========================================================================
+   RESPONSIVE DESIGN (Mobile <= 650px)
+   Ensures decorations stay in the corners and NEVER overlap centered text.
+   ========================================================================== */
 @media (max-width: 650px) {
   .ni-motif {
-    opacity: 0.75;
+    opacity: 0.85;
   }
-  .categories-motif-branch {
-    top: 0.5rem;
-    right: 0.5rem;
-    width: clamp(65px, 18vw, 85px);
-  }
-  .about-motif-bird {
+  .motif-tl-bird-flying {
     top: 0.4rem;
-    right: 0.5rem;
-    width: clamp(55px, 15vw, 75px);
+    left: 0.4rem;
+    width: clamp(65px, 18vw, 88px);
   }
-  .previous-work-motif-foliage {
-    top: 0.5rem;
-    left: 0.5rem;
-    width: clamp(65px, 16vw, 85px);
+  .motif-tl-sprig {
+    display: none; /* Keep mobile top-left simple and elegant */
   }
-  .services-motif-hanging-bloom {
-    top: 0.25rem;
-    right: 0.35rem;
-    width: clamp(70px, 18vw, 95px);
+  .motif-br-bloom-upright {
+    bottom: 0;
+    right: 0.2rem;
+    width: clamp(78px, 20vw, 108px);
   }
-  .process-motif-branch {
-    top: 0.5rem;
-    left: 0.5rem;
-    width: clamp(65px, 16vw, 85px);
+  .motif-br-stardust {
+    display: none; /* Avoid obscuring text on smaller viewports */
   }
-  .why-motif-sprig {
-    top: 0.35rem;
-    right: 0.5rem;
-    width: clamp(55px, 15vw, 75px);
+  .motif-tl-bloom-hanging {
+    top: 0;
+    left: 0.2rem;
+    width: clamp(75px, 19vw, 102px);
   }
-  .testimonials-motif-bird {
-    top: 0.4rem;
-    width: clamp(55px, 14vw, 70px);
+  .motif-br-bird-perched {
+    bottom: 0.4rem;
+    right: 0.4rem;
+    width: clamp(68px, 18vw, 88px);
   }
-  .story-motif-bloom {
-    top: 0.5rem;
-    right: 0.5rem;
-    width: clamp(70px, 20vw, 95px);
-  }
-  .founders-motif-bird {
-    top: 0.5rem;
-    right: 0.5rem;
-    width: clamp(65px, 18vw, 85px);
+  .motif-br-stardust-perched {
+    display: none;
   }
 }

@@ -6,9 +6,23 @@ export default function CategoryGrid() {
     <section id="home-categories" className="home-categories" aria-labelledby="home-categories-title">
       <div className="ni-decoration-layer" aria-hidden="true">
         <img
-          src="/assets/decorations/botanical-branch-horizontal.webp"
+          src="/assets/decorations/botanical-bloom-hanging.webp"
           alt=""
-          className="ni-motif categories-motif-branch"
+          className="ni-motif motif-tl-bloom-hanging"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/stardust-constellation-b.webp"
+          alt=""
+          className="ni-motif motif-br-stardust-perched"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/bird-perched.webp"
+          alt=""
+          className="ni-motif motif-br-bird-perched"
           loading="lazy"
           decoding="async"
         />

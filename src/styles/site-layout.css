@@ -645,7 +645,7 @@ main { flex: 1; }
   overflow: hidden;
   background: var(--store-ink);
 }
-.hero-media-wrapper, .hero-picture, .hero-image {
+.hero-media-wrapper, .hero-picture, .hero-image, .hero-video {
   position: absolute;
   inset: 0;
   display: block;
@@ -653,7 +653,26 @@ main { flex: 1; }
   height: 100%;
 }
 .hero-media-wrapper { touch-action: pan-y; }
-.hero-image { object-fit: cover; object-position: center; }
+.hero-image, .hero-video { object-fit: cover; object-position: center; }
+.hero-picture--current {
+  opacity: 1;
+}
+.hero-picture--incoming {
+  z-index: 1;
+  animation: heroFadeIn 760ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero-picture--outgoing {
+  z-index: 0;
+  animation: heroFadeOut 760ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes heroFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
 .hero-overlay {
   position: absolute;
   inset: 0;

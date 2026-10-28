@@ -46,13 +46,7 @@ for (const name of cards) {
   await webp('images/optimized/' + name + '.jpg', 'images/optimized/previews/' + name + '.webp', 720, 74);
 }
 
-const heroes = ['what-a-story', 'rdne', 'asya-vlasova', 'tamanna-rumee', 'magda-ehlers'];
-for (const name of heroes) {
-  for (const size of ['desktop', 'mobile']) {
-    const base = 'images/optimized/hero-' + name + '-' + size;
-    await webp(base + '.jpg', base + '.webp', size === 'desktop' ? 1920 : 960, 77);
-  }
-}
+// Hero images are built from authentic client photos via scripts/build-hero-images.mjs
 
 const reels = ['C2phJ92pJEZ', 'C34YbeoI0oq', 'C43PVooJ0aM', 'DP3OMVrEhOA', 'DQB1R3MEvle', 'DQcPTtYgvTY', 'DQgmQuZkni8', 'DRM51Y8En-f', 'DTfb2PBkj8-', 'DXwzDzWzUwD'];
 for (const id of reels) await webp('instagram-reels/' + id + '.jpg', 'instagram-reels/' + id + '.webp', 640, 76);

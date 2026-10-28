@@ -86,9 +86,23 @@ export default function TestimonialsSection() {
     <section className="ni-testimonials" aria-labelledby="ni-testimonials-title">
       <div className="ni-decoration-layer" aria-hidden="true">
         <img
-          src="/assets/decorations/bird-flying.webp"
+          src="/assets/decorations/botanical-bloom-hanging.webp"
           alt=""
-          className="ni-motif testimonials-motif-bird"
+          className="ni-motif motif-tl-bloom-hanging"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/stardust-constellation-b.webp"
+          alt=""
+          className="ni-motif motif-br-stardust-perched"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/bird-perched.webp"
+          alt=""
+          className="ni-motif motif-br-bird-perched"
           loading="lazy"
           decoding="async"
         />

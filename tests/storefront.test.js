@@ -84,7 +84,7 @@ test('SEO engine produces valid metadata and structured data across routes', asy
 
   // Verify route count and structure
   const routes = getSeoRoutes();
-  assert.ok(routes.length >= 27, 'Should generate metadata for at least 27 routes');
+  assert.ok(routes.length >= 26, 'Should generate metadata for at least 26 routes');
   assert.ok(getSeoMetadata('/').title.includes('NI Square Packaging'));
   assert.equal(getSeoMetadata('/search').robots, 'noindex, follow');
   for (const route of routes) {

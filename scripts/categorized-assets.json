@@ -1,0 +1,321 @@
+{
+  "festival-gifting-hampers": {
+    "key": "festival-gifting-hampers",
+    "collectionSlug": "festive-hampers",
+    "title": "Festival Gifting Hampers",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Festive Hampers-20261027T173436Z-1-001\\Festive Hampers"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_0160.webp",
+      "/assets/images/optimized/catalog/IMG_2149.webp",
+      "/assets/images/optimized/catalog/IMG_6913.webp",
+      "/assets/images/optimized/catalog/IMG_7051.webp",
+      "/assets/images/optimized/catalog/IMG_9713.webp",
+      "/assets/images/optimized/catalog/IMG_9937.webp"
+    ],
+    "videos": []
+  },
+  "birthday-return-favours": {
+    "key": "birthday-return-favours",
+    "collectionSlug": "return-favours",
+    "title": "Birthday Return Favours",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Return favours-20261027T173440Z-1-001\\Return favours\\Birthday Return Favours"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_0216.webp",
+      "/assets/images/optimized/catalog/IMG_0217.webp",
+      "/assets/images/optimized/catalog/IMG_0696.webp",
+      "/assets/images/optimized/catalog/IMG_0697.webp",
+      "/assets/images/optimized/catalog/IMG_0698.webp",
+      "/assets/images/optimized/catalog/IMG_0699.webp",
+      "/assets/images/optimized/catalog/IMG_0700.webp",
+      "/assets/images/optimized/catalog/IMG_0701.webp",
+      "/assets/images/optimized/catalog/IMG_0702.webp",
+      "/assets/images/optimized/catalog/IMG_0705.webp",
+      "/assets/images/optimized/catalog/IMG_0707.webp",
+      "/assets/images/optimized/catalog/IMG_0708.webp"
+    ],
+    "videos": [
+      {
+        "src": "/assets/videos/catalog/birthday-return-favours-79520BC9-2411-43E6-AE6A-1E6B970B6F39.mov",
+        "originalName": "79520BC9-2411-43E6-AE6A-1E6B970B6F39.mov"
+      }
+    ]
+  },
+  "wedding-return-favours": {
+    "key": "wedding-return-favours",
+    "collectionSlug": "return-favours",
+    "title": "Wedding Return Favours",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Return favours-20261027T173440Z-1-001\\Return favours\\Wedding Return Favours"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_0709.webp",
+      "/assets/images/optimized/catalog/IMG_0710.webp",
+      "/assets/images/optimized/catalog/IMG_0711.webp",
+      "/assets/images/optimized/catalog/IMG_0712.webp",
+      "/assets/images/optimized/catalog/IMG_0713.webp",
+      "/assets/images/optimized/catalog/IMG_0714.webp",
+      "/assets/images/optimized/catalog/IMG_0715.webp",
+      "/assets/images/optimized/catalog/IMG_0716.webp",
+      "/assets/images/optimized/catalog/IMG_0717.webp",
+      "/assets/images/optimized/catalog/IMG_0718.webp",
+      "/assets/images/optimized/catalog/IMG_0719.webp",
+      "/assets/images/optimized/catalog/IMG_0720.webp",
+      "/assets/images/optimized/catalog/IMG_0721.webp",
+      "/assets/images/optimized/catalog/IMG_0722.webp",
+      "/assets/images/optimized/catalog/IMG_0723.webp"
+    ],
+    "videos": [
+      {
+        "src": "/assets/videos/catalog/wedding-return-favours-293C0077-EDDD-46E2-ADC0-D6D85A81199F.mp4",
+        "originalName": "293C0077-EDDD-46E2-ADC0-D6D85A81199F.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/wedding-return-favours-IMG_3737.MOV",
+        "originalName": "IMG_3737.MOV"
+      },
+      {
+        "src": "/assets/videos/catalog/wedding-return-favours-IMG_3742.MOV",
+        "originalName": "IMG_3742.MOV"
+      },
+      {
+        "src": "/assets/videos/catalog/wedding-return-favours-IMG_5831.MOV",
+        "originalName": "IMG_5831.MOV"
+      }
+    ]
+  },
+  "ring-platters": {
+    "key": "ring-platters",
+    "collectionSlug": "ring-platters",
+    "title": "Ring Platters",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Ring platter-20261027T173441Z-1-001\\Ring platter"
+    ],
+    "images": [],
+    "videos": [
+      {
+        "src": "/assets/videos/catalog/ring-platters-5a992c14103f4f6cb19b758453c6f9d2.mp4",
+        "originalName": "5a992c14103f4f6cb19b758453c6f9d2.mp4"
+      }
+    ]
+  },
+  "corporate-gifting-hampers": {
+    "key": "corporate-gifting-hampers",
+    "collectionSlug": "corporate-hampers",
+    "title": "Corporate Gifting Hampers",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Corporate Hampers-20261027T172532Z-1-001\\Corporate Hampers",
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Trousseau & Wedding Hampers-20261027T173444Z-1-001\\Trousseau & Wedding Hampers\\Room Hampers\\Corporate Hampers"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/corporate-gifting-hampers-1.webp"
+    ],
+    "videos": [
+      {
+        "src": "/assets/videos/catalog/corporate-gifting-hampers-0ab7f7ca0bbd4cc5a1d10f671f553f08.mp4",
+        "originalName": "0ab7f7ca0bbd4cc5a1d10f671f553f08.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/corporate-gifting-hampers-0ab7f7ca0bbd4cc5a1d10f671f553f08.mp4",
+        "originalName": "0ab7f7ca0bbd4cc5a1d10f671f553f08.mp4"
+      }
+    ]
+  },
+  "baby-hampers": {
+    "key": "baby-hampers",
+    "collectionSlug": "trousseau-wedding-hampers",
+    "title": "Baby Hampers",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Trousseau & Wedding Hampers-20261027T173444Z-1-001\\Trousseau & Wedding Hampers\\Baby"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_0035.webp",
+      "/assets/images/optimized/catalog/IMG_2117.webp",
+      "/assets/images/optimized/catalog/IMG_4732.webp",
+      "/assets/images/optimized/catalog/IMG_8627.webp",
+      "/assets/images/optimized/catalog/IMG_9090.webp",
+      "/assets/images/optimized/catalog/IMG_9091.webp",
+      "/assets/images/optimized/catalog/IMG_9447.webp"
+    ],
+    "videos": [
+      {
+        "src": "/assets/videos/catalog/baby-hampers-120cb4d52e074692b760f1c76ffba7be.mp4",
+        "originalName": "120cb4d52e074692b760f1c76ffba7be.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/baby-hampers-efbe5f1f7c6e4caeb04c865413c0453d.mp4",
+        "originalName": "efbe5f1f7c6e4caeb04c865413c0453d.mp4"
+      }
+    ]
+  },
+  "bridesmaid-gifts": {
+    "key": "bridesmaid-gifts",
+    "collectionSlug": "trousseau-wedding-hampers",
+    "title": "Bridesmaid Gifts",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Trousseau & Wedding Hampers-20261027T173444Z-1-001\\Trousseau & Wedding Hampers\\Bridesmaid"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_0651.webp",
+      "/assets/images/optimized/catalog/IMG_0652.webp",
+      "/assets/images/optimized/catalog/IMG_0653.webp",
+      "/assets/images/optimized/catalog/IMG_0654.webp",
+      "/assets/images/optimized/catalog/IMG_0655.webp",
+      "/assets/images/optimized/catalog/IMG_0656.webp",
+      "/assets/images/optimized/catalog/IMG_0657.webp",
+      "/assets/images/optimized/catalog/IMG_0658.webp",
+      "/assets/images/optimized/catalog/IMG_8697.webp"
+    ],
+    "videos": []
+  },
+  "room-hampers": {
+    "key": "room-hampers",
+    "collectionSlug": "trousseau-wedding-hampers",
+    "title": "Room Hampers",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Trousseau & Wedding Hampers-20261027T173444Z-1-001\\Trousseau & Wedding Hampers\\Room Hampers"
+    ],
+    "excludeDirs": [
+      "Corporate Hampers"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_0659.webp",
+      "/assets/images/optimized/catalog/IMG_0660.webp",
+      "/assets/images/optimized/catalog/IMG_0661.webp",
+      "/assets/images/optimized/catalog/IMG_4595.webp",
+      "/assets/images/optimized/catalog/IMG_5762.webp",
+      "/assets/images/optimized/catalog/IMG_5768.webp",
+      "/assets/images/optimized/catalog/IMG_8703.webp",
+      "/assets/images/optimized/catalog/IMG_8706.webp"
+    ],
+    "videos": [
+      {
+        "src": "/assets/videos/catalog/room-hampers-IMG_5834.MOV",
+        "originalName": "IMG_5834.MOV"
+      }
+    ]
+  },
+  "trousseau": {
+    "key": "trousseau",
+    "collectionSlug": "trousseau-wedding-hampers",
+    "title": "Trousseau",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Trousseau & Wedding Hampers-20261027T173444Z-1-001\\Trousseau & Wedding Hampers\\Trousseau"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/trousseau-1.webp",
+      "/assets/images/optimized/catalog/trousseau-2.webp",
+      "/assets/images/optimized/catalog/IMG_0750.webp",
+      "/assets/images/optimized/catalog/IMG_0751.webp",
+      "/assets/images/optimized/catalog/IMG_0752.webp",
+      "/assets/images/optimized/catalog/IMG_1169.webp",
+      "/assets/images/optimized/catalog/IMG_1773.webp",
+      "/assets/images/optimized/catalog/IMG_1788.webp",
+      "/assets/images/optimized/catalog/IMG_6223.webp",
+      "/assets/images/optimized/catalog/IMG_7162.webp",
+      "/assets/images/optimized/catalog/IMG_7187.webp",
+      "/assets/images/optimized/catalog/IMG_9374.webp",
+      "/assets/images/optimized/catalog/IMG_9600.webp"
+    ],
+    "videos": [
+      {
+        "src": "/assets/videos/catalog/trousseau-06c16b795a324cf6ba0314d4194be0e6.mp4",
+        "originalName": "06c16b795a324cf6ba0314d4194be0e6.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/trousseau-0b6cedc7bc1349e883807136979eac4a.mp4",
+        "originalName": "0b6cedc7bc1349e883807136979eac4a.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/trousseau-36eb740b77664732b13089958f24a5ee.mp4",
+        "originalName": "36eb740b77664732b13089958f24a5ee.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/trousseau-4e1f5561db69405ca12efa7c02986c11.mp4",
+        "originalName": "4e1f5561db69405ca12efa7c02986c11.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/trousseau-9295f75bc13841e786a09e2a211a1279.mp4",
+        "originalName": "9295f75bc13841e786a09e2a211a1279.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/trousseau-ec8fcac3df164bf7a77baa7e44e86cac.mp4",
+        "originalName": "ec8fcac3df164bf7a77baa7e44e86cac.mp4"
+      },
+      {
+        "src": "/assets/videos/catalog/trousseau-IMG_1042.MOV",
+        "originalName": "IMG_1042.MOV"
+      },
+      {
+        "src": "/assets/videos/catalog/trousseau-IMG_1044.MOV",
+        "originalName": "IMG_1044.MOV"
+      }
+    ]
+  },
+  "father-s-day": {
+    "key": "father-s-day",
+    "collectionSlug": "seasonal-occasion-gifting",
+    "title": "Father’s Day",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Yearly  Seasonal Gifting-20261027T173448Z-1-001\\Yearly  Seasonal Gifting\\Father’s Day"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_0738.webp",
+      "/assets/images/optimized/catalog/IMG_0740.webp",
+      "/assets/images/optimized/catalog/IMG_0743.webp"
+    ],
+    "videos": []
+  },
+  "mom-to-be": {
+    "key": "mom-to-be",
+    "collectionSlug": "seasonal-occasion-gifting",
+    "title": "Mom-to-be",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Yearly  Seasonal Gifting-20261027T173448Z-1-001\\Yearly  Seasonal Gifting\\Mom-to-be"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_0732.webp",
+      "/assets/images/optimized/catalog/IMG_0733.webp",
+      "/assets/images/optimized/catalog/IMG_0734.webp",
+      "/assets/images/optimized/catalog/IMG_0735.webp",
+      "/assets/images/optimized/catalog/IMG_8145.webp"
+    ],
+    "videos": []
+  },
+  "mother-s-day": {
+    "key": "mother-s-day",
+    "collectionSlug": "seasonal-occasion-gifting",
+    "title": "Mother’s Day",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Yearly  Seasonal Gifting-20261027T173448Z-1-001\\Yearly  Seasonal Gifting\\Mother’s Day"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/IMG_7387.webp",
+      "/assets/images/optimized/catalog/IMG_7389.webp"
+    ],
+    "videos": []
+  },
+  "valentine-s-day": {
+    "key": "valentine-s-day",
+    "collectionSlug": "seasonal-occasion-gifting",
+    "title": "Valentine’s Day",
+    "folders": [
+      "C:\\Users\\tanvi\\OneDrive\\Desktop\\NiSquare\\public\\assets\\images\\Yearly  Seasonal Gifting-20261027T173448Z-1-001\\Yearly  Seasonal Gifting\\Valentine’s Day"
+    ],
+    "images": [
+      "/assets/images/optimized/catalog/valentine-s-day-1.webp",
+      "/assets/images/optimized/catalog/IMG_0744.webp",
+      "/assets/images/optimized/catalog/IMG_0745.webp",
+      "/assets/images/optimized/catalog/IMG_0746.webp",
+      "/assets/images/optimized/catalog/IMG_4534.webp",
+      "/assets/images/optimized/catalog/IMG_4541.webp",
+      "/assets/images/optimized/catalog/IMG_6338.webp",
+      "/assets/images/optimized/catalog/IMG_6825.webp",
+      "/assets/images/optimized/catalog/IMG_8578.webp"
+    ],
+    "videos": []
+  }
+}

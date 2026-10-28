@@ -143,9 +143,30 @@ export default function PreviousWorkSection() {
     <section className="previous-work-section" aria-labelledby="previous-work-heading">
       <div className="ni-decoration-layer" aria-hidden="true">
         <img
+          src="/assets/decorations/bird-flying.webp"
+          alt=""
+          className="ni-motif motif-tl-bird-flying"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
           src="/assets/decorations/botanical-branch-curved.webp"
           alt=""
-          className="ni-motif previous-work-motif-foliage"
+          className="ni-motif motif-tl-sprig"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/stardust-constellation-a.webp"
+          alt=""
+          className="ni-motif motif-br-stardust"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src="/assets/decorations/botanical-bloom-upright.webp"
+          alt=""
+          className="ni-motif motif-br-bloom-upright"
           loading="lazy"
           decoding="async"
         />
