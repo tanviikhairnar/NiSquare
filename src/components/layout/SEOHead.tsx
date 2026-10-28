@@ -20,9 +20,6 @@ export default function SEOHead(): null {
     const page = getSeoMetadata(pathname);
     let siteOrigin = DEFAULT_SITE_URL;
     try {
-      if (typeof window !== 'undefined' && window.location.origin) {
-        siteOrigin = window.location.origin;
-      }
       if (import.meta.env.VITE_SITE_URL) {
         siteOrigin = new URL(import.meta.env.VITE_SITE_URL).origin;
       }
@@ -40,19 +37,8 @@ export default function SEOHead(): null {
     setMeta('name', 'author', BRAND_NAME);
     setMeta('name', 'theme-color', '#5b101e');
 
-    // Geo & Local SEO Tags
-    setMeta('name', 'geo.region', 'IN-MH');
-    setMeta('name', 'geo.placename', 'Nashik, Maharashtra, India');
-    setMeta('name', 'geo.position', '19.9975;73.7898');
-    setMeta('name', 'ICBM', '19.9975, 73.7898');
-
-    // Keywords
-    if (page.keywords && page.keywords.length > 0) {
-      setMeta('name', 'keywords', page.keywords.join(', '));
-    }
-
     // OpenGraph Tags
-    setMeta('property', 'og:type', pathname === '/' ? 'website' : 'article');
+    setMeta('property', 'og:type', 'website');
     setMeta('property', 'og:site_name', BRAND_NAME);
     setMeta('property', 'og:locale', 'en_IN');
     setMeta('property', 'og:title', page.title);
@@ -66,6 +52,7 @@ export default function SEOHead(): null {
     setMeta('name', 'twitter:title', page.title);
     setMeta('name', 'twitter:description', page.description);
     setMeta('name', 'twitter:image', imageUrl);
+    setMeta('name', 'twitter:image:alt', `${page.title} - ${BRAND_NAME}`);
 
     // Canonical link
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');

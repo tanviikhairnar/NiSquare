@@ -100,9 +100,11 @@ test('SEO engine produces valid metadata and structured data across routes', asy
   const homeSchemas = getPageStructuredData('/');
   const organizationSchema = homeSchemas.find((schema) => Array.isArray(schema['@graph']));
   assert.ok(
-    organizationSchema && organizationSchema['@graph'].some((entity) => Array.isArray(entity['@type']) && entity['@type'].includes('LocalBusiness')),
-    'Home should provide local business schema',
+    organizationSchema && organizationSchema['@graph'].some((entity) => entity['@type'] === 'Organization'),
+    'Home should identify the organization without implying an unverified physical location',
   );
+  const orgEntity = organizationSchema['@graph'].find((entity) => entity['@type'] === 'Organization');
+  assert.ok(!('address' in orgEntity) && !('geo' in orgEntity) && !('openingHoursSpecification' in orgEntity));
   assert.ok(!homeSchemas.some((s) => s['@type'] === 'FAQPage'), 'FAQ schema should only be used when its content is visible');
   assert.equal(homeSchemas[0]['@context'], 'https://schema.org');
 

@@ -40,7 +40,7 @@ export default function CategoryGrid() {
               return (
                 <article className="home-category-card" key={collection.slug} role="listitem">
                   <Link className="home-category-image" to={collectionPath(collection.slug)} aria-label={'Explore ' + collection.title}>
-                    <img src={collection.image} alt="" loading={index < 3 ? 'eager' : 'lazy'} fetchPriority={index < 3 ? 'high' : 'auto'} decoding="async" />
+                    <img src={collection.image} alt={`${collection.title} - luxury gift packaging and hampers by NI Square Packaging`} loading={index < 3 ? 'eager' : 'lazy'} fetchPriority={index < 3 ? 'high' : 'auto'} decoding="async" />
                     <span className="home-category-shade" aria-hidden="true" />
                     <span className="home-category-tag">{count} {count === 1 ? 'style' : 'styles'}</span>
                     <span className="home-category-content">

@@ -20,8 +20,6 @@ try {
   siteOrigin = DEFAULT_SITE_URL;
 }
 
-const today = new Date().toISOString().split('T')[0];
-
 function escapeHtml(value) {
   return String(value || '')
     .replace(/&/g, '&amp;')
@@ -55,19 +53,11 @@ function preparePage(route) {
     '<meta name="referrer" content="strict-origin-when-cross-origin" />',
     '<meta name="author" content="' + escapeHtml(BRAND_NAME) + '" />',
     '<meta name="theme-color" content="#5b101e" />',
-    '<meta name="geo.region" content="IN-MH" />',
-    '<meta name="geo.placename" content="Nashik, Maharashtra, India" />',
-    '<meta name="geo.position" content="19.9975;73.7898" />',
-    '<meta name="ICBM" content="19.9975, 73.7898" />',
   ];
-
-  if (metadata.keywords && metadata.keywords.length > 0) {
-    tags.push('<meta name="keywords" content="' + escapeHtml(metadata.keywords.join(', ')) + '" />');
-  }
 
   // OpenGraph
   tags.push(
-    '<meta property="og:type" content="' + (route.path === '/' ? 'website' : 'article') + '" />',
+    '<meta property="og:type" content="website" />',
     '<meta property="og:site_name" content="' + escapeHtml(BRAND_NAME) + '" />',
     '<meta property="og:locale" content="en_IN" />',
     '<meta property="og:title" content="' + escapeHtml(metadata.title) + '" />',
@@ -83,6 +73,7 @@ function preparePage(route) {
     '<meta name="twitter:title" content="' + escapeHtml(metadata.title) + '" />',
     '<meta name="twitter:description" content="' + escapeHtml(metadata.description) + '" />',
     '<meta name="twitter:image" content="' + escapeHtml(imageUrl) + '" />',
+    '<meta name="twitter:image:alt" content="' + escapeHtml(`${metadata.title} - ${BRAND_NAME}`) + '" />',
   );
 
   // Canonical
@@ -110,11 +101,20 @@ for (const route of routes) {
   await writeFile(destination, html, 'utf8');
 }
 
+// Vercel serves dist/404.html with an HTTP 404 status for unknown paths. Keep
+// the same React bundle and visual 404 component used by client-side routing.
+const notFoundHtml = template
+  .replace(/<title>[\s\S]*?<\/title>/i, '<title>Page Not Found | ' + escapeHtml(BRAND_NAME) + '</title>')
+  .replace(/<meta\s+(?:name|property)="(?:description|keywords|robots|referrer|theme-color|author|geo\.[^"]+|ICBM|og:[^"]+|twitter:[^"]+)"[^>]*\/?>/gi, '')
+  .replace(/<link\b[^>]*\brel="canonical"[^>]*\/?>/gi, '')
+  .replace(/<script\b[^>]*data-site-structured-data="true"[^>]*>[\s\S]*?<\/script>/gi, '')
+  .replace('</head>', '    <meta name="robots" content="noindex, follow" />\n  </head>');
+await writeFile(path.join(distDirectory, '404.html'), notFoundHtml, 'utf8');
+
 // 2. Generate Search Engine Robots.txt
 const robotsContent = [
   'User-agent: *',
   'Allow: /',
-  'Disallow: /search',
   'Disallow: /api/',
   '',
   `Sitemap: ${siteOrigin}/sitemap.xml`,
@@ -132,7 +132,6 @@ const sitemapUrlEntries = routes.map((route) => {
   return [
     '  <url>',
     `    <loc>${escapeXml(fullUrl)}</loc>`,
-    `    <lastmod>${today}</lastmod>`,
     `    <changefreq>${route.changefreq || 'weekly'}</changefreq>`,
     `    <priority>${(route.priority || 0.8).toFixed(2)}</priority>`,
     '    <image:image>',

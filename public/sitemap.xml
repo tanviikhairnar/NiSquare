@@ -2,262 +2,236 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://nisquarepackaging.com/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/hero-trousseau-curation-desktop.webp</image:loc>
-      <image:title>NI Square Packaging | Luxury Wedding &amp; Corporate Hampers in Nashik, Pune &amp; Mumbai</image:title>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/hero-what-a-story-desktop.webp</image:loc>
+      <image:title>NI² Packaging | Luxury Gift &amp; Wedding Trousseau Packaging | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/pages/our-story</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/pages/our-story</loc>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_1167.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_1167.webp</image:loc>
       <image:title>Our Story &amp; Founders | Nikita &amp; Nikita | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/pages/services</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/pages/services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_3596.webp</image:loc>
-      <image:title>Bespoke Packaging &amp; Gifting Services | Nashik, Pune &amp; Mumbai</image:title>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_3596.webp</image:loc>
+      <image:title>Bespoke Packaging &amp; Gifting Services | NI² Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/pages/contact</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/pages/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_1167.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_1167.webp</image:loc>
       <image:title>Contact Founders on WhatsApp | Plan a Hamper | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/policies/privacy-policy</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/policies/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.40</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/hero-trousseau-curation-desktop.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/hero-what-a-story-desktop.webp</image:loc>
       <image:title>Privacy Policy | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/policies/terms-of-service</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/policies/terms-of-service</loc>
     <changefreq>yearly</changefreq>
     <priority>0.40</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/hero-trousseau-curation-desktop.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/hero-what-a-story-desktop.webp</image:loc>
       <image:title>Terms &amp; Conditions | Order &amp; Delivery Policy | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/trousseau-wedding-hampers</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/trousseau-wedding-hampers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/category-trousseau-card.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/category-trousseau-card.webp</image:loc>
       <image:title>Wedding Hampers &amp; Trousseau Packing | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/trousseau-wedding-hampers/trousseau</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/trousseau-wedding-hampers/trousseau</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/trousseau-1.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/trousseau-1.webp</image:loc>
       <image:title>Trousseau | Trousseau &amp; Wedding Hampers | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/trousseau-wedding-hampers/baby-hampers</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/trousseau-wedding-hampers/baby-hampers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_4732.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_4732.webp</image:loc>
       <image:title>Baby Hampers | Trousseau &amp; Wedding Hampers | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/trousseau-wedding-hampers/room-hampers</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/trousseau-wedding-hampers/room-hampers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_0659.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0659.webp</image:loc>
       <image:title>Room Hampers | Trousseau &amp; Wedding Hampers | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/trousseau-wedding-hampers/bridesmaid-gifts</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/trousseau-wedding-hampers/bridesmaid-gifts</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_0651.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0651.webp</image:loc>
       <image:title>Bridesmaid Gifts | Trousseau &amp; Wedding Hampers | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/return-favours</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/return-favours</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_4846.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_4846.webp</image:loc>
       <image:title>Wedding &amp; Celebration Return Favours | Luxury Gift Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/return-favours/wedding-return-favours</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/return-favours/wedding-return-favours</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_0709.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0709.webp</image:loc>
       <image:title>Wedding Return Favours | Return Favours | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/return-favours/birthday-return-favours</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/return-favours/birthday-return-favours</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_0216.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0216.webp</image:loc>
       <image:title>Birthday Return Favours | Return Favours | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/return-favours/housewarming-favours</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/return-favours/housewarming-favours</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_4537.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_4537.webp</image:loc>
       <image:title>Housewarming Favours | Return Favours | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/seasonal-occasion-gifting</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/seasonal-occasion-gifting</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_2149.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_2149.webp</image:loc>
       <image:title>Seasonal &amp; Milestone Gift Hampers | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/seasonal-occasion-gifting/mother-s-day</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/seasonal-occasion-gifting/mother-s-day</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_7387.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_7387.webp</image:loc>
       <image:title>Mother’s Day | Seasonal &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/seasonal-occasion-gifting/father-s-day</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/seasonal-occasion-gifting/father-s-day</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_0738.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0738.webp</image:loc>
       <image:title>Father’s Day | Seasonal &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/seasonal-occasion-gifting/valentine-s-day</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/seasonal-occasion-gifting/valentine-s-day</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/valentine-s-day-1.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/valentine-s-day-1.webp</image:loc>
       <image:title>Valentine’s Day | Seasonal &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/seasonal-occasion-gifting/mom-to-be</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/seasonal-occasion-gifting/mom-to-be</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_0732.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0732.webp</image:loc>
       <image:title>Mom-to-be | Seasonal &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/ring-platters</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/ring-platters</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/category-ring-platter-card.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/category-ring-platter-card.webp</image:loc>
       <image:title>Designer Ring Ceremony Platters &amp; Trays | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/ring-platters/ring-platters</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/ring-platters/ring-platters</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/category-ring-platter-card.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/category-ring-platter-card.webp</image:loc>
       <image:title>Ring Platters | Ring Platters | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/festive-hampers</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/festive-hampers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/category-festive-card.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/category-festive-card.webp</image:loc>
       <image:title>Festive Gift Hampers | Diwali &amp; Celebration Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/festive-hampers/festival-gifting-hampers</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/festive-hampers/festival-gifting-hampers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_0160.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0160.webp</image:loc>
       <image:title>Festival Gifting Hampers | Festive Hampers | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/corporate-hampers</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/corporate-hampers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/IMG_4949.webp</image:loc>
-      <image:title>Executive Corporate Gift Hampers | Nashik, Pune &amp; Mumbai</image:title>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_4949.webp</image:loc>
+      <image:title>Executive Corporate Gift Hampers | NI² Packaging</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://nisquarepackaging.com/collections/corporate-hampers/corporate-gifting-hampers</loc>
-    <lastmod>2026-10-28</lastmod>
+    <loc>https://ni-square.vercel.app/collections/corporate-hampers/corporate-gifting-hampers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
     <image:image>
-      <image:loc>https://nisquarepackaging.com/assets/images/optimized/catalog/corporate-gifting-hampers-1.webp</image:loc>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/corporate-gifting-hampers-1.webp</image:loc>
       <image:title>Corporate Gifting Hampers | Corporate Hampers | NI Square Packaging</image:title>
     </image:image>
   </url>

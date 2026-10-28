@@ -43,12 +43,12 @@ const founders: FounderBio[] = [
 ];
 
 const services: ServiceItem[] = [
-  { title: 'Custom-made gifting', description: 'Every hamper is made to suit your occasion, theme, preferences, and budget.' },
-  { title: 'Handcrafted with care', description: 'Each gift is thoughtfully designed and put together by hand, making every hamper unique.' },
-  { title: 'Occasion-based hampers', description: 'Hampers for weddings, birthdays, festivals, baby celebrations, corporate events, and more.' },
-  { title: 'Personalised packaging', description: 'Packaging shaped around your theme, colour palette, and personal style.' },
-  { title: 'Return favours', description: 'Personalised return gifts that thank your guests and stay in their memories.' },
-  { title: 'Pre-booking required', description: 'Each order is made to order. Advance booking gives us time to plan, source, design, and prepare every detail.' },
+  { title: 'Custom-made gifting', description: 'Every hamper is designed around your occasion, theme, preferences, and budget, with personal consultation directly with our founders.' },
+  { title: 'Handcrafted with care', description: 'Each gift is thoughtfully styled and assembled by hand in our Maharashtra studio, ensuring every hamper is unique.' },
+  { title: 'Occasion-based hampers', description: 'Luxury packaging for weddings, trousseau, birthdays, festivals, baby announcements, and corporate events across Nashik, Pune, Mumbai, and Maharashtra.' },
+  { title: 'Personalised packaging', description: 'Bespoke trousseau trunks, floral ring platters, and custom boxes shaped around your theme, color palette, and personal style.' },
+  { title: 'Return favours', description: 'Handcrafted return gifts and keepsakes that thank your guests and stay in their memories long after the celebration.' },
+  { title: 'Pre-booking required', description: 'Each order is made to order. Advance booking gives us time to plan, source, design, and prepare every detail with care.' },
 ];
 
 const occasions: string[] = [

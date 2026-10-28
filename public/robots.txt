@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /search
 Disallow: /api/
 
-Sitemap: https://nisquarepackaging.com/sitemap.xml
+Sitemap: https://ni-square.vercel.app/sitemap.xml

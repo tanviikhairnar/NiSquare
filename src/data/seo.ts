@@ -1,6 +1,8 @@
 import { storeCollections, subcategorySlug } from './storeCatalog.ts';
 
-export const DEFAULT_SITE_URL = 'https://nisquarepackaging.com';
+// Set VITE_SITE_URL to the production origin when deploying. Until the custom
+// domain is confirmed, Vercel's deployed URL is the canonical site origin.
+export const DEFAULT_SITE_URL = 'https://ni-square.vercel.app';
 export const BRAND_NAME = 'NI Square Packaging';
 
 export interface SeoMetadata {
@@ -10,96 +12,73 @@ export interface SeoMetadata {
   canonicalPath: string;
   robots?: string;
   category?: string;
-  keywords?: string[];
 }
 
 const home: SeoMetadata = {
-  title: 'NI Square Packaging | Luxury Wedding & Corporate Hampers in Nashik, Pune & Mumbai',
-  description: 'Handcrafted wedding hampers, trousseau packing, return favours, and bespoke corporate gifting in Nashik, Pune, Mumbai. Designed with love by two founders.',
-  image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
+  title: 'NI² Packaging | Luxury Gift & Wedding Trousseau Packaging | NI Square Packaging',
+  description: 'Discover premium gift packaging, customized hampers, wedding trousseau packaging, and corporate gifting solutions from NI² Packaging. Explore our work and enquire about custom designs.',
+  image: '/assets/images/optimized/hero-what-a-story-desktop.webp',
   canonicalPath: '/',
-  keywords: [
-    'wedding hampers Nashik',
-    'trousseau packing Pune',
-    'wedding trousseau Mumbai',
-    'luxury wedding hampers',
-    'return favours India',
-    'custom gift hampers',
-    'bespoke gifting Pune',
-    'corporate hampers Mumbai',
-    'Jain wedding hampers',
-    'Marwari wedding packaging',
-    'Sindhi wedding gifting',
-  ],
 };
 
-const pages: Record<string, { title: string; description: string; image: string; keywords?: string[] }> = {
+const pages: Record<string, { title: string; description: string; image: string }> = {
   '/pages/our-story': {
     title: 'Our Story & Founders | Nikita & Nikita | NI Square Packaging',
     description: 'Meet founders Nikita Kochar Ostwal (Interior Designer) & Nikita Anil Chordiya (Textile Designer). Discover the artisanal story behind NI Square.',
     image: '/assets/images/optimized/catalog/IMG_1167.webp',
-    keywords: ['NI Square founders', 'Nikita Kochar Ostwal', 'Nikita Anil Chordiya', 'boutique packaging studio'],
   },
   '/pages/services': {
-    title: 'Bespoke Packaging & Gifting Services | Nashik, Pune & Mumbai',
-    description: 'Personalised wedding hampers, customized packaging, trousseau trunks, and executive corporate orders. Hand-finished details across Maharashtra.',
+    title: 'Bespoke Packaging & Gifting Services | NI² Packaging',
+    description: 'Personalised wedding hampers, customized packaging, trousseau trunks, and corporate gifting, designed around your occasion and preferences.',
     image: '/assets/images/optimized/catalog/IMG_3596.webp',
-    keywords: ['wedding gifting services', 'custom hamper design', 'corporate gifting services Pune', 'trousseau packing services'],
   },
   '/pages/contact': {
     title: 'Contact Founders on WhatsApp | Plan a Hamper | NI Square Packaging',
     description: 'Connect directly with our founders on WhatsApp to discuss your wedding, milestone, or corporate hamper ideas. Quick consultation & quotes.',
     image: '/assets/images/optimized/catalog/IMG_1167.webp',
-    keywords: ['contact NI Square', 'WhatsApp hamper order', 'plan a wedding hamper', 'gift consultation'],
   },
   '/policies/privacy-policy': {
     title: 'Privacy Policy | NI Square Packaging',
     description: 'Read how NI Square Packaging protects your personal data and handles information shared via website enquiries and WhatsApp.',
-    image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
+    image: '/assets/images/optimized/hero-what-a-story-desktop.webp',
   },
   '/policies/terms-of-service': {
     title: 'Terms & Conditions | Order & Delivery Policy | NI Square Packaging',
     description: 'Review our advance booking, payment terms, custom design approvals, transit guidelines, and cancellation policies.',
-    image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
+    image: '/assets/images/optimized/hero-what-a-story-desktop.webp',
   },
 };
 
-const collectionSeo: Record<string, { title: string; description: string; image: string; keywords?: string[] }> = {
+const collectionSeo: Record<string, { title: string; description: string; image: string }> = {
   'trousseau-wedding-hampers': {
     title: 'Wedding Hampers & Trousseau Packing | NI Square Packaging',
-    description: 'Exquisite trousseau trunks, bride & groom hampers, and bridesmaid gifts for Jain, Marwari & Sindhi weddings across Nashik, Pune & Mumbai.',
+    description: 'Explore trousseau trunks, bride and groom hampers, and bridesmaid gifts designed for wedding celebrations.',
     image: '/assets/images/optimized/category-trousseau-card.webp',
-    keywords: ['trousseau packing', 'wedding hampers', 'bridesmaid hampers', 'room hampers wedding', 'trousseau trunks'],
   },
   'return-favours': {
     title: 'Wedding & Celebration Return Favours | Luxury Gift Packaging',
     description: 'Thoughtful return favours for weddings, milestones, and housewarmings. Customised around your theme, color palette, and guest count.',
     image: '/assets/images/optimized/catalog/IMG_4846.webp',
-    keywords: ['wedding return favours', 'return gifts Pune', 'birthday favours', 'housewarming favours'],
   },
   'seasonal-occasion-gifting': {
     title: 'Seasonal & Milestone Gift Hampers | NI Square Packaging',
     description: 'Celebrate Mother’s Day, Father’s Day, Valentine’s Day, baby announcements & personal milestones with bespoke curated hampers.',
     image: '/assets/images/optimized/catalog/IMG_2149.webp',
-    keywords: ['mothers day hampers', 'fathers day gift', 'baby shower hampers', 'valentines day gift box'],
   },
   'ring-platters': {
     title: 'Designer Ring Ceremony Platters & Trays | NI Square Packaging',
     description: 'Handcrafted engagement and sagai ring platters styled with florals, velvets, and bespoke color themes for your ring exchange ceremony.',
     image: '/assets/images/optimized/category-ring-platter-card.webp',
-    keywords: ['ring ceremony platter', 'engagement tray design', 'sagai ring platter', 'custom ring box'],
   },
   'festive-hampers': {
     title: 'Festive Gift Hampers | Diwali & Celebration Packaging',
     description: 'Luxurious festive hampers curated with artisanal sweets, decor, dry fruits, and custom embellishments for family and corporate clients.',
     image: '/assets/images/optimized/category-festive-card.webp',
-    keywords: ['Diwali hampers Nashik', 'festive gifting Mumbai', 'luxury holiday hampers', 'festive gift boxes'],
   },
   'corporate-hampers': {
-    title: 'Executive Corporate Gift Hampers | Nashik, Pune & Mumbai',
-    description: 'Custom corporate hampers for employee recognition, clients, festive gifting, and events. Custom branding and prompt pan-Maharashtra dispatch.',
+    title: 'Executive Corporate Gift Hampers | NI² Packaging',
+    description: 'Custom corporate hampers for employee recognition, clients, festive gifting, and events, with personalized finishing options.',
     image: '/assets/images/optimized/catalog/IMG_4949.webp',
-    keywords: ['corporate gifting Pune', 'client hampers Mumbai', 'executive gift boxes', 'corporate gifts Nashik'],
   },
 };
 
@@ -150,7 +129,7 @@ export function getSeoMetadata(pathname: string): SeoMetadata {
     if (category && subcategory) {
       return {
         title: `${subcategory.title} | ${category.title} | ${BRAND_NAME}`,
-        description: `Bespoke handcrafted ${subcategory.title.toLowerCase()} by NI Square Packaging. Custom designed for celebrations in Nashik, Pune, Mumbai & pan-India.`,
+        description: `Explore handcrafted ${subcategory.title.toLowerCase()} gifting and packaging by NI Square Packaging, designed for celebrations and personal occasions.`,
         image: subcategory.galleryImages?.[0] || subcategory.image,
         canonicalPath: path,
         category: category.title,
@@ -165,7 +144,7 @@ export function getSeoMetadata(pathname: string): SeoMetadata {
     if (category) {
       const seo = collectionSeo[category.slug] || {
         title: `${category.title} | ${BRAND_NAME}`,
-        description: `${category.description} Hand-finished luxury packaging made in Nashik District.`,
+        description: category.description,
         image: category.image,
       };
       return {
@@ -231,52 +210,45 @@ export function getOrganizationStructuredData(siteOrigin: string = DEFAULT_SITE_
   const logoUrl = new URL('/assets/logo/ni-square-logo-cream.webp', siteOrigin).href;
   const imageUrl = new URL(home.image, siteOrigin).href;
   const organizationId = siteUrl + '#organization';
-  const localBusinessId = siteUrl + '#localbusiness';
 
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': ['LocalBusiness', 'ProfessionalService'],
-        '@id': localBusinessId,
+        '@type': 'Organization',
+        '@id': organizationId,
         name: BRAND_NAME,
         legalName: 'NI Square Packaging',
         url: siteUrl,
-        logo: { '@type': 'ImageObject', url: logoUrl, width: '400', height: '120' },
+        logo: logoUrl,
         image: imageUrl,
         description: home.description,
-        telephone: '+919673283594',
-        email: 'info@nisquarepackaging.com',
-        priceRange: '₹₹₹',
-        currenciesAccepted: 'INR',
-        paymentAccepted: 'UPI, Net Banking, Advance Payment',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Boutique Studio, Nashik Road',
-          addressLocality: 'Nashik',
-          addressRegion: 'Maharashtra',
-          postalCode: '422001',
-          addressCountry: 'IN',
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: 19.9975,
-          longitude: 73.7898,
-        },
+        alternateName: ['NI² Packaging', 'NI Square'],
+        sameAs: [
+          'https://www.instagram.com/nisquarepackaging',
+        ],
+        contactPoint: [
+          {
+            '@type': 'ContactPoint',
+            telephone: '+91-9673283594',
+            contactType: 'customer service',
+            areaServed: 'IN',
+            availableLanguage: ['en', 'hi', 'mr'],
+          },
+          {
+            '@type': 'ContactPoint',
+            telephone: '+91-7083348221',
+            contactType: 'customer service',
+            areaServed: 'IN',
+            availableLanguage: ['en', 'hi', 'mr'],
+          },
+        ],
         areaServed: [
           { '@type': 'City', name: 'Nashik' },
           { '@type': 'City', name: 'Pune' },
           { '@type': 'City', name: 'Mumbai' },
           { '@type': 'AdministrativeArea', name: 'Maharashtra' },
           { '@type': 'Country', name: 'India' },
-        ],
-        openingHoursSpecification: [
-          {
-            '@type': 'OpeningHoursSpecification',
-            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-            opens: '10:00',
-            closes: '19:00',
-          },
         ],
         founder: [
           {
@@ -290,25 +262,16 @@ export function getOrganizationStructuredData(siteOrigin: string = DEFAULT_SITE_
             jobTitle: 'Textile Designer & Co-Founder',
           },
         ],
-        sameAs: [
-          'https://www.instagram.com/nisquarepackaging/',
-        ],
       },
       {
         '@type': 'WebSite',
         '@id': siteUrl + '#website',
         url: siteUrl,
         name: BRAND_NAME,
+        alternateName: ['NI² Packaging', 'NI Square'],
+        description: home.description,
         publisher: { '@id': organizationId },
         inLanguage: 'en-IN',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: `${siteUrl}search?q={search_term_string}`,
-          },
-          'query-input': 'required name=search_term_string',
-        },
       },
     ],
   };
@@ -378,21 +341,6 @@ export function getBreadcrumbStructuredData(pathname: string, siteOrigin: string
     }
   }
 
-  if (path === '/pages/our-story') {
-    items.push({ '@type': 'ListItem', position: 2, name: 'Our Story', item: `${siteUrl}/pages/our-story` });
-    return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items };
-  }
-
-  if (path === '/pages/services') {
-    items.push({ '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/pages/services` });
-    return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items };
-  }
-
-  if (path === '/pages/contact') {
-    items.push({ '@type': 'ListItem', position: 2, name: 'Contact', item: `${siteUrl}/pages/contact` });
-    return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items };
-  }
-
   return null;
 }
 
@@ -453,6 +401,7 @@ export function getSubcategoryStructuredData(categorySlug: string, subcategoryTi
 
 export function getPageStructuredData(pathname: string, siteOrigin: string = DEFAULT_SITE_URL): object[] {
   const path = pathname.replace(/\/+$/, '') || '/';
+  const siteUrl = new URL('/', siteOrigin).href.replace(/\/$/, '');
   const schemas: object[] = [];
 
   // 1. Always provide breadcrumb if applicable
@@ -468,12 +417,65 @@ export function getPageStructuredData(pathname: string, siteOrigin: string = DEF
       '@type': 'Service',
       name: 'Custom Gifting & Bespoke Packaging Services',
       provider: {
-        '@type': 'LocalBusiness',
+        '@type': 'Organization',
         name: BRAND_NAME,
+        url: siteUrl,
       },
       serviceType: 'Bespoke Wedding & Corporate Hamper Packaging',
-      areaServed: ['Nashik', 'Pune', 'Mumbai', 'Maharashtra'],
-      description: 'Handcrafted luxury hampers, trousseau trunks, ring platters, and personalised packaging.',
+      description: 'Handcrafted luxury hampers, bridal trousseau trunks, ring ceremony platters, and personalised corporate packaging.',
+      areaServed: [
+        { '@type': 'City', name: 'Nashik' },
+        { '@type': 'City', name: 'Pune' },
+        { '@type': 'City', name: 'Mumbai' },
+        { '@type': 'AdministrativeArea', name: 'Maharashtra' },
+        { '@type': 'Country', name: 'India' },
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'NI Square Packaging Services Catalog',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Custom-Made Gifting & Hampers',
+              description: 'Made to order around your occasion, color theme, preferences, and budget.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Wedding Trousseau & Bridal Hamper Packaging',
+              description: 'Designer bridal trunks, groom trousseau, and luxury wedding gift presentations.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Engagement & Sagai Ring Platters',
+              description: 'Handcrafted ring ceremony trays styled with florals, velvets, and bespoke accents.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Wedding Return Favours & Keepsakes',
+              description: 'Thoughtful return gifts tailored for wedding guests, milestones, and celebrations.',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Corporate & Executive Gift Hampers',
+              description: 'Curated corporate gifting for clients, teams, and festive occasions across Maharashtra.',
+            },
+          },
+        ],
+      },
     });
   } else if (path === '/pages/contact') {
     schemas.push(getOrganizationStructuredData(siteOrigin));

@@ -128,8 +128,8 @@ export function HomeAboutSection() {
         <div className="home-about-copy">
           <p className="ni-section-eyebrow">A little about us</p>
           <h2 className="ni-section-title" id="home-about-title">Thoughtful gifting, made personal</h2>
-          <p>NI Square began with two best friends named Nikita and a shared love for thoughtful gifting.</p>
-          <p>We bring together gifts, colours, and packaging to suit each occasion, then finish every detail by hand.</p>
+          <p>NI² Packaging (NI Square) began with two best friends named Nikita and a shared love for thoughtful gifting and artisanal presentation.</p>
+          <p>Based in Nashik and serving clients across Nashik, Pune, Mumbai, and Maharashtra, we bring together bespoke hampers, curated wedding trousseau trunks, and executive corporate gifts—finishing every single detail thoughtfully by hand.</p>
           <Link className="home-editorial-link" to="/pages/our-story">Meet the people behind NI Square <span aria-hidden="true">&#8599;</span></Link>
         </div>
       </div>

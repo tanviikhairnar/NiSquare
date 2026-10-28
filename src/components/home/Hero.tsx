@@ -14,41 +14,41 @@ export interface Slide {
 
 const slides: Slide[] = [
   {
-    video: '/assets/videos/hero/trousseau-curation.mp4',
     image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-trousseau-curation-mobile.webp',
+    video: '/assets/videos/hero/trousseau-curation.mp4',
     subtitle: 'NI Square Packaging',
     title: 'From our hands to your loved ones, with love.',
     ctaText: 'Plan a hamper',
   },
   {
-    video: '/assets/videos/hero/personalised-gifting.mp4',
     image: '/assets/images/optimized/hero-festive-occasions-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-festive-occasions-mobile.webp',
+    video: '/assets/videos/hero/personalised-gifting.mp4',
     subtitle: 'Thoughtful hampers for every kind of occasion',
     title: 'Make every gift feel personal',
     ctaText: 'Plan a hamper',
   },
   {
-    video: '/assets/videos/hero/baby-celebrations.mp4',
     image: '/assets/images/optimized/hero-celebrations-baby-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-celebrations-baby-mobile.webp',
+    video: '/assets/videos/hero/baby-celebrations.mp4',
     subtitle: 'Weddings, birthdays, baby celebrations, and more',
     title: 'Hampers for life’s occasions',
     ctaText: 'Plan a hamper',
   },
   {
-    video: '/assets/videos/hero/wedding-favours.mp4',
     image: '/assets/images/optimized/hero-return-favours-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-return-favours-mobile.webp',
+    video: '/assets/videos/hero/wedding-favours.mp4',
     subtitle: 'A thoughtful way to thank the people you love',
     title: 'Return favours guests will remember',
     ctaText: 'Plan a hamper',
   },
   {
-    video: '/assets/videos/hero/bridesmaid-curation.mp4',
     image: '/assets/images/optimized/hero-custom-curation-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-custom-curation-mobile.webp',
+    video: '/assets/videos/hero/bridesmaid-curation.mp4',
     subtitle: 'Personalised around your theme, taste, and budget',
     title: 'A gift made around your idea',
     ctaText: 'Plan a hamper',
@@ -69,17 +69,19 @@ function HeroMedia({
   onVideoEnd?: () => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false,
+  );
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(max-width: 699px)').matches : false,
+  );
 
   useEffect(() => {
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(motionQuery.matches);
     const motionListener = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
     motionQuery.addEventListener('change', motionListener);
 
     const mobileQuery = window.matchMedia('(max-width: 699px)');
-    setIsMobile(mobileQuery.matches);
     const mobileListener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mobileQuery.addEventListener('change', mobileListener);
 
@@ -119,9 +121,9 @@ function HeroMedia({
           src={slide.video}
           poster={poster}
           className="hero-video"
+          aria-hidden="true"
           muted
           playsInline
-          autoPlay
           loop
           preload="metadata"
           onLoadedMetadata={() => {
@@ -144,7 +146,7 @@ function HeroMedia({
   return (
     <picture className={'hero-picture ' + className}>
       <source media="(max-width: 699px)" srcSet={slide.mobileImage} />
-      <img src={slide.image} alt="" className="hero-image" fetchPriority={index === 0 ? 'high' : 'auto'} />
+      <img src={slide.image} alt={slide.title ? `${slide.title} - ${slide.subtitle}` : 'NI Square Packaging luxury gifting'} className="hero-image" fetchPriority={index === 0 ? 'high' : 'auto'} />
     </picture>
   );
 }
