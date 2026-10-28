@@ -40,8 +40,7 @@ body { margin: 0; padding: 0; font: var(--text-font-style) var(--text-font-weigh
   z-index: 100;
 }
 
-.header-wrapper:has(.nav-item:hover .mega-menu),
-.header-wrapper:has(.nav-item:focus-within .mega-menu) {
+.header-wrapper:has(.nav-item.mega-menu-open .mega-menu) {
   background-color: var(--brand-burgundy);
   color: #ffffff;
 }
@@ -167,12 +166,9 @@ body { margin: 0; padding: 0; font: var(--text-font-style) var(--text-font-weigh
   animation: menuFadeIn 0.2s ease-out;
 }
 
-.nav-item:hover .mega-menu,
-.nav-item:focus-within .mega-menu {
+.nav-item.mega-menu-open .mega-menu {
   display: block;
 }
-
-.nav-item.mega-menu-dismissed .mega-menu { display: none; }
 
 .mega-menu-close {
   position: absolute;

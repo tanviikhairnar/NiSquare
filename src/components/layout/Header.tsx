@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import { siteHeader } from '../../data/siteContent';
@@ -15,8 +15,10 @@ export default function Header({ config = siteHeader }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isMegaMenuDismissed, setIsMegaMenuDismissed] = useState(false);
+  const [megaMenuOpenPath, setMegaMenuOpenPath] = useState<string | null>(null);
+  const megaMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { pathname } = useLocation();
+  const isMegaMenuOpen = megaMenuOpenPath === pathname;
   const isHome = pathname === '/';
 
   useEffect(() => {
@@ -30,17 +32,53 @@ export default function Header({ config = siteHeader }: HeaderProps) {
 
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsMegaMenuDismissed(true);
+      if (event.key === 'Escape') setMegaMenuOpenPath(null);
     };
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, []);
 
+  useEffect(() => () => {
+    if (megaMenuCloseTimer.current !== null) window.clearTimeout(megaMenuCloseTimer.current);
+  }, []);
+
+  useEffect(() => {
+    if (megaMenuCloseTimer.current !== null) {
+      window.clearTimeout(megaMenuCloseTimer.current);
+      megaMenuCloseTimer.current = null;
+    }
+  }, [pathname]);
+
+  const cancelMegaMenuClose = () => {
+    if (megaMenuCloseTimer.current !== null) {
+      window.clearTimeout(megaMenuCloseTimer.current);
+      megaMenuCloseTimer.current = null;
+    }
+  };
+
+  const openMegaMenu = () => {
+    cancelMegaMenuClose();
+    setMegaMenuOpenPath(pathname);
+  };
+
+  const scheduleMegaMenuClose = () => {
+    cancelMegaMenuClose();
+    megaMenuCloseTimer.current = window.setTimeout(() => {
+      setMegaMenuOpenPath(null);
+      megaMenuCloseTimer.current = null;
+    }, 1000);
+  };
+
+  const closeMegaMenu = () => {
+    cancelMegaMenuClose();
+    setMegaMenuOpenPath(null);
+  };
+
   const { brandName = 'NI Square Packaging', logoImage = '', logoAlt = 'NI Square Packaging', navLinks = [] } = config;
 
   return (
     <div className={`header-wrapper ${isSticky ? 'is-sticky' : ''} ${isHome ? '' : 'is-solid'}`}>
-      <header className="site-header">
+      <header className="site-header" onClickCapture={closeMegaMenu}>
         {/* Mobile Hamburger Button */}
         <button
           type="button"
@@ -78,19 +116,24 @@ export default function Header({ config = siteHeader }: HeaderProps) {
                 return (
                   <li
                     key={item.label}
-                    className={`nav-item ${isMegaMenuDismissed ? 'mega-menu-dismissed' : ''}`}
-                    onMouseEnter={() => setIsMegaMenuDismissed(false)}
+                    className={`nav-item ${isMegaMenuOpen ? 'mega-menu-open' : ''}`}
+                    onMouseEnter={openMegaMenu}
+                    onMouseLeave={scheduleMegaMenuClose}
+                    onFocusCapture={openMegaMenu}
+                    onBlurCapture={(event) => {
+                      if (!event.currentTarget.contains(event.relatedTarget as Node | null)) scheduleMegaMenuClose();
+                    }}
                   >
-                    <Link to={item.path} className="nav-link">
+                    <Link to={item.path} className="nav-link" aria-expanded={isMegaMenuOpen} onClick={closeMegaMenu}>
                       {item.label}
                     </Link>
                     {/* Mega Menu Dropdown */}
-                    <div className="mega-menu">
+                    <div className="mega-menu" onMouseEnter={openMegaMenu} onMouseLeave={scheduleMegaMenuClose}>
                       <button
                         type="button"
                         className="mega-menu-close"
                         aria-label={`Close ${item.label} menu`}
-                        onClick={() => setIsMegaMenuDismissed(true)}
+                        onClick={closeMegaMenu}
                       >
                         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                           <path d="m6 6 12 12M18 6 6 18" />
@@ -99,11 +142,11 @@ export default function Header({ config = siteHeader }: HeaderProps) {
                       <div className="mega-menu-inner">
                         {item.megaMenu?.map((col) => (
                           <div key={col.heading} className="mega-column">
-                            <h4 className="mega-column-title"><Link to={col.headingPath}>{col.heading}</Link></h4>
+                            <h4 className="mega-column-title"><Link to={col.headingPath} onClick={closeMegaMenu}>{col.heading}</Link></h4>
                             <ul className="mega-sublist">
                               {col.items?.map((sub) => (
                                 <li key={sub.label}>
-                                  <Link to={sub.path} className="mega-sublink">
+                                  <Link to={sub.path} className="mega-sublink" onClick={closeMegaMenu}>
                                     {sub.label}
                                   </Link>
                                 </li>

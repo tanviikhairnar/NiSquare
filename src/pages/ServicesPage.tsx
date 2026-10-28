@@ -32,8 +32,8 @@ const faqs: FaqItem[] = [
 
 export default function ServicesPage() {
   return (
-    <div className="ni-brand-story-page">
-      <section className="store-page !pb-0">
+    <div className="ni-brand-story-page ni-services-page">
+      <section className="store-page services-page-intro !pb-0">
         <div className="store-page-inner store-page-inner--wide">
           <Breadcrumbs current="Services" />
           <PageTitle
