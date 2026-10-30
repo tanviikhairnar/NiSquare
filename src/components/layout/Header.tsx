@@ -74,6 +74,24 @@ export default function Header({ config = siteHeader }: HeaderProps) {
     setMegaMenuOpenPath(null);
   };
 
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    closeMegaMenu();
+    if (path.includes('#')) {
+      const [targetPath, hash] = path.split('#');
+      const isCurrentPage = pathname === targetPath || (targetPath === '' && pathname === '/') || (targetPath === '/' && pathname === '/');
+      if (isCurrentPage && hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          event.preventDefault();
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.location.hash !== `#${hash}`) {
+            window.history.pushState(null, '', `#${hash}`);
+          }
+        }
+      }
+    }
+  };
+
   const { brandName = 'NI Square Packaging', logoImage = '', logoAlt = 'NI Square Packaging', navLinks = [] } = config;
 
   return (
@@ -124,7 +142,7 @@ export default function Header({ config = siteHeader }: HeaderProps) {
                       if (!event.currentTarget.contains(event.relatedTarget as Node | null)) scheduleMegaMenuClose();
                     }}
                   >
-                    <Link to={item.path} className="nav-link" aria-expanded={isMegaMenuOpen} onClick={closeMegaMenu}>
+                    <Link to={item.path} className="nav-link" aria-expanded={isMegaMenuOpen} onClick={(e) => handleNavClick(e, item.path)}>
                       {item.label}
                     </Link>
                     {/* Mega Menu Dropdown */}
@@ -184,7 +202,7 @@ export default function Header({ config = siteHeader }: HeaderProps) {
 
               return (
                 <li key={item.label} className="nav-item">
-                  <Link to={item.path} className="nav-link">
+                  <Link to={item.path} className="nav-link" onClick={(e) => handleNavClick(e, item.path)}>
                     {item.label}
                   </Link>
                 </li>

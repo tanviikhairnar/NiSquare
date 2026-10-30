@@ -15,6 +15,7 @@
     "optimize:images": "node scripts/optimize-store-images.mjs",
     "test": "node --test",
     "test:ui": "node scripts/ui-inspect.mjs",
+    "test:responsive": "node scripts/responsive-audit.mjs",
     "check:assets": "node scripts/check-asset-references.mjs"
   },
   "dependencies": {

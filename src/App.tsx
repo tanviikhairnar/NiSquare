@@ -22,9 +22,19 @@ function ScrollToTop(): null {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       return;
     }
-    const target = document.getElementById(decodeURIComponent(hash.slice(1)));
-    if (target) {
-      target.scrollIntoView({ block: 'start', behavior: 'instant' });
+    const id = decodeURIComponent(hash.slice(1));
+    const scrollToTarget = () => {
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        return true;
+      }
+      return false;
+    };
+
+    if (!scrollToTarget()) {
+      const timer = window.setTimeout(scrollToTarget, 100);
+      return () => window.clearTimeout(timer);
     }
   }, [pathname, hash]);
   return null;

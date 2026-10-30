@@ -1691,6 +1691,7 @@ main { min-width: 0; width: 100%; }
    Home Categories Section (Redesigned inspired by TestimonialsSection)
    ========================================================================== */
 .home-categories {
+  scroll-margin-top: calc(var(--header-height, 75px) + 1.25rem);
   padding: clamp(3.5rem, 6vw, 5.5rem) var(--container-gutter);
   background: var(--brand-ivory);
   color: var(--brand-wine);
