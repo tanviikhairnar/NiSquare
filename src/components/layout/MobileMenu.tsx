@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import type { NavLink } from '../../types';
@@ -17,6 +17,7 @@ export default function MobileMenu({
   navLinks = [],
   brandName = 'NI SQUARE PACKAGING',
 }: MobileMenuProps) {
+  const navigate = useNavigate();
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const panelRef = useRef<HTMLElement | null>(null);
   const closeRef = useRef(onClose);
@@ -27,6 +28,16 @@ export default function MobileMenu({
 
   const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     onClose();
+    if (path === '/' || path === '' || path === '/#hero') {
+      if (window.location.pathname === '/') {
+        event.preventDefault();
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        if (window.location.hash) {
+          navigate('/', { replace: true });
+        }
+      }
+      return;
+    }
     if (path.includes('#')) {
       const [targetPath, hash] = path.split('#');
       const isCurrentPage = window.location.pathname === targetPath || (targetPath === '' && window.location.pathname === '/') || (targetPath === '/' && window.location.pathname === '/');
@@ -114,7 +125,7 @@ export default function MobileMenu({
         >
           {/* Header */}
           <div className="drawer-header">
-            <span id="mobile-menu-title" className="drawer-title">{brandName}</span>
+            <Link to="/" id="mobile-menu-title" className="drawer-title" onClick={(e) => handleLinkClick(e, '/')}>{brandName}</Link>
             <button
               type="button"
               className="drawer-close-btn"

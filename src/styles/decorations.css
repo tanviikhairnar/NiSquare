@@ -1,12 +1,3 @@
-/* ==========================================================================
-   NI SQUARE ARTISANAL MOTIFS & DECORATION SYSTEM
-   Arranged at the corners as graceful background elements.
-   Color palette (Matches NI Square Official Luxury Palette):
-     - Royal Burgundy & Deep Wine (Flower Petals, Bird Wings & Body)
-     - Radiant Champagne Gold (Botanical Leaves, Stems, Stardust & Head)
-     - Warm Ivory & Deep Oxblood (Linework, Stamens & Depth Accents)
-   ========================================================================== */
-
 .ni-section-inner,
 .home-categories-inner,
 .home-about-layout,
@@ -59,11 +50,6 @@
   overflow: hidden;
 }
 
-/* ==========================================================================
-   ARRANGEMENT 1 (Image 1):
-   - Top-Left: Flying Bird (angling towards center/flower) + Upper Sprig
-   - Bottom-Right: Upright Blooming Flower + Floating Golden Stardust
-   ========================================================================== */
 
 .motif-tl-bird-flying {
   top: clamp(1rem, 2.8vw, 2.6rem);
@@ -95,11 +81,6 @@
   opacity: 0.92;
 }
 
-/* ==========================================================================
-   ARRANGEMENT 2 (Image 2):
-   - Top-Left: Hanging Blooming Branch
-   - Bottom-Right: Perched Bird (gazing up at flower) + Floating Stardust
-   ========================================================================== */
 
 .motif-tl-bloom-hanging {
   top: 0;
@@ -180,9 +161,7 @@
   height: auto;
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (Tablets <= 1024px)
-   ========================================================================== */
+
 @media (max-width: 1024px) {
   .ni-motif {
     opacity: 0.90;
@@ -224,18 +203,15 @@
   }
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (Mobile <= 650px)
-   Ensures decorations stay in the corners and NEVER overlap centered text.
-   ========================================================================== */
+
 @media (max-width: 650px) {
   .ni-motif {
     opacity: 0.85;
   }
   .motif-tl-bird-flying {
-    top: 0.4rem;
-    left: 0.4rem;
-    width: clamp(65px, 18vw, 88px);
+    top: 0.35rem;
+    left: 0.35rem;
+    width: clamp(50px, 14vw, 70px);
   }
   .motif-tl-sprig {
     display: none; /* Keep mobile top-left simple and elegant */

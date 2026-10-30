@@ -15,6 +15,10 @@ import ContactPage from './pages/ContactPage';
 import PolicyPage from './pages/PolicyPage';
 import NotFoundPage from './pages/NotFoundPage';
 
+if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
 function ScrollToTop(): null {
   const { pathname, hash } = useLocation();
   useEffect(() => {

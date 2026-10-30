@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SolidLocationPinIcon, SolidPhoneIcon } from '../common/Icons';
 import { storeCollections } from '../../data/storeCatalog';
 import { WHATSAPP_FOUNDERS } from '../../lib/whatsapp';
@@ -43,11 +43,22 @@ const groups: FooterGroup[] = [
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname === '/') {
+      event.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      if (window.location.hash) {
+        navigate('/', { replace: true });
+      }
+    }
+  };
+
   return (
     <footer className="site-footer">
       <div className="footer-main">
         <div className="footer-about">
-          <Link className="footer-brand" to="/">
+          <Link className="footer-brand" to="/" onClick={handleHomeClick} aria-label="NI Square Packaging Home">
             <img src="/assets/logo/ni-square-logo-cream.webp" alt="NI Square Packaging" />
           </Link>
           <h2>About</h2>

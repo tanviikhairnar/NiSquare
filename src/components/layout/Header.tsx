@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 import { siteHeader } from '../../data/siteContent';
 import MobileMenu from './MobileMenu';
@@ -17,6 +17,7 @@ export default function Header({ config = siteHeader }: HeaderProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [megaMenuOpenPath, setMegaMenuOpenPath] = useState<string | null>(null);
   const megaMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const isMegaMenuOpen = megaMenuOpenPath === pathname;
   const isHome = pathname === '/';
@@ -76,6 +77,16 @@ export default function Header({ config = siteHeader }: HeaderProps) {
 
   const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     closeMegaMenu();
+    if (path === '/' || path === '' || path === '/#hero') {
+      if (pathname === '/') {
+        event.preventDefault();
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        if (window.location.hash) {
+          navigate('/', { replace: true });
+        }
+      }
+      return;
+    }
     if (path.includes('#')) {
       const [targetPath, hash] = path.split('#');
       const isCurrentPage = pathname === targetPath || (targetPath === '' && pathname === '/') || (targetPath === '/' && pathname === '/');
@@ -113,7 +124,7 @@ export default function Header({ config = siteHeader }: HeaderProps) {
 
         {/* Brand Logo (Left) */}
         <div className="header-logo">
-          <Link to="/" className="header-logo-link" aria-label={brandName}>
+          <Link to="/" className="header-logo-link" aria-label={brandName} onClick={(e) => handleNavClick(e, '/')}>
             {logoImage ? (
               <img
                 src={logoImage}

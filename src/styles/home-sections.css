@@ -395,11 +395,14 @@
 .previous-work-card:hover img { transform: scale(1.055); }
 .previous-work-footer {
   max-width: 92rem;
-  margin: 1rem auto 0;
+  margin: 1.25rem auto 0;
   padding-inline: clamp(1.25rem, 4vw, 4rem);
-  text-align: end;
+  text-align: center;
 }
 .previous-work-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--brand-plum);
   font-size: .9rem;
   text-decoration-color: var(--brand-terracotta);
@@ -413,6 +416,7 @@
   .previous-work-controls { gap: .4rem; }
   .previous-work-controls button { width: 2.55rem; height: 2.55rem; }
   .previous-work-card { flex-basis: min(72vw, 18rem); border-radius: .85rem; }
+  .previous-work-footer { text-align: center; margin-block-start: 1.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .previous-work-track { scroll-behavior: auto; }
@@ -2463,9 +2467,14 @@ main { min-width: 0; width: 100%; }
   .home-trust-item span { font-size: .65rem; }
   .home-about-layout, .home-why-layout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .home-about-photo { order: 0; }
-  .home-about-copy { order: 1; }
+  .home-about-copy { order: 1; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .home-about-copy .ni-section-eyebrow, .home-why-copy .ni-section-eyebrow { margin-inline: auto; }
   .home-editorial-photo img, .home-why-photo img { aspect-ratio: 1.18; }
-  .home-about-copy .ni-section-title, .home-why-copy .ni-section-title { font-size: clamp(1.8rem, 8vw, 2.35rem); }
+  .home-about-copy .ni-section-title, .home-why-copy .ni-section-title { font-size: clamp(1.8rem, 8vw, 2.35rem); text-align: center; margin-inline: auto; }
+  .home-about-copy > p:not(.ni-section-eyebrow) { text-align: center; margin-inline: auto; }
+  .home-about-copy .home-editorial-link { margin-inline: auto; display: inline-flex; justify-content: center; }
+  .home-why-copy { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .home-why-list { width: 100%; max-width: 28rem; margin-inline: auto; text-align: left; }
   .ni-services .ni-service-grid { gap: .6rem; }
   .ni-services .ni-service-card { min-height: 0; padding: 1rem; }
   .ni-services .ni-service-card h3 { margin-block: 0 .45rem; font-size: 1.08rem; }
@@ -2757,9 +2766,11 @@ main { min-width: 0; width: 100%; }
     border-radius: .4rem 0 3.8rem .4rem;
   }
   .home-about .home-about-photo img { height: 100%; aspect-ratio: 1.42; }
-  .home-about .home-about-copy { padding: .7rem .35rem .55rem; }
-  .home-about .home-about-copy .ni-section-title { max-width: 24ch; font-size: clamp(1.65rem, 7vw, 2rem); }
-  .home-about .home-about-copy > p:not(.ni-section-eyebrow) { font-size: .84rem; }
+  .home-about .home-about-copy { padding: .7rem .35rem .55rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .home-about .home-about-copy .ni-section-eyebrow { margin-inline: auto; }
+  .home-about .home-about-copy .ni-section-title { max-width: 24ch; font-size: clamp(1.65rem, 7vw, 2rem); margin-inline: auto; text-align: center; }
+  .home-about .home-about-copy > p:not(.ni-section-eyebrow) { font-size: .84rem; margin-inline: auto; text-align: center; }
+  .home-about .home-editorial-link { margin-inline: auto; display: inline-flex; justify-content: center; }
 }
 
 /* Bring each story element in from the side that suits its layout. */
@@ -2921,7 +2932,10 @@ main { min-width: 0; width: 100%; }
     grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
   }
-  .home-why-choose .home-why-copy .ni-section-title { max-width: 25ch; }
+  .home-why-choose .home-why-copy { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .home-why-choose .home-why-copy .ni-section-eyebrow { margin-inline: auto; }
+  .home-why-choose .home-why-copy .ni-section-title { max-width: 25ch; margin-inline: auto; text-align: center; }
+  .home-why-choose .home-why-list { width: 100%; max-width: 28rem; margin-inline: auto; text-align: left; }
   .home-why-choose .home-why-photo {
     margin-block-start: 0;
     height: auto;
@@ -3258,7 +3272,16 @@ main { min-width: 0; width: 100%; }
     grid-template-columns: minmax(0, 1fr);
     gap: 1.15rem;
   }
-  .home-about .home-about-copy { order: 1; }
+  .home-about .home-about-copy {
+    order: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-about .home-about-copy .ni-section-eyebrow {
+    margin-inline: auto;
+  }
   .home-about .home-about-photo {
     order: 2;
     height: auto;
@@ -3266,8 +3289,21 @@ main { min-width: 0; width: 100%; }
     border-radius: .6rem 3.5rem .6rem .6rem;
   }
   .home-about .home-about-photo img { aspect-ratio: 1.18; }
-  .home-about .home-about-copy .ni-section-title { max-width: 25ch; }
-  .home-about .home-about-copy > p:not(.ni-section-eyebrow) { font-size: .86rem; }
+  .home-about .home-about-copy .ni-section-title {
+    max-width: 25ch;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .home-about .home-about-copy > p:not(.ni-section-eyebrow) {
+    font-size: .86rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .home-about .home-editorial-link {
+    margin-inline: auto;
+    display: inline-flex;
+    justify-content: center;
+  }
 }
 /* Keep process cards compact, landscape, and clear of the burgundy hover wash. */
 @media (min-width: 651px) {

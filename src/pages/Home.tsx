@@ -25,8 +25,10 @@ export default function Home() {
         }
       }, 120);
       return () => clearTimeout(timer);
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
-  }, [location.hash]);
+  }, [location.hash, location.pathname]);
 
   useLayoutEffect(() => {
     const sections = document.querySelectorAll(

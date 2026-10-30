@@ -230,7 +230,7 @@ export default function Hero({ data = heroContent }: HeroProps) {
   const slideDuration = slide.video ? '8.2s' : '6s';
 
   return (
-    <section className="hero-section" aria-label="NI Square Packaging gifting">
+    <section className="hero-section" id="hero" aria-label="NI Square Packaging gifting">
       <div
         className="hero-media-wrapper slideshow"
         style={{ '--slideshow-progress-duration': slideDuration, '--slideshow-progress-play-state': 'running' } as CSSProperties}
