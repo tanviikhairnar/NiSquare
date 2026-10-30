@@ -49,6 +49,8 @@ export default function PagePreloader() {
     // Mark body as animating so the real static header logo is hidden until docked
     document.body.classList.add('is-intro-animating');
 
+    let finishTimer: ReturnType<typeof setTimeout> | undefined;
+
     // Hold centrally for a moment so the user sees the luxury brand logo
     const holdTimer = setTimeout(() => {
       const headerLogo = document.querySelector('.header-logo-image') as HTMLElement | null;
@@ -69,16 +71,15 @@ export default function PagePreloader() {
       setTransformStyle(`translate3d(${deltaX}px, ${deltaY}px, 0) scale(${scaleX}, ${scaleY})`);
 
       // Once the flight animation completes, dock the logo and reveal the page
-      const finishTimer = setTimeout(() => {
+      finishTimer = setTimeout(() => {
         document.body.classList.remove('is-intro-animating');
         setStage('done');
       }, 1300);
-
-      return () => clearTimeout(finishTimer);
     }, 1400);
 
     return () => {
       clearTimeout(holdTimer);
+      if (finishTimer) clearTimeout(finishTimer);
       document.body.classList.remove('is-intro-animating');
     };
   }, [initialCoords, stage]);

@@ -40,7 +40,7 @@ for (const [source, name] of catalog) {
   await webp('images/' + source, 'images/optimized/previews/' + name, 720, 74);
 }
 
-const cards = ['category-festive-card', 'category-ring-platter-card', 'category-trousseau-card'];
+const cards = ['category-festive-card', 'category-trousseau-card'];
 for (const name of cards) {
   await webp('images/optimized/' + name + '.jpg', 'images/optimized/' + name + '.webp', 1400, 78);
   await webp('images/optimized/' + name + '.jpg', 'images/optimized/previews/' + name + '.webp', 720, 74);
@@ -56,4 +56,3 @@ const faviconSource = await findSource('logo/favicon.png');
 const faviconOutput = resolve(publicAssets, 'logo/favicon-optimized.png');
 await mkdir(dirname(faviconOutput), { recursive: true });
 await sharp(faviconSource).resize({ width: 64, height: 64, fit: 'inside', withoutEnlargement: true }).png({ compressionLevel: 9, palette: true }).toFile(faviconOutput);
-await webp('images/optimized/catalog/chocolate-khoncha-table.webp', 'images/optimized/previews/chocolate-khoncha-table.webp', 720, 74);

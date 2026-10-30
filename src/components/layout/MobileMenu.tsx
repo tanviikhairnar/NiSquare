@@ -25,6 +25,24 @@ export default function MobileMenu({
     setExpandedSection((prev) => (prev === label ? null : label));
   };
 
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    onClose();
+    if (path.includes('#')) {
+      const [targetPath, hash] = path.split('#');
+      const isCurrentPage = window.location.pathname === targetPath || (targetPath === '' && window.location.pathname === '/') || (targetPath === '/' && window.location.pathname === '/');
+      if (isCurrentPage && hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          event.preventDefault();
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (window.location.hash !== `#${hash}`) {
+            window.history.pushState(null, '', `#${hash}`);
+          }
+        }
+      }
+    }
+  };
+
   useEffect(() => {
     closeRef.current = onClose;
   }, [onClose]);
@@ -180,7 +198,7 @@ export default function MobileMenu({
                       )}
                     </>
                   ) : (
-                    <Link to={item.path} className="drawer-link" onClick={onClose}>
+                    <Link to={item.path} className="drawer-link" onClick={(e) => handleLinkClick(e, item.path)}>
                       {item.label}
                     </Link>
                   )}

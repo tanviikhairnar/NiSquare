@@ -53,6 +53,10 @@ function preparePage(route) {
     '<meta name="referrer" content="strict-origin-when-cross-origin" />',
     '<meta name="author" content="' + escapeHtml(BRAND_NAME) + '" />',
     '<meta name="theme-color" content="#5b101e" />',
+    '<meta name="geo.region" content="IN-MH" />',
+    '<meta name="geo.placename" content="Nashik, Maharashtra, India" />',
+    '<meta name="geo.position" content="19.9975;73.7898" />',
+    '<meta name="ICBM" content="19.9975, 73.7898" />',
   ];
 
   // OpenGraph

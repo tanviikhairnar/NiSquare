@@ -136,13 +136,16 @@ export const storeCollections: Collection[] = [
   {
     title: 'Ring Platters',
     slug: 'ring-platters',
-    image: '/assets/images/optimized/category-ring-platter-card.webp',
+    image: '/assets/images/optimized/ring-platters.webp',
     description: 'A hand-finished platter to make your ring ceremony feel personal.',
     subcategories: [
       {
         title: 'Ring Platters',
-        image: '/assets/images/optimized/category-ring-platter-card.webp',
-        workImages: ['/assets/images/optimized/catalog/chocolate-khoncha-table.webp'],
+        image: '/assets/images/optimized/ring-platters.webp',
+        workImages: [
+          '/assets/images/optimized/catalog/ring-platters.webp',
+          '/assets/images/optimized/catalog/IMG_6913.webp',
+        ],
       },
     ],
   },
@@ -318,8 +321,8 @@ const gallerySets: Record<string, string[]> = {
     catalogImage('IMG_2117'),
   ],
   'ring-platters': [
-    categoryImage('category-ring-platter-card'),
-    catalogImage('chocolate-khoncha-table'),
+    catalogImage('ring-platters'),
+    catalogImage('IMG_6913'),
   ],
   'festival-gifting-hampers': [
     catalogImage('IMG_0160'),
@@ -363,7 +366,7 @@ const galleryVideoSets: Record<string, GalleryVideo[]> = {
     { src: '/assets/videos/catalog/birthday-return-favours-79520BC9-2411-43E6-AE6A-1E6B970B6F39.mov', poster: catalogImage('IMG_0216') },
   ],
   'ring-platters': [
-    { src: '/assets/videos/catalog/ring-platters-5a992c14103f4f6cb19b758453c6f9d2.mp4', poster: categoryImage('category-ring-platter-card') },
+    { src: '/assets/videos/catalog/ring-platters-5a992c14103f4f6cb19b758453c6f9d2.mp4', poster: '/assets/images/optimized/ring-platters.webp' },
   ],
   'corporate-gifting-hampers': [
     { src: '/assets/videos/catalog/corporate-gifting-hampers-0ab7f7ca0bbd4cc5a1d10f671f553f08.mp4', poster: catalogImage('corporate-gifting-hampers-1') },

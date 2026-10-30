@@ -9,7 +9,7 @@ const testimonialImages: string[] = [
   '/assets/images/optimized/catalog/IMG_1151.webp',
   '/assets/images/optimized/catalog/IMG_3596.webp',
   '/assets/images/optimized/catalog/IMG_4949.webp',
-  '/assets/images/optimized/catalog/chocolate-khoncha-table.webp',
+  '/assets/images/optimized/catalog/ring-platters.webp',
   '/assets/images/optimized/catalog/IMG_4544.webp',
 ];
 

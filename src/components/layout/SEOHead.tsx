@@ -36,6 +36,10 @@ export default function SEOHead(): null {
     setMeta('name', 'referrer', 'strict-origin-when-cross-origin');
     setMeta('name', 'author', BRAND_NAME);
     setMeta('name', 'theme-color', '#5b101e');
+    setMeta('name', 'geo.region', 'IN-MH');
+    setMeta('name', 'geo.placename', 'Nashik, Maharashtra, India');
+    setMeta('name', 'geo.position', '19.9975;73.7898');
+    setMeta('name', 'ICBM', '19.9975, 73.7898');
 
     // OpenGraph Tags
     setMeta('property', 'og:type', 'website');

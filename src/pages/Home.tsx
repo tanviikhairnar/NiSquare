@@ -1,4 +1,5 @@
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Hero from '../components/home/Hero';
 import CategoryGrid from '../components/home/CategoryGrid';
 import { ServicesSection } from '../components/home/NIStorySections';
@@ -12,6 +13,21 @@ import PreviousWorkSection from '../components/home/PreviousWorkSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 
 export default function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 120);
+      return () => clearTimeout(timer);
+    }
+  }, [location.hash]);
+
   useLayoutEffect(() => {
     const sections = document.querySelectorAll(
       '.home-about, .ni-services, .home-process, .home-why-choose, .home-categories, .previous-work-section, .ni-testimonials',

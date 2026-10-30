@@ -68,7 +68,7 @@ const collectionSeo: Record<string, { title: string; description: string; image:
   'ring-platters': {
     title: 'Designer Ring Ceremony Platters & Trays | NI Square Packaging',
     description: 'Handcrafted engagement and sagai ring platters styled with florals, velvets, and bespoke color themes for your ring exchange ceremony.',
-    image: '/assets/images/optimized/category-ring-platter-card.webp',
+    image: '/assets/images/optimized/ring-platters.webp',
   },
   'festive-hampers': {
     title: 'Festive Gift Hampers | Diwali & Celebration Packaging',
