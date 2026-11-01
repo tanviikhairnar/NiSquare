@@ -2,11 +2,14 @@ import { Fragment, useCallback, useEffect, useRef, useState, type CSSProperties 
 import { heroContent } from '../../data/siteContent';
 import WhatsAppContactLink from '../WhatsAppContactLink';
 
+const HERO_TRANSITION_MS = 950;
+
 export interface Slide {
   image: string;
   mobileImage: string;
   video?: string;
   videoStartTime?: number;
+  durationMs: number;
   subtitle: string;
   title: string;
   ctaText: string;
@@ -17,6 +20,7 @@ const slides: Slide[] = [
     image: '/assets/images/optimized/hero-trousseau-curation-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-trousseau-curation-mobile.webp',
     video: '/assets/videos/hero/trousseau-curation.mp4',
+    durationMs: 9000,
     subtitle: 'NI Square Packaging',
     title: 'From our hands to your loved ones, with love.',
     ctaText: 'Plan a hamper',
@@ -25,6 +29,7 @@ const slides: Slide[] = [
     image: '/assets/images/optimized/hero-festive-occasions-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-festive-occasions-mobile.webp',
     video: '/assets/videos/hero/personalised-gifting.mp4',
+    durationMs: 8500,
     subtitle: 'Thoughtful hampers for every kind of occasion',
     title: 'Make every gift feel personal',
     ctaText: 'Plan a hamper',
@@ -33,6 +38,7 @@ const slides: Slide[] = [
     image: '/assets/images/optimized/hero-celebrations-baby-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-celebrations-baby-mobile.webp',
     video: '/assets/videos/hero/baby-celebrations.mp4',
+    durationMs: 9000,
     subtitle: 'Weddings, birthdays, baby celebrations, and more',
     title: 'Hampers for life’s occasions',
     ctaText: 'Plan a hamper',
@@ -41,6 +47,7 @@ const slides: Slide[] = [
     image: '/assets/images/optimized/hero-return-favours-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-return-favours-mobile.webp',
     video: '/assets/videos/hero/wedding-favours.mp4',
+    durationMs: 9000,
     subtitle: 'A thoughtful way to thank the people you love',
     title: 'Return favours guests will remember',
     ctaText: 'Plan a hamper',
@@ -49,6 +56,7 @@ const slides: Slide[] = [
     image: '/assets/images/optimized/hero-custom-curation-desktop.webp',
     mobileImage: '/assets/images/optimized/hero-custom-curation-mobile.webp',
     video: '/assets/videos/hero/bridesmaid-curation.mp4',
+    durationMs: 8500,
     subtitle: 'Personalised around your theme, taste, and budget',
     title: 'A gift made around your idea',
     ctaText: 'Plan a hamper',
@@ -60,15 +68,16 @@ function HeroMedia({
   index,
   className,
   isActive,
-  onVideoEnd,
+  shouldPlay,
 }: {
   slide: Slide;
   index: number;
   className: string;
   isActive: boolean;
-  onVideoEnd?: () => void;
+  shouldPlay: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoFailed, setVideoFailed] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
     typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false,
   );
@@ -95,7 +104,7 @@ function HeroMedia({
     const video = videoRef.current;
     if (!video || !slide.video || prefersReducedMotion) return;
 
-    if (isActive) {
+    if (isActive && shouldPlay) {
       const startTime = slide.videoStartTime || 0;
       if (startTime > 0 && (video.currentTime < startTime || video.ended)) {
         video.currentTime = startTime;
@@ -109,11 +118,11 @@ function HeroMedia({
     } else {
       video.pause();
     }
-  }, [isActive, slide.video, slide.videoStartTime, prefersReducedMotion]);
+  }, [isActive, shouldPlay, slide.video, slide.videoStartTime, prefersReducedMotion]);
 
   const poster = isMobile ? slide.mobileImage : slide.image;
 
-  if (slide.video && !prefersReducedMotion) {
+  if (slide.video && !prefersReducedMotion && !videoFailed) {
     return (
       <div className={'hero-picture ' + className}>
         <video
@@ -126,17 +135,12 @@ function HeroMedia({
           playsInline
           loop
           preload="metadata"
+          onError={() => setVideoFailed(true)}
           onLoadedMetadata={() => {
             const video = videoRef.current;
             if (video && slide.videoStartTime && video.currentTime < slide.videoStartTime) {
               video.currentTime = slide.videoStartTime;
             }
-          }}
-          onEnded={() => {
-            if (videoRef.current) {
-              videoRef.current.pause();
-            }
-            onVideoEnd?.();
           }}
         />
       </div>
@@ -146,7 +150,7 @@ function HeroMedia({
   return (
     <picture className={'hero-picture ' + className}>
       <source media="(max-width: 699px)" srcSet={slide.mobileImage} />
-      <img src={slide.image} alt={slide.title ? `${slide.title} - ${slide.subtitle}` : 'NI Square Packaging luxury gifting'} className="hero-image" fetchPriority={index === 0 ? 'high' : 'auto'} />
+      <img src={slide.image} alt="" aria-hidden="true" className="hero-image" fetchPriority={index === 0 ? 'high' : 'auto'} />
     </picture>
   );
 }
@@ -162,10 +166,36 @@ export interface HeroProps {
 export default function Hero({ data = heroContent }: HeroProps) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [previousSlide, setPreviousSlide] = useState<number | null>(null);
+  const [isFocusPaused, setIsFocusPaused] = useState(false);
+  const [isPageVisible, setIsPageVisible] = useState(() =>
+    typeof document !== 'undefined' ? document.visibilityState === 'visible' : true,
+  );
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false,
+  );
+  const [announcement, setAnnouncement] = useState('');
   const pointerStart = useRef<number | null>(null);
   const activeSlideRef = useRef(0);
   const changeRequest = useRef(0);
   const imageCache = useRef(new Map<string, Promise<boolean>>());
+  const shouldAutoAdvance = !isFocusPaused && isPageVisible && !prefersReducedMotion;
+
+  useEffect(() => {
+    const handleVisibilityChange = () => setIsPageVisible(document.visibilityState === 'visible');
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, []);
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const handleMotionChange = (event: MediaQueryListEvent) => setPrefersReducedMotion(event.matches);
+    motionQuery.addEventListener('change', handleMotionChange);
+    return () => motionQuery.removeEventListener('change', handleMotionChange);
+  }, []);
+
+  useEffect(() => {
+    if (!shouldAutoAdvance) changeRequest.current += 1;
+  }, [shouldAutoAdvance]);
 
   const preloadSlide = useCallback((slide: Slide): Promise<boolean> => {
     const isMobile = window.matchMedia('(max-width: 699px)').matches;
@@ -192,17 +222,33 @@ export default function Hero({ data = heroContent }: HeroProps) {
     return request;
   }, []);
 
-  const goToSlide = useCallback(async (index: number) => {
-    const next = (index + slides.length) % slides.length;
-    if (next === activeSlideRef.current) return;
+  const goToSlide = useCallback(async (index: number, announceChange = false) => {
+    const requestedSlide = (index + slides.length) % slides.length;
+    if (requestedSlide === activeSlideRef.current) return;
     const requestId = ++changeRequest.current;
-    const isLoaded = await preloadSlide(slides[next]);
-    if (!isLoaded || requestId !== changeRequest.current) return;
+    let next = requestedSlide;
+    let isLoaded = false;
+    for (let attempt = 0; attempt < slides.length; attempt += 1) {
+      if (next === activeSlideRef.current) {
+        next = (next + 1) % slides.length;
+        continue;
+      }
+      isLoaded = await preloadSlide(slides[next]);
+      if (requestId !== changeRequest.current) return;
+      if (isLoaded) break;
+      next = (next + 1) % slides.length;
+    }
+    // If every preload fails, still change slides so the autoplay timer can recover.
+    if (!isLoaded) next = requestedSlide;
 
     setPreviousSlide(activeSlideRef.current);
     activeSlideRef.current = next;
     setActiveSlide(next);
-  }, [preloadSlide]);
+    if (announceChange) {
+      const nextTitle = next === 0 ? data.title || slides[next].title : slides[next].title;
+      setAnnouncement('Slide ' + (next + 1) + ' of ' + slides.length + ': ' + nextTitle);
+    }
+  }, [data.title, preloadSlide]);
 
   useEffect(() => {
     void preloadSlide(slides[(activeSlide + 1) % slides.length]);
@@ -210,35 +256,44 @@ export default function Hero({ data = heroContent }: HeroProps) {
 
   useEffect(() => {
     if (previousSlide === null) return undefined;
-    const timer = window.setTimeout(() => setPreviousSlide(null), 760);
+    const timer = window.setTimeout(() => setPreviousSlide(null), HERO_TRANSITION_MS);
     return () => window.clearTimeout(timer);
   }, [previousSlide]);
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-    const currentSlide = slides[activeSlide];
-    const duration = currentSlide.video ? 8200 : 6000;
+    if (!shouldAutoAdvance) return undefined;
+    const duration = slides[activeSlide].durationMs;
     const timer = window.setTimeout(() => goToSlide(activeSlideRef.current + 1), duration);
     return () => window.clearTimeout(timer);
-  }, [activeSlide, goToSlide]);
+  }, [activeSlide, goToSlide, shouldAutoAdvance]);
 
   const slide = slides[activeSlide];
   const firstSlide = activeSlide === 0;
   const subtitle = firstSlide ? (data.subtitle || slide.subtitle) : slide.subtitle;
   const title = firstSlide ? (data.title || slide.title) : slide.title;
   const ctaText = firstSlide ? (data.ctaText || slide.ctaText) : slide.ctaText;
-  const slideDuration = slide.video ? '8.2s' : '6s';
+  const slideDuration = `${slide.durationMs}ms`;
 
   return (
     <section className="hero-section" id="hero" aria-label="NI Square Packaging gifting">
       <div
-        className="hero-media-wrapper slideshow"
-        style={{ '--slideshow-progress-duration': slideDuration, '--slideshow-progress-play-state': 'running' } as CSSProperties}
+        className={'hero-media-wrapper slideshow' + (shouldAutoAdvance ? '' : ' is-paused')}
+        style={{ '--slideshow-progress-duration': slideDuration, '--slideshow-progress-play-state': shouldAutoAdvance ? 'running' : 'paused' } as CSSProperties}
+        onFocusCapture={(event) => {
+          const target = event.target;
+          setIsFocusPaused(target instanceof HTMLElement && target.matches(':focus-visible'));
+        }}
+        onBlurCapture={(event) => {
+          const nextTarget = event.relatedTarget;
+          if (!(nextTarget instanceof Element) || !event.currentTarget.contains(nextTarget)) {
+            setIsFocusPaused(false);
+          }
+        }}
         onTouchStart={(event) => { pointerStart.current = event.touches[0].clientX; }}
         onTouchEnd={(event) => {
           if (pointerStart.current === null) return;
           const distance = event.changedTouches[0].clientX - pointerStart.current;
-          if (Math.abs(distance) > 50) goToSlide(activeSlideRef.current + (distance < 0 ? 1 : -1));
+          if (Math.abs(distance) > 50) void goToSlide(activeSlideRef.current + (distance < 0 ? 1 : -1), true);
           pointerStart.current = null;
         }}
       >
@@ -248,6 +303,7 @@ export default function Hero({ data = heroContent }: HeroProps) {
             index={previousSlide}
             className="hero-picture--outgoing"
             isActive={false}
+            shouldPlay={false}
             key={'outgoing-' + previousSlide}
           />
         )}
@@ -256,14 +312,12 @@ export default function Hero({ data = heroContent }: HeroProps) {
           index={activeSlide}
           className={previousSlide === null ? 'hero-picture--current' : 'hero-picture--incoming'}
           isActive={true}
-          onVideoEnd={() => {
-            // Optional transition when video finishes
-          }}
+          shouldPlay={shouldAutoAdvance}
           key={'incoming-' + activeSlide}
         />
         <div className="hero-overlay" aria-hidden="true" />
-        <div className="hero-content" aria-live="polite">
-          <div className="hero-prose">
+        <div className="hero-content">
+          <div className="hero-prose" key={'copy-' + activeSlide}>
             {subtitle && <p className="hero-subtitle">{subtitle}</p>}
             {title && (
               <h1 className="hero-title" aria-label={title}>
@@ -283,15 +337,16 @@ export default function Hero({ data = heroContent }: HeroProps) {
         </button>
         <div className="hero-carousel-dots page-dots page-dots--autoplay" aria-label="Choose a featured slide">
           {slides.map((item, index) => (
-            <button type="button" className="tap-area hero-dot" aria-label={'Show slide ' + (index + 1)} aria-current={index === activeSlide ? 'true' : 'false'} onClick={() => goToSlide(index)} key={item.image}>
+            <button type="button" className="tap-area hero-dot" aria-label={'Show slide ' + (index + 1) + ': ' + item.title} aria-current={index === activeSlide ? 'true' : 'false'} onClick={() => void goToSlide(index, true)} key={item.image}>
               <span className="sr-only">Go to item {index + 1}</span>
-              <svg className="circular-progress" height="8" width="8" viewBox="0 0 8 8" style={{ '--stroke-dasharray': '20.420352248335' } as CSSProperties}>
+              <svg key={'progress-' + activeSlide + '-' + shouldAutoAdvance} className="circular-progress" height="8" width="8" viewBox="0 0 8 8" style={{ '--stroke-dasharray': '20.420352248335' } as CSSProperties}>
                 <circle cx="50%" cy="50%" fill="none" strokeWidth="1.5" r="3.25" stroke="currentColor" strokeOpacity=".2" />
                 <circle cx="50%" cy="50%" fill="none" strokeWidth="1.5" r="3.25" stroke="currentColor" strokeLinecap="round" />
               </svg>
             </button>
           ))}
         </div>
+        <span className="sr-only" aria-live="polite" aria-atomic="true">{announcement}</span>
       </div>
     </section>
   );

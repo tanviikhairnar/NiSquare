@@ -17,7 +17,6 @@ interface Testimonial {
   category: string;
   quote: string;
   name: string;
-  role: string;
   initial: string;
 }
 
@@ -26,42 +25,36 @@ const testimonials: Testimonial[] = [
     category: 'Wedding Trousseau',
     quote: 'The trousseau was amazing. Everyone loved it!',
     name: 'Sakshi Bhandari',
-    role: 'Customer',
     initial: 'S',
   },
   {
     category: 'Custom Packaging',
     quote: 'This is too good.',
     name: 'Deven Munot',
-    role: 'Customer',
     initial: 'D',
   },
   {
     category: 'Personal Gifting',
     quote: 'I received the parcel and loved it. It exceeded my expectations. Thank you so much.',
-    name: 'Customer',
-    role: 'Customer feedback',
-    initial: 'C',
+    name: 'Tanvii Khairnar',
+    initial: 'T',
   },
   {
     category: 'Personal Gifting',
     quote: 'My sister loved it. I really appreciate the effort and coordination from your side. We all loved it.',
-    name: 'Customer',
-    role: 'Customer feedback',
+    name: '',
     initial: 'C',
   },
   {
     category: 'Custom Hampers',
     quote: 'My friend was very happy. The finish of every detail was perfect, and it was more beautiful than we expected.',
-    name: 'Customer',
-    role: 'Customer feedback',
+    name: '',
     initial: 'C',
   },
   {
     category: 'Gift Packaging',
     quote: 'I got my order, just as shown. I am really happy with the product; it is beautiful.',
-    name: 'Customer',
-    role: 'Customer feedback',
+    name: '',
     initial: 'C',
   },
 ];
@@ -124,14 +117,13 @@ export default function TestimonialsSection() {
               <article
                 className="ni-testimonial-card"
                 key={testimonial.name + '-' + index}
-                aria-label={'Testimonial from ' + testimonial.name}
+                aria-label={testimonial.name ? 'Testimonial from ' + testimonial.name : 'Customer testimonial'}
               >
                 <blockquote>“{testimonial.quote}”</blockquote>
                 <div className="ni-testimonial-reviewer">
                   <span className="ni-testimonial-avatar" aria-hidden="true">{testimonial.initial}</span>
                   <span className="ni-testimonial-reviewer-copy">
-                    <strong>{testimonial.name}</strong>
-                    <span>{testimonial.role}</span>
+                    <strong>{testimonial.name || 'Customer'}</strong>
                   </span>
                 </div>
               </article>

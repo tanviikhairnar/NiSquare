@@ -1,6 +1,24 @@
 import { Link } from 'react-router-dom';
 import { collectionPath, storeCollections } from '../../data/storeCatalog';
 
+const weddingCollection = storeCollections.find((collection) => collection.slug === 'trousseau-wedding-hampers')!;
+const homeCategories = [
+  {
+    title: weddingCollection.title,
+    description: weddingCollection.description,
+    image: weddingCollection.image,
+    href: collectionPath(weddingCollection.slug),
+    count: weddingCollection.subcategories?.length || 0,
+  },
+  ...storeCollections.filter((collection) => collection.slug !== weddingCollection.slug).map((collection) => ({
+    title: collection.title,
+    description: collection.description,
+    image: collection.image,
+    href: collectionPath(collection.slug),
+    count: collection.subcategories?.length || 0,
+  })),
+];
+
 export default function CategoryGrid() {
   return (
     <section id="home-categories" className="home-categories" aria-labelledby="home-categories-title">
@@ -35,11 +53,11 @@ export default function CategoryGrid() {
         </div>
         <div className="home-category-stage">
           <div className="home-category-grid" role="list" aria-label="Gifting categories">
-            {storeCollections.map((collection, index) => {
-              const count = collection.subcategories?.length || 0;
+            {homeCategories.map((collection, index) => {
+              const count = collection.count;
               return (
                 <article className="home-category-card" key={collection.slug} role="listitem">
-                  <Link className="home-category-image" to={collectionPath(collection.slug)} aria-label={'Explore ' + collection.title}>
+                  <Link className="home-category-image" to={collection.href} aria-label={'Explore ' + collection.title}>
                     <img src={collection.image} alt={`${collection.title} - luxury gift packaging and hampers by NI Square Packaging`} loading={index < 3 ? 'eager' : 'lazy'} fetchPriority={index < 3 ? 'high' : 'auto'} decoding="async" />
                     <span className="home-category-shade" aria-hidden="true" />
                     <span className="home-category-tag">{count} {count === 1 ? 'style' : 'styles'}</span>

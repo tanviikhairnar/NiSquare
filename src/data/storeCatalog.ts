@@ -14,7 +14,7 @@ export const storeCollections: Collection[] = [
   {
     title: 'Trousseau & Wedding Hampers',
     slug: 'trousseau-wedding-hampers',
-    image: '/assets/images/optimized/category-trousseau-card.webp',
+    image: '/assets/images/optimized/catalog/IMG_8703.webp',
     description: 'Personalised trousseau packing, wedding hampers, and gifts for your celebrations.',
     subcategories: [
       {
@@ -24,6 +24,15 @@ export const storeCollections: Collection[] = [
           '/assets/images/optimized/catalog/IMG_1169.webp',
           '/assets/images/optimized/catalog/IMG_1773.webp',
           '/assets/images/optimized/catalog/IMG_7162.webp',
+        ],
+      },
+      {
+        title: 'Wedding Hampers',
+        image: '/assets/images/optimized/catalog/IMG_8703.webp',
+        workImages: [
+          '/assets/images/optimized/catalog/IMG_8706.webp',
+          '/assets/images/optimized/catalog/IMG_8703.webp',
+          '/assets/images/optimized/catalog/IMG_0659.webp',
         ],
       },
       {
@@ -92,7 +101,7 @@ export const storeCollections: Collection[] = [
   {
     title: 'Seasonal & Occasion Gifting',
     slug: 'seasonal-occasion-gifting',
-    image: '/assets/images/optimized/catalog/valentine-s-day-1.webp',
+    image: '/assets/images/optimized/catalog/IMG_7051.webp',
     description: 'Personalised gifts for festivals, milestones, and the moments you want to celebrate.',
     subcategories: [
       {
@@ -205,6 +214,11 @@ const gallerySets: Record<string, string[]> = {
     catalogImage('IMG_9374'),
     catalogImage('IMG_9600'),
     catalogImage('IMG_1167'),
+  ],
+  'wedding-hampers': [
+    catalogImage('IMG_8703'),
+    catalogImage('IMG_8706'),
+    catalogImage('IMG_0659'),
   ],
   'baby-hampers': [
     catalogImage('IMG_4732'),
