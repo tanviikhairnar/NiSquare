@@ -14,7 +14,7 @@ export default function CollectionPage() {
     <section className="store-page">
       <div className="store-page-inner store-page-inner--wide">
         <Breadcrumbs current={category.title} paths={[{ label: 'Gifting categories', href: '/#home-categories' }]} />
-        <PageTitle eyebrow="Explore by occasion" title={category.title} description={category.description} />
+        <PageTitle eyebrow={category.eyebrow || 'Explore by occasion'} title={category.title} subtitle={category.subtitle} description={category.description} />
         <div className="category-detail-grid">
           {category.subcategories.map((item, index) => {
             const previewImages = item.galleryPreviewImages?.length ? item.galleryPreviewImages : [item.image];
@@ -40,6 +40,7 @@ export default function CollectionPage() {
                   <div className="category-detail-copy">
                     <p className="category-detail-eyebrow">Made for your moment</p>
                     <h2>{item.title}</h2>
+                    {item.description && <p className="category-detail-description">{item.description}</p>}
                     <span className="category-detail-view-link">View our work <span aria-hidden="true">&#8594;</span></span>
                   </div>
                 </Link>

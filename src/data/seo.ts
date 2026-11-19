@@ -61,8 +61,8 @@ const collectionSeo: Record<string, { title: string; description: string; image:
     image: '/assets/images/optimized/catalog/IMG_4846.webp',
   },
   'seasonal-occasion-gifting': {
-    title: 'Seasonal & Milestone Gift Hampers | NI Square Packaging',
-    description: 'Celebrate Mother’s Day, Father’s Day, Valentine’s Day, baby announcements & personal milestones with bespoke curated hampers.',
+    title: 'Floral & Occasion Gifting | NI Square Packaging',
+    description: 'Flowers, hampers and thoughtful combinations that bring a little more beauty to life\'s special moments.',
     image: '/assets/images/optimized/catalog/IMG_2149.webp',
   },
   'ring-platters': {

@@ -1,22 +1,56 @@
 import { Link } from 'react-router-dom';
-import { collectionPath, storeCollections } from '../../data/storeCatalog';
 
-const weddingCollection = storeCollections.find((collection) => collection.slug === 'trousseau-wedding-hampers')!;
-const homeCategories = [
+interface HomeCategoryCard {
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+  tag: string;
+}
+
+const homeCategories: HomeCategoryCard[] = [
   {
-    title: weddingCollection.title,
-    description: weddingCollection.description,
-    image: weddingCollection.image,
-    href: collectionPath(weddingCollection.slug),
-    count: weddingCollection.subcategories?.length || 0,
+    title: 'Trousseau & Wedding Hampers',
+    description: 'Thoughtfully presented wedding essentials, curated hampers and trousseau arrangements for the celebrations leading up to your big day.',
+    image: '/assets/images/optimized/catalog/IMG_8703.webp',
+    href: '/collections/trousseau-wedding-hampers',
+    tag: '5 styles',
   },
-  ...storeCollections.filter((collection) => collection.slug !== weddingCollection.slug).map((collection) => ({
-    title: collection.title,
-    description: collection.description,
-    image: collection.image,
-    href: collectionPath(collection.slug),
-    count: collection.subcategories?.length || 0,
-  })),
+  {
+    title: 'Return Favours',
+    description: 'Memorable little gestures, beautifully presented for the people who make your celebrations special.',
+    image: '/assets/images/optimized/catalog/IMG_0709.webp',
+    href: '/collections/return-favours',
+    tag: '3 styles',
+  },
+  {
+    title: 'Floral & Occasion Gifting',
+    description: 'Flowers, hampers and thoughtful combinations that bring a little more beauty to life\'s special moments.',
+    image: '/assets/images/optimized/catalog/IMG_7051.webp',
+    href: '/collections/seasonal-occasion-gifting',
+    tag: '4 styles',
+  },
+  {
+    title: 'Wedding Invitations',
+    description: 'Customised wedding invitations, boxed invites, and presentation hampers crafted for your special day.',
+    image: '/assets/images/optimized/catalog/IMG_4525.webp',
+    href: '/collections/trousseau-wedding-hampers/wedding-hampers',
+    tag: 'Bespoke',
+  },
+  {
+    title: 'Bridesmaid Hampers',
+    description: 'Curated gift boxes and pamper hampers designed to celebrate and thank your closest friends.',
+    image: '/assets/images/optimized/catalog/IMG_0651.webp',
+    href: '/collections/trousseau-wedding-hampers/bridesmaid-gifts',
+    tag: 'Bespoke',
+  },
+  {
+    title: 'Baby Shower Gifting',
+    description: 'Gentle pastel hampers, mom-to-be gifts, and celebratory birth announcement keepsakes.',
+    image: '/assets/images/optimized/catalog/IMG_4732.webp',
+    href: '/collections/trousseau-wedding-hampers/baby-hampers',
+    tag: 'Bespoke',
+  },
 ];
 
 export default function CategoryGrid() {
@@ -48,19 +82,18 @@ export default function CategoryGrid() {
       <div className="home-categories-inner">
         <div className="home-categories-intro">
           <span className="home-categories-pill">Curated Collections</span>
-          <h2 id="home-categories-title">Explore by Gifting Category</h2>
-          <p>Bespoke hampers, thoughtful packaging, and handcrafted details for every moment.</p>
+          <h2 id="home-categories-title">Gifting, for every kind of occasion.</h2>
+          <p>Every celebration calls for something different. Explore our collection of gifting creations, from wedding celebrations and thoughtful favours to floral arrangements and personalised hampers.</p>
         </div>
         <div className="home-category-stage">
           <div className="home-category-grid" role="list" aria-label="Gifting categories">
             {homeCategories.map((collection, index) => {
-              const count = collection.count;
               return (
-                <article className="home-category-card" key={collection.slug} role="listitem">
+                <article className="home-category-card" key={collection.title} role="listitem">
                   <Link className="home-category-image" to={collection.href} aria-label={'Explore ' + collection.title}>
                     <img src={collection.image} alt={`${collection.title} - luxury gift packaging and hampers by NI Square Packaging`} loading={index < 3 ? 'eager' : 'lazy'} fetchPriority={index < 3 ? 'high' : 'auto'} decoding="async" />
                     <span className="home-category-shade" aria-hidden="true" />
-                    <span className="home-category-tag">{count} {count === 1 ? 'style' : 'styles'}</span>
+                    <span className="home-category-tag">{collection.tag}</span>
                     <span className="home-category-content">
                       <span className="home-category-title">{collection.title}</span>
                       <span className="home-category-desc">{collection.description}</span>

@@ -15,7 +15,7 @@ export const storeCollections: Collection[] = [
     title: 'Trousseau & Wedding Hampers',
     slug: 'trousseau-wedding-hampers',
     image: '/assets/images/optimized/catalog/IMG_8703.webp',
-    description: 'Personalised trousseau packing, wedding hampers, and gifts for your celebrations.',
+    description: 'Thoughtfully presented wedding essentials, curated hampers and trousseau arrangements for the celebrations leading up to your big day.',
     subcategories: [
       {
         title: 'Trousseau',
@@ -68,10 +68,13 @@ export const storeCollections: Collection[] = [
     title: 'Return Favours',
     slug: 'return-favours',
     image: '/assets/images/optimized/catalog/IMG_0709.webp',
-    description: 'Thoughtful favours for wedding, birthday, and housewarming celebrations.',
+    eyebrow: 'A LITTLE THANK YOU',
+    subtitle: 'Send your guests home with something special.',
+    description: 'Every celebration is made memorable by the people who share it with you. Our return favour selections are designed to make that appreciation tangible, with thoughtful gifts and presentation suited to your occasion.',
     subcategories: [
       {
         title: 'Wedding Return Favours',
+        description: 'Thoughtful tokens for your wedding guests, presented with care to complement your celebration.',
         image: '/assets/images/optimized/catalog/IMG_0709.webp',
         workImages: [
           '/assets/images/optimized/catalog/IMG_0710.webp',
@@ -81,6 +84,7 @@ export const storeCollections: Collection[] = [
       },
       {
         title: 'Birthday Return Favours',
+        description: 'A little something for guests to take home and remember your special day.',
         image: '/assets/images/optimized/catalog/IMG_0216.webp',
         workImages: [
           '/assets/images/optimized/catalog/IMG_0696.webp',
@@ -90,6 +94,7 @@ export const storeCollections: Collection[] = [
       },
       {
         title: 'Housewarming Favours',
+        description: 'Thoughtful gestures to share the joy of a new beginning with friends and family.',
         image: '/assets/images/optimized/catalog/IMG_3596.webp',
         workImages: [
           '/assets/images/optimized/catalog/IMG_4537.webp',
@@ -99,10 +104,10 @@ export const storeCollections: Collection[] = [
     ],
   },
   {
-    title: 'Seasonal & Occasion Gifting',
+    title: 'Floral & Occasion Gifting',
     slug: 'seasonal-occasion-gifting',
     image: '/assets/images/optimized/catalog/IMG_7051.webp',
-    description: 'Personalised gifts for festivals, milestones, and the moments you want to celebrate.',
+    description: 'Flowers, hampers and thoughtful combinations that bring a little more beauty to life\'s special moments.',
     subcategories: [
       {
         title: 'Mother\u2019s Day',

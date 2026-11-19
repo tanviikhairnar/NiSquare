@@ -175,15 +175,15 @@ export default function PreviousWorkSection() {
         <div className="previous-work-copy">
           <p className="previous-work-eyebrow">
             <SolidInstagramIcon />
-            Seen on Instagram Reels
+            A Glimpse into Our Creations
           </p>
-          <h2 id="previous-work-heading">As Seen on Reels</h2>
+          <h2 id="previous-work-heading">Little details. Beautifully brought together.</h2>
           <p className="previous-work-description">
-            A closer look at the hampers, thoughtful details, and celebrations we bring together by hand.
+            Take a closer look at the hampers, invitations and gifting creations we&apos;ve put together for celebrations and special occasions.
           </p>
           <a className="previous-work-instagram" href={instagramProfile} target="_blank" rel="noopener noreferrer">
             <SolidInstagramIcon />
-            <span>Follow @nisquarepackaging</span>
+            <span>Explore Our Instagram</span>
             <span aria-hidden="true">&#8599;</span>
           </a>
         </div>

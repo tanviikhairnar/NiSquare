@@ -11,7 +11,9 @@
 .store-page-inner--narrow { max-width: 50rem; }
 .store-page-title { margin: 0 auto clamp(1.5rem, 3.25vw, 2.5rem); text-align: center; }
 .store-page-title h1, .store-not-found h1, .store-order-success h1 { margin: 0; font: var(--heading-font-style) var(--heading-font-weight) var(--text-h1) / 1.2 var(--heading-font-family); letter-spacing: var(--heading-letter-spacing); text-transform: uppercase; overflow-wrap: anywhere; text-wrap: balance; }
+.store-page-subtitle { max-width: 42rem; margin: 0.65rem auto 0; color: var(--store-ink); font-family: var(--heading-font-family); font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 600; line-height: 1.35; }
 .store-page-title > p:last-child { max-width: 42rem; margin: 1rem auto 0; color: var(--store-muted); }
+.category-detail-description { margin: 0.4rem 0 0.65rem; font-size: 0.88rem; line-height: 1.45; color: var(--store-muted); }
 .store-breadcrumbs { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: .6rem; margin: 0 0 2rem; color: var(--store-muted); font-size: var(--text-xs); }
 .store-breadcrumbs a { color: inherit; text-decoration: none; }
 .store-breadcrumbs a:hover { color: var(--store-ink); text-decoration: underline; }

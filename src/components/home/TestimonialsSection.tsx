@@ -1,4 +1,3 @@
-
 const testimonialImages: string[] = [
   '/assets/images/optimized/catalog/IMG_1167.webp',
   '/assets/images/optimized/catalog/IMG_2897-3.webp',
@@ -104,12 +103,18 @@ export default function TestimonialsSection() {
         <div className="ni-testimonials-hero">
           <PhotoCollage images={testimonialImages.slice(0, 5)} side="left" />
           <div className="ni-testimonials-intro">
-            <span className="ni-testimonials-pill">Testimonials</span>
-            <h2 id="ni-testimonials-title">Trusted for life’s most meaningful moments</h2>
-            <p>Thoughtful gifting for celebrations, milestones, and teams.</p>
+            <span className="ni-testimonials-pill">The NI² Difference</span>
+            <h2 id="ni-testimonials-title">The beauty is in the details.</h2>
+            <p>A carefully chosen gift is only the beginning. The way it&apos;s arranged, wrapped and presented brings the entire experience to life. At NI², we pay attention to the little things that make each creation feel complete.</p>
           </div>
           <PhotoCollage images={testimonialImages.slice(5)} side="right" />
         </div>
+
+        <header className="ni-section-heading ni-testimonial-heading">
+          <p className="ni-section-eyebrow">Client Feedback</p>
+          <h3 className="ni-section-title">Kind words, cherished experiences.</h3>
+          <p>Every creation carries a little piece of the occasion it was made for. Here&apos;s what some of our customers have shared about their experience with NI².</p>
+        </header>
 
         <div className="ni-testimonial-carousel" aria-label="Customer reviews carousel">
           <div className="ni-testimonial-track" role="region" aria-label="Customer reviews marquee">

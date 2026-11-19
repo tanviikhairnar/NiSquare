@@ -17,8 +17,8 @@ export default function ContactPage() {
         <Breadcrumbs current="Contact" />
         <PageTitle
           eyebrow="We are here to help"
-          title="Chat with our founders"
-          description="Questions about a product, gift, or order? Share a few details and message us on WhatsApp or Instagram."
+          title="Have a gifting idea in mind?"
+          description="Whether you're planning a wedding, putting together a celebration hamper or looking for something personalised, we'd love to hear what you have in mind. Connect with our founders and let's start planning."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-start gap-8 md:gap-14 mt-8 sm:mt-12">

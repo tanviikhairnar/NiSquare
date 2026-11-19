@@ -6,6 +6,7 @@ export interface GalleryVideo {
 export interface Subcategory {
   title: string;
   image: string;
+  description?: string;
   workImages?: string[];
   galleryImages?: string[];
   galleryPreviewImages?: string[];
@@ -18,6 +19,8 @@ export interface Collection {
   image: string;
   description: string;
   subcategories: Subcategory[];
+  eyebrow?: string;
+  subtitle?: string;
   note?: string;
 }
 

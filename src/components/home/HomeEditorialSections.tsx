@@ -26,19 +26,19 @@ const trustPoints: TrustPoint[] = [
 const processSteps: ProcessStep[] = [
   {
     title: 'Tell us about your occasion',
-    description: 'Share the celebration, theme, preferences, and budget you have in mind.',
+    description: 'Share your celebration, preferences, theme and budget with our team.',
   },
   {
     title: 'Shape your hamper',
-    description: 'We bring together a considered selection of gifts, colours, and packaging.',
+    description: 'Explore gift selections, colours and packaging that complement your vision.',
   },
   {
     title: 'Approve the design',
-    description: 'Review your custom design mockup before we begin preparing the order.',
+    description: 'Review the proposed selections and presentation before we begin preparing your order.',
   },
   {
     title: 'We finish every detail',
-    description: 'Your hamper is assembled by hand and prepared for dispatch with care.',
+    description: 'Your hamper is carefully assembled, finished and prepared for dispatch.',
   },
 ];
 
@@ -126,11 +126,12 @@ export function HomeAboutSection() {
           <figcaption>Made thoughtfully, from the first detail to the final finish</figcaption>
         </figure>
         <div className="home-about-copy">
-          <p className="ni-section-eyebrow">A little about us</p>
-          <h2 className="ni-section-title" id="home-about-title">Thoughtful gifting, made personal</h2>
-          <p>NI² Packaging (NI Square) began with two best friends named Nikita and a shared love for thoughtful gifting and artisanal presentation.</p>
-          <p>Based in Nashik and serving clients across Nashik, Pune, Mumbai, and Maharashtra, we bring together bespoke hampers, curated wedding trousseau trunks, and executive corporate gifts—finishing every single detail thoughtfully by hand.</p>
-          <Link className="home-editorial-link" to="/pages/our-story">Meet the people behind NI Square <span aria-hidden="true">&#8599;</span></Link>
+          <p className="ni-section-eyebrow">A little about NI²</p>
+          <h2 className="ni-section-title" id="home-about-title">More than a gift. A whole experience.</h2>
+          <p>What began with two friends sharing a love for thoughtful gifting has grown into a creative space for bringing celebrations to life.</p>
+          <p>At NI² Packaging, we curate bespoke hampers, wedding trousseau presentations, personalised invitations and corporate gifts, bringing together carefully chosen elements and distinctive presentation.</p>
+          <p>From the first selection to the final finishing touch, we believe the presentation deserves just as much thought as the gift itself.</p>
+          <Link className="home-editorial-link" to="/pages/our-story">Meet the people behind NI² <span aria-hidden="true">&#8599;</span></Link>
         </div>
       </div>
     </section>
@@ -165,9 +166,9 @@ export function HowWeWorkSection() {
       </div>
       <div className="ni-section-inner">
         <header className="ni-section-heading">
-          <p className="ni-section-eyebrow">From first idea to finishing touch</p>
-          <h2 className="ni-section-title" id="home-process-title">How we work</h2>
-          <p>A clear, personal process gives us time to make every detail feel right.</p>
+          <p className="ni-section-eyebrow">How we work</p>
+          <h2 className="ni-section-title" id="home-process-title">From your idea to our finishing touch.</h2>
+          <p>A simple, collaborative process to bring your gifting vision together.</p>
         </header>
         <ol className="home-process-grid">
           {processSteps.map((step, index) => (

@@ -10,23 +10,23 @@ interface FaqItem {
 const faqs: FaqItem[] = [
   {
     question: 'How do I plan and order a custom hamper with NI² Packaging?',
-    answer: 'You can begin by sharing your celebration details, date, and preferences with our founders directly on WhatsApp. We discuss your theme, curate suitable gift options, share design concepts for your approval, and then assemble and finish every detail by hand.',
+    answer: 'You can connect with us through WhatsApp or Instagram. Share your occasion, preferences, theme and budget, and our team will help you explore suitable gifting and packaging options.',
   },
   {
     question: 'Which locations and cities do you serve?',
-    answer: 'Our design studio is based in Nashik, Maharashtra. We regularly create and dispatch bespoke hampers, wedding trousseau trunks, and return favours for clients across Nashik, Pune, Mumbai, and throughout Maharashtra.',
+    answer: 'We are based in Nashik, Maharashtra, and cater to gifting requirements across Nashik, Pune, Mumbai and other locations, subject to delivery arrangements.',
   },
   {
     question: 'How much advance booking time is needed?',
-    answer: 'Because every order is custom-made and hand-finished, advance booking is required. We recommend reaching out as early as possible before your event date so we have ample time to source materials, prepare custom packaging, and perfect every detail.',
+    answer: 'Since our creations are planned and prepared to order, we recommend enquiring in advance. The required time depends on the type of order, quantity and customisation involved.',
   },
   {
-    question: 'Can I customise the items, colours, and packaging style?',
-    answer: 'Yes, full customisation is at the heart of what we do. Our co-founders bring interior and textile design expertise to customize every detail—from color palettes, ribbons, and floral accents to specific goodies, stationery, and keepsake trunks.',
+    question: 'Can I customise the items, colours and packaging style?',
+    answer: 'Yes. We can discuss your preferred gift selections, colour combinations, packaging styles and finishing details to suit your occasion and requirements.',
   },
   {
     question: 'Do you create bulk corporate gift hampers and wedding return favours?',
-    answer: 'Yes. We design and assemble bulk hampers for wedding return favours, bridesmaid gifts, festive celebrations (Diwali, New Year), and corporate gifting for clients and employee recognition.',
+    answer: 'Yes, we welcome enquiries for corporate gifting and wedding return favours. Share your quantity, budget and requirements with us so we can discuss a suitable arrangement.',
   },
 ];
 

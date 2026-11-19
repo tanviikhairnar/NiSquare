@@ -43,12 +43,30 @@ const founders: FounderBio[] = [
 ];
 
 const services: ServiceItem[] = [
-  { title: 'Custom-made gifting', description: 'Every hamper is designed around your occasion, theme, preferences, and budget, with personal consultation directly with our founders.' },
-  { title: 'Handcrafted with care', description: 'Each gift is thoughtfully styled and assembled by hand in our Maharashtra studio, ensuring every hamper is unique.' },
-  { title: 'Occasion-based hampers', description: 'Luxury packaging for weddings, trousseau, birthdays, festivals, baby announcements, and corporate events across Nashik, Pune, Mumbai, and Maharashtra.' },
-  { title: 'Personalised packaging', description: 'Bespoke trousseau trunks, floral ring platters, and custom boxes shaped around your theme, color palette, and personal style.' },
-  { title: 'Return favours', description: 'Handcrafted return gifts and keepsakes that thank your guests and stay in their memories long after the celebration.' },
-  { title: 'Pre-booking required', description: 'Each order is made to order. Advance booking gives us time to plan, source, design, and prepare every detail with care.' },
+  {
+    title: 'Custom-made gifting',
+    description: 'Every gifting idea starts somewhere. Share your occasion, preferences and budget with us, and we’ll help bring together a hamper that reflects exactly what you have in mind.',
+  },
+  {
+    title: 'Handcrafted with care',
+    description: 'A beautiful presentation comes down to the details. Each creation is carefully assembled, arranged and finished to bring the complete gifting experience together.',
+  },
+  {
+    title: 'Occasion-based hampers',
+    description: 'From wedding celebrations and birthdays to baby showers, festivals and corporate occasions, discover gifting ideas suited to the moments worth celebrating.',
+  },
+  {
+    title: 'Personalised packaging',
+    description: 'Make the presentation your own with thoughtfully selected colours, packaging styles, ribbons and finishing details that complement your celebration.',
+  },
+  {
+    title: 'Return favours',
+    description: 'Thank your guests with beautifully presented favours that become a small but memorable part of their celebration experience.',
+  },
+  {
+    title: 'Made to order',
+    description: 'Every creation begins with a plan. Advance booking allows us to discuss your requirements, arrange the selections and prepare your gifting pieces with the attention they deserve.',
+  },
 ];
 
 const occasions: string[] = [
@@ -96,22 +114,29 @@ export function CompanyStory() {
         />
       </div>
       <div className="ni-section-inner">
-        <div className="ni-section-heading ni-story-header">
-          <p className="ni-section-eyebrow">Two friends, one love of gifting</p>
-          <h2 className="ni-section-title">The NI Square story</h2>
-        </div>
-        <div className="ni-story-body">
+        <header className="ni-section-heading ni-story-header">
+          <p className="ni-section-eyebrow">The story behind NI²</p>
+          <h2 className="ni-section-title">A shared idea, brought to life through the art of gifting.</h2>
           <p className="ni-story-lead">
-            NI Square began with two best friends named Nikita and a shared love for thoughtful gifting and presentation.
+            NI² Packaging began with two best friends, both named Nikita, and a shared appreciation for thoughtful gifting and beautiful presentation.
           </p>
-          <div className="ni-story-columns">
-            <p>From personalized hampers to bespoke packaging, we make each gift feel personal and help you share love, appreciation, and celebration in a way that feels intentional.</p>
-            <p>With 1,000+ hampers created for weddings, birthdays, baby celebrations, festivals, corporate milestones, and anniversaries, we handle every detail from curation to the final hand-finished touches.</p>
+        </header>
+        <div className="ni-story-body">
+          <div className="ni-story-grid">
+            <div className="ni-story-col">
+              <p>What makes a gift memorable isn’t always its size or price. Sometimes, it’s the thought behind the selection, the way everything comes together, or the little detail that makes someone feel remembered.</p>
+              <p>This belief is at the heart of NI². From wedding trousseau trunks and customised invitations to celebration hampers, floral gifting and personalised packaging, our work revolves around making each gifting experience feel considered and complete.</p>
+            </div>
+            <div className="ni-story-col">
+              <p>We see packaging as more than an outer layer. It’s the first impression, the anticipation of opening something special and a part of the memory that stays long after the occasion.</p>
+              <p>Every creation gives us an opportunity to bring someone’s idea to life, one detail at a time.</p>
+            </div>
           </div>
           <blockquote className="ni-story-quote">
+            <span className="ni-quote-label">Our belief</span>
             <p>
               <span className="ni-quote-mark" aria-hidden="true">“</span>
-              People remember how a gift made them feel, long after they’ve forgotten what was inside.
+              We believe thoughtful gifting is an expression of connection. It’s a way to celebrate people, honour traditions, appreciate relationships and make ordinary gestures feel meaningful.
               <span className="ni-quote-mark" aria-hidden="true">”</span>
             </p>
           </blockquote>
@@ -147,8 +172,8 @@ export function FoundersSection({ showBiographies = true }: { showBiographies?: 
       <div className="ni-section-inner">
         <header className="ni-section-heading">
           <p className="ni-section-eyebrow">The people behind every detail</p>
-          <h2 className="ni-section-title">Meet the founders</h2>
-          {showBiographies && <p>Two best friends bringing their different design backgrounds and shared love of gifting to every hamper.</p>}
+          <h2 className="ni-section-title">Meet the minds and hands behind NI².</h2>
+          <p>Two perspectives, one shared passion for creating gifting experiences that bring people closer.</p>
         </header>
         <div className="ni-founder-grid">
           {founders.map((founder) => (
@@ -205,9 +230,9 @@ export function ServicesSection() {
       </div>
       <div className="ni-section-inner">
         <header className="ni-section-heading">
-          <p className="ni-section-eyebrow">Thought through, made by hand</p>
-          <h2 className="ni-section-title">Services we offer</h2>
-          <p>Every hamper is put together by hand, with attention to detail and your occasion in mind.</p>
+          <p className="ni-section-eyebrow">Services we offer</p>
+          <h2 className="ni-section-title">The many ways we make gifting special.</h2>
+          <p>From the gift selection to the way it is presented, every part of the experience is considered to suit your occasion.</p>
         </header>
         <div className="ni-service-grid">
           {services.map((service) => (

@@ -74,6 +74,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://ni-square.vercel.app/collections/trousseau-wedding-hampers/wedding-hampers</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_8703.webp</image:loc>
+      <image:title>Wedding Hampers | Trousseau &amp; Wedding Hampers | NI Square Packaging</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://ni-square.vercel.app/collections/trousseau-wedding-hampers/baby-hampers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
@@ -142,7 +151,7 @@
     <priority>0.85</priority>
     <image:image>
       <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_2149.webp</image:loc>
-      <image:title>Seasonal &amp; Milestone Gift Hampers | NI Square Packaging</image:title>
+      <image:title>Floral &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
@@ -151,7 +160,7 @@
     <priority>0.80</priority>
     <image:image>
       <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_7387.webp</image:loc>
-      <image:title>Mother’s Day | Seasonal &amp; Occasion Gifting | NI Square Packaging</image:title>
+      <image:title>Mother’s Day | Floral &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
@@ -160,7 +169,7 @@
     <priority>0.80</priority>
     <image:image>
       <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0738.webp</image:loc>
-      <image:title>Father’s Day | Seasonal &amp; Occasion Gifting | NI Square Packaging</image:title>
+      <image:title>Father’s Day | Floral &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
@@ -169,7 +178,7 @@
     <priority>0.80</priority>
     <image:image>
       <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/valentine-s-day-1.webp</image:loc>
-      <image:title>Valentine’s Day | Seasonal &amp; Occasion Gifting | NI Square Packaging</image:title>
+      <image:title>Valentine’s Day | Floral &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
@@ -178,7 +187,7 @@
     <priority>0.80</priority>
     <image:image>
       <image:loc>https://ni-square.vercel.app/assets/images/optimized/catalog/IMG_0732.webp</image:loc>
-      <image:title>Mom-to-be | Seasonal &amp; Occasion Gifting | NI Square Packaging</image:title>
+      <image:title>Mom-to-be | Floral &amp; Occasion Gifting | NI Square Packaging</image:title>
     </image:image>
   </url>
   <url>
